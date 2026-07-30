@@ -1,0 +1,20 @@
+File:
+  Name: /data/bbbike/projects/bbbike/osm/Turin/Turin.osm.pbf
+  Format: PBF
+  Compression: none
+  Size: 23124547
+Header:
+  Bounding boxes:
+    (7.43,44.941,7.929,45.21)
+  With history: no
+  Options:
+    generator=https://download.BBBike.org
+    osmosis_replication_timestamp=2026-04-10T23:00:00Z
+    pbf_dense_nodes=true
+    pbf_optional_feature_0=Sort.Type_then_ID
+    sorting=Type_then_ID
+    timestamp=2026-04-10T23:00:00Z
+osmium2shape version osmium2shape-1.0
+Memory used for node coordinates storage (approximate):
+  for positive IDs: 264 MiB
+  for negative IDs: 16450 MiB

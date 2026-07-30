@@ -1,0 +1,67 @@
+================================================================================
+PIPELINE OVERVIEW — UAV PAYLOAD IMPACT PROBABILITY ON TERRAIN
+================================================================================
+
+PROJECT STRUCTURE
+-----------------
+
+Codice_ImpactProbabilityOnTerrain/
+│
+├── Phase1_GeoreferencedGrid.py       ← Terrain map generation
+├── Phase2_Trajectory.py              ← Trajectory definition
+├── Phase3_MonteCarlo.py              ← Impact probability simulation
+│
+├── physics/                          ← Physics helper functions
+│   ├── __init__.py
+│   ├── compute_impact_point.py       ← Core ballistic descent model
+│   ├── impact_point_ballistic.py     ← Monte Carlo wrapper
+│   ├── fun_xv_x.py                   ← Horizontal distance under drag
+│   ├── fun_tc.py                     ← Vx=Vy crossing time
+│   ├── fun_vx.py                     ← Horizontal velocity profile
+│   ├── fun_vy.py                     ← Vertical velocity profile
+│   ├── fun_yu.py                     ← Altitude gained in upward phase
+│   └── fun_tdrop.py                  ← Time to fall from peak to ground
+│
+├── map_full.osm                      ← OpenStreetMap export (input)
+├── waypoints_PO-e-STURA.xlsx         ← Trajectory waypoints (input)
+│
+├── terrain_stage1.pkl                ← Phase 1 output (loaded by Phase 2+3)
+├── trajectory_stage2.pkl             ← Phase 2 output (loaded by Phase 3)
+├── impact_stage3.pkl                 ← Phase 3 output
+│
+├── FULL_terrain_map.png              ← Phase 1 visualisation
+├── FULL_terrain_map_with_trajectory.png  ← Phase 2 visualisation
+├── FULL_impact_heatmap.png           ← Phase 3 visualisation
+├── impact_velocity_pdf.png           ← Phase 3 velocity distributions
+│
+└── READ_ME.txt                       ← Documentation
+└── PIPELINE.txt					  ← Present documentation
+
+
+--------------------------------------------------------------------------------
+HOW TO RUN THE PIPELINE
+--------------------------------------------------------------------------------
+
+The three phase files must be run IN ORDER. Each phase saves its outputs to
+a .pkl file which the next phase loads at startup.
+
+  STEP 1 — Run Phase1_GeoreferencedGrid.py
+  STEP 2 — Run Phase2_Trajectory.py
+  STEP 3 — Run Phase3_MonteCarlo.py
+
+If you only change simulation parameters (GUESS, physical parameters) you
+only need to re-run Phase 3. If you change the trajectory waypoints you need
+to re-run Phase 2 and Phase 3. If you change the OSM file or grid resolution
+you need to re-run all three phases.
+
+Re-run schedule:
+
+  Change                          Re-run
+  ──────────────────────────────  ──────────────────────
+  OSM file or bounding box        Phase 1 → 2 → 3
+  Grid resolution (N_ROWS/N_COLS) Phase 1 → 2 → 3
+  Waypoints in .xlsx file         Phase 2 → 3
+  Sample spacing (SAMPLE_SPACING) Phase 2 → 3
+  Physical parameters             Phase 3 only
+  GUESS (Monte Carlo samples)     Phase 3 only
+  Output grid resolution (N1/N2)  Phase 3 only
