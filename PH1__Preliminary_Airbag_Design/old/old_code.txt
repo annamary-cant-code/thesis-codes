@@ -1,0 +1,37 @@
+#       plt.figure(); plt.plot(t_hist, V_hist); plt.xlabel("Time [s]"); plt.ylabel("V [m^3]"); plt.title("Airbag Volume vs Time"); plt.grid(True)
+#
+#
+#       fig, ax = plt.subplots()
+#       ax.plot(t_hist, P_hist)
+#       ax.set_xlabel("Time [s]")
+#       ax.set_ylabel(r"$P_{\mathrm{bag}}$ [Pa]")
+#       ax.set_title("Internal Pressure vs Time")
+#       ax.grid(True)
+#       # Force scientific notation with 10^5 scaling
+#       ax.ticklabel_format(axis='y', style='sci', scilimits=(5, 5))
+#       ax.yaxis.get_offset_text().set_fontsize(12)
+#
+#
+#       plt.figure(); plt.plot(t_hist, m_hist); plt.xlabel("Time [s]"); plt.ylabel("m [kg]"); plt.title("Gas Mass vs Time"); plt.grid(True)
+#       plt.figure(); plt.plot(t_hist, a_hist); plt.xlabel("Time [s]"); plt.ylabel("a [m/s^2]"); plt.title("Payload Acceleration vs Time"); plt.grid(True)
+#       plt.figure(); plt.plot(t_hist, u_hist); plt.xlabel("Time [s]"); plt.ylabel("u [m/s]"); plt.title("Payload Speed vs Time"); plt.grid(True)
+#       plt.figure(); plt.plot(t_hist, h_hist); plt.xlabel("Time [s]"); plt.ylabel("h [m]"); plt.title("Payload Displacement vs Time"); plt.grid(True)
+#       plt.figure(); plt.plot(t_hist, x_hist);  plt.xlabel("Time [s]"); plt.ylabel("x [m]");     plt.title("Horizontal Displacement vs Time"); plt.grid(True)
+#       plt.figure(); plt.plot(t_hist, ux_hist); plt.xlabel("Time [s]"); plt.ylabel("u_x [m/s]"); plt.title("Horizontal Velocity vs Time");    plt.grid(True)
+#       plt.figure(); plt.plot(t_hist, D_hist);  plt.xlabel("Time [s]"); plt.ylabel("D_abrasion [J]"); plt.title("Cumulative Abrasion Energy vs Time"); plt.grid(True)
+#       plt.gca().axhline(W_abrasion_max, color='r', ls='--', lw=1, label='Abrasion limit'); plt.legend()
+#       plt.show()
+
+
+# differential evolution wrapper
+m = r["m_total"]
+    if not np.isfinite(m):
+        return 1.0e12
+
+    v_acc    = max(0.0, r["a_peak"] - SF_ACC * A_ALLOW) / A_ALLOW
+    v_burst  = max(0.0, r["P_peak"] - r["P_burst"]) / r["P_burst"]
+    v_abr    = max(0.0, r["W_abrasion"] - r["W_abrasion_max"]) / r["W_abrasion_max"]
+    v_bounce = abs(r["u_rebound"]) / u0  if r["rebounded"] else 0.0
+    v_bottom = abs(r["u_residual"]) / u0 if r["bottomed"] else 0.0
+    
+    return m + PEN * (v_acc + v_burst + v_abr + v_bounce + v_bottom)
