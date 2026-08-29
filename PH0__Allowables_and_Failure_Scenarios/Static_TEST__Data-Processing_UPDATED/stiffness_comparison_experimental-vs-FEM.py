@@ -35,9 +35,9 @@ import matplotlib.pyplot as plt
 from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
-CURVES_DIR = r"C:\DATI\Static_TEST__Data-Processing_EDIT\output_curves"
-OUTPUT_PLOT = "stiffness_overlay.png"
-REFERENCE_CURVE = r"C:\DATI\Static_TEST__Data-Processing_EDIT\export_050mm.dat"
+CURVES_DIR = r"C:\CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\output_curves"
+OUTPUT_PLOT = "stiffness_overlay_implicit_040mm_hexa_with_PR.png"
+REFERENCE_CURVE = r"C:\CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\force_displacement_2.dat"
 
 MANUAL_EXCLUDE = ["54B"]   # add more "<number><batch>" strings here as needed
 
