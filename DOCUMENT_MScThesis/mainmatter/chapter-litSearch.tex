@@ -1,0 +1,197 @@
+\chapter{Research and Development Gap}
+\label{chapter:research-gap}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{UAV applications in the medical field}
+ 
+
+
+
+* In una città che vuole vedere realizzato un network di droni a lungo termine e che vuole snellire il problema della sanità intasata e retrograda, si guarda alla letteratura per trovare soluzioni innovative sul trasporto di medicinali in situazioni varie. Non mancano di soluzioni creative, rabbit hole. 
+
+
+
+* state of the art here with safety devices, e.g. parachutes, air-bags, etc. focus on medical, but mention aerospace, automotive, and construction industries for inspiration
+* Pneumatic system
+* mention ZIPLINE
+* mention CROCE ROSSA ITALIANA (?necessary here? maybe earlier)- launched initiative delivery (ref. 6, tesi sivieri)
+* It is evident from research that every solution is possible, the challenge is to have normative approval rather than creativity. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Project presentation: the status-quo in Torino and normative limitations}
+* Dato che fino ad ora il problema è stato normativo, si è partiti da un approccio di calcolo della probabilità di failure. Ci sono state 5 tesi e svariati lavori scientifici con l'obiettivo generalizzato di quantificare il rischio di un'operazione di droni che sorvolano la città, per poi passare questo testimone a futuri ricercatori con l'obiettivo di MINIMIZZARLO (anche se alcune indicazioni sono state già effettivamente rilasciate)
+
+
+
+
+1. Individuazione SCENARI DI MISSIONE - tesi BERTELLI 2021
+* Specific Operations Risk Assessment (SORA) - adottata da EASA, consiste in:
+    * Definizione dei Concept of Operations - dove abbiamo la DESCRIZIONE DELLA MISSIONE, che non si può cambiare
+    * Determinazione della Ground Risk Class (GRC) - ha un certo valore 6, pg. 39, per diminuirlo bisogna implementare metodi di MITIGAZIONE (3 tipologie), io agisco nell'ambito della mitigazione M2 (pg. 42, mitigare effetti dell'impatto al suolo). PG. 46!!!! M2, progettazione tecnica. Nuova valutazione del GRC pari a 3 (pg. 54)
+    * Valutazione dell’Air Risk Class (ARC) - collisione con altri mezzi nello spazio aereo, fuori dal mio scopo di tesi
+
+* Primatesta (ref. 8 e 9) - ispirazione anche per Davide
+* l’ Ospedale Molinette per l’AOU Città della Salute e delle Scienze e l’Ospedale San Giovanni Bosco per l’ASL Città di Torino - poli ospedalieri più fondamentali per la missione (posizionati ai lati opposti della città) (pg. 23) 
+* requisito del drone: deve essere già equipaggiato di paracadute (pg. 23)- failure del paracadute è lo scenario in cui mi colloco io.
+" Il paracadute può decelerare il carico utile fino ad una velocità di 3 m/s, al fine di fornire 
+un atterraggio sicuro." pg.19 ---> 3m/s causa comunque certe accelerazioni di impatto non indifferenti, che non garantiscono l'integrità dei medicinali.
+----> simula anche a 3m/s v verticale??!?!?!??!? CASO ACQUA E CASO TERRA???
+
+* drone scelto: Matrice 300 RTK della casa produttrice DJI (che comunque deve essere equipaggiato di paracadute) - pg. 25
+    * capacità massima di carico che equivale a 2,7 kg - LIMITE MASSIMO ENTRO CUI IL MIO PROGETTO (PARACADUTE, AIRBAG, CONTENITORE) DEVE STARE.
+    * Resistenza al vento: 15m/s in crociera,
+    https://www.dji-store.it/prodotto/dji-matrice-300-rtk/?srsltid=AfmBOorTcxO1yqTrZgryaDUUjwIWjsdz28hGVDUFh6WNHuZYkw6iRMJC
+    https://www.eliteconsulting.it/store/dji-matrice-300-rtk/
+
+
+* la scelta del drone non è univoca e "Ed anzi, al momento della realizzazione effettiva del 
+progetto, sarà prevista la progettazione di un UAV “ad hoc”, che verrà progettato e 
+realizzato col solo ed unico fine di condurre questa specifica missione" - pg. 25
+
+* pg 31 - "il drone mantenga durante tutta la tratta prestabilita una velocità di crociera 
+di 17 m/s e che si muova ad una velocità pari a 5 m/s per effettuare la fase di decollo 
+verticale fino alla quota di 75 m"
+* fig 4, pg. 32 caso 1, fig. 5 pg. 33 caso 2 (leggermente più pericoloso, ma comunque) - tratta sul PO che collega i due ospedali, 15 minuti di tragitto, 10km - paragonabile al tempo percorso su gomma (fattore traffico, anche se saremmo in ambulanza a sirene spiegate)
+
+* COLLEGAMENTO CON TESI DI DAVIDE - i suoi indici di rischio dicono che non è fattibile una missione con drone sul territorio cittadino ----> quindi andiamo sul PO
+
+* possibili velocità di crociera: v = 17m/s realistica, 23m/s v massima realizzabile dal drone (pg 35)
+
+
+* Altezza operativa massima prevista: 75 m. 
+* MTOM ("Maximum Take Off Mass") del drone: 9 kg. 
+* Dimensione massima caratteristica (d) dell'aeromobile: 0.81 m. 
+* Velocità (v): 17 m/s. 
+
+* tabella 8 pag. 67 
+
+* terminal velocity calculator that I can use too: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/termvel/
+
+* rischi legati all'ottimizzazione dell'ultima tratta su terra (vari scenari: linea retta, un parco, etc.) --- da considerare?
+
+
+
+
+
+TESI CAVALLO 2020
+* Individuazione tratta Molinette - San Giovanni Bosco (pg. 15)
+* Distinction between two types of transportation: Hospital-to-Hospital, Hospital-to-Home (pg. 20)---> my case is the first one. 
+* Wind information: the city of 
+%Torino has an average wind velocity of around 7 km/h (≈ 2 m/s) throughout 
+%the year with a peak of 102 km/h (≈ 28,4 m/s) in 2013 (REFERENCE 14)
+* idea originale del corridoio acquatico soddisfa i requisiti normativi restringenti dell'enac (pag. 37)
+
+Caratteristiche del drone: 
+* Cruise speed in m/s; ---> 70% of uav maximum speed, by hypothesis
+• Maximum flight time in minutes; ---> half of drone's autonomy
+• Mass in kg; 
+• Radius in m; 
+• Frontal Area in m2; 
+• Glide speed in m/s; ---> calculated differently for each drone type ( pg 43)
+* WIND ----> average of 2m/s throughout the year, 23m/s max. 
+
+
+* two types of descent: ballistic descent and uncontrolled glide are already mentioned here
+* first to suggest the river corridor solution ----> brings to Bertelli
+
+
+
+
+
+2. CONTENITORE DA PORTARE - trasporto dei medicinali, tesi SIVIERI 2021
+* pg 19 sivieri: "Il tronco centrale è a sezione cilindrica costituito da 4 strati. Partendo dallo strato interno e procedendo a quello più esterno:
+                    1. Strato interno di materiale PETG di spessore 2 mm;
+                    2. Strato di materiale isolante di natura e spessore incognito;
+                    3. Strato esterno di materiale PETG di spessore 2 mm;
+                    4. Strato di vernice termo riflettente.
+                    • Le estremità sono costituite cupole semisferiche di costruzione equivalente a quella del tronco.
+* progettato per soddisfare requisiti termici e vibrazionali di una missione tipica
+* CARATTERISTICHE (pg. 27 - 31 SIVIERI)
+    * messa in tavola fig. 2.12
+    *  spessore di 2 mm sulla parete esterna ed interna, con un riempimento interno dell’ 1 \% con pattern rettangolare, come in 2.15
+    *  la cavità interna è stata riempita di schiuma poliuretanica (scelta di iniettabilità efficace)
+    * superficie esterna è stata scartavetrata e sono state applicate tre strati di vernice argentata (2.16) per migliorare la riflettanza del materiale
+
+* MEDICINALI DA TRASPORTARE - PARENTESI SULLE TIPOLOGIE DI CONTENITORI E SCATOLE DI FARMACI QUI
+
+
+
+
+3. INDICI DI MERITO BASATI SUL RISCHIO - TESI ANGELINI 2023:
+* Metodo per determinare la traiettoria di rischio minore: determinare la traiettoria di minimo rischio tra due punti si usa l’algoritmo di Dijktra e l’algoritmo A* (del quale Dijkstra è un caso particolare). pg 17
+* Mappe di input: densità della popolazione (pg. 35), mappa dei "ripari" (ref. 17 nella tesi, pg. 40) cioè degli edifici che rappresentano un fattore di sicurezza per il sorvolo della città (stima di vari fattori di protezione ispirati a diversi lavori scientifici)
+
+* modi di caduta più frequenti: ballistic descent (forza di gravità e resistenza aerodinamica, eq. 3.3 - risolta numericamente per trovare velocità e punto di impatto al suolo, tabella 3.3) and uncontrooled glide (ref 17 in tesi)
+----> ballistic descent: velocità x iniziale VTOL = 140m/s, velocità del vento media 25.2 m/s, 
+----> uncontrolled glide: 
+    * tempo di impatto al suolo eq. 3.11
+    * distanza percorsa eq. 3.10
+* mappe di rischio generate con metodi probabilistici
+* CALCOLO DEL PERCORSO OTTIMO focus drone:
+    ---> traiettoria di minimo rischio con l'algoritmo Dijkstra applicato alla mappa di rischio generata
+    Funzionamento: "algoritmo statico che calcola il percorso di minimo rischio su una mappa in cui per ogni cella c’è un livello di rischio associato."
+     ----> risultato: mappe sulla provincia di torino ed oltre con percorso a minimo rischio.
+% * Le velocità del drone dipendono dalla tipologia di missione, se è urgente si ha la velocità massima (pg. 76, con anche spiegazione della mappa del rischio) ----> rischio MOLTO più alto per il drone vs. eVTOL (10^-3 vs. 10^-9)
+* ref. 8 il lavoro di Romeo e Cestino
+* INDICE DI MERITO:
+    * 3 condizioni: payload, lunghezza del tragitto, sicurezza (nel caso del drone molto più penalizzante)
+    * calcolo dell'indice di merito cambia dipendentemente dalla tipologia di missione (urgente, media, routine), pg. 86
+
+
+
+* PRECEDENTE AD ANGELINI - TESI FIORENTINO 2021
+* path-planning based on RRT* Method
+* concept of "layers" as in factors that need to be combined to have a full picture of the risk analysis
+* primatesta cited again (pg 40 explanation)
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Design drivers for airbag systems}
+% Cose da prendere in considerazione per una progettazione completa di un airbag - literature search category 2
+
+* Avendo un panorama più chiaro su quella che è l'obiettivo a Torino, si è scelto di concentrarsi sulla mitigazione del ground risk whatever. La scelta ricade su una tipologia di dispositivo di sicurezza atto a mitigare il rischio di impatto, danneggiamento delle fiale, dispersione nell'ambiente, etc. un Airbag
+
+
+Perché è stato scelto l'airbag?
+paracadute:
+* pesanti (spessi)
+* non reggono impatto
+* paracadute è soltanto sul drone - medicinali ad ogni modo persi
+* sgancio + paracadute meglio di sgancio + airbag --- obiettivo, protezione medicinali, anche se il drone viene protetto tanto meglio
+* vantaggi: può essere usato in ospedale (basse quote)
+* in acqua ha più senso impermeabilizzare l'airbag e non il contenitore, con il vantaggio che può stare effettivamente a galla
+
+
+
+Stabilito che l'airbag è la tecnologia su cui ci vogliamo concentrare, allora le cose da prendere in considerazione sono:
+lista delle cose del documento in cui ho preso appunti. 
+
+
+Variabili da prendere in considerazione quando c'è da progettare un airbag
+
+Phase 1 variables for peak acceleration
+1.	Shape
+2.	Size
+3.	Fabric
+4.	Vent size
+5.	Vent burst pressure
+6.	Inflation pressure
+
+Phase 2 variables for deployment time
+1.	Housing/container size and geometry
+2.	Air injection inlet pressure
+3.	Air injection mass flow rate
+4.	Seams locations
+5.	Folding pattern
+6.	Number of folds
+
