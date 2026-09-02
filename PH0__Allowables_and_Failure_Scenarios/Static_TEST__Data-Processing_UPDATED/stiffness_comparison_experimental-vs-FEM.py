@@ -35,9 +35,9 @@ import matplotlib.pyplot as plt
 from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
-CURVES_DIR = r"C:\CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\output_curves"
-OUTPUT_PLOT = "stiffness_overlay_implicit_040mm_hexa_with_PR.png"
-REFERENCE_CURVE = r"C:\CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\force_displacement_2.dat"
+CURVES_DIR = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\output_curves"
+OUTPUT_PLOT = "stiffness_overlay_SHELL_mat_glass_elastic.png"
+REFERENCE_CURVE = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\force_displacement_shell_elastic.dat"
 
 MANUAL_EXCLUDE = ["54B"]   # add more "<number><batch>" strings here as needed
 
@@ -95,7 +95,7 @@ def find_climb_start(load, noise_threshold=NOISE_THRESHOLD_N, smooth_window=SMOO
 
 
 def plot_reference_curve(filepath, color="red", linewidth=2, label="Reference curve",
-                          x_scale=1.0, y_scale=4000.0):
+                          x_scale=1.0, y_scale=1000.0):
     """Parses an 'XYDATA, Curve N' style .dat file (skips any line that isn't
     exactly two whitespace-separated floats), fits a linear regression to it,
     prints the gradient, plots BOTH the raw curve and the fitted line, on the
