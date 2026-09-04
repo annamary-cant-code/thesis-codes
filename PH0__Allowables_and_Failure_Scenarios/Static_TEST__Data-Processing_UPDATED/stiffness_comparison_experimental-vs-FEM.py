@@ -36,8 +36,8 @@ from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
 CURVES_DIR = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\output_curves"
-OUTPUT_PLOT = "stiffness_overlay_SHELL_mat_glass_elastic.png"
-REFERENCE_CURVE = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\force_displacement_shell_elastic.dat"
+OUTPUT_PLOT = "stiffness_overlay_OnlyElasticModel_native-timestep.png"
+REFERENCE_CURVE = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\force_displacement_OnlyElasticModel_native-timestep.dat"
 
 MANUAL_EXCLUDE = ["54B"]   # add more "<number><batch>" strings here as needed
 
@@ -207,7 +207,7 @@ def main():
 
     plt.xlabel("Displacement (mm)")
     plt.ylabel("Load (N)")
-    plt.title("Stiffness comparison — all phials aligned to climb start")
+    plt.title("Stiffness comparison — TEST vs. FEM")
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()

@@ -9,8 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # ============================== CONFIGURATION ==============================
-DAT_FILE = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Linear_regression_analyser\force_displacement_FT_045.dat"
-OUTPUT_PLOT = "curve_fit_ft045.png"
+DAT_FILE = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Linear_regression_analyser\force_displacement_dispcontrol_.dat"
+OUTPUT_PLOT = "curve_fit_onlyelastic_4.png"
 # ============================================================================
 
 
