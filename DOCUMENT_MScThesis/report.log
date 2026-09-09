@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  7 SEP 2026 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  9 SEP 2026 12:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1332,7 +1332,7 @@ Package biblatex Info: Reference segment=0 on input line 16.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
 )
-<figures/cover.jpg, id=114, 690.55315pt x 1035.70886pt>
+<figures/cover.jpg, id=138, 690.55315pt x 1035.70886pt>
 File: figures/cover.jpg Graphic file (type jpg)
 <use figures/cover.jpg>
 Package pdftex.def Info: figures/cover.jpg  used on input line 30.
@@ -1345,7 +1345,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `RobotoSlab-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/logo-white.pdf, id=115, 114.08723pt x 45.99081pt>
+<figures/logo-white.pdf, id=139, 114.08723pt x 45.99081pt>
 File: figures/logo-white.pdf Graphic file (type pdf)
 <use figures/logo-white.pdf>
 Package pdftex.def Info: figures/logo-white.pdf  used on input line 30.
@@ -1391,7 +1391,7 @@ File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 
 
 {C:/Users/annam/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/roboto/rbto_j2bk2t.enc} <./figures/cover.jpg> <./figures/logo-white.pdf>] (frontmatter/title-report.tex
-<figures/logo-black.pdf, id=128, 114.08723pt x 45.99081pt>
+<figures/logo-black.pdf, id=152, 114.08723pt x 45.99081pt>
 File: figures/logo-black.pdf Graphic file (type pdf)
 <use figures/logo-black.pdf>
 Package pdftex.def Info: figures/logo-black.pdf  used on input line 63.
@@ -1433,21 +1433,47 @@ LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
 (Font)              `T1/RobotoSlab-TLF/bold/n' on input line 6.
 ) [4
 
-{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] (mainmatter/introduction.tex
+{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] (mainmatter/1_introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 96.0pt on input line 1.
-) (mainmatter/chapter-litSearch.tex [1
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 16.
+LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
+(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 16.
+[1
 
 
-] [2]
+]) (mainmatter/2_SoA_and_RnD_gap.tex [2]
 Chapter 2.
+) (mainmatter/3_DesignWorkflow_METHODOLOGY.tex [3
+
+]
+Chapter 3.
+) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [4
+
+]
+Chapter 4.
+LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
+(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 22.
+[5
+
+]) (mainmatter/5_Conclusions.tex [6]
+Chapter 5.
+) (mainmatter/6_ProjectManagement.tex [7
+
+]
+Chapter 6.
+) (mainmatter/NOTES.tex [8
+
+]
+Chapter 7.
 
 Overfull \hbox (243.2579pt too wide) in paragraph at lines 47--52
 \T1/zpltlf/m/n/10 (-20) 15m/s in crociera, https://www.dji-store.it/prodotto/dji-matrice-300-rtk/?srsltid=AfmBOorTcxO1yqTrZgryaDUUjwIWjsdz28hGVDUFh6WNHuZYkw6iRMJC
  []
 
-[3
+[9
 
 ]
 LaTeX Font Info:    Trying to load font information for TS1+zpltlf on input line 93.
@@ -1456,38 +1482,18 @@ File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
 )
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 10.0pt on input line 93.
- [4{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}]) (mainmatter/chapter-DesignProcess.tex [5]
-Chapter 3.
-) (mainmatter/chapter-PreliminaryAnalysis.tex [6
+ [10{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}])
 
-]
-Chapter 4.
-) (mainmatter/chapter-Phase1.tex [7
+LaTeX Warning: Empty bibliography on input line 63.
 
-]
-Chapter 5.
-) (mainmatter/chapter-Phase2.tex [8
-
-]
-Chapter 6.
-) (mainmatter/conclusion.tex [9
-
-]
-Chapter 7.
-)
-
-LaTeX Warning: Empty bibliography on input line 67.
-
-(appendix/appendix-a.tex [10
-
-]
+(appendix/appendix-a.tex [11]
 Appendix A.
-LaTeX Font Info:    Trying to load font information for T1+npxtt on input line 4.
+LaTeX Font Info:    Trying to load font information for T1+npxtt on input line 8.
 (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1npxtt.fd
 File: t1npxtt.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 4.
+(Font)              scaled to size 10.0pt on input line 8.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `npxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -1496,18 +1502,18 @@ Package microtype Info: Loading generic protrusion settings for font family
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 6.
+(Font)              scaled to size 8.0pt on input line 10.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 7.
+(Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 5.0pt on input line 7.
-) (appendix/appendix-b.tex [11
+(Font)              scaled to size 5.0pt on input line 11.
+) (appendix/appendix-b.tex [12
 
 ]
 Appendix B.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 8.0pt on input line 9.
-) [12
+) [13
 
 ] (report.aux)
  ***********
@@ -1515,23 +1521,23 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 27BBCF0255CA715E8DD8F7EFBF189585;5897.
+(rerunfilecheck)             Checksum: B879E52FE57A7FC0B3BCA948203F81A8;6972.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46330 strings out of 467501
- 912969 string characters out of 5408550
- 1825025 words of memory out of 5000000
- 74699 multiletter control sequences out of 15000+600000
- 745669 words of font info for 161 fonts, out of 8000000 for 9000
+ 46368 strings out of 467501
+ 913862 string characters out of 5408550
+ 1825116 words of memory out of 5000000
+ 74722 multiletter control sequences out of 15000+600000
+ 764151 words of font info for 170 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,11n,108p,1245b,1455s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,12n,108p,1245b,1459s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on report.pdf (18 pages, 1692493 bytes).
+Output written on report.pdf (19 pages, 1701155 bytes).
 PDF statistics:
- 344 PDF objects out of 1000 (max. 8388607)
- 73 named destinations out of 1000 (max. 500000)
- 30452 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 381 PDF objects out of 1000 (max. 8388607)
+ 80 named destinations out of 1000 (max. 500000)
+ 34084 words of extra memory for PDF output out of 35830 (max. 10000000)
 

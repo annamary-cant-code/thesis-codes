@@ -3,26 +3,34 @@
 \contentsline {chapter}{Nomenclature}{iv}{chapter*.4}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Document Outline}{2}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Research Question}{2}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Research and Development Gap}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}UAV applications in the medical field}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Project presentation: the status-quo in Torino and normative limitations}{3}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Design drivers for airbag systems}{5}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Formalisation of the Design Process}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Long-term vision and Project Setup}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Inner design loop: requirements and design steps}{6}{section.3.2}%
-\contentsline {chapter}{\numberline {4}Preliminary Analysis}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Preliminary Design Step I: Design inputs from mission and failure analysis}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Preliminary Design Step II: Payload container allowables}{7}{section.4.2}%
-\contentsline {chapter}{\numberline {5}Design Phase I - Inflated configuration}{8}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Surrogate function screening}{8}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Inflated design simulation in LS-Dyna}{8}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Results I - optimised inflated configuration}{8}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Design Phase II - Inflation Process Optimisation}{9}{chapter.6}%
-\contentsline {section}{\numberline {6.1}TO BE DEFINED - optimisation process for folding}{9}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Results II - optimised folded configuration}{9}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Conclusion}{10}{chapter.7}%
-\contentsline {chapter}{\numberline {A}Source Code Example}{11}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Task Division Example}{12}{appendix.B}%
+\contentsline {section}{\numberline {1.2}Project framing}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}The need for improved logistics in the Italian NHS}{1}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}PoliTo’s research group’s work (including normative) and expected contribution}{1}{subsection.1.2.2}%
+\contentsline {chapter}{\numberline {2}State of the Art and Research and Development Gap}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Safety-first approach}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}(Outer) design loop formalisation}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Research objective}{3}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Design workflow (METHODOLOGY)}{4}{chapter.3}%
+\contentsline {section}{\numberline {3.1}What I should know for airbag design (BACKGROUND KNOWLEDGE)}{4}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Problem statement}{4}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Proposed approach}{4}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Testing the Design Worklow RESULTS}{5}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Mission and failure scenario analysis: calculating Vx and Vy}{5}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Studying the payload: calculating allowable impact acceleration}{5}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Material characterisation}{5}{subsection.4.2.1}%
+\contentsline {subsubsection}{TEST}{5}{subsection.4.2.1}%
+\contentsline {subsubsection}{FEM}{5}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Sled test}{5}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Design variables optimisation: the code!!!}{5}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Summary of results}{6}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusions}{7}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General summary}{7}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Recommendations for future work}{7}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Project Management}{8}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Research and Development Gap}{9}{chapter.7}%
+\contentsline {section}{\numberline {7.1}UAV applications in the medical field}{9}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Project presentation: the status-quo in Torino and normative limitations}{9}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Design drivers for airbag systems}{11}{section.7.3}%
+\contentsline {chapter}{\numberline {A}FEM Iterations for glass phial model}{12}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Task Division Example}{13}{appendix.B}%
 \contentsfinish 

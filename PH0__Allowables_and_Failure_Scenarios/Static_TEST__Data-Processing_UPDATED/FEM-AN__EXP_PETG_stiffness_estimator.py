@@ -1,5 +1,5 @@
-K_phial_FEM = 2958  # N/mm
-K_tot_EXP = 1500    # N/mm
+K_phial_FEM = 3655  # N/mm
+K_tot_EXP = 1506    # N/mm
 
 R = K_phial_FEM/K_tot_EXP
 K_petg_exp = R / (R-1) * K_tot_EXP
