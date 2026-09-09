@@ -1,6 +1,6 @@
 """
 Second-stage processing: reads the per-phial .xlsx curves produced by
-extract_phial_curves.py, and produces:
+01_extract_phial_curves.py, and produces:
 
 1. One load-displacement plot per phial (toggle-able with PLOT_ALL_CURVES,
    so you can turn plotting off on re-runs once you've already reviewed them).
@@ -31,11 +31,11 @@ import matplotlib.pyplot as plt
 from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
-CURVES_DIR = "C:\Temp\output_curves"         # folder of per-phial xlsx from step 1
-SUMMARY_EXCEL = "C:\Temp\phial_failure_summary.xlsx"
+CURVES_DIR = "output_curves"         # folder of per-phial xlsx from step 1
+SUMMARY_EXCEL = "phial_failure_summary.xlsx"
 
 PLOT_ALL_CURVES = True                # set False to skip plotting on re-runs
-PLOTS_DIR = "C:\Temp\curve_plots"
+PLOTS_DIR = "curve_plots"
 
 # --- peak-detection parameters (see failure_extraction.py for rationale) ---
 SMOOTH_WINDOW = 11

@@ -41,17 +41,17 @@ import matplotlib.pyplot as plt
 from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
-CURVES_DIR = r"C:\DATI\Static_TEST__Data-Processing_EDIT\output_curves"
-SUMMARY_EXCEL = r"C:\DATI\Static_TEST__Data-Processing_EDIT\phial_failure_summary.xlsx"
-CLEAN_MODULUS_EXCEL = r"C:\DATI\Static_TEST__Data-Processing_EDIT\phial_modulus_clean.xlsx"
+CURVES_DIR = "output_curves"
+SUMMARY_EXCEL = "phial_stiffness_summary.xlsx"
+CLEAN_MODULUS_EXCEL = "phial_modulus_clean.xlsx"
 
 PLOT_ALL_CURVES = True
-PLOTS_DIR = r"C:\DATI\Static_TEST__Data-Processing_EDIT\modulus_plots"
+PLOTS_DIR = "modulus_plots"
 
 MIN_POINTS = 20          # shortest stretch allowed to count as "the linear region"
 R2_THRESHOLD = 0.999     # how linear a window must be to qualify
 
-# --- first-break detection parameters, same as process_failure_data.py ---
+# --- first-break detection parameters, same as 02_process_failure_data.py ---
 SMOOTH_WINDOW = 11
 PROMINENCE_ABS_N = 22
 PROMINENCE_FRACTION = 0.0

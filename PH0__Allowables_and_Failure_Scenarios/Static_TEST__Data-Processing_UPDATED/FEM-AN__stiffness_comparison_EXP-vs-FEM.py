@@ -23,6 +23,17 @@ EXCLUSIONS
 With up to ~76 curves overlaid, this uses ONE legend entry per BATCH (not per
 curve -- 76 legend rows would be unreadable), drawing each curve semi-
 transparent so overlapping stiffness trends are still visible.
+
+FEM CURVES
+----------
+FEM results aren't exported as one ready-made force-vs-displacement .dat --
+each mode is two separate history exports, a "<tag>_disp" and a "<tag>_force"
+file, both time series sampled at the same time steps (same first column).
+Drop both files for a mode into FEM_CURVES_DIR and they're picked up
+automatically -- no config edit needed, so new modes as the FEM analyses
+progress just mean adding two files. A "<tag>_disp" file without a matching
+"<tag>_force" (or vice versa) is skipped with a printed warning rather than
+silently ignored.
 """
 
 import os
@@ -36,8 +47,26 @@ from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
 CURVES_DIR = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\output_curves"
-OUTPUT_PLOT = "stiffness_overlay_OnlyElasticModel_native-timestep.png"
-REFERENCE_CURVE = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\force_displacement_OnlyElasticModel_native-timestep.dat"
+
+OUTPUT_PLOT_EXPERIMENTAL_ONLY = "stiffness_overlay_experimental_only.png"
+OUTPUT_PLOT_WITH_FEM = "stiffness_overlay_experimental_vs_FEM.png"
+
+# Folder to drop paired "<tag>_disp" / "<tag>_force" FEM history exports
+# into -- every pair found here becomes one overlaid curve, automatically.
+FEM_CURVES_DIR = "fem_load-vs-disp_curves"
+
+# Every FEM force export is in kN, so this is applied to every curve by
+# default. x_scale stays 1.0 -- displacement exports are already in mm.
+FEM_DEFAULT_X_SCALE = 1.0
+FEM_DEFAULT_Y_SCALE = 1000.0   # kN -> N
+
+# Per-mode override, keyed by the same "<tag>" used in its filenames (e.g.
+# "modeA"), for the rare curve that doesn't follow the kN default above.
+# Leave a mode out to use FEM_DEFAULT_X_SCALE / FEM_DEFAULT_Y_SCALE.
+FEM_CURVE_SCALE_OVERRIDES = {
+    # "modeA": {"y_scale": 1.0},   # e.g. if one export is already in N
+}
+FEM_FIT_LINEWIDTH = 1.0   # thinner than the raw curves, so it reads as a guide, not a data series
 
 MANUAL_EXCLUDE = ["54B"]   # add more "<number><batch>" strings here as needed
 
@@ -94,38 +123,91 @@ def find_climb_start(load, noise_threshold=NOISE_THRESHOLD_N, smooth_window=SMOO
     return idx + 1  # first index of the trailing above-threshold run
 
 
-def plot_reference_curve(filepath, color="red", linewidth=2, label="Reference curve",
-                          x_scale=1.0, y_scale=1000.0):
-    """Parses an 'XYDATA, Curve N' style .dat file (skips any line that isn't
-    exactly two whitespace-separated floats), fits a linear regression to it,
-    prints the gradient, plots BOTH the raw curve and the fitted line, on the
-    CURRENT axes -- call this after the phial curves are plotted but before
-    plt.legend(), so it shows up in the same legend.
-    x_scale/y_scale are plain multipliers, in case the .dat file turns out
-    to be in different units than mm/N -- 1.0 (no change) until you know."""
-    xs, ys = [], []
-    with open(filepath, "r", encoding="utf-8", errors="replace") as f:
-        for line in f:
-            parts = line.split()
-            if len(parts) != 2:
-                continue
-            try:
-                x, y = float(parts[0]), float(parts[1])
-            except ValueError:
-                continue
-            xs.append(x)
-            ys.append(y)
-    xs = np.array(xs) * x_scale
-    ys = np.array(ys) * y_scale
+def discover_fem_curve_pairs(folder):
+    """Finds every '<tag>_disp' file in folder with a matching '<tag>_force'
+    next to it (e.g. 'modeA_disp' + 'modeA_force' -> tag 'modeA'). New FEM
+    modes just need their two exported files dropped in here -- nothing to
+    configure. Returns a sorted list of (tag, disp_path, force_path)."""
+    if not os.path.isdir(folder):
+        print(f"  FEM curves folder '{folder}' does not exist -- no FEM curves to overlay.")
+        return []
 
+    pairs = []
+    for disp_path in sorted(glob.glob(os.path.join(folder, "*_disp"))):
+        tag = os.path.basename(disp_path)[: -len("_disp")]
+        force_path = os.path.join(folder, f"{tag}_force")
+        if not os.path.isfile(force_path):
+            print(f"  SKIPPED FEM curve '{tag}': found '{os.path.basename(disp_path)}' but no "
+                  f"matching '{tag}_force' file next to it.")
+            continue
+        pairs.append((tag, disp_path, force_path))
+    return pairs
+
+
+def mode_label_from_tag(tag):
+    """'modeA' -> 'A'; anything not starting with 'mode' is used as-is, so
+    future files don't have to follow that exact naming pattern."""
+    return re.sub(r"(?i)^mode", "", tag) or tag
+
+
+def parse_history_file(path):
+    """Parses one FEM time-history export: a point-count header line,
+    then 'time  value' pairs. Returns (time, value) arrays."""
+    with open(path, "r", encoding="utf-8", errors="replace") as f:
+        lines = f.readlines()
+    rows = []
+    for line in lines[1:]:  # skip the point-count header line
+        parts = line.split()
+        if len(parts) != 2:
+            continue
+        try:
+            rows.append((float(parts[0]), float(parts[1])))
+        except ValueError:
+            continue
+    rows = np.array(rows)
+    return rows[:, 0], rows[:, 1]
+
+
+def build_combined_fem_curve(tag, disp_path, force_path,
+                              x_scale=FEM_DEFAULT_X_SCALE, y_scale=FEM_DEFAULT_Y_SCALE):
+    """Combines a '<tag>_disp' and '<tag>_force' time-history pair (both
+    sampled at the same time steps) into one displacement-vs-force curve."""
+    disp_time, disp_val = parse_history_file(disp_path)
+    force_time, force_val = parse_history_file(force_path)
+
+    n = min(len(disp_val), len(force_val))
+    if len(disp_val) != len(force_val):
+        print(f"  WARNING '{tag}': disp has {len(disp_val)} points, force has {len(force_val)} "
+              f"-- using the first {n} common to both, verify the exports actually line up.")
+    disp_time, disp_val = disp_time[:n], disp_val[:n]
+    force_time, force_val = force_time[:n], force_val[:n]
+
+    if not np.allclose(disp_time, force_time, atol=1e-6):
+        print(f"  WARNING '{tag}': time columns in the disp and force files don't match -- "
+              f"they may not actually be paired correctly.")
+
+    # FEM commonly reports compression as a negative displacement (platen
+    # moving in the solver's negative direction) -- take the magnitude so it
+    # climbs left-to-right like the (already shifted-to-start-at-zero)
+    # experimental curves do.
+    disp_val = np.abs(disp_val) * x_scale
+    force_val = force_val * y_scale
+    return disp_val, force_val
+
+
+def plot_fem_curve(xs, ys, mode_label, color, linewidth=2, fit_linewidth=FEM_FIT_LINEWIDTH):
+    """Fits a linear regression to an already-combined (displacement, force)
+    FEM curve, prints the gradient, and plots both the raw curve and the
+    fitted line on the CURRENT axes -- call this after the phial curves are
+    plotted but before plt.legend(), so it shows up in the same legend."""
     slope, intercept = np.polyfit(xs, ys, 1)
-    print(f"Reference curve linear fit: gradient = {slope:.6g} N/mm  intercept = {intercept:.6g}")
+    print(f"FEM Mode {mode_label} linear fit: gradient = {slope:.6g} N/mm  intercept = {intercept:.6g}")
 
-    plt.plot(xs, ys, color=color, linewidth=linewidth, label=label)
+    plt.plot(xs, ys, color=color, linewidth=linewidth, label=f"FEM - Mode {mode_label}")
     x_fit = np.array([xs.min(), xs.max()])
     y_fit = slope * x_fit + intercept
-    plt.plot(x_fit, y_fit, color="black", linestyle="--", linewidth=1.5,
-              label=f"Linear fit (gradient={slope:.4g} N/mm)")
+    plt.plot(x_fit, y_fit, color="black", linestyle="--", linewidth=fit_linewidth,
+              label=f"FEM - Mode {mode_label} fit (E={slope:.4g} N/mm)")
 
 
 def process_one_file(filepath, manual_exclude_set):
@@ -190,6 +272,7 @@ def main():
 
     print(f"\nPlotting {len(curves)} of {len(filepaths)} curves.")
 
+    # ---- Plot 1: experimental data only ----
     plt.figure(figsize=(8, 6))
     seen_batches = {}
     for c in curves:
@@ -203,19 +286,34 @@ def main():
         plt.plot([], [], color=BATCH_COLORS.get(batch, "gray"), linewidth=2,
                   label=f"Batch {batch} (n={count})")
 
-    plot_reference_curve(REFERENCE_CURVE)
-
     plt.xlabel("Displacement (mm)")
     plt.ylabel("Load (N)")
-    plt.title("Stiffness comparison — TEST vs. FEM")
+    plt.title("Stiffness comparison — experimental data only")
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig(OUTPUT_PLOT, dpi=150)
-    plt.close()
-    print(f"\nSaved overlay plot: {OUTPUT_PLOT}")
+    plt.savefig(OUTPUT_PLOT_EXPERIMENTAL_ONLY, dpi=150)
+    print(f"\nSaved experimental-only overlay plot: {OUTPUT_PLOT_EXPERIMENTAL_ONLY}")
 
-    
+    # ---- Plot 2: same axes, with every FEM curve found in FEM_CURVES_DIR added on top ----
+    fem_pairs = discover_fem_curve_pairs(FEM_CURVES_DIR)
+    print(f"\nFound {len(fem_pairs)} FEM curve(s) in '{FEM_CURVES_DIR}/'.")
+    fem_colors = plt.get_cmap("tab10" if len(fem_pairs) <= 10 else "tab20")
+    for i, (tag, disp_path, force_path) in enumerate(fem_pairs):
+        overrides = FEM_CURVE_SCALE_OVERRIDES.get(tag, {})
+        xs, ys = build_combined_fem_curve(
+            tag, disp_path, force_path,
+            x_scale=overrides.get("x_scale", FEM_DEFAULT_X_SCALE),
+            y_scale=overrides.get("y_scale", FEM_DEFAULT_Y_SCALE),
+        )
+        plot_fem_curve(xs, ys, mode_label_from_tag(tag), fem_colors(i / max(len(fem_pairs) - 1, 1)))
+
+    plt.title("Stiffness comparison — TEST vs. FEM")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(OUTPUT_PLOT_WITH_FEM, dpi=150)
+    plt.close()
+    print(f"Saved experimental-vs-FEM overlay plot: {OUTPUT_PLOT_WITH_FEM}")
 
 
 if __name__ == "__main__":

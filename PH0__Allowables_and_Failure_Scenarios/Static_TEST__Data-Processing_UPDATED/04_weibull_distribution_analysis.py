@@ -23,8 +23,8 @@ from scipy import stats
 import matplotlib.pyplot as plt
 
 # ============================== CONFIGURATION ==============================
-SUMMARY_EXCEL = "C:\Temp\phial_failure_summary.xlsx"   # output of process_failure_data.py
-OUTPUT_DIR = "C:\Temp\weibull_plots"
+SUMMARY_EXCEL = "phial_failure_summary.xlsx"   # output of 02_process_failure_data.py
+OUTPUT_DIR = "weibull_plots"
 PERCENTILES = [(0.01, "1st percentile"), (0.05, "5th percentile")]
 N_CURVE_POINTS = 500
 # ============================================================================

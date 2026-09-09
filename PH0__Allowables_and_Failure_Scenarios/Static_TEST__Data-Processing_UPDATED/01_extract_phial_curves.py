@@ -21,15 +21,15 @@ import matplotlib.pyplot as plt
 from mss_parser import parse_mss_file, canonicalize_breaking_mode, format_speed
 
 # ============================== CONFIGURATION ==============================
-TEXT_FILE_1 = r"C:\Users\iannuzzo\OneDrive - FEV Group GmbH\Documents\MSc_Thesis_TUDelft\CODES\PH0__Allowables_and_Failure_Scnarios\Static_test__Data-Processing\raw_collection_1.txt"
-TEXT_FILE_2 = r"C:\Users\iannuzzo\OneDrive - FEV Group GmbH\Documents\MSc_Thesis_TUDelft\CODES\PH0__Allowables_and_Failure_Scnarios\Static_test__Data-Processing\raw_collection_2.txt"
-EXCEL_FILE = r"C:\Users\iannuzzo\OneDrive - FEV Group GmbH\Documents\MSc_Thesis_TUDelft\CODES\PH0__Allowables_and_Failure_Scnarios\Static_test__Data-Processing\failure_load_data.xlsx"
+TEXT_FILE_1 = "raw_collection_1.txt"
+TEXT_FILE_2 = "raw_collection_2.txt"
+EXCEL_FILE = "failure_load_data.xlsx"
 
 EXCEL_PHIAL_COL = "Phial Num."
 EXCEL_SPEED_COL = "Velocità (mm/min)"
 EXCEL_MODE_COL = "Modo rottura"
 
-OUTPUT_DIR = r"C:\Temp\output_curves"
+OUTPUT_DIR = "output_curves"
 
 BATCH_A_LABEL = "A"
 BATCH_B_LABEL = "B"
