@@ -82,6 +82,22 @@ FB_REFINE_RADIUS = 5
 
 BATCH_COLORS = {"A": "tab:orange", "B": "tab:cyan"}
 CURVE_ALPHA = 0.5
+
+# FEM curves are drawn on top of the experimental cloud, so they deliberately
+# stay clear of the experimental orange/cyan (and of blue, which reads as cyan
+# once the curves overlap). Strong, saturated, mutually distinct hues only.
+FEM_COLORS = [
+    "#2ca02c",  # green
+    "#d62728",  # red
+    "#9467bd",  # purple
+    "#e377c2",  # magenta
+    "#8c564b",  # brown
+    "#000000",  # black
+    "#bcbd22",  # olive
+    "#7f0000",  # dark red
+    "#4b0082",  # indigo
+    "#006400",  # dark green
+]
 # ============================================================================
 
 
@@ -206,7 +222,7 @@ def plot_fem_curve(xs, ys, mode_label, color, linewidth=2, fit_linewidth=FEM_FIT
     plt.plot(xs, ys, color=color, linewidth=linewidth, label=f"FEM - Mode {mode_label}")
     x_fit = np.array([xs.min(), xs.max()])
     y_fit = slope * x_fit + intercept
-    plt.plot(x_fit, y_fit, color="black", linestyle="--", linewidth=fit_linewidth,
+    plt.plot(x_fit, y_fit, color=color, linestyle="--", linewidth=fit_linewidth,
               label=f"FEM - Mode {mode_label} fit (E={slope:.4g} N/mm)")
 
 
@@ -273,7 +289,7 @@ def main():
     print(f"\nPlotting {len(curves)} of {len(filepaths)} curves.")
 
     # ---- Plot 1: experimental data only ----
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(11, 6))
     seen_batches = {}
     for c in curves:
         color = BATCH_COLORS.get(c["batch"], "gray")
@@ -289,7 +305,7 @@ def main():
     plt.xlabel("Displacement (mm)")
     plt.ylabel("Load (N)")
     plt.title("Stiffness comparison — experimental data only")
-    plt.legend()
+    plt.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), borderaxespad=0.0)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
     plt.savefig(OUTPUT_PLOT_EXPERIMENTAL_ONLY, dpi=150)
@@ -298,7 +314,6 @@ def main():
     # ---- Plot 2: same axes, with every FEM curve found in FEM_CURVES_DIR added on top ----
     fem_pairs = discover_fem_curve_pairs(FEM_CURVES_DIR)
     print(f"\nFound {len(fem_pairs)} FEM curve(s) in '{FEM_CURVES_DIR}/'.")
-    fem_colors = plt.get_cmap("tab10" if len(fem_pairs) <= 10 else "tab20")
     for i, (tag, disp_path, force_path) in enumerate(fem_pairs):
         overrides = FEM_CURVE_SCALE_OVERRIDES.get(tag, {})
         xs, ys = build_combined_fem_curve(
@@ -306,10 +321,10 @@ def main():
             x_scale=overrides.get("x_scale", FEM_DEFAULT_X_SCALE),
             y_scale=overrides.get("y_scale", FEM_DEFAULT_Y_SCALE),
         )
-        plot_fem_curve(xs, ys, mode_label_from_tag(tag), fem_colors(i / max(len(fem_pairs) - 1, 1)))
+        plot_fem_curve(xs, ys, mode_label_from_tag(tag), FEM_COLORS[i % len(FEM_COLORS)])
 
     plt.title("Stiffness comparison — TEST vs. FEM")
-    plt.legend()
+    plt.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), borderaxespad=0.0)
     plt.tight_layout()
     plt.savefig(OUTPUT_PLOT_WITH_FEM, dpi=150)
     plt.close()
