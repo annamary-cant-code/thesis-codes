@@ -59,7 +59,7 @@ import matplotlib.pyplot as plt
 
 # ============================== CONFIGURATION ==============================
 DATA_FOLDER = Path(__file__).parent / "fem_ft-finetuning_curves"
-TARGET_FAILURE_LOAD = 100                    # [N]  (FT sweep values are in MPa)
+TARGET_FAILURE_LOAD = 98.7                    # [N]  (FT sweep values are in MPa)
 
 # Every FEM force export is in kN, so this is applied to every curve.
 X_SCALE = 1.0

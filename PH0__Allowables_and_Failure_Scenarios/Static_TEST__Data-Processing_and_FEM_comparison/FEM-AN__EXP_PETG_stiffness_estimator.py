@@ -1,4 +1,4 @@
-K_phial_FEM = 2767  # N/mm
+K_phial_FEM = 3655  # N/mm
 K_tot_EXP = 1500    # N/mm
 
 R = K_phial_FEM/K_tot_EXP
