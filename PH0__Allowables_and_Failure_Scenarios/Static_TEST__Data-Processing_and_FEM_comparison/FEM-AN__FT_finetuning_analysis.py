@@ -262,16 +262,22 @@ def main():
         disp, force = build_combined_fem_curve(tag, disp_path, force_path)
         curves.append((tag, ft, disp, force))
 
-    ft_vals = [ft for _, ft, _, _ in curves]
-    vmin, vmax = min(ft_vals), max(ft_vals)
-    norm = plt.Normalize(vmin, vmax if vmax > vmin else vmin + 1e-9)
-    cmap = plt.cm.viridis
+    # distinct, non-repeating color per curve (sorted by FT so the legend/colors
+    # read in a sensible order) -- a continuous colormap made close FT values
+    # look almost identical, which is the opposite of what we want here.
+    curves_sorted = sorted(range(len(curves)), key=lambda i: curves[i][1])
+    n_curves = len(curves)
+    qualitative_cmap = plt.cm.tab10 if n_curves <= 10 else plt.cm.tab20
+    colors_by_order = [qualitative_cmap(i % qualitative_cmap.N) for i in range(n_curves)]
+    curve_colors = [None] * n_curves
+    for order, idx in enumerate(curves_sorted):
+        curve_colors[idx] = colors_by_order[order]
 
     fig, ax = plt.subplots(figsize=(9, 6))
 
     summary = []
     x_ends = []
-    for tag, ft, disp, force in curves:
+    for i, (tag, ft, disp, force) in enumerate(curves):
         # breaking force = peak load carried before the curve sheds load
         fail_idx, failed = find_failure_point(force, post_drop_frac=args.post_drop_frac)
         fail_load = force[fail_idx]
@@ -287,14 +293,14 @@ def main():
 
         summary.append((ft, fail_load))
 
-        color = cmap(norm(ft))
+        color = curve_colors[i]
         ax.plot(disp, force, color=color, lw=1.5,
                 label=f"FT = {ft:g} MPa  ->  {fail_load:.1f} N")
-        ax.scatter(disp[fail_idx], fail_load, color=color, marker="o", s=55,
-                   zorder=6, edgecolors="black", linewidths=0.8)
+        ax.scatter(disp[fail_idx], fail_load, color=color, marker="o", s=20,
+                   zorder=6, edgecolors="black", linewidths=0.6)
 
     ax.axhline(target_load, color="red", lw=2, label=f"Target failure load = {target_load:g} N")
-    ax.scatter([], [], marker="o", facecolors="none", edgecolors="0.25", s=55,
+    ax.scatter([], [], marker="o", facecolors="none", edgecolors="0.25", s=20,
                label="Breaking load")
 
     if summary:

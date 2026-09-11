@@ -46,7 +46,7 @@ import matplotlib.pyplot as plt
 from failure_extraction import find_first_break
 
 # ============================== CONFIGURATION ==============================
-CURVES_DIR = r"C:\0_CODES_MScThesis\CODES\PH0__Allowables_and_Failure_Scenarios\Static_TEST__Data-Processing_UPDATED\output_curves"
+CURVES_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output_curves")
 
 OUTPUT_PLOT_EXPERIMENTAL_ONLY = "stiffness_overlay_experimental_only.png"
 OUTPUT_PLOT_WITH_FEM = "stiffness_overlay_experimental_vs_FEM.png"

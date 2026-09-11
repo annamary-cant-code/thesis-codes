@@ -1,0 +1,1624 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Airbag Impact Bench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #eef1f4;
+    --panel: #f8f9fb;
+    --surface: #ffffff;
+    --ink: #0f151b;
+    --ink-2: #47525e;
+    --muted: #7b8692;
+    --grid: #e4e8ec;
+    --axis: #c3cad1;
+    --border: rgba(15, 21, 27, 0.10);
+    --border-strong: rgba(15, 21, 27, 0.20);
+    --focus: #2a78d6;
+    --c-x: #2a78d6;
+    --c-y: #eb6834;
+    --c-n: #1baf7a;
+    --c-gas: #4a3aa7;
+    --good: #0ca30c;
+    --good-ink: #0a6e0a;
+    --warn: #fab219;
+    --crit: #d03b3b;
+    --crit-ink: #b52d2d;
+    --ground: #8b6b4c;
+    --p-lo: #35b05c;
+    --p-mid: #f0c232;
+    --p-hi: #d8443c;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0e1114;
+      --panel: #14181c;
+      --surface: #191d22;
+      --ink: #eef2f5;
+      --ink-2: #b3bdc7;
+      --muted: #7f8a95;
+      --grid: #252b31;
+      --axis: #3a424a;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --focus: #5598e7;
+      --c-x: #3987e5;
+      --c-y: #d95926;
+      --c-n: #199e70;
+      --c-gas: #9085e9;
+      --good-ink: #3cc13c;
+      --crit-ink: #ec6a6a;
+      --ground: #a2825f;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0e1114;
+    --panel: #14181c;
+    --surface: #191d22;
+    --ink: #eef2f5;
+    --ink-2: #b3bdc7;
+    --muted: #7f8a95;
+    --grid: #252b31;
+    --axis: #3a424a;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.18);
+    --focus: #5598e7;
+    --c-x: #3987e5;
+    --c-y: #d95926;
+    --c-n: #199e70;
+    --c-gas: #9085e9;
+    --good-ink: #3cc13c;
+    --crit-ink: #ec6a6a;
+    --ground: #a2825f;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 13px/1.45 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+
+  .app { display: grid; grid-template-columns: 330px minmax(0, 1fr); min-height: 100vh; }
+
+  /* ------------------------------------------------------------ inputs */
+  .inputs {
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    background: var(--panel); border-right: 1px solid var(--border);
+    padding: 18px 16px 28px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .brand h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+  .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+  .brand code { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
+  .toolbar { display: flex; gap: 6px; flex-wrap: wrap; }
+  .btn {
+    border: 1px solid var(--border-strong); background: var(--surface); border-radius: 5px;
+    padding: 5px 10px; cursor: pointer; font-size: 12px; line-height: 1.2;
+    display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  }
+  .btn:hover { border-color: var(--ink-2); }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn svg { width: 12px; height: 12px; fill: currentColor; }
+
+  details.group { border-top: 1px solid var(--border); padding-top: 10px; }
+  details.group > summary {
+    list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
+    margin-bottom: 8px;
+  }
+  details.group > summary::-webkit-details-marker { display: none; }
+  details.group > summary::after { content: "–"; font-family: var(--mono); color: var(--muted); }
+  details.group:not([open]) > summary::after { content: "+"; }
+  .fields { display: flex; flex-direction: column; gap: 10px; }
+
+  .field { display: grid; grid-template-columns: minmax(0, 1fr) 104px; column-gap: 10px; row-gap: 3px; align-items: center; }
+  .field .lab { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+  .field .sym { font-family: var(--mono); font-weight: 500; font-size: 12px; }
+  .field .desc { color: var(--muted); font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .field .unit { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .field .hint { grid-column: 2; font-family: var(--mono); font-size: 10.5px; color: var(--muted); text-align: right; min-height: 0; }
+  .field.disabled { opacity: 0.45; }
+  .num {
+    width: 100%; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums;
+    background: var(--surface); border: 1px solid var(--border-strong); border-radius: 4px; padding: 3px 6px; text-align: right;
+  }
+  .num.bad { border-color: var(--crit); box-shadow: 0 0 0 1px var(--crit) inset; }
+
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 18px; background: transparent; margin: 0; cursor: pointer;
+    --pct: 50%;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 3px; border-radius: 2px;
+    background: linear-gradient(to right, var(--ink-2) var(--pct), var(--axis) var(--pct));
+  }
+  input[type="range"]::-moz-range-track { height: 3px; border-radius: 2px; background: var(--axis); }
+  input[type="range"]::-moz-range-progress { height: 3px; border-radius: 2px; background: var(--ink-2); }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 13px; height: 13px; border-radius: 50%; margin-top: -5px;
+    background: var(--ink); border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--ink);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--ink); border: 2px solid var(--panel); box-shadow: 0 0 0 1px var(--ink);
+  }
+
+  .seg { display: inline-flex; border: 1px solid var(--border-strong); border-radius: 5px; overflow: hidden; }
+  .seg button { border: 0; background: var(--surface); padding: 4px 12px; cursor: pointer; font-size: 12px; }
+  .seg button + button { border-left: 1px solid var(--border-strong); }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .preset-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .preset-row .plab { color: var(--muted); font-size: 12px; }
+  select.sel {
+    background: var(--surface); border: 1px solid var(--border-strong); border-radius: 4px; padding: 3px 6px; font-size: 12px;
+  }
+  .derived { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); display: flex; justify-content: space-between; }
+  .footnote { color: var(--muted); font-size: 11.5px; margin: 0; border-top: 1px solid var(--border); padding-top: 10px; }
+  .footnote code { font-family: var(--mono); font-size: 11px; }
+
+  /* ------------------------------------------------------------ main */
+  main {
+    min-width: 0; padding: 16px 20px 28px;
+    display: grid; gap: 14px;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    grid-template-areas: "summary summary" "transport transport" "matrix side";
+    align-content: start;
+  }
+  .summary { grid-area: summary; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+  .verdict {
+    display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 8px; border-radius: 999px;
+    font-weight: 600; font-size: 13px; letter-spacing: 0.02em; border: 1px solid currentColor;
+  }
+  .verdict svg { width: 16px; height: 16px; }
+  .verdict.ok { color: var(--good-ink); }
+  .verdict.fail { color: var(--crit-ink); }
+  .verdict-reason { color: var(--ink-2); }
+  .kpis { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-left: auto; }
+  .kpi { display: flex; flex-direction: column; }
+  .kpi .k { font-size: 11px; color: var(--muted); }
+  .kpi .v { font-family: var(--mono); font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .kpi .v small { font-size: 11px; color: var(--muted); font-weight: 400; }
+  .kpi .v.over { color: var(--crit-ink); }
+  .compute { font-family: var(--mono); font-size: 11px; color: var(--muted); width: 100%; }
+  .compute.busy::before { content: "computing… "; color: var(--ink-2); }
+
+  .transport {
+    grid-area: transport; position: sticky; top: 0; z-index: 5;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px;
+  }
+  .transport .scrub { flex: 1 1 260px; min-width: 160px; }
+  .tbtns { display: flex; gap: 4px; }
+  .icon-btn {
+    width: 30px; height: 28px; display: grid; place-items: center; border-radius: 5px; cursor: pointer;
+    border: 1px solid var(--border-strong); background: var(--surface);
+  }
+  .icon-btn svg { width: 13px; height: 13px; fill: currentColor; }
+  .icon-btn.play { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .tread { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 12px; color: var(--ink-2); }
+  .tread .num { width: 86px; }
+  .tctl { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-2); }
+  .tctl label { display: inline-flex; align-items: center; gap: 5px; }
+
+  /* side: bag + results */
+  .side { grid-area: side; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+  .bag { margin: 0; padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 8px; }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .card-head h2 { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
+  .card-head .sub { font-size: 11.5px; color: var(--muted); }
+  .bag-stage { position: relative; }
+  .bag-stage canvas { display: block; width: 100%; }
+  .bag-readout {
+    display: flex; flex-wrap: wrap; gap: 2px 14px; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums;
+  }
+  .bag-readout span b { font-weight: 500; }
+  .bag-readout span i { font-style: normal; color: var(--muted); }
+  .bag-banner {
+    position: absolute; left: 50%; top: 8px; transform: translateX(-50%);
+    background: var(--crit); color: #fff; font-weight: 600; font-size: 12px; letter-spacing: 0.03em;
+    padding: 3px 10px; border-radius: 4px; text-align: center; width: max-content; max-width: calc(100% - 16px);
+  }
+  .pbar { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center; font-size: 11px; color: var(--muted); }
+  .pbar .track { position: relative; height: 8px; border-radius: 4px; background: linear-gradient(to right, var(--p-lo), var(--p-mid) 50%, var(--p-hi)); }
+  .pbar .mark { position: absolute; top: -4px; width: 2px; height: 16px; background: var(--ink); border-radius: 1px; transform: translateX(-1px); box-shadow: 0 0 0 2px var(--surface); }
+  .pbar .ends { font-family: var(--mono); }
+
+  .results { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 10px; }
+  .rgroup h3 { margin: 0 0 4px; font-size: 11px; color: var(--muted); font-weight: 500; }
+  .rows { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 10px; }
+  .rows .rk { color: var(--ink-2); }
+  .rows .rk code { font-family: var(--mono); font-size: 11.5px; color: var(--ink); }
+  .rows .rv { font-family: var(--mono); font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rows .rv.over { color: var(--crit-ink); font-weight: 500; }
+  .meter { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--grid); position: relative; margin: 1px 0 5px; overflow: hidden; }
+  .meter > i { position: absolute; inset: 0 auto 0 0; border-radius: 2px; background: var(--ink-2); }
+  .meter.over > i { background: var(--crit); }
+  .meter > b { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--ink); }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip { font-size: 11.5px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--muted); }
+  .chip.on { color: var(--ink); border-color: var(--ink); font-weight: 500; }
+  .chip.on.bad { color: var(--crit-ink); border-color: var(--crit-ink); }
+  .chip.on.good { color: var(--good-ink); border-color: var(--good-ink); }
+
+  /* matrix */
+  .matrix { grid-area: matrix; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+  .matrix-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; }
+  .matrix-head h2 { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i { width: 14px; height: 2px; border-radius: 1px; display: inline-block; }
+  .matrix-head .tip { margin-left: auto; font-size: 11.5px; color: var(--muted); }
+  .grid4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .plot { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 6px 2px; min-width: 0; }
+  .plot-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; padding: 0 2px 2px 4px; }
+  .plot-head .pt { font-size: 11.5px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .plot-head .pt::before { content: ""; display: inline-block; width: 8px; height: 2px; border-radius: 1px; background: var(--row); vertical-align: middle; margin-right: 6px; transform: translateY(-1px); }
+  .plot-head .pv { font-family: var(--mono); font-size: 11px; color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .plot-body { position: relative; height: 150px; touch-action: none; cursor: ew-resize; }
+  .plot-body canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  .toast {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 20;
+    background: var(--ink); color: var(--bg); padding: 6px 14px; border-radius: 6px; font-size: 12.5px;
+  }
+
+  @media (max-width: 1500px) {
+    main { grid-template-columns: minmax(0, 1fr); grid-template-areas: "summary" "transport" "side" "matrix"; }
+    .side { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; }
+  }
+  @media (max-width: 1100px) {
+    .grid4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    .app { grid-template-columns: minmax(0, 1fr); }
+    .inputs { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--border); }
+    main { padding: 14px 16px 24px; }
+    .side { display: flex; }
+    .kpis { margin-left: 0; }
+  }
+  @media (max-width: 520px) {
+    .grid4 { grid-template-columns: minmax(0, 1fr); }
+    .matrix-head .tip { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="inputs" aria-label="Simulation inputs">
+    <div class="brand">
+      <h1>Airbag Impact Bench</h1>
+      <p>2-DOF oblique landing — live JS port of <code>simulate_airbag</code></p>
+    </div>
+    <div class="toolbar">
+      <button class="btn" id="btn-reset" type="button">Reset to TEST values</button>
+      <button class="btn" id="btn-copy" type="button">Copy as Python</button>
+    </div>
+    <div id="groups"></div>
+    <p class="footnote">Units are those of <code>TEST_airbag_simulation_function.py</code>, so values paste straight across. Numbers accept <code>250e6</code> style input; typed values may go beyond the slider range. Time step is adaptive (1e-5 s fine / 2e-4 s coarse), exactly as in the Python solver, so <code>dt</code> has no effect and is not exposed.</p>
+  </aside>
+
+  <main>
+    <header class="summary">
+      <span class="verdict" id="verdict"></span>
+      <span class="verdict-reason" id="verdict-reason"></span>
+      <div class="kpis" id="kpis"></div>
+      <div class="compute" id="compute"></div>
+    </header>
+
+    <div class="transport" role="group" aria-label="Playback">
+      <div class="tbtns">
+        <button class="icon-btn play" id="btn-play" type="button" aria-label="Play"></button>
+        <button class="icon-btn" id="btn-back" type="button" aria-label="Step back one solver step" title="Step back (←, Shift for ×50)"><svg viewBox="0 0 16 16"><path d="M3 2h2v12H3zM14 2v12L6 8z"/></svg></button>
+        <button class="icon-btn" id="btn-fwd" type="button" aria-label="Step forward one solver step" title="Step forward (→, Shift for ×50)"><svg viewBox="0 0 16 16"><path d="M11 2h2v12h-2zM2 2v12l8-6z"/></svg></button>
+      </div>
+      <input type="range" class="scrub" id="scrub" min="0" max="1" step="any" value="0" aria-label="Simulation time">
+      <div class="tread">
+        <label for="t-input">t</label>
+        <input class="num" id="t-input" type="text" inputmode="decimal" value="0">
+        <span id="t-end">/ 0 s</span>
+      </div>
+      <div class="tctl">
+        <label for="speed">Speed
+          <select class="sel" id="speed">
+            <option value="0.01">1/100×</option>
+            <option value="0.025" selected>1/40×</option>
+            <option value="0.05">1/20×</option>
+            <option value="0.1">1/10×</option>
+            <option value="0.25">1/4×</option>
+            <option value="1">real time</option>
+          </select>
+        </label>
+        <label><input type="checkbox" id="loop" checked> Loop</label>
+        <button class="btn" id="btn-peak" type="button">Jump to peak load</button>
+      </div>
+    </div>
+
+    <section class="side">
+      <figure class="card bag">
+        <div class="card-head"><h2>Bag compression</h2><span class="sub" id="bag-sub"></span></div>
+        <div class="bag-stage">
+          <canvas id="bag-canvas" aria-label="Airbag cross-section animation"></canvas>
+          <div class="bag-banner" id="bag-banner" hidden></div>
+        </div>
+        <div class="bag-readout" id="bag-readout"></div>
+        <div class="pbar">
+          <span>P / P<sub>burst</sub></span>
+          <div class="track"><div class="mark" id="p-mark"></div></div>
+          <span class="ends" id="p-end">1.0</span>
+        </div>
+      </figure>
+      <div class="card results" id="results"></div>
+    </section>
+
+    <section class="matrix">
+      <div class="matrix-head">
+        <h2>Response matrix</h2>
+        <div class="legend">
+          <span><i style="background:var(--c-x)"></i>x — horizontal</span>
+          <span><i style="background:var(--c-y)"></i>y — vertical</span>
+          <span><i style="background:var(--c-n)"></i>n — impact axis</span>
+          <span><i style="background:var(--c-gas)"></i>gas state</span>
+        </div>
+        <span class="tip">Drag across any plot to scrub time</span>
+      </div>
+      <div class="grid4" id="grid4"></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/*SOLVER-BEGIN*/
+// One-to-one port of airbag_simulation_function.simulate_airbag (+ the extra histories of
+// airbag_postprocessing.replay_histories), airbag_geometry, airbag_thermo, airbag_venting and
+// differential_evolution_wrapper.evaluate_design. Keep in sync with the Python by hand.
+// pyMax/pyMin mimic Python's builtin max/min (NaN handling), so edge cases match as well.
+function airbagSolver() {
+  "use strict";
+  const PI = Math.PI;
+  const pyMax = (a, b) => (b > a ? b : a);
+  const pyMin = (a, b) => (b < a ? b : a);
+
+  // ---- airbag_geometry.airbag_geometry_from_h
+  function geometryFromH(h_t, D0, L0, shape) {
+    const D_t = D0 - h_t;
+    const D_t_eff = pyMax(D_t, 1e-12);
+    if (shape === 1) {
+      const L_t = 0.5 * PI * h_t;
+      const A_t = L_t * L0;
+      const V_t = L0 * D_t_eff * ((PI / 4) * D_t_eff + L_t);
+      return { D_t, L_t, A_t, V_t };
+    }
+    if (shape === 2) {
+      const r_c = Math.sqrt(pyMax(h_t * (D0 - h_t), 0.0));
+      const A_t = PI * r_c ** 2;
+      const V_sphere = (PI / 6.0) * D0 ** 3;
+      const V_cap = (PI / 3.0) * h_t ** 2 * (1.5 * D0 - h_t);
+      return { D_t, L_t: 2 * r_c, A_t, V_t: V_sphere - V_cap };
+    }
+    throw new Error("Unknown shape=" + shape + "; use 1 (cylinder) or 2 (sphere).");
+  }
+
+  // ---- airbag_venting
+  function cdFromLambda(l) {
+    return (-3.8399 * l ** 6
+            + 9.4363 * l ** 5
+            - 7.2326 * l ** 4
+            + 1.6972 * l ** 3
+            - 0.2908 * l ** 2
+            - 0.0130 * l
+            + 0.8426);
+  }
+
+  function orificeMdot(P_up, P_down, T_up, A_or, R_gas, gamma) {
+    if (P_up <= P_down) return 0.0;
+    const lmbd = P_down / P_up;
+    const lmbd_clip = Math.min(Math.max(lmbd, 0.0), 1.0);
+    const C_D = pyMax(cdFromLambda(lmbd_clip), 0.0);
+    const common_term = Math.sqrt(1.0 / (R_gas * T_up));
+    if (lmbd >= 0.528) {                       // subsonic
+      const pr = P_up / P_down;
+      const expo = (gamma - 1.0) / gamma;
+      const term1 = Math.sqrt((2.0 * gamma) / (gamma - 1.0) * (pr ** expo));
+      const term2 = Math.sqrt(pyMax((pr ** expo) - 1.0, 0.0));
+      const mdot = C_D * A_or * P_down * common_term * term1 * term2;
+      return pyMax(mdot, 0.0);
+    }
+    const choke_factor = Math.sqrt(gamma * (2.0 / (gamma + 1.0)) ** ((gamma + 1.0) / (gamma - 1.0)));
+    const mdot = C_D * A_or * P_up * common_term * choke_factor;   // choked
+    return pyMax(mdot, 0.0);
+  }
+
+  // ---- airbag_thermo.thermo_step  -> [rho_t, P_bag, T_t, m_t]
+  function thermoStep(m_prev, V_t, gamma, P_amb, dt, A_or, P_prev, rho_prev, T_prev, R_gas, max_inner_iters) {
+    const V_eff = pyMax(V_t, 1e-12);
+    const rho_prev_eff = pyMax(rho_prev, 1e-12);
+    let m = m_prev;
+    let rho_t = m / V_eff;
+    let P = P_prev * (rho_t / rho_prev_eff) ** gamma;
+    let T = T_prev * (rho_t / rho_prev_eff) ** (gamma - 1.0);
+    const dt_inner = dt / max_inner_iters;
+    for (let k = 0; k < max_inner_iters; k++) {
+      if (P <= P_amb) break;
+      let dm = orificeMdot(P, P_amb, T, A_or, R_gas, gamma) * dt_inner;
+      dm = pyMin(dm, m);
+      const m_new = m - dm;
+      const rho_new = m_new / V_eff;
+      const P_new = m_new * R_gas * T / V_eff;
+      const T_new = T * (rho_new / rho_t) ** (gamma - 1.0);
+      m = m_new; rho_t = rho_new; P = P_new; T = T_new;
+      if (m <= 0.0) { m = 0.0; rho_t = 0.0; P = 0.0; break; }
+    }
+    return [rho_t, P, T, m];
+  }
+
+  const HIST_KEYS = ["t", "x", "ux", "ax", "Fx", "y_pen", "uy", "ay", "Fy", "h", "un", "load", "Fn",
+                     "m", "V", "P", "T", "ares"];
+  const MAX_STEPS = 3000000;
+
+  // ---- simulate_airbag, recording the replay_histories set
+  function simulate(p) {
+    const D0 = +p.D0, L0 = +p.L0, d_or = +p.d_or, d_fabric = +p.d_fabric, P0 = +p.P0;
+    const shape = p.shape === 2 ? 2 : 1;
+    const M_payload = +p.M_payload, u0 = +p.u0, ux0 = +p.ux0;
+    const sigma_fabric = +p.sigma_fabric, rho_fabric = +p.rho_fabric;
+    const T0 = +p.T0, R_gas = +p.R_gas, gamma = +p.gamma, P_amb = +p.P_amb, g = +p.g;
+    const t_max = +p.t_max, a_allow = +p.a_allow, phi_vent = +p.phi_vent;
+    const max_inner_iters = Math.max(1, Math.round(+p.max_inner_iters || 50));
+
+    const A_or = (PI / 4.0) * d_or ** 2;
+    const R0 = D0 / 2.0;
+    const k_shape = shape === 1 ? 1.0 : 0.5;
+    const T_fabric = sigma_fabric * d_fabric;
+    const P_burst = P_amb + T_fabric / (k_shape * R0);
+    const S_surface = shape === 1 ? PI * D0 * L0 + 0.5 * PI * D0 ** 2 : PI * D0 ** 2;
+    const m_bag = rho_fabric * S_surface * d_fabric;
+
+    const theta = Math.atan2(ux0, u0);
+    const sin_theta = Math.sin(theta), cos_theta = Math.cos(theta);
+
+    let t = 0.0, h = 0.0, y_pen = 0.0, x = 0.0, u_x = ux0, u_y = u0, dt = 1e-5;
+    let burst = false, rebounded = false, bottomed = false, truncated = false;
+    let u_rebound = 0.0, u_residual = 0.0, u_residual_n = 0.0, u_residual_x = 0.0, fail_t = null;
+
+    const geom0 = geometryFromH(h, D0, L0, shape);
+    let A_prev = geom0.A_t, V_prev = geom0.V_t;
+    let m_gas = P0 * V_prev / (R_gas * T0);
+    const m_gas0 = m_gas, m_total = m_bag + m_gas0;
+    let T_gas = T0, P_bag = P0, rho_prev = m_gas / V_prev;
+
+    const H = {};
+    for (const k of HIST_KEYS) H[k] = [];
+    const push = (tt, xx, uxx, axx, Fxx, yp, uyy, ayy, Fyy, hh, unn, ld, Fnn, mm, VV, PP, TT, ar) => {
+      H.t.push(tt); H.x.push(xx); H.ux.push(uxx); H.ax.push(axx); H.Fx.push(Fxx);
+      H.y_pen.push(yp); H.uy.push(uyy); H.ay.push(ayy); H.Fy.push(Fyy);
+      H.h.push(hh); H.un.push(unn); H.load.push(ld); H.Fn.push(Fnn);
+      H.m.push(mm); H.V.push(VV); H.P.push(PP); H.T.push(TT); H.ares.push(ar);
+    };
+    push(t, x, u_x, NaN, NaN, y_pen, u_y, NaN, NaN, h, u_x * sin_theta + u_y * cos_theta, NaN, NaN,
+         m_gas, V_prev, P_bag, T_gas, NaN);
+
+    const DT_FINE = 1e-5, DT_COARSE = 2e-4;
+    const A_TRIGGER_fine = 0.03 * a_allow, A_TRIGGER_coarse = 0.01 * a_allow;
+    let steps = 0;
+
+    while (t < t_max) {
+      if (++steps > MAX_STEPS) { truncated = true; break; }
+      const lastLoad = H.load[H.load.length - 1];
+      const load_prev = Number.isNaN(lastLoad) ? 0.0 : lastLoad;
+      if (load_prev > A_TRIGGER_fine) dt = DT_FINE;
+      else if (load_prev < A_TRIGGER_coarse) dt = DT_COARSE;
+
+      // 1) dynamics
+      const F_n = pyMax((P_bag - P_amb) * A_prev, 0.0);
+      const F_x = -F_n * sin_theta;
+      const F_y = -F_n * cos_theta;
+      const a_y = F_y / M_payload + g;
+      const a_x = F_x / M_payload;
+      const a_res = Math.sqrt(a_x ** 2 + a_y ** 2);
+      const load_n = F_n / M_payload;
+
+      const u_x_new = u_x + a_x * dt;
+      const u_y_new = u_y + a_y * dt;
+      const u_n_new = u_x_new * sin_theta + u_y_new * cos_theta;
+
+      const h_new = pyMin(pyMax(h + u_n_new * dt, 0.0), D0);
+      const y_pen_new = y_pen + u_y_new * dt;
+      const x_new = x + u_x_new * dt;
+
+      // 2) geometry
+      const geom = geometryFromH(h_new, D0, L0, shape);
+      const A_new = pyMax(geom.A_t, 0.0);
+      const V_new = geom.V_t;
+      const A_vent = A_or + phi_vent * pyMax(S_surface - A_new, 0.0);
+
+      // 3) gas state and venting
+      const th = thermoStep(m_gas, V_new, gamma, P_amb, dt, A_vent, P_bag, rho_prev, T_gas, R_gas, max_inner_iters);
+      const P_new = pyMax(th[1], P_amb);
+
+      // 4) history
+      const t_next = t + dt;
+      push(t_next, x_new, u_x_new, a_x, F_x, y_pen_new, u_y_new, a_y, M_payload * a_y, h_new, u_n_new,
+           load_n, F_n, th[3], V_new, P_new, th[2], a_res);
+
+      // 5) termination
+      if (P_new > P_burst) { burst = true; fail_t = t_next; break; }
+      if (h_new >= D0) {
+        bottomed = true; u_residual = u_y_new; u_residual_n = u_n_new; u_residual_x = u_x_new;
+        fail_t = t_next; break;
+      }
+      if (y_pen_new <= 0.0) { rebounded = true; u_rebound = u_y_new; fail_t = t_next; break; }
+
+      // 6) advance
+      t = t_next; h = h_new; y_pen = y_pen_new; u_x = u_x_new; u_y = u_y_new; x = x_new;
+      A_prev = A_new; V_prev = V_new;
+      P_bag = P_new; rho_prev = th[0]; T_gas = th[2]; m_gas = th[3];
+    }
+
+    const nanmax = (arr, abs) => {
+      let best = NaN;
+      for (let i = 0; i < arr.length; i++) {
+        let v = arr[i];
+        if (Number.isNaN(v)) continue;
+        if (abs) v = Math.abs(v);
+        if (Number.isNaN(best) || v > best) best = v;
+      }
+      return best;
+    };
+    const npmax = arr => {                    // np.max: NaN propagates
+      let best = -Infinity;
+      for (let i = 0; i < arr.length; i++) { if (Number.isNaN(arr[i])) return NaN; if (arr[i] > best) best = arr[i]; }
+      return best;
+    };
+
+    const res = {
+      m_total, m_bag, m_gas0, S_surface,
+      A_vent0: A_or + phi_vent * S_surface,
+      a_peak: nanmax(H.ay, true),
+      a_peak_resultant: nanmax(H.ares, true),
+      a_peak_n: nanmax(H.load, false),
+      theta,
+      survived: !(burst || rebounded),
+      burst, rebounded, u_rebound, bottomed,
+      u_residual, u_residual_n, u_residual_x, fail_t,
+      h_max: npmax(H.h),
+      x_final: H.x[H.x.length - 1],
+      P_burst,
+      P_peak: nanmax(H.P, false),
+      truncated,
+    };
+
+    const hist = {};
+    for (const k of HIST_KEYS) hist[k] = Float64Array.from(H[k]);
+    return { hist, res, n: H.t.length };
+  }
+
+  // ---- differential_evolution_wrapper.evaluate_design
+  function evaluateDesign(r, D0, u0, ux0, A_LIM, U_RES_MAX) {
+    const u_n0 = Math.hypot(u0, ux0);
+    const v = {
+      acc: pyMax(0.0, r.a_peak_n - A_LIM) / A_LIM,
+      burst: pyMax(0.0, r.P_peak - r.P_burst) / r.P_burst,
+      reb: r.rebounded ? Math.abs(r.u_rebound) / u0 : 0.0,
+      nobot: !(r.bottomed || r.burst || r.rebounded) ? (D0 - r.h_max) / D0 : 0.0,
+      ures: r.bottomed ? pyMax(0.0, r.u_residual_n - U_RES_MAX) / u_n0 : 0.0,
+    };
+    const feasible = r.bottomed && !r.burst && !r.rebounded && r.a_peak_n <= A_LIM && r.u_residual_n <= U_RES_MAX;
+    return { v, feasible };
+  }
+
+  return { simulate, evaluateDesign, geometryFromH, HIST_KEYS };
+}
+
+// Worker entry: receives {id, p}, answers with transferable history buffers.
+function airbagWorkerMain(scope, factory) {
+  const S = factory();
+  scope.onmessage = e => {
+    const { id, p } = e.data;
+    try {
+      const t0 = Date.now();
+      const out = S.simulate(p);
+      out.ms = Date.now() - t0;
+      scope.postMessage({ id, out }, Object.values(out.hist).map(a => a.buffer));
+    } catch (err) {
+      scope.postMessage({ id, error: String(err && err.message || err) });
+    }
+  };
+}
+/*SOLVER-END*/
+</script>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const SOLVER = airbagSolver();
+
+// ------------------------------------------------------------------ inputs
+// Values of TEST_airbag_simulation_function.py; requirements of differential_evolution_wrapper.py
+const DEFAULTS = {
+  M_payload: 0.5, u0: 17.2, ux0: 5,
+  shape: 1, D0: 1.1379, L0: 0.6077, d_or: 0, phi_vent: 0.0574,
+  d_fabric: 0.0007213, sigma_fabric: 250e6, rho_fabric: 1100.0,
+  P0: 126691.8, T0: 288.0, R_gas: 2077.0, gamma: 1.66,
+  g: 9.81, P_amb: 101325,
+  A_ALLOW: 500.0, SF: 1.2, U_RES_MAX: 2.0,
+  t_max: 1, max_inner_iters: 50,
+};
+const GASES = { He: [2077.0, 1.66], N2: [296.8, 1.40], Ar: [208.1, 1.67] };
+const MATERIALS = { matA: [400e6, 1400.0], matB: [250e6, 1100.0] };
+
+const mm = v => (v * 1e3).toPrecision(4).replace(/\.?0+$/, "") + " mm";
+const GROUPS = [
+  { title: "Payload", derived: "impact", fields: [
+    { k: "M_payload", desc: "payload mass", unit: "kg", min: 0.05, max: 20, log: true, pos: true },
+    { k: "u0", desc: "vertical impact velocity", unit: "m/s", min: 0, max: 40 },
+    { k: "ux0", desc: "horizontal impact velocity", unit: "m/s", min: 0, max: 20 },
+  ]},
+  { title: "Geometry", shapeToggle: true, fields: [
+    { k: "D0", desc: "diameter", unit: "m", min: 0.1, max: 3, pos: true },
+    { k: "L0", desc: "axial length, cylinder only", unit: "m", min: 0.05, max: 5, pos: true },
+    { k: "d_or", desc: "orifice diameter", unit: "m", min: 0, max: 0.3, nonneg: true, hint: mm },
+    { k: "phi_vent", desc: "breathing-fabric open area", unit: "–", min: 0, max: 0.2, nonneg: true,
+      hint: v => (v * 100).toPrecision(3) + " %" },
+  ]},
+  { title: "Fabric", preset: "material", fields: [
+    { k: "d_fabric", desc: "thickness", unit: "m", min: 1e-5, max: 3e-3, log: true, pos: true, hint: mm },
+    { k: "sigma_fabric", desc: "membrane strength", unit: "Pa", min: 1e7, max: 2e9, log: true, pos: true,
+      hint: v => (v / 1e6).toPrecision(4).replace(/\.?0+$/, "") + " MPa" },
+    { k: "rho_fabric", desc: "density", unit: "kg/m³", min: 300, max: 3000, nonneg: true },
+  ]},
+  { title: "Gas", preset: "gas", fields: [
+    { k: "P0", desc: "inflation pressure", unit: "Pa", min: 80000, max: 300000, pos: true,
+      hint: v => (v / 1e5).toFixed(4) + " bar" },
+    { k: "T0", desc: "initial temperature", unit: "K", min: 150, max: 400, pos: true },
+    { k: "R_gas", desc: "specific gas constant", unit: "J/(kg·K)", min: 100, max: 4200, pos: true },
+    { k: "gamma", desc: "heat-capacity ratio", unit: "–", min: 1.05, max: 1.8, gt1: true },
+  ]},
+  { title: "Environment", fields: [
+    { k: "g", desc: "gravity", unit: "m/s²", min: 0, max: 25 },
+    { k: "P_amb", desc: "ambient pressure", unit: "Pa", min: 100, max: 120000, log: true, pos: true,
+      hint: v => (v / 1e3).toPrecision(4) + " kPa" },
+  ]},
+  { title: "Requirements", derived: "alim", fields: [
+    { k: "A_ALLOW", desc: "allowable accel. along n", unit: "m/s²", min: 50, max: 3000, pos: true },
+    { k: "SF", desc: "safety factor", unit: "–", min: 1, max: 3, pos: true },
+    { k: "U_RES_MAX", desc: "max residual speed along n", unit: "m/s", min: 0, max: 10 },
+  ]},
+  { title: "Solver", closed: true, fields: [
+    { k: "t_max", desc: "simulated time limit", unit: "s", min: 0.05, max: 3, pos: true, maxv: 20 },
+    { k: "max_inner_iters", desc: "venting sub-iterations", unit: "–", min: 1, max: 100, int: true, pos: true },
+  ]},
+];
+const FIELDS = {};
+GROUPS.forEach(gr => gr.fields.forEach(f => { FIELDS[f.k] = f; }));
+
+const STORE_KEY = "airbag-impact-bench-inputs-v1";
+const state = { ...DEFAULTS };
+try {
+  const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
+  if (saved && typeof saved === "object") {
+    for (const k of Object.keys(DEFAULTS)) if (Number.isFinite(saved[k])) state[k] = saved[k];
+  }
+} catch (e) { /* storage unavailable: start from the TEST values */ }
+const saveState = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} };
+
+// number <-> text, in a form Python accepts too
+function fmtIn(v) {
+  if (!Number.isFinite(v)) return String(v);
+  const a = Math.abs(v);
+  if (a !== 0 && (a >= 1e6 || a < 1e-3)) {
+    return v.toExponential(6).replace(/\.?0+e/, "e").replace("e+", "e");
+  }
+  return String(+v.toPrecision(7));
+}
+const parseNum = s => {
+  const t = String(s).trim().replace(/_/g, "");
+  return t === "" ? NaN : Number(t);
+};
+
+function fieldError(f, v) {
+  if (!Number.isFinite(v)) return "not a number";
+  if (f.pos && !(v > 0)) return "must be > 0";
+  if (f.nonneg && v < 0) return "must be ≥ 0";
+  if (f.gt1 && !(v > 1)) return "must be > 1";
+  if (f.maxv && v > f.maxv) return "must be ≤ " + f.maxv;
+  return null;
+}
+
+const sliderToValue = (f, s) => {
+  const r = s / 1000;
+  let v = f.log ? Math.exp(Math.log(f.min) + r * (Math.log(f.max) - Math.log(f.min))) : f.min + r * (f.max - f.min);
+  return f.int ? Math.round(v) : +v.toPrecision(4);
+};
+const valueToSlider = (f, v) => {
+  let r = f.log ? (Math.log(Math.max(v, 1e-300)) - Math.log(f.min)) / (Math.log(f.max) - Math.log(f.min))
+                : (v - f.min) / (f.max - f.min);
+  return Math.round(1000 * Math.min(Math.max(Number.isFinite(r) ? r : 0, 0), 1));
+};
+
+function setSliderFill(rg) { rg.style.setProperty("--pct", (rg.value / 10) + "%"); }
+
+function buildInputs() {
+  const host = $("groups");
+  for (const gr of GROUPS) {
+    const det = document.createElement("details");
+    det.className = "group";
+    det.open = !gr.closed;
+    det.innerHTML = `<summary>${gr.title}</summary><div class="fields"></div>`;
+    const box = det.querySelector(".fields");
+
+    if (gr.shapeToggle) {
+      box.insertAdjacentHTML("beforeend", `<div class="preset-row"><span class="plab">shape</span>
+        <div class="seg" role="group" aria-label="Bag shape">
+          <button type="button" id="shape-1" data-shape="1">cylinder</button>
+          <button type="button" id="shape-2" data-shape="2">sphere</button></div></div>`);
+    }
+    if (gr.preset) {
+      const opts = gr.preset === "gas" ? Object.keys(GASES) : Object.keys(MATERIALS);
+      const label = gr.preset === "gas" ? "gas preset" : "material preset";
+      box.insertAdjacentHTML("beforeend", `<div class="preset-row"><label class="plab" for="preset-${gr.preset}">${label}</label>
+        <select class="sel" id="preset-${gr.preset}">${opts.map(o => `<option value="${o}">${o}</option>`).join("")}
+        <option value="custom">custom</option></select></div>`);
+    }
+    for (const f of gr.fields) {
+      const row = document.createElement("div");
+      row.className = "field";
+      row.id = "field-" + f.k;
+      row.innerHTML = `<label class="lab" for="in-${f.k}"><span class="sym">${f.k}</span><span class="desc">${f.desc}</span><span class="unit">${f.unit}</span></label>
+        <input type="range" id="rg-${f.k}" min="0" max="1000" step="1" aria-label="${f.k} slider">
+        <input type="text" class="num" id="in-${f.k}" inputmode="decimal" spellcheck="false" autocomplete="off">
+        <span></span><span class="hint" id="hint-${f.k}"></span>`;
+      box.appendChild(row);
+      const rg = row.querySelector("input[type=range]"), tx = row.querySelector(".num");
+      rg.addEventListener("input", () => {
+        const v = sliderToValue(f, +rg.value);
+        state[f.k] = v; tx.value = fmtIn(v); tx.classList.remove("bad"); tx.title = "";
+        setSliderFill(rg); onInputsChanged(f.k);
+      });
+      tx.addEventListener("input", () => {
+        const v = parseNum(tx.value), err = fieldError(f, v);
+        tx.classList.toggle("bad", !!err); tx.title = err || "";
+        if (err) { invalid.add(f.k); updateComputeLabel(); return; }
+        invalid.delete(f.k);
+        state[f.k] = f.int ? Math.round(v) : v;
+        rg.value = valueToSlider(f, v); setSliderFill(rg); onInputsChanged(f.k);
+      });
+      tx.addEventListener("change", () => { if (!invalid.has(f.k)) tx.value = fmtIn(state[f.k]); });
+      tx.addEventListener("keydown", e => {
+        if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return;
+        e.preventDefault();
+        rg.value = Math.min(1000, Math.max(0, +rg.value + (e.key === "ArrowUp" ? 1 : -1) * (e.shiftKey ? 50 : 5)));
+        rg.dispatchEvent(new Event("input"));
+      });
+    }
+    if (gr.derived) box.insertAdjacentHTML("beforeend", `<div class="derived" id="derived-${gr.derived}"></div>`);
+    host.appendChild(det);
+  }
+
+  document.querySelectorAll(".seg button[data-shape]").forEach(b => b.addEventListener("click", () => {
+    state.shape = +b.dataset.shape; onInputsChanged("shape");
+  }));
+  $("preset-gas").addEventListener("change", e => {
+    const g = GASES[e.target.value]; if (!g) return;
+    state.R_gas = g[0]; state.gamma = g[1]; syncFields(["R_gas", "gamma"]); onInputsChanged("R_gas");
+  });
+  $("preset-material").addEventListener("change", e => {
+    const m = MATERIALS[e.target.value]; if (!m) return;
+    state.sigma_fabric = m[0]; state.rho_fabric = m[1]; syncFields(["sigma_fabric", "rho_fabric"]); onInputsChanged("sigma_fabric");
+  });
+  $("btn-reset").addEventListener("click", () => {
+    Object.assign(state, DEFAULTS); invalid.clear(); syncFields(Object.keys(FIELDS)); onInputsChanged("reset");
+    toast("Reset to the TEST script values");
+  });
+  $("btn-copy").addEventListener("click", copyPython);
+}
+
+const invalid = new Set();
+
+function syncFields(keys) {
+  for (const k of keys) {
+    const f = FIELDS[k]; if (!f) continue;
+    const rg = $("rg-" + k), tx = $("in-" + k);
+    rg.value = valueToSlider(f, state[k]); setSliderFill(rg);
+    tx.value = fmtIn(state[k]); tx.classList.remove("bad"); tx.title = "";
+  }
+}
+
+function syncDecor() {
+  for (const k of Object.keys(FIELDS)) {
+    const f = FIELDS[k], hint = $("hint-" + k);
+    hint.textContent = f.hint && Number.isFinite(state[k]) ? f.hint(state[k]) : "";
+  }
+  $("shape-1").setAttribute("aria-pressed", state.shape === 1);
+  $("shape-2").setAttribute("aria-pressed", state.shape === 2);
+  $("field-L0").classList.toggle("disabled", state.shape !== 1);
+  const gas = Object.entries(GASES).find(([, v]) => v[0] === state.R_gas && v[1] === state.gamma);
+  $("preset-gas").value = gas ? gas[0] : "custom";
+  const mat = Object.entries(MATERIALS).find(([, v]) => v[0] === state.sigma_fabric && v[1] === state.rho_fabric);
+  $("preset-material").value = mat ? mat[0] : "custom";
+  const theta = Math.atan2(state.ux0, state.u0) * 180 / Math.PI;
+  $("derived-impact").innerHTML = `<span>θ = ${theta.toFixed(1)}°</span><span>u_n0 = ${Math.hypot(state.u0, state.ux0).toFixed(2)} m/s</span>`;
+  $("derived-alim").innerHTML = `<span>A_LIM = A_ALLOW / SF</span><span>${(state.A_ALLOW / state.SF).toFixed(1)} m/s²</span>`;
+}
+
+function onInputsChanged() {
+  syncDecor();
+  saveState();
+  requestCompute();
+}
+
+function copyPython() {
+  const s = state, n = fmtIn;
+  const txt = [
+    "# Environment", `g = ${n(s.g)}`, `P_amb = ${n(s.P_amb)}`, "",
+    "# Payload", `M_payload = ${n(s.M_payload)}`, `u0 = ${n(s.u0)}                 # [m/s] vertical impact velocity`,
+    `ux0 = ${n(s.ux0)}                 # [m/s] horizontal impact velocity`, "scenario = (M_payload, u0, ux0)", "",
+    "# Geometry", `shape = ${s.shape}                 # 1 = cylinder, 2 = sphere`, `D0 = ${n(s.D0)}               # [m] diameter`,
+    `L0 = ${n(s.L0)}               # [m] axial length (cylinder only)`, `d_or = ${n(s.d_or)}                  # [m] orifice diameter`,
+    `phi_vent = ${n(s.phi_vent)}         # [-] breathing-fabric open-area fraction`, "",
+    "# Fabric", `d_fabric = ${n(s.d_fabric)}      # [m] thickness`, `sigma_fabric = ${n(s.sigma_fabric)}      # [Pa] membrane strength`,
+    `rho_fabric = ${n(s.rho_fabric)}       # [kg/m^3]`, "",
+    "# Gas", `P0 = ${n(s.P0)}             # [Pa] inflation pressure`, `T0 = ${n(s.T0)}                # [K]`,
+    `R_gas = ${n(s.R_gas)}            # [J/(kg K)]`, `gamma = ${n(s.gamma)}`, "",
+    "# Time and other settings", `t_max = ${n(s.t_max)}`, "",
+    `# differential_evolution_wrapper.py: A_ALLOW = ${n(s.A_ALLOW)}, SF = ${n(s.SF)}, U_RES_MAX = ${n(s.U_RES_MAX)}`,
+    `# simulate_airbag(..., max_inner_iters=${s.max_inner_iters})`,
+  ].join("\n");
+  const done = () => toast("Python inputs copied to the clipboard");
+  const fallback = () => {
+    const ta = document.createElement("textarea");
+    ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { toast("Copy failed — clipboard is blocked here"); }
+    ta.remove();
+  };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(done, fallback);
+  else fallback();
+}
+
+let toastTimer = 0;
+function toast(msg) {
+  const el = $("toast");
+  el.textContent = msg; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { el.hidden = true; }, 2200);
+}
+
+// ------------------------------------------------------------------ compute scheduling
+// The solver runs in a Web Worker so dragging stays smooth; only the latest request is kept.
+let worker = null, busy = false, pending = false, reqId = 0, inflight = null, lastError = null;
+
+function initWorker() {
+  try {
+    const code = "(" + airbagWorkerMain.toString() + ")(self, " + airbagSolver.toString() + ");";
+    const url = URL.createObjectURL(new Blob([code], { type: "text/javascript" }));
+    worker = new Worker(url);
+    worker.onmessage = e => onResult(e.data);
+    worker.onerror = ev => {
+      if (ev && ev.preventDefault) ev.preventDefault();
+      try { worker.terminate(); } catch (e) {}
+      worker = null;
+      if (busy) { busy = false; pending = true; startCompute(); }
+    };
+  } catch (e) {
+    worker = null;   // blocked (e.g. by a content policy): fall back to the main thread
+  }
+}
+
+function simParams() {
+  return { ...state, a_allow: state.A_ALLOW / state.SF };
+}
+
+function requestCompute() {
+  if (invalid.size) { updateComputeLabel(); return; }
+  pending = true;
+  if (!busy) startCompute();
+  updateComputeLabel();
+}
+
+function startCompute() {
+  pending = false; busy = true;
+  const id = ++reqId;
+  inflight = { id, p: simParams() };
+  if (worker) {
+    worker.postMessage({ id, p: inflight.p });
+  } else {
+    setTimeout(() => {
+      let data;
+      try {
+        const t0 = performance.now();
+        const out = SOLVER.simulate(inflight.p);
+        out.ms = performance.now() - t0;
+        data = { id, out };
+      } catch (err) { data = { id, error: String(err && err.message || err) }; }
+      onResult(data);
+    }, 0);
+  }
+  updateComputeLabel();
+}
+
+function onResult(data) {
+  if (!inflight || data.id !== inflight.id) return;
+  const p = inflight.p;
+  busy = false; inflight = null;
+  if (data.error) { lastError = data.error; }
+  else { lastError = null; applyResult(data.out, p); }
+  if (pending && !invalid.size) startCompute();
+  updateComputeLabel();
+}
+
+function updateComputeLabel() {
+  const el = $("compute");
+  el.classList.toggle("busy", busy);
+  if (invalid.size) {
+    el.textContent = "Fix the highlighted input" + (invalid.size > 1 ? "s" : "") + " (" + [...invalid].join(", ") + ") — showing the last valid run";
+  } else if (lastError) {
+    el.textContent = "Solver error: " + lastError;
+  } else if (run) {
+    el.textContent = `${run.n.toLocaleString("en-US")} solver steps · ${Math.max(1, Math.round(run.ms))} ms` +
+      (worker ? "" : " · main thread") + (run.res.truncated ? " · stopped at the step cap" : "");
+  } else {
+    el.textContent = "";
+  }
+}
+// ------------------------------------------------------------------ results
+let run = null;                       // latest completed run
+const view = { t: 0, i: 0 };          // playback cursor: time and sample index
+const G_PRINT = 9.81;                 // the TEST script prints g-multiples with 9.81
+
+function sig(v, n = 4) {
+  if (v === null || v === undefined) return "—";
+  if (!Number.isFinite(v)) return Number.isNaN(v) ? "nan" : (v > 0 ? "inf" : "-inf");
+  const a = Math.abs(v);
+  if (a !== 0 && (a >= 1e5 || a < 1e-3)) return v.toExponential(n - 1).replace("e+", "e");
+  return v.toPrecision(n);
+}
+
+function applyResult(out, p) {
+  const r = out.res, H = out.hist, n = out.n;
+  const A_LIM = p.A_ALLOW / p.SF;
+  const ev = SOLVER.evaluateDesign(r, p.D0, p.u0, p.ux0, A_LIM, p.U_RES_MAX);
+
+  // failure reason, as in airbag_postprocessing.run_postprocessing
+  const isFailure = r.burst || r.rebounded || !ev.feasible;
+  let reason = null;
+  if (isFailure) {
+    if (r.burst) reason = "BURST";
+    else if (r.rebounded) reason = "REBOUND";
+    else if (!r.bottomed) reason = "TIMEOUT (never bottomed)";
+    else {
+      const over = [];
+      if (!(r.a_peak_n <= A_LIM)) over.push("a_peak_n");
+      if (!(r.u_residual_n <= p.U_RES_MAX)) over.push("u_residual_n");
+      reason = "INFEASIBLE (" + (over.join(" and ") || "a_peak_n or u_residual_n") + " over limit)";
+    }
+  }
+  let iPeak = 0;
+  for (let i = 1; i < n; i++) if (H.load[i] > H.load[iPeak] || Number.isNaN(H.load[iPeak])) iPeak = i;
+
+  const tEnd = H.t[n - 1];
+  const keepEnd = run && view.t >= run.tEnd;
+  run = { hist: H, res: r, n, p, ev, A_LIM, tEnd, isFailure, reason, iPeak, ms: out.ms,
+          failT: r.fail_t === null ? tEnd : r.fail_t, u_n0: Math.hypot(p.u0, p.ux0) };
+  run.specs = plotSpecs(run);
+
+  const scrub = $("scrub");
+  scrub.max = tEnd;
+  $("t-end").textContent = "/ " + tEnd.toFixed(4) + " s";
+  renderSummary();
+  renderResults();
+  renderAllPlots();
+  layoutBag();
+  setTime(keepEnd ? tEnd : Math.min(view.t, tEnd), true);
+  if (!startedOnce) { startedOnce = true; firstRunStart(); }
+}
+
+function renderSummary() {
+  const r = run.res, p = run.p, ok = run.ev.feasible;
+  const icon = ok
+    ? '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M6.3 11.6 2.7 8l1.1-1.1 2.5 2.5 5.9-5.9 1.1 1.1z"/></svg>'
+    : '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="m4.2 3.1 3.8 3.8 3.8-3.8 1.1 1.1L9.1 8l3.8 3.8-1.1 1.1L8 9.1l-3.8 3.8-1.1-1.1L6.9 8 3.1 4.2z"/></svg>';
+  const vd = $("verdict");
+  vd.className = "verdict " + (ok ? "ok" : "fail");
+  vd.innerHTML = icon + (ok ? "FEASIBLE" : "INFEASIBLE");
+  $("verdict-reason").textContent = ok
+    ? "bottomed, no burst or rebound, a_peak_n ≤ A_LIM, u_residual_n ≤ U_RES_MAX"
+    : run.reason + (r.fail_t !== null ? ` at t = ${r.fail_t.toFixed(4)} s` : "");
+
+  const loadOver = !(r.a_peak_n <= run.A_LIM), uOver = r.bottomed && !(r.u_residual_n <= p.U_RES_MAX);
+  const kpi = (k, v, over) => `<div class="kpi"><span class="k">${k}</span><span class="v${over ? " over" : ""}">${v}</span></div>`;
+  $("kpis").innerHTML =
+    kpi("Total mass", `${r.m_total.toFixed(4)} <small>kg</small>`) +
+    kpi("Peak load along n", `${(r.a_peak_n / G_PRINT).toFixed(2)} <small>g / ${(run.A_LIM / G_PRINT).toFixed(2)} g</small>`, loadOver) +
+    kpi("Residual speed along n", r.bottomed ? `${r.u_residual_n.toFixed(3)} <small>m/s / ${sig(p.U_RES_MAX, 3)}</small>` : `— <small>not bottomed</small>`, uOver) +
+    kpi("Peak / burst pressure", `${(r.P_peak / 1e3).toFixed(1)} <small>/ ${(r.P_burst / 1e3).toFixed(1)} kPa</small>`, r.burst);
+}
+
+function renderResults() {
+  const r = run.res, p = run.p, v = run.ev.v;
+  const row = (k, val, over) => `<span class="rk">${k}</span><span class="rv${over ? " over" : ""}">${val}</span>`;
+  const meter = (val, lim) => {
+    const scale = lim * 1.5, over = !(val <= lim);
+    const w = Number.isFinite(val) ? Math.min(Math.max(val / scale, 0), 1) * 100 : 0;
+    return `<div class="meter${over ? " over" : ""}" aria-hidden="true"><i style="width:${w}%"></i><b style="left:${100 / 1.5}%"></b></div>`;
+  };
+  const d_eq = Math.sqrt(4 * r.A_vent0 / Math.PI);
+  const chip = (label, on, tone) => `<span class="chip${on ? " on " + tone : ""}">${label}${on ? "" : " — no"}</span>`;
+
+  $("results").innerHTML = `
+    <div class="card-head"><h2>Results</h2><span class="sub">same quantities as the TEST script printout</span></div>
+    <div class="rgroup"><h3>Constraints</h3><div class="rows">
+      ${row("Peak load <code>a_peak_n</code> (F_n/M)", `${sig(r.a_peak_n, 5)} m/s² · ${(r.a_peak_n / G_PRINT).toFixed(2)} g`, !(r.a_peak_n <= run.A_LIM))}
+      ${meter(r.a_peak_n, run.A_LIM)}
+      ${row("Residual speed <code>u_residual_n</code>", r.bottomed ? `${r.u_residual_n.toFixed(4)} m/s` : "— (not bottomed)", r.bottomed && !(r.u_residual_n <= p.U_RES_MAX))}
+      ${r.bottomed ? meter(r.u_residual_n, p.U_RES_MAX) : ""}
+      ${row("Peak pressure <code>P_peak</code> / <code>P_burst</code>", `${sig(r.P_peak, 5)} / ${sig(r.P_burst, 5)} Pa`, r.burst)}
+      ${meter(r.P_peak - p.P_amb, r.P_burst - p.P_amb)}
+    </div></div>
+    <div class="rgroup"><h3>Outcome</h3>
+      <div class="chips">${chip("Bottomed", r.bottomed, "good")}${chip("Rebounded", r.rebounded, "bad")}${chip("Burst", r.burst, "bad")}${chip("Survived", r.survived, "good")}</div>
+    </div>
+    <div class="rgroup"><h3>Mass</h3><div class="rows">
+      ${row("Fabric mass <code>m_bag</code>", `${r.m_bag.toFixed(5)} kg`)}
+      ${row("Gas mass <code>m_gas0</code>", `${r.m_gas0.toFixed(5)} kg`)}
+      ${row("Total mass <code>m_total</code>", `${r.m_total.toFixed(5)} kg`)}
+      ${row("Fabric area <code>S_surface</code>", `${r.S_surface.toFixed(3)} m²`)}
+      ${row("Vent area at impact <code>A_vent0</code>", `${(r.A_vent0 * 1e4).toFixed(1)} cm² · Ø ${(d_eq * 1e3).toFixed(0)} mm hole`)}
+    </div></div>
+    <div class="rgroup"><h3>Kinematics</h3><div class="rows">
+      ${row("Impact angle θ · speed along n", `${(r.theta * 180 / Math.PI).toFixed(2)}° · ${run.u_n0.toFixed(3)} m/s`)}
+      ${row("Peak vertical accel. <code>a_peak</code>", `${sig(r.a_peak, 5)} m/s² · ${(r.a_peak / G_PRINT).toFixed(2)} g`)}
+      ${row("Peak resultant accel.", `${sig(r.a_peak_resultant, 5)} m/s²`)}
+      ${row("Residual vertical <code>u_residual</code>", `${r.u_residual.toFixed(4)} m/s`)}
+      ${row("Residual horizontal <code>u_residual_x</code>", `${r.u_residual_x.toFixed(4)} m/s`)}
+      ${r.rebounded ? row("Rebound speed <code>u_rebound</code>", `${r.u_rebound.toFixed(4)} m/s`) : ""}
+      ${row("Max crush <code>h_max</code> / D0", `${r.h_max.toFixed(4)} / ${p.D0.toFixed(4)} m`)}
+      ${row("Horizontal travel <code>x_final</code>", `${r.x_final.toFixed(4)} m`)}
+      ${row("End of run <code>fail_t</code>", r.fail_t === null ? `— (reached t_max)` : `${r.fail_t.toFixed(5)} s`)}
+    </div></div>
+    <div class="rgroup"><h3>Optimizer violations (0 = satisfied)</h3><div class="rows">
+      ${Object.entries(v).map(([k, val]) => row(`<code>${k}</code>`, sig(val, 3), val > 0)).join("")}
+    </div></div>`;
+}
+
+// ------------------------------------------------------------------ 4x4 matrix
+const ROW_VAR = { x: "--c-x", y: "--c-y", n: "--c-n", gas: "--c-gas" };
+
+function accRef(arr, A, name) {
+  let bi = -1, bv = -1;
+  for (let i = 0; i < arr.length; i++) { const a = Math.abs(arr[i]); if (a > bv) { bv = a; bi = i; } }
+  const neg = bi >= 0 && arr[bi] <= 0;
+  return { v: neg ? -A : A, label: `${neg ? "−" : ""}A_LIM = ${(neg ? -A : A).toFixed(1)}`, kind: "limit" };
+}
+
+function plotSpecs(R) {
+  const H = R.hist, D0 = R.p.D0, A = R.A_LIM;
+  return [
+    { key: "x", sym: "x", unit: "m", title: "Horizontal Displacement", row: "x" },
+    { key: "ux", sym: "u_x", unit: "m/s", title: "Horizontal Velocity", row: "x" },
+    { key: "ax", sym: "a_x", unit: "m/s²", title: "Horizontal Acceleration", row: "x", refs: [accRef(H.ax, A)] },
+    { key: "Fx", sym: "F_x", unit: "N", title: "Horizontal Force", row: "x" },
+    { key: "y_pen", sym: "y_pen", unit: "m", title: "Vertical Penetration", row: "y" },
+    { key: "uy", sym: "u_y", unit: "m/s", title: "Vertical Velocity", row: "y" },
+    { key: "ay", sym: "a_y", unit: "m/s²", title: "Vertical Acceleration", row: "y", refs: [accRef(H.ay, A)] },
+    { key: "Fy", sym: "F_y", unit: "N", title: "Net Vertical Force (incl. g)", row: "y" },
+    { key: "h", sym: "h", unit: "m", title: "Displacement Along n", row: "n", refs: [{ v: D0, label: `D0 = ${D0.toFixed(3)} m`, kind: "ref" }] },
+    { key: "un", sym: "u_n", unit: "m/s", title: "Velocity Along n", row: "n" },
+    { key: "load", sym: "F_n/M", unit: "m/s²", title: "Bag Load Along n (F_n/M)", row: "n", refs: [{ v: A, label: `A_LIM = ${A.toFixed(1)}`, kind: "limit" }], peak: true },
+    { key: "Fn", sym: "F_n", unit: "N", title: "Pressure Force Along n", row: "n" },
+    { key: "m", sym: "m", unit: "kg", title: "Gas Mass", row: "gas" },
+    { key: "V", sym: "V", unit: "m³", title: "Airbag Volume", row: "gas" },
+    { key: "P", sym: "P_bag", unit: "Pa", title: "Internal Pressure", row: "gas" },
+    { key: "T", sym: "T", unit: "K", title: "Gas Temperature", row: "gas" },
+  ];
+}
+
+let C = {};   // resolved theme colours for canvas drawing
+function readColors() {
+  const cs = getComputedStyle(document.documentElement), g = n => cs.getPropertyValue(n).trim();
+  C = { ink: g("--ink"), ink2: g("--ink-2"), muted: g("--muted"), grid: g("--grid"), axis: g("--axis"), surface: g("--surface"),
+        crit: g("--crit"), ground: g("--ground"), pLo: g("--p-lo"), pMid: g("--p-mid"), pHi: g("--p-hi"),
+        x: g("--c-x"), y: g("--c-y"), n: g("--c-n"), gas: g("--c-gas"), mono: g("--mono") };
+}
+
+function fitCanvas(cv, w, h) {
+  const dpr = window.devicePixelRatio || 1;
+  const W = Math.max(1, Math.round(w * dpr)), Hh = Math.max(1, Math.round(h * dpr));
+  if (cv.width !== W || cv.height !== Hh) { cv.width = W; cv.height = Hh; }
+  const ctx = cv.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return ctx;
+}
+
+function niceStep(span, count) {
+  const raw = span / Math.max(count, 1), mag = 10 ** Math.floor(Math.log10(raw)), e = raw / mag;
+  return (e < 1.5 ? 1 : e < 3 ? 2 : e < 7 ? 5 : 10) * mag;
+}
+function ticksIn(lo, hi, count) {
+  const step = niceStep(hi - lo, count), out = [];
+  for (let k = Math.ceil(lo / step - 1e-9); k * step <= hi + step * 1e-9; k++) out.push(+(k * step).toPrecision(12));
+  return { step, ticks: out };
+}
+function tickFormatter(ticks, step) {
+  const maxAbs = Math.max(...ticks.map(Math.abs), 0);
+  if (maxAbs >= 1e5 || (maxAbs > 0 && maxAbs < 1e-3)) {
+    const e = Math.floor(Math.log10(maxAbs)), dec = Math.max(0, Math.min(4, Math.ceil(-Math.log10(step / 10 ** e) - 1e-9)));
+    return v => v === 0 ? "0" : (v / 10 ** e).toFixed(dec) + "e" + e;
+  }
+  const dec = Math.max(0, Math.min(6, Math.ceil(-Math.log10(step) - 1e-9)));
+  return v => v.toFixed(dec).replace(/^-(0\.?0*)$/, "$1").replace("-", "−");
+}
+
+const plots = [];   // { el, base, over, head, val, spec, geom, hoverX }
+
+function buildMatrix() {
+  const host = $("grid4");
+  for (let k = 0; k < 16; k++) {
+    const el = document.createElement("div");
+    el.className = "plot";
+    el.innerHTML = `<div class="plot-head"><span class="pt"></span><span class="pv"></span></div>
+      <div class="plot-body"><canvas class="base"></canvas><canvas class="over"></canvas></div>`;
+    host.appendChild(el);
+    const P = { el, body: el.querySelector(".plot-body"), base: el.querySelector(".base"), over: el.querySelector(".over"),
+                title: el.querySelector(".pt"), val: el.querySelector(".pv"), spec: null, geom: null, hoverX: null };
+    plots.push(P);
+    const tAt = e => {
+      if (!P.geom) return null;
+      const rect = P.body.getBoundingClientRect(), g = P.geom;
+      const x = Math.min(Math.max(e.clientX - rect.left, g.l), g.l + g.w);
+      return g.t0 + (x - g.l) / g.w * (g.t1 - g.t0);
+    };
+    let dragging = false;
+    P.body.addEventListener("pointerdown", e => {
+      if (!run) return;
+      dragging = true; P.body.setPointerCapture(e.pointerId); pause();
+      setTime(tAt(e));
+    });
+    P.body.addEventListener("pointermove", e => {
+      if (!run) return;
+      if (dragging) setTime(tAt(e));
+      else { P.hoverX = e.clientX - P.body.getBoundingClientRect().left; drawOverlay(P); }
+    });
+    const end = () => { dragging = false; };
+    P.body.addEventListener("pointerup", end);
+    P.body.addEventListener("pointercancel", end);
+    P.body.addEventListener("pointerleave", () => { P.hoverX = null; drawOverlay(P); });
+  }
+  new ResizeObserver(() => { if (run) { renderAllPlots(); drawAllOverlays(); } }).observe(host);
+}
+
+function renderAllPlots() {
+  if (!run) return;
+  readColors();
+  plots.forEach((P, k) => {
+    P.spec = run.specs[k];
+    P.el.style.setProperty("--row", `var(${ROW_VAR[P.spec.row]})`);
+    P.title.textContent = P.spec.title;
+    P.title.title = P.spec.title;
+    renderPlotBase(P);
+  });
+}
+
+function renderPlotBase(P) {
+  const R = run, S = P.spec, H = R.hist, T = H.t, Y = H[S.key], n = R.n;
+  const w = P.body.clientWidth, h = P.body.clientHeight;
+  if (!w || !h) return;
+  const ctx = fitCanvas(P.base, w, h);
+  ctx.clearRect(0, 0, w, h);
+  ctx.font = `10px ${C.mono}`;
+
+  // y domain: data + reference lines (as matplotlib autoscale includes axhline), 6 % margin
+  let lo = Infinity, hi = -Infinity;
+  for (let i = 0; i < n; i++) { const v = Y[i]; if (v < lo) lo = v; if (v > hi) hi = v; }
+  for (const rf of S.refs || []) { lo = Math.min(lo, rf.v); hi = Math.max(hi, rf.v); }
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) { lo = 0; hi = 1; }
+  if (hi - lo < 1e-12 * Math.max(1, Math.abs(hi))) { const d = Math.abs(hi) * 0.05 || 1; lo -= d; hi += d; }
+  const padY = (hi - lo) * 0.06; lo -= padY; hi += padY;
+
+  const yt = ticksIn(lo, hi, Math.max(2, Math.floor(h / 36)));
+  const yf = tickFormatter(yt.ticks, yt.step);
+  const labels = yt.ticks.map(yf);
+  const l = Math.ceil(Math.max(...labels.map(s => ctx.measureText(s).width), 10)) + 9;
+  const g = { l, r: 8, t: 6, b: 17 };
+  g.w = w - g.l - g.r; g.h = h - g.t - g.b;
+  g.t0 = 0; g.t1 = R.tEnd > 0 ? R.tEnd : 1; g.lo = lo; g.hi = hi;
+  g.px = t => g.l + (t - g.t0) / (g.t1 - g.t0) * g.w;
+  g.py = v => g.t + (1 - (v - lo) / (hi - lo)) * g.h;
+  P.geom = g;
+
+  // grid + y ticks
+  ctx.lineWidth = 1;
+  ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  yt.ticks.forEach((v, j) => {
+    const Y0 = Math.round(g.py(v)) + 0.5;
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(g.l, Y0); ctx.lineTo(g.l + g.w, Y0); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.fillText(labels[j], g.l - 5, Y0);
+  });
+  // x ticks
+  const xt = ticksIn(g.t0, g.t1, Math.max(2, Math.floor(g.w / 64)));
+  const xf = tickFormatter(xt.ticks, xt.step);
+  ctx.textAlign = "center"; ctx.textBaseline = "top";
+  for (const v of xt.ticks) {
+    const X0 = Math.round(g.px(v)) + 0.5;
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(X0, g.t); ctx.lineTo(X0, g.t + g.h); ctx.stroke();
+    ctx.fillStyle = C.muted; ctx.fillText(xf(v), Math.min(Math.max(X0, g.l + 10), w - 12), g.t + g.h + 4);
+  }
+  // baseline at zero when in range
+  if (lo < 0 && hi > 0) {
+    const Z = Math.round(g.py(0)) + 0.5;
+    ctx.strokeStyle = C.axis; ctx.beginPath(); ctx.moveTo(g.l, Z); ctx.lineTo(g.l + g.w, Z); ctx.stroke();
+  }
+
+  // reference lines
+  for (const rf of S.refs || []) {
+    const Yr = Math.round(g.py(rf.v)) + 0.5, col = rf.kind === "limit" ? C.crit : C.ink2;
+    ctx.save();
+    ctx.strokeStyle = col; ctx.setLineDash([5, 4]); ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(g.l, Yr); ctx.lineTo(g.l + g.w, Yr); ctx.stroke();
+    ctx.restore();
+  }
+  const drawRefLabels = () => {
+    for (const rf of S.refs || []) {
+      const Yr = Math.round(g.py(rf.v)) + 0.5, col = rf.kind === "limit" ? C.crit : C.ink2;
+      const tw = ctx.measureText(rf.label).width, ty = Yr - g.t > 16 ? Yr - 8 : Yr + 8;
+      ctx.fillStyle = C.surface; ctx.globalAlpha = 0.9;
+      ctx.fillRect(g.l + g.w - tw - 7, ty - 7, tw + 6, 14); ctx.globalAlpha = 1;
+      ctx.fillStyle = col; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+      ctx.fillText(rf.label, g.l + g.w - 4, ty);
+    }
+  };
+
+  // series: min/max per pixel column keeps short spikes visible
+  ctx.save();
+  ctx.beginPath(); ctx.rect(g.l, g.t - 2, g.w, g.h + 4); ctx.clip();
+  ctx.strokeStyle = C[S.row]; ctx.lineWidth = 1.6; ctx.lineJoin = "round";
+  ctx.beginPath();
+  let col = null, first = 0, mn = 0, mx = 0, last = 0, started = false;
+  const flush = () => {
+    if (col === null) return;
+    const X = col + 0.5;
+    if (!started) { ctx.moveTo(X, g.py(first)); started = true; } else ctx.lineTo(X, g.py(first));
+    if (mn !== mx) { ctx.lineTo(X, g.py(mn)); ctx.lineTo(X, g.py(mx)); }
+    ctx.lineTo(X, g.py(last));
+  };
+  for (let i = 0; i < n; i++) {
+    const v = Y[i];
+    if (!Number.isFinite(v)) { flush(); col = null; started = false; continue; }
+    const c = Math.floor(g.px(T[i]));
+    if (c !== col) { flush(); col = c; first = mn = mx = last = v; }
+    else { if (v < mn) mn = v; if (v > mx) mx = v; last = v; }
+  }
+  flush();
+  ctx.stroke();
+  ctx.restore();
+  drawRefLabels();
+
+  // peak annotation (sizing quantity only)
+  if (S.peak && Number.isFinite(Y[R.iPeak])) {
+    const X = g.px(T[R.iPeak]), Yp = g.py(Y[R.iPeak]);
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.arc(X, Yp, 4, 0, 2 * Math.PI); ctx.stroke();
+    const txt = "peak " + sig(Y[R.iPeak], 4);
+    ctx.fillStyle = C.ink; ctx.textBaseline = "middle";
+    const right = X + 8 + ctx.measureText(txt).width < g.l + g.w;
+    ctx.textAlign = right ? "left" : "right";
+    ctx.fillText(txt, right ? X + 8 : X - 8, Math.max(g.t + 6, Math.min(Yp + (Yp - g.t < 20 ? 12 : -10), g.t + g.h - 6)));
+  }
+}
+
+function drawOverlay(P) {
+  if (!run || !P.geom) return;
+  const w = P.body.clientWidth, h = P.body.clientHeight, g = P.geom, S = P.spec, H = run.hist;
+  const ctx = fitCanvas(P.over, w, h);
+  ctx.clearRect(0, 0, w, h);
+  const Y = H[S.key];
+
+  if (P.hoverX !== null && P.hoverX >= g.l && P.hoverX <= g.l + g.w) {
+    const th = g.t0 + (P.hoverX - g.l) / g.w * (g.t1 - g.t0), ih = indexAt(th), vh = Y[ih];
+    const X = Math.round(g.px(H.t[ih])) + 0.5;
+    ctx.strokeStyle = C.muted; ctx.setLineDash([2, 3]); ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(X, g.t); ctx.lineTo(X, g.t + g.h); ctx.stroke(); ctx.setLineDash([]);
+    ctx.font = `10.5px ${C.mono}`;
+    const txt = `t ${H.t[ih].toFixed(4)} s   ${sig(vh, 4)} ${S.unit}`;
+    const tw = ctx.measureText(txt).width + 10, bx = X + tw + 8 < w ? X + 6 : X - tw - 6;
+    ctx.fillStyle = C.ink; ctx.globalAlpha = 0.92;
+    ctx.fillRect(bx, g.t + 2, tw, 17); ctx.globalAlpha = 1;
+    ctx.fillStyle = C.surface; ctx.textAlign = "left"; ctx.textBaseline = "middle";
+    ctx.fillText(txt, bx + 5, g.t + 10.5);
+  }
+
+  const i = view.i, X = g.px(H.t[i]);
+  ctx.strokeStyle = C.ink; ctx.lineWidth = 1; ctx.globalAlpha = 0.7;
+  ctx.beginPath(); ctx.moveTo(Math.round(X) + 0.5, g.t); ctx.lineTo(Math.round(X) + 0.5, g.t + g.h); ctx.stroke();
+  ctx.globalAlpha = 1;
+  const v = Y[i];
+  if (Number.isFinite(v)) {
+    ctx.beginPath(); ctx.arc(X, g.py(v), 4, 0, 2 * Math.PI);
+    ctx.fillStyle = C[S.row]; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = C.surface; ctx.stroke();
+  }
+  P.val.textContent = `${S.sym} = ${sig(v, 4)} ${S.unit}`;
+}
+
+function drawAllOverlays() { plots.forEach(drawOverlay); }
+// ------------------------------------------------------------------ bag animation
+const bag = { cv: $("bag-canvas"), lim: null, lastW: 0 };
+
+function layoutBag() {
+  if (!run) return;
+  const H = run.hist, D0 = run.p.D0;
+  let xmin = Infinity, xmax = -Infinity;
+  for (let i = 0; i < run.n; i++) { const v = H.x[i]; if (v < xmin) xmin = v; if (v > xmax) xmax = v; }
+  // limits of run_postprocessing (widened if the payload travels towards -x)
+  const x_span = Math.max(xmax - xmin, D0), x_pad = 0.35 * D0;
+  bag.lim = {
+    X0: Math.min(-0.5 * Math.PI * D0 / 2 - x_pad, xmin - x_pad),
+    X1: Math.max(x_span + x_pad, xmax + x_pad),
+    Y0: -0.05 * D0, Y1: 1.15 * D0,
+  };
+  $("bag-sub").textContent = `${run.p.shape === 1 ? "cylinder cross-section" : "sphere"} · D0 = ${D0.toFixed(3)} m · axes x, height [m]`;
+  $("p-end").textContent = `${(run.res.P_burst / 1e3).toFixed(1)} kPa`;
+  drawBag();
+}
+
+const hexRgb = hx => { const s = hx.replace("#", ""); return [0, 2, 4].map(o => parseInt(s.slice(o, o + 2), 16)); };
+function pressureColor(ratio) {
+  // green -> yellow -> red over P / P_burst, as _pressure_color
+  const r = Math.min(Math.max(Number.isFinite(ratio) ? ratio : 0, 0), 1);
+  const [a, b, f] = r < 0.5 ? [C.pLo, C.pMid, r / 0.5] : [C.pMid, C.pHi, (r - 0.5) / 0.5];
+  const A = hexRgb(a), B = hexRgb(b);
+  return `rgb(${A.map((c, k) => Math.round(c + (B[k] - c) * f)).join(",")})`;
+}
+
+function drawBag() {
+  if (!run || !bag.lim) return;
+  const cv = bag.cv, w = cv.parentElement.clientWidth;
+  if (!w) return;
+  const { X0, X1, Y0, Y1 } = bag.lim, R = run, H = R.hist, p = R.p, D0 = p.D0;
+  const padL = 36, padR = 8, padT = 6, padB = 20, maxH = 360;
+  let s = (w - padL - padR) / (X1 - X0);
+  let h = (Y1 - Y0) * s + padT + padB;
+  if (h > maxH) { s = (maxH - padT - padB) / (Y1 - Y0); h = maxH; }
+  cv.style.height = h + "px";
+  bag.lastW = w;
+  const ctx = fitCanvas(cv, w, h);
+  ctx.clearRect(0, 0, w, h);
+  const offX = padL + ((w - padL - padR) - (X1 - X0) * s) / 2;
+  const px = x => offX + (x - X0) * s, py = y => padT + (Y1 - y) * s;
+
+  // axes (equal aspect)
+  ctx.font = `10px ${C.mono}`; ctx.lineWidth = 1;
+  const xt = ticksIn(X0, X1, Math.max(2, Math.floor((X1 - X0) * s / 70))), xf = tickFormatter(xt.ticks, xt.step);
+  const yt = ticksIn(Y0, Y1, 4), yf = tickFormatter(yt.ticks, yt.step);
+  ctx.fillStyle = C.muted;
+  ctx.textAlign = "center"; ctx.textBaseline = "top";
+  for (const v of xt.ticks) {
+    const X = Math.round(px(v)) + 0.5;
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(X, py(Y1)); ctx.lineTo(X, py(Y0)); ctx.stroke();
+    ctx.fillText(xf(v), X, py(Y0) + 4);
+  }
+  ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  for (const v of yt.ticks) {
+    const Y = Math.round(py(v)) + 0.5;
+    ctx.strokeStyle = C.grid; ctx.beginPath(); ctx.moveTo(px(X0), Y); ctx.lineTo(px(X1), Y); ctx.stroke();
+    ctx.fillText(yf(v), px(X0) - 5, Y);
+  }
+
+  const i = view.i, hh = H.h[i];
+  const fill = pressureColor(H.P[i] / R.res.P_burst);
+  const payY = j => p.shape === 1 ? Math.max(D0 - H.h[j], 1e-4) : D0;
+
+  if (p.shape === 1) {
+    ctx.fillStyle = C.ground; ctx.globalAlpha = 0.18;
+    ctx.fillRect(px(X0), py(0), (X1 - X0) * s, py(Y0) - py(0)); ctx.globalAlpha = 1;
+    const D_t = Math.max(D0 - hh, 1e-4), L_t = SOLVER.geometryFromH(hh, D0, p.L0, 1).L_t, r = D_t / 2;
+    ctx.beginPath();
+    for (let k = 0; k <= 60; k++) {             // right arc, bottom -> top
+      const a = -Math.PI / 2 + Math.PI * k / 60;
+      const X = px(L_t / 2 + r * Math.cos(a)), Y = py(r + r * Math.sin(a));
+      k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y);
+    }
+    for (let k = 0; k <= 60; k++) {             // left arc, top -> bottom
+      const a = Math.PI / 2 + Math.PI * k / 60;
+      ctx.lineTo(px(-L_t / 2 + r * Math.cos(a)), py(r + r * Math.sin(a)));
+    }
+    ctx.closePath();
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.strokeStyle = C.ground; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(px(X0), py(0)); ctx.lineTo(px(X1), py(0)); ctx.stroke();
+  } else {
+    const R0 = D0 / 2;
+    ctx.beginPath(); ctx.arc(px(0), py(R0), R0 * s, 0, 2 * Math.PI);
+    ctx.fillStyle = fill; ctx.fill();
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5; ctx.stroke();
+    // sphere: fixed circle, the ground rises into it as h grows
+    ctx.fillStyle = C.ground;
+    ctx.fillRect(px(X0), py(hh), (X1 - X0) * s, py(Y0) - py(hh));
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(px(X0), py(hh)); ctx.lineTo(px(X1), py(hh)); ctx.stroke();
+  }
+
+  // payload trail
+  const stride = Math.max(1, Math.floor(i / 400));
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.setLineDash([3, 3]);
+  ctx.beginPath();
+  for (let j = 0; j <= i; j += stride) { const X = px(H.x[j]), Y = py(payY(j) + 0.03 * D0); j ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }
+  ctx.lineTo(px(H.x[i]), py(payY(i) + 0.03 * D0));
+  ctx.stroke(); ctx.setLineDash([]);
+
+  // impact axis n through the payload, and the current velocity vector
+  const cx = H.x[i], cy = payY(i) + 0.03 * D0;
+  const sn = Math.sin(R.res.theta), cn = Math.cos(R.res.theta), L = 0.32 * D0;
+  ctx.strokeStyle = C.n; ctx.lineWidth = 1.3; ctx.setLineDash([6, 4]);
+  ctx.beginPath(); ctx.moveTo(px(cx - sn * L), py(cy + cn * L)); ctx.lineTo(px(cx + sn * L * 0.4), py(cy - cn * L * 0.4)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = C.n; ctx.font = `600 11px ${C.mono}`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText("n", px(cx - sn * L * 1.12), py(cy + cn * L * 1.12));
+
+  const vs = 0.3 * D0 / Math.max(R.u_n0, 1e-9), vx = H.ux[i] * vs, vy = -H.uy[i] * vs, vl = Math.hypot(vx, vy) * s;
+  if (vl > 6) {
+    const ex = px(cx + vx), ey = py(cy + vy), ang = Math.atan2(ey - py(cy), ex - px(cx));
+    ctx.strokeStyle = C.ink2; ctx.fillStyle = C.ink2; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.moveTo(px(cx), py(cy)); ctx.lineTo(ex, ey); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(ex, ey);
+    ctx.lineTo(ex - 7 * Math.cos(ang - 0.4), ey - 7 * Math.sin(ang - 0.4));
+    ctx.lineTo(ex - 7 * Math.cos(ang + 0.4), ey - 7 * Math.sin(ang + 0.4));
+    ctx.closePath(); ctx.fill();
+  }
+
+  // payload
+  const ps = 0.06 * D0;
+  ctx.fillStyle = C.ink;
+  ctx.fillRect(px(H.x[i] - ps / 2), py(payY(i) + ps), ps * s, ps * s);
+
+  // readouts
+  $("bag-readout").innerHTML =
+    `<span><i>t</i> <b>${H.t[i].toFixed(4)}</b> s</span><span><i>h</i> <b>${H.h[i].toFixed(3)}</b> m</span>` +
+    `<span><i>P</i> <b>${(H.P[i] / 1e3).toFixed(1)}</b> kPa</span><span><i>u_n</i> <b>${H.un[i].toFixed(2)}</b> m/s</span>` +
+    `<span><i>F_n/M</i> <b>${Number.isFinite(H.load[i]) ? H.load[i].toFixed(1) : "—"}</b> m/s²</span>`;
+  $("p-mark").style.left = (Math.min(Math.max(H.P[i] / R.res.P_burst, 0), 1) * 100) + "%";
+  const banner = $("bag-banner");
+  banner.hidden = !(R.isFailure && i === R.n - 1);
+  if (!banner.hidden) banner.textContent = `${R.reason} at t = ${R.failT.toFixed(4)} s`;
+}
+
+// ------------------------------------------------------------------ time and playback
+let startedOnce = false, playing = false, rafId = 0, lastFrame = 0, holdUntil = 0;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function indexAt(t) {
+  const T = run.hist.t;
+  let lo = 0, hi = run.n - 1;
+  if (t >= T[hi]) return hi;
+  if (t <= T[0]) return 0;
+  while (hi - lo > 1) { const mid = (lo + hi) >> 1; if (T[mid] <= t) lo = mid; else hi = mid; }
+  return lo;
+}
+
+function setTime(t) {
+  if (!run) return;
+  t = Math.min(Math.max(Number.isFinite(+t) ? +t : 0, 0), run.tEnd);
+  view.t = t; view.i = indexAt(t);
+  const sc = $("scrub");
+  sc.value = t;
+  sc.style.setProperty("--pct", (run.tEnd > 0 ? t / run.tEnd * 100 : 0) + "%");
+  const ti = $("t-input");
+  if (document.activeElement !== ti) { ti.value = t.toFixed(5); ti.classList.remove("bad"); }
+  drawAllOverlays();
+  drawBag();
+}
+const setIndex = i => { if (run) setTime(run.hist.t[Math.min(Math.max(i, 0), run.n - 1)]); };
+
+function updatePlayBtn() {
+  const b = $("btn-play");
+  b.setAttribute("aria-label", playing ? "Pause" : "Play");
+  b.title = playing ? "Pause (Space)" : "Play (Space)";
+  b.innerHTML = playing
+    ? '<svg viewBox="0 0 16 16"><path d="M3 2h4v12H3zM9 2h4v12H9z"/></svg>'
+    : '<svg viewBox="0 0 16 16"><path d="M3 1.5v13L14 8z"/></svg>';
+}
+function play() {
+  if (!run) return;
+  if (view.t >= run.tEnd) setTime(0);
+  playing = true; holdUntil = 0; lastFrame = performance.now();
+  updatePlayBtn();
+  cancelAnimationFrame(rafId); rafId = requestAnimationFrame(tick);
+}
+function pause() { playing = false; cancelAnimationFrame(rafId); updatePlayBtn(); }
+
+function tick(now) {
+  if (!playing || !run) return;
+  if (holdUntil) {
+    if (now >= holdUntil) { holdUntil = 0; setTime(0); lastFrame = now; }
+    rafId = requestAnimationFrame(tick);
+    return;
+  }
+  const dtw = Math.min(now - lastFrame, 100) / 1000;
+  lastFrame = now;
+  const t = view.t + dtw * +$("speed").value;
+  if (t >= run.tEnd) {
+    setTime(run.tEnd);
+    if ($("loop").checked) { holdUntil = now + 1400; rafId = requestAnimationFrame(tick); }
+    else pause();
+    return;
+  }
+  setTime(t);
+  rafId = requestAnimationFrame(tick);
+}
+
+function firstRunStart() {
+  if (reducedMotion) setIndex(run.iPeak);
+  else play();
+}
+
+function bindTransport() {
+  $("btn-play").addEventListener("click", () => (playing ? pause() : play()));
+  $("scrub").addEventListener("input", e => { pause(); setTime(+e.target.value); });
+  const ti = $("t-input");
+  ti.addEventListener("input", () => {
+    const v = parseNum(ti.value), ok = Number.isFinite(v) && v >= 0;
+    ti.classList.toggle("bad", !ok);
+    if (ok) { pause(); setTime(v); }
+  });
+  ti.addEventListener("change", () => { ti.value = view.t.toFixed(5); ti.classList.remove("bad"); });
+  $("btn-back").addEventListener("click", e => { pause(); setIndex(view.i - (e.shiftKey ? 50 : 1)); });
+  $("btn-fwd").addEventListener("click", e => { pause(); setIndex(view.i + (e.shiftKey ? 50 : 1)); });
+  $("btn-peak").addEventListener("click", () => { if (run) { pause(); setIndex(run.iPeak); } });
+
+  document.addEventListener("keydown", e => {
+    const tag = (e.target.tagName || "").toLowerCase();
+    if ((tag === "input" && e.target.type !== "range" && e.target.type !== "checkbox") || tag === "select" || tag === "textarea") return;
+    if (e.target.type === "range" && e.target.id !== "scrub") return;
+    if ((tag === "button" || tag === "summary") && (e.key === " " || e.key === "Enter")) return;
+    if (!run) return;
+    if (e.key === " ") { e.preventDefault(); playing ? pause() : play(); }
+    else if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault(); pause();
+      setIndex(view.i + (e.key === "ArrowRight" ? 1 : -1) * (e.shiftKey ? 50 : 1));
+    }
+    else if (e.key === "Home") { e.preventDefault(); pause(); setTime(0); }
+    else if (e.key === "End") { e.preventDefault(); pause(); setTime(run.tEnd); }
+  });
+}
+
+// ------------------------------------------------------------------ theme, resize, start
+function rerender() {
+  readColors();
+  if (!run) return;
+  renderAllPlots(); drawAllOverlays(); drawBag();
+}
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", rerender);
+new MutationObserver(rerender).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+new ResizeObserver(() => {
+  const w = bag.cv.parentElement.clientWidth;
+  if (w !== bag.lastW) drawBag();
+}).observe(document.querySelector(".bag-stage"));
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(rerender);
+
+buildInputs();
+buildMatrix();
+bindTransport();
+syncFields(Object.keys(FIELDS));
+syncDecor();
+readColors();
+updatePlayBtn();
+initWorker();
+requestCompute();
+</script>
+</body>
+</html>
