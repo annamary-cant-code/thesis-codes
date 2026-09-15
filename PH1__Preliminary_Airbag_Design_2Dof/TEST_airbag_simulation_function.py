@@ -2,7 +2,8 @@ import contextlib
 import os
 
 from airbag_simulation_function import simulate_airbag
-from differential_evolution_wrapper import A_ALLOW, SF, A_LIM, U_RES_MAX, evaluate_design
+from differential_evolution_wrapper import (A_ALLOW, SF, A_LIM, U_RES_MAX,
+                                            ETA_SEAM, SF_BURST, evaluate_design)
 from airbag_postprocessing import run_postprocessing
 
 # ---------------------------- output options ---------------------------------
@@ -39,10 +40,12 @@ d_or = 0                  # [m] orifice diameter (the optimizer always uses 0)
 phi_vent = 0.0574         # [-] breathing-fabric open-area fraction
 # d_or = 0 and phi_vent = 0 is a sealed bag: no venting, the payload bounces back.
 
-# Fabric
-d_fabric = 0.0007213      # [m] thickness (the optimizer prints it in mm)
-sigma_fabric = 250e6      # [Pa] membrane strength
-rho_fabric = 1100.0       # [kg/m^3]
+# Fabric - supplier data: strength per unit width, areal weight, single-ply thickness.
+# Thickness is not a strength lever on its own: n_ply plies carry n_ply times the load.
+T_ult_Ncm = 300.0         # [N/cm] tensile strength per unit width (1 N/cm = 100 N/m)
+areal_weight = 0.420      # [kg/m^2] areal weight (420 g/m^2)
+t_ply = 0.40e-3           # [m] thickness of one ply
+n_ply = 2                 # [-] number of plies -> 0.80 mm stack
 
 # Gas
 P0 = 126691.8             # [Pa] inflation pressure
@@ -58,10 +61,12 @@ verbose = True
 LOG_PATH = r"C:\TEMP\full_log.txt"
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
 
-inputs = dict(D0=D0, L0=L0, d_or=d_or, d_fabric=d_fabric, P0=P0, shape=shape,
-              M_payload=M_payload, u0=u0, sigma_fabric=sigma_fabric, rho_fabric=rho_fabric,
+inputs = dict(D0=D0, L0=L0, d_or=d_or, P0=P0, shape=shape,
+              M_payload=M_payload, u0=u0,
+              T_ult_Ncm=T_ult_Ncm, areal_weight=areal_weight, t_ply=t_ply, n_ply=n_ply,
               T0=T0, R_gas=R_gas, gamma=gamma, P_amb=P_amb, g=g,
-              dt=dt, t_max=t_max, a_allow=A_LIM, ux0=ux0, phi_vent=phi_vent)
+              dt=dt, t_max=t_max, a_allow=A_LIM, ux0=ux0, phi_vent=phi_vent,
+              eta_seam=ETA_SEAM, sf_burst=SF_BURST)
 
 with open(LOG_PATH, "w") as f:
     with contextlib.redirect_stdout(f):
@@ -77,6 +82,9 @@ print(f"Peak load n : {res['a_peak_n']:.5f} m/s^2  ({res['a_peak_n']/9.81:.2f} g
       f"limit {A_LIM:.1f} = {A_ALLOW:.0f}/{SF}]")
 print(f"{'u_residual':<14}: {res['u_residual']:.5f} m/s  [vertical]")
 print(f"{'u_residual_n':<14}: {res['u_residual_n']:.5f} m/s  [along n]")
+print(f"{'Fabric stack':<14}: {res['n_ply']} ply x {1e3*t_ply:.3f} mm = {res['d_fabric']*1e3:.4f} mm")
+print(f"{'T_allow':<14}: {res['T_allow']/100:.1f} N/cm of {n_ply*T_ult_Ncm:.1f} N/cm ultimate (eta_seam={ETA_SEAM}, SF_burst={SF_BURST})")
+print(f"P_peak/burst: {res['P_peak']:.1f} / {res['P_burst']:.1f} Pa (unfactored {res['P_burst_ult']:.1f} Pa)")
 print(f"Rebounded    : {res['rebounded']}")
 print(f"Bottomed    : {res['bottomed']}")
 print(f"Burst    : {res['burst']}")

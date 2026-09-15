@@ -16,15 +16,18 @@ CURVE_MAX_PTS = 4000      # curve decimation in the combined animation (display 
 N_ROWS, N_COLS = 4, 4
 
 
-def replay_histories(D0, L0, d_or, d_fabric, P0, shape, M_payload, u0,
-                     sigma_fabric, rho_fabric, T0, R_gas, gamma, P_amb, g,
-                     dt, t_max, a_allow, ux0, phi_vent=0.0):
+def replay_histories(D0, L0, d_or, P0, shape, M_payload, u0,
+                     T_ult_Ncm, areal_weight, t_ply, n_ply,
+                     T0, R_gas, gamma, P_amb, g,
+                     dt, t_max, a_allow, ux0, phi_vent=0.0,
+                     eta_seam=0.70, sf_burst=1.50):
     """Re-runs simulate_airbag's loop to record per-step histories (simulate_airbag
     only returns scalars). Keep in sync with airbag_simulation_function.py by hand."""
     R0 = D0 / 2.0
     k_shape = 1.0 if shape == 1 else 0.5
-    T_fabric = sigma_fabric * d_fabric
-    P_burst = P_amb + T_fabric / (k_shape * R0)
+    T_ult = 100.0 * n_ply * T_ult_Ncm               # [N/m] (1 N/cm = 100 N/m)
+    T_allow = eta_seam * T_ult / sf_burst
+    P_burst = P_amb + T_allow / (k_shape * R0)
     A_or = (np.pi / 4) * d_or ** 2
     S_surface = (np.pi * D0 * L0 + 0.5 * np.pi * D0 ** 2) if shape == 1 else np.pi * D0 ** 2
 

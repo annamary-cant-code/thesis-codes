@@ -7,14 +7,16 @@ from airbag_thermo import thermo_step
 
 def simulate_airbag(
         # geometry / structural
-        D0, L0, d_or, d_fabric, P0, shape,
+        D0, L0, d_or, P0, shape,
         # impact scenario
         M_payload, u0,
-        # fabric material
-        sigma_fabric, rho_fabric,
+        # fabric material: supplier data, per unit width / per unit area
+        T_ult_Ncm, areal_weight, t_ply, n_ply,
         # gas / environment
         T0, R_gas, gamma, P_amb, g,
         # control
+        eta_seam=0.70,        # [-] seam efficiency: the seam fails before the parent fabric
+        sf_burst=1.50,        # [-] design factor on the allowable membrane tension
         dt=1e-4, t_max=1, make_plots=False, verbose=False, a_allow=500,
         ux0=0.0,              # horizontal impact velocity (0 -> pure vertical run)
         phi_vent=0.0,         # breathing-fabric open-area fraction
@@ -24,15 +26,20 @@ def simulate_airbag(
     R0 = D0 / 2.0
     k_shape = 1.0 if shape == 1 else 0.5
 
-    T_fabric = sigma_fabric * d_fabric              # strength per unit width
-    P_burst  = P_amb + T_fabric / (k_shape * R0)
+    # Fabric strength is a per-unit-width datum (N/cm); n plies carry it in parallel.
+    # Thickness follows from the ply stack, it does not buy strength on its own.
+    d_fabric    = n_ply * t_ply                     # [m] stack thickness, reporting only
+    T_ult       = 100.0 * n_ply * T_ult_Ncm         # [N/m] ultimate (1 N/cm = 100 N/m)
+    T_allow     = eta_seam * T_ult / sf_burst       # [N/m] allowable at the seam
+    P_burst     = P_amb + T_allow / (k_shape * R0)  # sizing limit
+    P_burst_ult = P_amb + T_ult / (k_shape * R0)    # unfactored, for reporting
 
     # fabric area of the undeformed bag
     if shape == 1:                                  # cylinder: side + 2 caps
         S_surface = np.pi * D0 * L0 + 0.5 * np.pi * D0**2
     else:                                           # sphere
         S_surface = np.pi * D0**2
-    m_bag = rho_fabric * S_surface * d_fabric
+    m_bag = n_ply * areal_weight * S_surface
 
     # impact axis n, fixed along the initial velocity. Computed once: recomputing it
     # every step would zero the tangential velocity and collapse the model to 1-DOF.
@@ -310,7 +317,11 @@ def simulate_airbag(
         "fail_t": fail_t,
         "h_max": float(np.max(h_hist)),
         "x_final": float(x_hist[-1]),
-        "P_burst": P_burst,
+        "P_burst": P_burst,            # allowable (eta_seam / sf_burst applied)
+        "P_burst_ult": P_burst_ult,    # unfactored
+        "T_allow": T_allow,            # [N/m] allowable membrane tension
+        "d_fabric": d_fabric,          # [m] n_ply * t_ply
+        "n_ply": n_ply,
         "P_peak": P_peak,
         "D_abrasion": D_abrasion,  # always 0 (no friction model), kept for compatibility
     }

@@ -474,10 +474,12 @@ function airbagSolver() {
 
   // ---- simulate_airbag, recording the replay_histories set
   function simulate(p) {
-    const D0 = +p.D0, L0 = +p.L0, d_or = +p.d_or, d_fabric = +p.d_fabric, P0 = +p.P0;
+    const D0 = +p.D0, L0 = +p.L0, d_or = +p.d_or, P0 = +p.P0;
     const shape = p.shape === 2 ? 2 : 1;
     const M_payload = +p.M_payload, u0 = +p.u0, ux0 = +p.ux0;
-    const sigma_fabric = +p.sigma_fabric, rho_fabric = +p.rho_fabric;
+    const T_ult_Ncm = +p.T_ult_Ncm, areal_weight = +p.areal_weight;
+    const t_ply = +p.t_ply, n_ply = Math.max(1, Math.round(+p.n_ply || 1));
+    const eta_seam = +p.ETA_SEAM, sf_burst = +p.SF_BURST;
     const T0 = +p.T0, R_gas = +p.R_gas, gamma = +p.gamma, P_amb = +p.P_amb, g = +p.g;
     const t_max = +p.t_max, a_allow = +p.a_allow, phi_vent = +p.phi_vent;
     const max_inner_iters = Math.max(1, Math.round(+p.max_inner_iters || 50));
@@ -485,10 +487,15 @@ function airbagSolver() {
     const A_or = (PI / 4.0) * d_or ** 2;
     const R0 = D0 / 2.0;
     const k_shape = shape === 1 ? 1.0 : 0.5;
-    const T_fabric = sigma_fabric * d_fabric;
-    const P_burst = P_amb + T_fabric / (k_shape * R0);
+    // Strength is a per-unit-width datum (N/cm); n plies carry it in parallel.
+    // Thickness follows from the ply stack, it does not buy strength on its own.
+    const d_fabric = n_ply * t_ply;                    // [m] stack thickness, reporting only
+    const T_ult = 100.0 * n_ply * T_ult_Ncm;           // [N/m] (1 N/cm = 100 N/m)
+    const T_allow = eta_seam * T_ult / sf_burst;       // [N/m] allowable at the seam
+    const P_burst = P_amb + T_allow / (k_shape * R0);  // sizing limit
+    const P_burst_ult = P_amb + T_ult / (k_shape * R0);
     const S_surface = shape === 1 ? PI * D0 * L0 + 0.5 * PI * D0 ** 2 : PI * D0 ** 2;
-    const m_bag = rho_fabric * S_surface * d_fabric;
+    const m_bag = n_ply * areal_weight * S_surface;
 
     const theta = Math.atan2(ux0, u0);
     const sin_theta = Math.sin(theta), cos_theta = Math.cos(theta);
@@ -600,6 +607,10 @@ function airbagSolver() {
       h_max: npmax(H.h),
       x_final: H.x[H.x.length - 1],
       P_burst,
+      P_burst_ult,
+      T_allow,
+      d_fabric,
+      n_ply,
       P_peak: nanmax(H.P, false),
       truncated,
     };
@@ -653,14 +664,20 @@ const SOLVER = airbagSolver();
 const DEFAULTS = {
   M_payload: 0.5, u0: 17.2, ux0: 5,
   shape: 1, D0: 1.1379, L0: 0.6077, d_or: 0, phi_vent: 0.0574,
-  d_fabric: 0.0007213, sigma_fabric: 250e6, rho_fabric: 1100.0,
+  T_ult_Ncm: 300.0, areal_weight: 0.420, t_ply: 0.40e-3, n_ply: 2,
   P0: 126691.8, T0: 288.0, R_gas: 2077.0, gamma: 1.66,
   g: 9.81, P_amb: 101325,
-  A_ALLOW: 500.0, SF: 1.2, U_RES_MAX: 2.0,
+  A_ALLOW: 500.0, SF: 1.2, U_RES_MAX: 2.0, ETA_SEAM: 0.70, SF_BURST: 1.50,
   t_max: 1, max_inner_iters: 50,
 };
 const GASES = { He: [2077.0, 1.66], N2: [296.8, 1.40], Ar: [208.1, 1.67] };
-const MATERIALS = { matA: [400e6, 1400.0], matB: [250e6, 1100.0] };
+// [T_ult_Ncm (N/cm), areal_weight (kg/m^2), t_ply (m)] — keep in sync with
+// differential_evolution_wrapper.py. PLACEHOLDER values: replace from datasheets.
+const MATERIALS = {
+  "Nylon 6,6, silicone-coated": [300.0, 0.420, 0.40e-3],
+  "Polyester (PET), PU-coated": [250.0, 0.350, 0.35e-3],
+  "Aramid (Kevlar), coated":    [700.0, 0.460, 0.43e-3],
+};
 
 const mm = v => (v * 1e3).toPrecision(4).replace(/\.?0+$/, "") + " mm";
 const GROUPS = [
@@ -676,11 +693,13 @@ const GROUPS = [
     { k: "phi_vent", desc: "breathing-fabric open area", unit: "–", min: 0, max: 0.2, nonneg: true,
       hint: v => (v * 100).toPrecision(3) + " %" },
   ]},
-  { title: "Fabric", preset: "material", fields: [
-    { k: "d_fabric", desc: "thickness", unit: "m", min: 1e-5, max: 3e-3, log: true, pos: true, hint: mm },
-    { k: "sigma_fabric", desc: "membrane strength", unit: "Pa", min: 1e7, max: 2e9, log: true, pos: true,
-      hint: v => (v / 1e6).toPrecision(4).replace(/\.?0+$/, "") + " MPa" },
-    { k: "rho_fabric", desc: "density", unit: "kg/m³", min: 300, max: 3000, nonneg: true },
+  { title: "Fabric", preset: "material", derived: "fabric", fields: [
+    { k: "T_ult_Ncm", desc: "tensile strength per unit width", unit: "N/cm", min: 20, max: 2000,
+      log: true, pos: true, hint: v => (v * 100).toPrecision(4) + " N/m" },
+    { k: "areal_weight", desc: "areal weight", unit: "kg/m²", min: 0.02, max: 2, log: true, pos: true,
+      hint: v => (v * 1e3).toPrecision(4).replace(/\.?0+$/, "") + " g/m²" },
+    { k: "t_ply", desc: "thickness of one ply", unit: "m", min: 1e-5, max: 3e-3, log: true, pos: true, hint: mm },
+    { k: "n_ply", desc: "number of plies", unit: "–", min: 1, max: 6, int: true, pos: true },
   ]},
   { title: "Gas", preset: "gas", fields: [
     { k: "P0", desc: "inflation pressure", unit: "Pa", min: 80000, max: 300000, pos: true,
@@ -698,6 +717,9 @@ const GROUPS = [
     { k: "A_ALLOW", desc: "allowable accel. along n", unit: "m/s²", min: 50, max: 3000, pos: true },
     { k: "SF", desc: "safety factor", unit: "–", min: 1, max: 3, pos: true },
     { k: "U_RES_MAX", desc: "max residual speed along n", unit: "m/s", min: 0, max: 10 },
+    { k: "ETA_SEAM", desc: "seam efficiency", unit: "–", min: 0.3, max: 1, pos: true,
+      hint: v => (v * 100).toPrecision(3) + " % of parent fabric" },
+    { k: "SF_BURST", desc: "burst safety factor", unit: "–", min: 1, max: 3, pos: true },
   ]},
   { title: "Solver", closed: true, fields: [
     { k: "t_max", desc: "simulated time limit", unit: "s", min: 0.05, max: 3, pos: true, maxv: 20 },
@@ -707,7 +729,7 @@ const GROUPS = [
 const FIELDS = {};
 GROUPS.forEach(gr => gr.fields.forEach(f => { FIELDS[f.k] = f; }));
 
-const STORE_KEY = "airbag-impact-bench-inputs-v1";
+const STORE_KEY = "airbag-impact-bench-inputs-v2";   // v2: fabric moved to N/cm + plies
 const state = { ...DEFAULTS };
 try {
   const saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
@@ -819,7 +841,8 @@ function buildInputs() {
   });
   $("preset-material").addEventListener("change", e => {
     const m = MATERIALS[e.target.value]; if (!m) return;
-    state.sigma_fabric = m[0]; state.rho_fabric = m[1]; syncFields(["sigma_fabric", "rho_fabric"]); onInputsChanged("sigma_fabric");
+    state.T_ult_Ncm = m[0]; state.areal_weight = m[1]; state.t_ply = m[2];
+    syncFields(["T_ult_Ncm", "areal_weight", "t_ply"]); onInputsChanged("T_ult_Ncm");
   });
   $("btn-reset").addEventListener("click", () => {
     Object.assign(state, DEFAULTS); invalid.clear(); syncFields(Object.keys(FIELDS)); onInputsChanged("reset");
@@ -849,8 +872,13 @@ function syncDecor() {
   $("field-L0").classList.toggle("disabled", state.shape !== 1);
   const gas = Object.entries(GASES).find(([, v]) => v[0] === state.R_gas && v[1] === state.gamma);
   $("preset-gas").value = gas ? gas[0] : "custom";
-  const mat = Object.entries(MATERIALS).find(([, v]) => v[0] === state.sigma_fabric && v[1] === state.rho_fabric);
+  const mat = Object.entries(MATERIALS).find(([, v]) =>
+    v[0] === state.T_ult_Ncm && v[1] === state.areal_weight && v[2] === state.t_ply);
   $("preset-material").value = mat ? mat[0] : "custom";
+  const T_allow_Ncm = state.ETA_SEAM * state.n_ply * state.T_ult_Ncm / state.SF_BURST;
+  $("derived-fabric").innerHTML =
+    `<span>stack = ${state.n_ply} x ${mm(state.t_ply)} = ${mm(state.n_ply * state.t_ply)}</span>` +
+    `<span>T_allow = ${T_allow_Ncm.toPrecision(4)} N/cm</span>`;
   const theta = Math.atan2(state.ux0, state.u0) * 180 / Math.PI;
   $("derived-impact").innerHTML = `<span>θ = ${theta.toFixed(1)}°</span><span>u_n0 = ${Math.hypot(state.u0, state.ux0).toFixed(2)} m/s</span>`;
   $("derived-alim").innerHTML = `<span>A_LIM = A_ALLOW / SF</span><span>${(state.A_ALLOW / state.SF).toFixed(1)} m/s²</span>`;
@@ -871,12 +899,15 @@ function copyPython() {
     "# Geometry", `shape = ${s.shape}                 # 1 = cylinder, 2 = sphere`, `D0 = ${n(s.D0)}               # [m] diameter`,
     `L0 = ${n(s.L0)}               # [m] axial length (cylinder only)`, `d_or = ${n(s.d_or)}                  # [m] orifice diameter`,
     `phi_vent = ${n(s.phi_vent)}         # [-] breathing-fabric open-area fraction`, "",
-    "# Fabric", `d_fabric = ${n(s.d_fabric)}      # [m] thickness`, `sigma_fabric = ${n(s.sigma_fabric)}      # [Pa] membrane strength`,
-    `rho_fabric = ${n(s.rho_fabric)}       # [kg/m^3]`, "",
+    "# Fabric", `T_ult_Ncm = ${n(s.T_ult_Ncm)}         # [N/cm] strength per unit width`,
+    `areal_weight = ${n(s.areal_weight)}      # [kg/m^2] areal weight`,
+    `t_ply = ${n(s.t_ply)}            # [m] thickness of one ply`,
+    `n_ply = ${s.n_ply}                 # [-] number of plies`, "",
     "# Gas", `P0 = ${n(s.P0)}             # [Pa] inflation pressure`, `T0 = ${n(s.T0)}                # [K]`,
     `R_gas = ${n(s.R_gas)}            # [J/(kg K)]`, `gamma = ${n(s.gamma)}`, "",
     "# Time and other settings", `t_max = ${n(s.t_max)}`, "",
     `# differential_evolution_wrapper.py: A_ALLOW = ${n(s.A_ALLOW)}, SF = ${n(s.SF)}, U_RES_MAX = ${n(s.U_RES_MAX)}`,
+    `# ETA_SEAM = ${n(s.ETA_SEAM)}, SF_BURST = ${n(s.SF_BURST)}`,
     `# simulate_airbag(..., max_inner_iters=${s.max_inner_iters})`,
   ].join("\n");
   const done = () => toast("Python inputs copied to the clipboard");
@@ -1068,6 +1099,8 @@ function renderResults() {
       ${r.bottomed ? meter(r.u_residual_n, p.U_RES_MAX) : ""}
       ${row("Peak pressure <code>P_peak</code> / <code>P_burst</code>", `${sig(r.P_peak, 5)} / ${sig(r.P_burst, 5)} Pa`, r.burst)}
       ${meter(r.P_peak - p.P_amb, r.P_burst - p.P_amb)}
+      ${row("Allowable tension <code>T_allow</code>", `${(r.T_allow / 100).toPrecision(4)} N/cm of ${(r.n_ply * p.T_ult_Ncm).toPrecision(4)} N/cm ultimate · η=${p.ETA_SEAM} / SF=${p.SF_BURST}`)}
+      ${row("Unfactored burst <code>P_burst_ult</code>", `${sig(r.P_burst_ult, 5)} Pa`)}
     </div></div>
     <div class="rgroup"><h3>Outcome</h3>
       <div class="chips">${chip("Bottomed", r.bottomed, "good")}${chip("Rebounded", r.rebounded, "bad")}${chip("Burst", r.burst, "bad")}${chip("Survived", r.survived, "good")}</div>
@@ -1077,6 +1110,7 @@ function renderResults() {
       ${row("Gas mass <code>m_gas0</code>", `${r.m_gas0.toFixed(5)} kg`)}
       ${row("Total mass <code>m_total</code>", `${r.m_total.toFixed(5)} kg`)}
       ${row("Fabric area <code>S_surface</code>", `${r.S_surface.toFixed(3)} m²`)}
+      ${row("Fabric stack <code>d_fabric</code>", `${r.n_ply} ply × ${(p.t_ply * 1e3).toFixed(3)} mm = ${(r.d_fabric * 1e3).toFixed(4)} mm`)}
       ${row("Vent area at impact <code>A_vent0</code>", `${(r.A_vent0 * 1e4).toFixed(1)} cm² · Ø ${(d_eq * 1e3).toFixed(0)} mm hole`)}
     </div></div>
     <div class="rgroup"><h3>Kinematics</h3><div class="rows">

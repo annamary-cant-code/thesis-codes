@@ -25,6 +25,10 @@ A_LIM     = A_ALLOW / SF   # [m/s^2] limit on the peak bag load F_n/M
 U_RES_MAX = 2.0            # [m/s]   max residual speed along n at full stroke
 PEN       = 1.0e4          # penalty weight, must dominate mass
 
+# burst knockdowns, applied to the fabric's per-width ultimate strength
+ETA_SEAM  = 0.70           # [-] seam efficiency: the seam fails before the parent fabric
+SF_BURST  = 1.50           # [-] design factor on the allowable membrane tension
+
 # venting sub-iterations during the search only (~2x faster, ~1% error on a_peak_n);
 # the winner is re-simulated at full fidelity
 MAX_INNER_ITERS_SEARCH = 20
@@ -47,27 +51,37 @@ env   = (P_amb, g)
 
 T0 = 288.0               # K, fixed
 
-# ---------- materials: (sigma_fabric, rho_fabric) ----------
+# ---------- fabrics ----------
+# Supplier data, as airbag fabric is actually sold:
+#   T_ult_Ncm    [N/cm]   tensile strength per unit width (1 N/cm = 100 N/m)
+#   areal_weight [kg/m^2] areal weight (datasheets quote g/m^2, so 0.42 = 420 g/m^2)
+#   t_ply        [m]      thickness of ONE ply, for the stack thickness and packing only
+# Strength is per unit width, so thickness buys strength only through the ply count:
+# n plies carry n times the load and weigh n times as much.
+#
 materials = {
-    "matA": (400e6, 1400.0),
-    "matB": (250e6, 1100.0),
+    "Nylon 6,6, silicone-coated": dict(T_ult_Ncm=600.0, areal_weight=0.180, t_ply=0.30e-3),
+    "Polyester (PET), PU-coated": dict(T_ult_Ncm=550.0, areal_weight=0.190, t_ply=0.28e-3),
+    "Aramid (Kevlar), coated": dict(T_ult_Ncm=1000.0, areal_weight=0.260, t_ply=0.35e-3),
 }
 
 # ---------- gases: (R_gas, gamma) ----------
 gases = {                # R [J/kg·K]
-    "N2": (296.8, 1.40),
-    "He": (2077.0, 1.66),
-    "Ar": (208.1, 1.67),
+    "N2": (296.8, 1.400),
+    "He": (2076.9, 1.667),
+    "Ar": (208.1, 1.667),
+    "CO2": (188.9, 1.289),
+    "dry air": (287.0, 1.400),
 }
 
 # material only changes mass and burst pressure, not the dynamics -> one is enough for a quick test
-MATERIAL_NAMES = ["matB"] if QUICK_TEST else list(materials.keys())
+MATERIAL_NAMES = list(materials.keys())[:1] if QUICK_TEST else list(materials.keys())
 GAS_NAMES = list(gases.keys())
 
 # ---------- design-space bounds ----------
 D0_MAX       = 1.5             # [m]
 ASPECT_RANGE = (0.5, 4.0)      # [-]  L0 / D0, cylinder only
-DFAB_RANGE   = (0.0001, 0.002) # [m]
+NPLY_RANGE   = (1, 4)          # [-]  number of fabric plies (integer variable)
 P0_MAX       = 1.4e5           # [Pa] lower bound is P_amb
 PHI_RANGE    = (0.0, 0.10)     # [-]  breathing-fabric open-area fraction
 
@@ -88,25 +102,33 @@ def min_stroke(scenario, env):
 
 
 def unpack_design(x, shape):
-    """cylinder: x = [D0, L0/D0, d_fabric, P0, phi_vent]; sphere: x = [D0, d_fabric, P0, phi_vent]."""
+    """cylinder: x = [D0, L0/D0, n_ply, P0, phi_vent]; sphere: x = [D0, n_ply, P0, phi_vent].
+    n_ply is an integer variable (see make_integrality); the round() guards against a
+    caller that optimised without the integrality mask."""
     if shape == SHAPE_CODE["cylinder"]:
-        D0, aspect, d_fabric, P0, phi_vent = x
+        D0, aspect, n_ply, P0, phi_vent = x
         L0 = aspect * D0
     else:
-        D0, d_fabric, P0, phi_vent = x
+        D0, n_ply, P0, phi_vent = x
         L0 = D0                                      # ignored by the sphere geometry
-    return dict(D0=D0, L0=L0, d_or=0.0, d_fabric=d_fabric,
+    return dict(D0=D0, L0=L0, d_or=0.0, n_ply=int(round(n_ply)),
                 P0=P0, shape=shape, T0=T0, phi_vent=phi_vent)
 
 
 def make_bounds(shape, scenario, env):
     b_D0     = (min_stroke(scenario, env), D0_MAX)
     b_aspect = ASPECT_RANGE
-    b_dfab   = DFAB_RANGE
+    b_nply   = NPLY_RANGE
     b_P0     = (env[0], P0_MAX)
     b_phi    = PHI_RANGE
-    return ([b_D0, b_aspect, b_dfab, b_P0, b_phi] if shape == SHAPE_CODE["cylinder"]
-            else [b_D0, b_dfab, b_P0, b_phi])
+    return ([b_D0, b_aspect, b_nply, b_P0, b_phi] if shape == SHAPE_CODE["cylinder"]
+            else [b_D0, b_nply, b_P0, b_phi])
+
+
+def make_integrality(shape):
+    """Boolean mask over the design vector: only the ply count is an integer."""
+    return ([False, False, True, False, False] if shape == SHAPE_CODE["cylinder"]
+            else [False, True, False, False])
 
 
 def evaluate_design(r, D0, scenario):
@@ -134,10 +156,10 @@ def airbag_objective(x, shape, mat, gas, scenario, env, W_land):
         r = simulate_airbag(
             **d,
             M_payload=scenario[0], u0=scenario[1], ux0=scenario[2],
-            sigma_fabric=mat[0], rho_fabric=mat[1],
+            **mat,
             R_gas=gas[0], gamma=gas[1],
             P_amb=env[0], g=env[1],
-            a_allow=A_LIM,
+            a_allow=A_LIM, eta_seam=ETA_SEAM, sf_burst=SF_BURST,
             max_inner_iters=MAX_INNER_ITERS_SEARCH,
         )
     except Exception as e:
@@ -175,7 +197,11 @@ def print_design_summary(shape_name, mat_name, gas_name, x, shape, r):
         print(f"  L0 (length)      : {d['L0']:.4f} m  (L0/D0 = {d['L0']/d['D0']:.2f})")
     else:
         print(f"  L0               : n/a (sphere)")
-    print(f"  d_fabric         : {d['d_fabric']*1e3:.4f} mm")
+    print(f"  fabric plies     : {r['n_ply']} x {1e3*r['d_fabric']/r['n_ply']:.3f} mm "
+          f"= {r['d_fabric']*1e3:.4f} mm stack")
+    print(f"  T_allow          : {r['T_allow']/100.0:.1f} N/cm of the "
+          f"{r['n_ply']*materials[mat_name]['T_ult_Ncm']:.1f} N/cm ultimate "
+          f"(eta_seam={ETA_SEAM}, SF_burst={SF_BURST})")
     print(f"  P0 (inflation)   : {d['P0']:.1f} Pa  ({d['P0']/1e5:.3f} bar)")
     print(f"  T0 (fixed)       : {d['T0']:.1f} K")
     ref_len, ref_name = (min(d['D0'], d['L0']), "min(D0, L0)") if is_cyl else (d['D0'], "D0")
@@ -192,7 +218,8 @@ def print_design_summary(shape_name, mat_name, gas_name, x, shape, r):
     print(f"  u_residual n/x/y : {r['u_residual_n']:.3f} / {r['u_residual_x']:.3f} / "
           f"{r['u_residual']:.3f} m/s  (cap along n {U_RES_MAX}, u_n0={u_n0:.2f})")
     print(f"  x travel         : {r['x_final']:.3f} m")
-    print(f"  P_peak / P_burst : {r['P_peak']:.1f} / {r['P_burst']:.1f} Pa")
+    print(f"  P_peak / P_burst : {r['P_peak']:.1f} / {r['P_burst']:.1f} Pa  "
+          f"(unfactored burst {r['P_burst_ult']:.1f} Pa)")
     print(f"  rebounded        : {r['rebounded']}")
     print(f"  bottomed         : {r['bottomed']}")
     print(f"  survived         : {r['survived']}")
@@ -206,7 +233,9 @@ if __name__ == "__main__":
     print(f"QUICK_TEST = {QUICK_TEST} | A_LIM = {A_ALLOW:.0f}/{SF} = {A_LIM:.1f} m/s^2 | "
           f"U_RES_MAX = {U_RES_MAX} m/s | u_n0 = {u_n0:.2f} m/s, theta = {np.degrees(theta):.1f} deg")
     print(f"bounds: D0 in [{min_stroke(scenario, env):.3f}, {D0_MAX}] m | L0/D0 in {ASPECT_RANGE} | "
-          f"d_fabric in {DFAB_RANGE} m | P0 in [P_amb, {P0_MAX:.0f}] Pa | phi_vent in {PHI_RANGE}")
+          f"n_ply in {NPLY_RANGE} | P0 in [P_amb, {P0_MAX:.0f}] Pa | phi_vent in {PHI_RANGE}")
+    print(f"burst knockdown: eta_seam = {ETA_SEAM} / SF_burst = {SF_BURST} "
+          f"-> {100*ETA_SEAM/SF_BURST:.0f} % of the fabric's ultimate N/cm")
 
     for W_land in W_LAND_VALUES:
         print(f"\n{'='*60}\nW_land = {W_land}\n{'='*60}")
@@ -221,6 +250,7 @@ if __name__ == "__main__":
                         # population = POPSIZE x n_variables (Sobol rounds up to a power of 2)
                         res = differential_evolution(airbag_objective, make_bounds(shape, scenario, env),
                                                     args=(shape, mat, gas, scenario, env, W_land),
+                                                    integrality=make_integrality(shape),
                                                     init='sobol', popsize=POPSIZE, maxiter=MAXITER, tol=1e-4,
                                                     polish=False, updating='deferred', workers=-1, rng=seed)
                         if best is None or res.fun < best.fun:
@@ -234,9 +264,9 @@ if __name__ == "__main__":
         d = unpack_design(res.x, shape)
         print(repr(d))
         r = simulate_airbag(**d, M_payload=M_payload, u0=u0, ux0=ux0,
-                            sigma_fabric=materials[mat_name][0], rho_fabric=materials[mat_name][1],
+                            **materials[mat_name],
                             R_gas=gases[gas_name][0], gamma=gases[gas_name][1],
-                            P_amb=P_amb, g=g,
+                            P_amb=P_amb, g=g, eta_seam=ETA_SEAM, sf_burst=SF_BURST,
                             verbose=False, make_plots=False, a_allow=A_LIM)
 
         print_design_summary(shape_name, mat_name, gas_name, res.x, shape, r)

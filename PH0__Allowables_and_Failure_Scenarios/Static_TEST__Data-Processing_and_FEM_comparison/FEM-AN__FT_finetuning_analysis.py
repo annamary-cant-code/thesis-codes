@@ -7,24 +7,49 @@ value (parsed from filename) and its breaking load, and draws a manual
 "target failure load" threshold line -- so the FT that puts the model's
 failure load on target can be read straight off the legend.
 
+One figure PER BREAKING MODE. Each phial breaking mode (A-E, see MODE_LEGEND)
+fails at its own load and is fitted with its own FT, so the curves for
+different modes must not share a plot: the mode is read from the filename and
+each mode gets its own figure, its own FT sweep and its own hard-coded target
+load. Only the modes actually present in the data folder produce a figure.
+
+A phial that fails in more than one mode at once is written as the letters run
+together -- "AD" is a combined dome+base failure. A hybrid is treated as a
+breaking mode in its own right: it fails at its own load, so it gets its own
+figure, its own FT sweep and its own target load, and its curves are never
+mixed in with those of the single modes it is made of.
+
 Failure load only: stiffness is not fitted or reported here, that is what
 FEM-AN__stiffness_comparison_EXP-vs-FEM.py is for.
 
-The breaking load is the PEAK load a curve carries before it sheds load
-(marked "o"). The material is glass: it is linear-elastic right up to
-fracture, so there is no yield or softening knee before failure and none is
-looked for -- the peak IS the failure.
+The breaking load is the load at which the phial FIRST fractures: the highest
+load carried before the curve first sheds load (marked "o"). The material is
+glass -- linear-elastic right up to fracture -- so there is no yield or
+softening knee before failure and none is looked for; the first load the
+curve gives back is the first thing to break.
 
-Each curve is trimmed shortly after its drop (see trim_after_failure): the
-drop is shown whole with a short settled tail beneath it, and the long
-post-fracture plateau -- which says nothing about the failure load -- is
-discarded. The axes follow the trimmed curves.
+On a single mode the first shed is also the largest, so the breaking load is
+simply the curve's peak. On a hybrid mode it is NOT: one of the two sites
+cracks first, the load dips, and the phial carries on through the
+redistributed load to a higher overall peak before the second site goes. That
+later peak is the strength of an already-cracked phial, not of the phial, so
+it is the first shed that gets reported. See find_failure_point.
+
+Each curve is trimmed shortly after its collapse -- the deepest drop in the
+run, which on a hybrid is the second event rather than the reported one (see
+find_collapse_point/trim_after_failure). The collapse is shown whole with a
+short settled tail beneath it, and the long post-fracture plateau -- which
+says nothing about the failure load -- is discarded. The axes of each figure
+follow that mode's own trimmed curves.
 
 USAGE:
-    python FEM-AN__FT_finetuning_analysis.py <folder> --target-load 250
+    python FEM-AN__FT_finetuning_analysis.py
 
-    python FEM-AN__FT_finetuning_analysis.py <folder> --target-load 250 \
-        --post-drop-frac 0.20 --settle-frac 0.05 --tail-frac 1.0
+    python FEM-AN__FT_finetuning_analysis.py <folder> --modes A,D \
+        --target-load A=98.7 D=150 --no-show
+
+    python FEM-AN__FT_finetuning_analysis.py <folder> \
+        --post-drop-frac 0.01 --arm-frac 0.10 --settle-frac 0.05 --tail-frac 1.0
 
 INPUT FILES
 -----------
@@ -33,19 +58,30 @@ FEM doesn't export one ready-made force-vs-displacement file -- each
 candidate FT run is two separate time-history exports, a "<tag>_disp" and a
 "<tag>_force" file, both sampled at the same time steps (same first column).
 Drop both files for a run into the data folder and they're picked up
-automatically -- no config edit needed. A "<tag>_disp" file without a
-matching "<tag>_force" (or vice versa) is skipped with a printed warning.
+automatically -- no config edit needed, including for a mode that has never
+been plotted before. A "<tag>_disp" file without a matching "<tag>_force" (or
+vice versa) is skipped with a printed warning.
 
 Force exports are in kN; scaled by FORCE_SCALE (1000) on load so all
 downstream analysis/plotting is in N.
 
-FILENAME -> FT ASSUMPTION:
-    Trailing digit group in "<tag>" maps to FT via
-        value = int(digits) / 10**len(digits) * 1000
-    e.g. tag "045" (from "045_disp" / "045_force") -> 0.045 * 1000 = FT = 45
-    (GPa -> MPa conversion). This REQUIRES consistent zero-padding across all
-    tags (e.g. always 3 digits). Edit parse_ft() regex/scaling if your
-    naming differs.
+FILENAME -> MODE + FT ASSUMPTION:
+    tag = "<MODE>_<FT>", e.g. "A_090-5_disp" / "A_090-5_force" -> tag
+    "A_090-5" -> breaking mode A, FT = 90.5 MPa.
+
+    MODE is one or more letters, each of which must appear in MODE_LEGEND
+    (A-E). More than one letter is a hybrid mode -- "AD_060" is a dome+base
+    failure at FT = 60 MPa -- and is kept distinct from every other mode,
+    letter order included ("AD" and "DA" are separate figures).
+
+    FT is written in GPa with the leading "0." dropped and the decimal point
+    written as "-", ALWAYS zero-padded to 3 integer digits:
+        "045"   -> 0.045 GPa -> FT = 45 MPa
+        "090-5" -> 0.0905 GPa -> FT = 90.5 MPa
+    The padding is enforced, not assumed: a token that isn't 3 digits (plus an
+    optional "-<decimals>") is rejected rather than silently mis-scaled, since
+    "90-5" would otherwise parse as 9.05 MPa. Edit parse_tag() if your naming
+    differs.
 """
 
 import re
@@ -53,35 +89,105 @@ import glob
 import os
 import argparse
 from pathlib import Path
+from collections import defaultdict
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 # ============================== CONFIGURATION ==============================
 DATA_FOLDER = Path(__file__).parent / "fem_ft-finetuning_curves"
-TARGET_FAILURE_LOAD = 98.7                    # [N]  (FT sweep values are in MPa)
+
+# Single-letter breaking-mode codes. Kept in step with MODE_LEGEND in
+# 05_breaking_mode_analysis.py, which is the source of truth for them -- it
+# can't be imported from here because its filename starts with a digit.
+MODE_LEGEND = {
+    "A": "Dome",
+    "B": "Bulging",
+    "C": "Indentation",
+    "D": "Base",
+    "E": "Cylinder",
+}
+
+# Target failure load [N] per breaking mode -- the red threshold line each
+# mode's FT sweep is being fitted against. Filled in by hand from the
+# experimental campaign. A mode left at None, or missing from this dict
+# entirely, still gets its figure and its curves, just without the threshold
+# line, so a new mode's runs can be dropped in and looked at before its target
+# is known.
+#
+# Hybrid modes are keyed by their own letter string ("AD"), not derived from
+# the single modes: a combined failure has its own experimental load.
+TARGET_FAILURE_LOAD = {
+    "A": 98.7,   # Dome
+    "B": None,   # Bulging
+    "C": None,   # Indentation
+    "D": None,   # Base
+    "E": None,   # Cylinder
+    "AD": 98.7,  # Dome + Base
+}
 
 # Every FEM force export is in kN, so this is applied to every curve.
 X_SCALE = 1.0
 FORCE_SCALE = 1000.0   # kN -> N
+
+# Load shed that counts as the run's catastrophic collapse, as a fraction of
+# its overall peak. Only ever used to decide where to cut the plot off (see
+# find_collapse_point) -- no reported load depends on it, which is why it is a
+# constant here rather than another command-line knob. The collapses in these
+# runs shed 40-60%, the events before them under 10%, so anything in between
+# separates them.
+COLLAPSE_FRAC = 0.20
 # ============================================================================
 
+# "<MODE>_<3 digits>[-<decimals>]", e.g. "A_045", "A_090-5" or "AD_060".
+# MODE is one or more letters: several letters is a hybrid mode (see
+# check_mode), so the letters are matched as a group and validated one by one.
+TAG_PATTERN = re.compile(r'^([A-Za-z]+)_(\d{3})(?:-(\d+))?$')
 
-def parse_ft(tag: str) -> float:
-    """Extract FT from trailing digit group in a '<tag>' (e.g. from
-    '<tag>_disp' / '<tag>_force'), converted GPa -> MPa (x1000)."""
-    match = re.search(r'(\d+)$', tag)
+
+def check_mode(mode: str, source: str):
+    """Validate a mode code -- one letter, or several for a hybrid -- against
+    MODE_LEGEND, letter by letter. Raises ValueError naming the offending
+    letter; `source` is quoted in the message to say where it came from."""
+    unknown = [letter for letter in mode if letter not in MODE_LEGEND]
+    if unknown:
+        raise ValueError(
+            f"{source} names breaking mode '{mode}', whose letter(s) "
+            f"{'/'.join(unknown)} aren't among {'/'.join(MODE_LEGEND)}. A mode is one "
+            f"letter, or several run together for a hybrid failure (e.g. 'AD' for "
+            f"dome+base). Add the letter to MODE_LEGEND if it's a real mode."
+        )
+
+
+def mode_label(mode: str):
+    """Human-readable name for a mode code: 'A' -> 'Dome', 'AD' -> 'Dome + Base'."""
+    return " + ".join(MODE_LEGEND[letter] for letter in mode)
+
+
+def parse_tag(tag: str):
+    """Split a '<tag>' (e.g. from '<tag>_disp' / '<tag>_force') into its
+    breaking mode and its FT [MPa]. See the FILENAME assumption in the module
+    docstring. Returns (mode, ft)."""
+    match = TAG_PATTERN.match(tag)
     if not match:
-        raise ValueError(f"No trailing digit group found in tag: {tag}")
-    digits = match.group(1)
-    return (int(digits) / 10 ** len(digits)) * 1000
+        raise ValueError(
+            f"Tag '{tag}' doesn't match the '<MODE>_<FT>' naming, e.g. 'A_045', "
+            f"'A_090-5' or 'AD_060' (mode letter(s), underscore, FT in GPa without the "
+            f"leading '0.', zero-padded to 3 digits, decimals after a '-')."
+        )
+    mode, int_digits, frac_digits = match.group(1).upper(), match.group(2), match.group(3)
+    check_mode(mode, f"Tag '{tag}'")
+    digits = int_digits + (frac_digits or "")
+    ft = (int(digits) / 10 ** len(digits)) * 1000   # GPa -> MPa
+    return mode, ft
 
 
 def discover_fem_curve_pairs(folder):
     """Finds every '<tag>_disp' file in folder with a matching '<tag>_force'
-    next to it (e.g. '045_disp' + '045_force' -> tag '045'). New FT sweeps
-    just need their two exported files dropped in here -- nothing to
-    configure. Returns a sorted list of (tag, disp_path, force_path)."""
+    next to it (e.g. 'A_045_disp' + 'A_045_force' -> tag 'A_045'). New FT
+    sweeps, and new breaking modes, just need their two exported files dropped
+    in here -- nothing to configure. Returns a sorted list of
+    (tag, disp_path, force_path)."""
     pairs = []
     for disp_path in sorted(glob.glob(os.path.join(folder, "*_disp"))):
         tag = os.path.basename(disp_path)[: -len("_disp")]
@@ -137,9 +243,10 @@ def build_combined_fem_curve(tag, disp_path, force_path, x_scale=X_SCALE, y_scal
     return disp_val, force_val
 
 
-def trim_after_failure(disp, force, fail_idx, settle_frac=0.05, tail_frac=1.0):
+def trim_after_failure(disp, force, top_idx, bottom_idx, tail_frac=1.0):
     """
-    Cut the curve off shortly after the failure drop.
+    Cut the curve off shortly after the collapse drop (from
+    find_collapse_point).
 
     The runs carry on for a long way past failure -- a crushed-material
     plateau several times the displacement of interest -- and none of it says
@@ -147,177 +254,188 @@ def trim_after_failure(disp, force, fail_idx, settle_frac=0.05, tail_frac=1.0):
     and the drop itself into a sliver of the axes.
 
     The cut is placed from the curve's own geometry rather than a hard-coded
-    displacement, so it adapts to each run: find where the load stops falling
-    (the bottom of the drop), then keep a further tail_frac of the drop's own
-    displacement width beyond it. The drop is therefore always shown whole,
-    with a proportionate stretch of settled post-failure load beneath it for
-    context, and nothing after that.
+    displacement, so it adapts to each run: keep tail_frac of the collapse's
+    own displacement width beyond its bottom. The drop is therefore always
+    shown whole, with a proportionate stretch of settled post-failure load
+    beneath it for context, and nothing after that.
 
     Args:
-        settle_frac : the drop is over once the load has climbed back this
-                      fraction of its depth above its lowest point -- enough
-                      to step over the ripple in the plateau.
-        tail_frac   : how much of the drop's displacement width to keep past
-                      the bottom (1.0 = tail as wide as the drop).
+        tail_frac : how much of the drop's displacement width to keep past
+                    the bottom (1.0 = tail as wide as the drop).
 
     Returns:
         end : slice end index -- plot disp[:end], force[:end].
     """
     n = len(force)
-    post = force[fail_idx:]
-    running_min = np.minimum.accumulate(post)
-    depth = force[fail_idx] - running_min
-
-    # while the load is still falling post == running_min, so this stays False;
-    # it first trips once the curve has turned back up off the bottom
-    rebound = np.flatnonzero(post > running_min + settle_frac * depth)
-    if rebound.size == 0:
-        return n  # never settles -> nothing to trim
-
-    bottom_idx = fail_idx + int(np.argmin(post[:rebound[0] + 1]))
-    width = disp[bottom_idx] - disp[fail_idx]
+    width = disp[bottom_idx] - disp[top_idx]
     beyond = np.flatnonzero(disp > disp[bottom_idx] + tail_frac * width)
     end = int(beyond[0]) + 1 if beyond.size else n
     return min(max(end, bottom_idx + 1), n)
 
 
-def find_failure_point(force, post_drop_frac=0.20):
+def find_failure_point(force, post_drop_frac=0.01, arm_frac=0.10):
     """
-    Locate the failure (breaking) point: the PEAK load the curve carries before
-    it sheds a significant fraction of it.
+    Locate the failure (breaking) point: the load at which the phial FIRST
+    fractures -- the highest load carried before the curve first sheds load.
 
-    This is the quantity to compare against the target failure load. It is not
-    the same as the first stiffness drop -- the curve keeps taking more load for
-    a while after it starts softening (~35 N more on these runs), so reading the
-    failure load off the stiffness-drop point reports it far too low.
+    THE FIRST EVENT, NOT THE BIGGEST. A single-mode run is linear right up to
+    fracture and then collapses, so its first shed IS its collapse and the two
+    readings coincide. A hybrid mode (e.g. AD) is the case that separates them:
+    one of its two sites cracks first, the load dips, and the structure carries
+    on through the redistributed load to a HIGHER overall peak before the
+    second site goes. That later peak is not the strength of the phial -- it is
+    the strength of an already-cracked phial -- so the first shed is what gets
+    reported and compared against the target load.
 
-    The curve is scanned for the first point that has shed more than
-    post_drop_frac of the run's overall peak load relative to the running
-    maximum; the failure point is then the highest load reached before it.
+    A shed only counts once the run has ARMED, i.e. once the load has reached
+    arm_frac of the run's overall peak. This is what keeps the pre-contact
+    region out: those first few increments wiggle by ~0.2 N at a load of ~0.2 N,
+    which on drop size alone is not cleanly separable from a genuine 1.3 N first
+    fracture, but on load level is ~70x away from it. Screening by load level
+    rather than by drop size is what lets post_drop_frac come down to a value
+    that can see a real first event at all.
 
-    The shed is measured against the run's OVERALL peak, not against the
-    running maximum alone -- a purely relative test ("fell 20% below the
-    running max") is scale-free, so the sub-newton wiggle in the pre-contact
-    region trips it and the reported failure load collapses to ~0.2 N.
-    Anchoring to the overall peak makes the test read "the load dropped by
-    more than 20% of the largest load in this run", which noise can't reach.
+    Args:
+        post_drop_frac : load shed marking a fracture, as a fraction of the
+                         run's overall peak. Must clear the solver's own ripple
+                         on the loading branch (~0.5%) and stay under the
+                         smallest genuine first event (~1.3% on these runs).
+        arm_frac       : sheds are ignored until the load has reached this
+                         fraction of the run's overall peak.
 
     Returns:
-        fail_idx : index of the peak (breaking) load
-        failed   : False if no load shed was found at all, meaning the run was
-                   probably not carried through to failure and fail_idx is just
-                   the largest load reached so far.
+        fail_idx : index of the breaking load
+        failed   : False if no qualifying shed was found at all, meaning the run
+                   was probably not carried through to failure and fail_idx is
+                   just the largest load reached so far.
     """
     force = np.asarray(force, dtype=float)
     peak = float(np.max(force))
     if peak <= 0:
         return int(np.argmax(force)), False
-    shed_from_running_max = np.maximum.accumulate(force) - force
-    shed = np.flatnonzero(shed_from_running_max > post_drop_frac * peak)
-    if shed.size == 0:
+    running_max = np.maximum.accumulate(force)
+    shed = running_max - force
+    qualifies = (shed > post_drop_frac * peak) & (running_max >= arm_frac * peak)
+    hits = np.flatnonzero(qualifies)
+    if hits.size == 0:
         return int(np.argmax(force)), False
-    return int(np.argmax(force[:shed[0]])), True
+    return int(np.argmax(force[:hits[0]])), True
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Overlay FEM force-disp curves, mark each run's breaking load, and compare "
-                    "against a target failure load. Labeled by FT [MPa]."
-    )
-    parser.add_argument("folder", type=str, nargs="?", default=None,
-                         help="Folder containing paired '<tag>_disp' / '<tag>_force' curves. "
-                              "Overrides DATA_FOLDER constant if given.")
-    parser.add_argument("--target-load", type=float, default=None,
-                         help="Target failure load [N] (red threshold line). Overrides "
-                              "TARGET_FAILURE_LOAD constant if given.")
-    parser.add_argument("--post-drop-frac", type=float, default=0.20,
-                         help="Load shed marking genuine failure, as a fraction of the run's overall peak "
-                              "load (0.20 = load fell by 20%% of the peak). The breaking force is the "
-                              "highest load reached before this shed.")
-    parser.add_argument("--settle-frac", type=float, default=0.05,
-                         help="Curve is considered settled once it climbs this fraction of the drop's "
-                              "depth back above its lowest point (marks the bottom of the drop).")
-    parser.add_argument("--tail-frac", type=float, default=1.0,
-                         help="How much of the drop's displacement width to keep past the bottom of the "
-                              "drop (1.0 = tail as wide as the drop). Everything after is discarded.")
-    parser.add_argument("--xmax", type=float, default=None,
-                         help="Right x-limit [mm]. Default: the end of the trimmed curves.")
-    parser.add_argument("--ymax", type=float, default=None,
-                         help="Top y-limit [N]. Default: 1.2x the largest of the breaking loads and the target.")
-    parser.add_argument("--out", type=str, default=None,
-                         help="Output PNG path (default: <folder>/ft_finetuning_overlay.png)")
-    args = parser.parse_args()
+def find_collapse_point(force, collapse_frac=COLLAPSE_FRAC, settle_frac=0.05):
+    """
+    Locate the run's catastrophic drop as (top_idx, bottom_idx). Used only to
+    decide where to trim the plot, never to report a load.
 
-    target_load = args.target_load if args.target_load is not None else TARGET_FAILURE_LOAD
-    folder = Path(args.folder if args.folder is not None else DATA_FOLDER)
+    This is deliberately NOT find_failure_point: on a hybrid the reported
+    breaking load is the first small fracture, and trimming the plot there
+    would cut the run off before its collapse is ever drawn. Trimming has to
+    follow the big drop, whichever event that turns out to be.
 
-    pairs = discover_fem_curve_pairs(str(folder))
-    if not pairs:
-        raise FileNotFoundError(f"No paired '<tag>_disp' / '<tag>_force' curves found in {folder}")
-    print(f"Found {len(pairs)} FEM curve(s) in '{folder}/'.")
+    Note this cannot be done by taking the point that sits furthest below the
+    run's running maximum. That point is not the bottom of the collapse: the
+    running maximum stays pinned at the pre-collapse peak for the rest of the
+    run, so the deepest such point is wherever the long crushed plateau happens
+    to sag lowest, hundreds of increments past the collapse.
 
-    curves = []
-    for tag, disp_path, force_path in pairs:
-        ft = parse_ft(tag)
-        disp, force = build_combined_fem_curve(tag, disp_path, force_path)
-        curves.append((tag, ft, disp, force))
+    So the collapse is found the same way failure is -- the first shed past a
+    threshold, but a large one (collapse_frac) rather than a fracture-sized one.
+    The walk to the bottom then starts from INSIDE the drop rather than from its
+    top: started at the top it would have to cross the small first-fracture dips
+    that precede the collapse on some runs, and would stop at the first of those
+    instead of carrying on to the real bottom.
 
-    # distinct, non-repeating color per curve (sorted by FT so the legend/colors
-    # read in a sensible order) -- a continuous colormap made close FT values
-    # look almost identical, which is the opposite of what we want here.
-    curves_sorted = sorted(range(len(curves)), key=lambda i: curves[i][1])
-    n_curves = len(curves)
-    qualitative_cmap = plt.cm.tab10 if n_curves <= 10 else plt.cm.tab20
-    colors_by_order = [qualitative_cmap(i % qualitative_cmap.N) for i in range(n_curves)]
-    curve_colors = [None] * n_curves
-    for order, idx in enumerate(curves_sorted):
-        curve_colors[idx] = colors_by_order[order]
+    Args:
+        collapse_frac : shed marking the collapse, as a fraction of the run's
+                        overall peak load.
+        settle_frac   : the drop is over once the load has climbed back this
+                        fraction of its depth above its lowest point -- enough
+                        to step over the ripple in the plateau.
+    """
+    force = np.asarray(force, dtype=float)
+    peak = float(np.max(force))
+    shed = np.maximum.accumulate(force) - force
+    hits = np.flatnonzero(shed > collapse_frac * peak)
+    if hits.size == 0:
+        return int(np.argmax(force)), len(force) - 1   # no collapse -> nothing to trim to
+    inside = int(hits[0])                              # partway down the drop
+    top_idx = int(np.argmax(force[:inside]))
 
+    post = force[inside:]
+    running_min = np.minimum.accumulate(post)
+    depth = force[inside] - running_min
+    rebound = np.flatnonzero(post > running_min + settle_frac * depth)
+    stop = int(rebound[0]) + 1 if rebound.size else len(post)
+    bottom_idx = inside + int(np.argmin(post[:stop]))
+    return top_idx, bottom_idx
+
+
+def build_ft_colors(all_fts):
+    """One distinct, non-repeating color per FT value, assigned across ALL
+    modes at once so a given FT keeps the same color in every mode's figure --
+    the figures then sit side by side and read together.
+
+    A qualitative colormap, not a continuous one: on a continuous map two close
+    FT values come out almost identical, which is the opposite of what's wanted
+    when the whole point is telling neighbouring sweep values apart."""
+    unique_fts = sorted(set(all_fts))
+    cmap = plt.cm.tab10 if len(unique_fts) <= 10 else plt.cm.tab20
+    return {ft: cmap(i % cmap.N) for i, ft in enumerate(unique_fts)}
+
+
+def plot_mode(mode, curves, target_load, ft_colors, args, out_path):
+    """Build and save one mode's figure. curves is a list of
+    (tag, ft, disp, force). Returns the list of (ft, fail_load) for it."""
     fig, ax = plt.subplots(figsize=(9, 6))
 
     summary = []
     x_ends = []
-    for i, (tag, ft, disp, force) in enumerate(curves):
-        # breaking force = peak load carried before the curve sheds load
-        fail_idx, failed = find_failure_point(force, post_drop_frac=args.post_drop_frac)
+    y_peaks = []
+    for tag, ft, disp, force in sorted(curves, key=lambda c: c[1]):
+        # breaking force = load carried before the curve FIRST sheds load
+        fail_idx, failed = find_failure_point(force, post_drop_frac=args.post_drop_frac,
+                                              arm_frac=args.arm_frac)
         fail_load = force[fail_idx]
         if not failed:
-            print(f"  WARNING '{tag}': load never dropped {args.post_drop_frac:.0%} below its peak -- "
+            print(f"  WARNING '{tag}': load never shed {args.post_drop_frac:.1%} of its peak -- "
                   f"this run may not have been carried to failure; reporting the highest load reached.")
 
-        # keep the loading branch and the drop, discard the plateau after it
-        end = trim_after_failure(disp, force, fail_idx,
-                                 settle_frac=args.settle_frac, tail_frac=args.tail_frac)
+        # keep the loading branch and the collapse, discard the plateau after
+        # it -- trimming follows the big drop, not the reported first fracture.
+        # A run that never failed has no collapse to trim to: its deepest
+        # "drop" is just solver ripple somewhere up the loading branch, and
+        # cutting there would throw away the part of the curve being looked at.
+        end = len(force)
+        if failed:
+            top_idx, bottom_idx = find_collapse_point(force, settle_frac=args.settle_frac)
+            end = trim_after_failure(disp, force, top_idx, bottom_idx, tail_frac=args.tail_frac)
+            end = max(end, fail_idx + 1)   # never trim away the marked point itself
         disp, force = disp[:end], force[:end]
         x_ends.append(disp[-1])
+        y_peaks.append(float(np.max(force)))
 
         summary.append((ft, fail_load))
 
-        color = curve_colors[i]
+        color = ft_colors[ft]
         ax.plot(disp, force, color=color, lw=1.5,
                 label=f"FT = {ft:g} MPa  ->  {fail_load:.1f} N")
         ax.scatter(disp[fail_idx], fail_load, color=color, marker="o", s=20,
                    zorder=6, edgecolors="black", linewidths=0.6)
 
-    ax.axhline(target_load, color="red", lw=2, label=f"Target failure load = {target_load:g} N")
+    if target_load is not None:
+        ax.axhline(target_load, color="red", lw=2,
+                   label=f"Target failure load = {target_load:g} N")
     ax.scatter([], [], marker="o", facecolors="none", edgecolors="0.25", s=20,
                label="Breaking load")
 
-    if summary:
-        print()
-        print(f"{'FT [MPa]':>10}  {'F_fail [N]':>11}  {'vs target':>10}")
-        for ft, fail_load in sorted(summary):
-            print(f"{ft:>10.6g}  {fail_load:>11.1f}  {fail_load - target_load:>+10.1f}")
-        best = min(summary, key=lambda r: abs(r[1] - target_load))
-        print()
-        print(f"Closest to the {target_load:g} N target: FT = {best[0]:g} MPa "
-              f"(F_fail = {best[1]:.1f} N)")
-        print()
-
-    # axes follow the trimmed curves, so the loading branch and the drop fill the plot
+    # axes follow this mode's own trimmed curves, so its loading branch and its
+    # drop fill the plot whatever load the mode fails at. The top follows the
+    # curves' own peaks, not their breaking loads: on a hybrid the curve keeps
+    # climbing past the break, and fitting the axes to the breaking loads would
+    # cut the top off every curve in the figure.
     if x_ends:
         x_max = max(x_ends)
-        y_max = max([load for _, load in summary] + [target_load])
+        y_max = max(y_peaks + ([target_load] if target_load is not None else []))
         ax.set_xlim(left=-0.02 * x_max, right=args.xmax if args.xmax is not None else x_max)
         ax.set_ylim(bottom=-0.08 * y_max, top=args.ymax if args.ymax is not None else 1.2 * y_max)
 
@@ -326,13 +444,141 @@ def main():
     handles, labels = ax.get_legend_handles_labels()
     ax.legend(handles, labels, fontsize=8, ncol=1,
               loc="center left", bbox_to_anchor=(1.02, 0.5))
-    ax.set_title("Force-displacement for FT finetuning")
+    ax.set_title(f"Force-displacement for FT finetuning - Mode {mode} ({mode_label(mode)})")
     fig.tight_layout()
 
-    out_path = Path(args.out) if args.out else folder / "ft_finetuning_overlay.png"
     fig.savefig(out_path, dpi=200)
-    print(f"Saved plot to {out_path}")
-    plt.show()
+    print(f"  Saved plot to {out_path}")
+    return summary
+
+
+def print_mode_summary(mode, summary, target_load):
+    """Per-mode table of FT vs breaking load, and which FT lands closest to
+    that mode's target."""
+    print()
+    print(f"Mode {mode} ({mode_label(mode)}):")
+    if target_load is None:
+        print(f"{'FT [MPa]':>10}  {'F_fail [N]':>11}")
+        for ft, fail_load in sorted(summary):
+            print(f"{ft:>10.6g}  {fail_load:>11.1f}")
+        print(f"  No target failure load set for mode {mode} -- add one to "
+              f"TARGET_FAILURE_LOAD to fit against it.")
+        return
+    print(f"{'FT [MPa]':>10}  {'F_fail [N]':>11}  {'vs target':>10}")
+    for ft, fail_load in sorted(summary):
+        print(f"{ft:>10.6g}  {fail_load:>11.1f}  {fail_load - target_load:>+10.1f}")
+    best = min(summary, key=lambda r: abs(r[1] - target_load))
+    print(f"  Closest to the {target_load:g} N target: FT = {best[0]:g} MPa "
+          f"(F_fail = {best[1]:.1f} N)")
+
+
+def parse_target_overrides(items):
+    """Parse --target-load 'A=98.7' 'AD=150' into {'A': 98.7, 'AD': 150.0}."""
+    overrides = {}
+    for item in items or []:
+        if "=" not in item:
+            raise ValueError(f"--target-load expects '<MODE>=<load>' (e.g. 'A=98.7'), got '{item}'")
+        mode, _, value = item.partition("=")
+        mode = mode.strip().upper()
+        check_mode(mode, "--target-load")
+        overrides[mode] = float(value)
+    return overrides
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Overlay FEM force-disp curves per breaking mode, mark each run's breaking "
+                    "load, and compare against that mode's target failure load. One figure per "
+                    "mode; curves labeled by FT [MPa]."
+    )
+    parser.add_argument("folder", type=str, nargs="?", default=None,
+                         help="Folder containing paired '<MODE>_<FT>_disp' / '<MODE>_<FT>_force' "
+                              "curves. Overrides DATA_FOLDER constant if given.")
+    parser.add_argument("--modes", type=str, default=None,
+                         help="Only plot these breaking modes, comma-separated (e.g. 'A,AD'). "
+                              "A hybrid must be named in full -- 'A' does not select 'AD'. "
+                              "Default: every mode found in the folder.")
+    parser.add_argument("--target-load", type=str, nargs="+", default=None, metavar="MODE=LOAD",
+                         help="Target failure load [N] per mode, e.g. --target-load A=98.7 D=150. "
+                              "Overrides the TARGET_FAILURE_LOAD entry for those modes only.")
+    parser.add_argument("--post-drop-frac", type=float, default=0.01,
+                         help="Load shed marking a fracture, as a fraction of the run's overall peak load "
+                              "(0.01 = load fell by 1%% of the peak). The breaking force is the highest "
+                              "load reached before the FIRST such shed. Raise it if solver ripple is being "
+                              "read as a fracture, lower it if a real first fracture is being walked past.")
+    parser.add_argument("--arm-frac", type=float, default=0.10,
+                         help="Ignore load sheds until the load has reached this fraction of the run's "
+                              "overall peak. Keeps the sub-newton pre-contact wiggle from being read as "
+                              "a fracture.")
+    parser.add_argument("--settle-frac", type=float, default=0.05,
+                         help="Collapse is considered settled once the load climbs this fraction of the "
+                              "drop's depth back above its lowest point (marks the bottom of the drop, "
+                              "which is where trimming measures from). Affects the plot only.")
+    parser.add_argument("--tail-frac", type=float, default=1.0,
+                         help="How much of the collapse's displacement width to keep past the bottom of "
+                              "the drop (1.0 = tail as wide as the drop). Everything after is discarded.")
+    parser.add_argument("--xmax", type=float, default=None,
+                         help="Right x-limit [mm], applied to every mode's figure. Default: the end of "
+                              "each mode's own trimmed curves.")
+    parser.add_argument("--ymax", type=float, default=None,
+                         help="Top y-limit [N], applied to every mode's figure. Default: 1.2x the largest "
+                              "of each mode's own curve peaks and its target.")
+    parser.add_argument("--out-dir", type=str, default=None,
+                         help="Directory for the per-mode PNGs (default: the data folder). Each is saved "
+                              "as 'ft_finetuning_overlay_<MODE>.png'.")
+    parser.add_argument("--no-show", action="store_true",
+                         help="Save the figures without opening them (one window per mode otherwise).")
+    args = parser.parse_args()
+
+    folder = Path(args.folder if args.folder is not None else DATA_FOLDER)
+    out_dir = Path(args.out_dir) if args.out_dir else folder
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    targets = dict(TARGET_FAILURE_LOAD)
+    targets.update(parse_target_overrides(args.target_load))
+
+    pairs = discover_fem_curve_pairs(str(folder))
+    if not pairs:
+        raise FileNotFoundError(
+            f"No paired '<MODE>_<FT>_disp' / '<MODE>_<FT>_force' curves found in {folder}")
+
+    # group the sweep by breaking mode -- each mode is fitted separately
+    by_mode = defaultdict(list)
+    for tag, disp_path, force_path in pairs:
+        mode, ft = parse_tag(tag)
+        disp, force = build_combined_fem_curve(tag, disp_path, force_path)
+        by_mode[mode].append((tag, ft, disp, force))
+
+    wanted = None
+    if args.modes:
+        wanted = [m.strip().upper() for m in args.modes.split(",") if m.strip()]
+        missing = [m for m in wanted if m not in by_mode]
+        if missing:
+            print(f"  WARNING: no curves found for requested mode(s) {', '.join(missing)}.")
+        by_mode = {m: c for m, c in by_mode.items() if m in wanted}
+        if not by_mode:
+            raise FileNotFoundError(f"None of the requested modes have curves in {folder}")
+
+    found = ", ".join(f"{m} ({len(by_mode[m])} curve(s))" for m in sorted(by_mode))
+    print(f"Found {len(pairs) if wanted is None else sum(len(c) for c in by_mode.values())} "
+          f"FEM curve(s) in '{folder}/' across {len(by_mode)} mode(s): {found}.")
+
+    # colors assigned across every mode at once, so one FT = one color everywhere
+    ft_colors = build_ft_colors(ft for curves in by_mode.values() for _, ft, _, _ in curves)
+
+    summaries = {}
+    for mode in sorted(by_mode):
+        out_path = out_dir / f"ft_finetuning_overlay_{mode}.png"
+        summaries[mode] = plot_mode(mode, by_mode[mode], targets.get(mode),
+                                    ft_colors, args, out_path)
+
+    for mode in sorted(summaries):
+        if summaries[mode]:
+            print_mode_summary(mode, summaries[mode], targets.get(mode))
+    print()
+
+    if not args.no_show:
+        plt.show()
 
 
 if __name__ == "__main__":
