@@ -41,8 +41,17 @@ what you want, since payload tolerance limits are quoted in g.
 Whatever the input, the curve files are ALWAYS written in mm/ms^2 -- that is
 what the solver reads -- and each file carries a '$' comment header recording
 its a_peak in both units. Filenames are tagged with the value as typed plus its
-unit ('..._apeak_20p390g.dat' vs '..._apeak_0p200mmms2.dat') so the two cannot
+unit ('..._apeak_20p390g.k' vs '..._apeak_0p200mmms2.k') so the two cannot
 be confused on disk.
+
+OUTPUT FORMAT
+-------------
+Each file is a self-contained LS-DYNA keyword block (*DEFINE_CURVE with the
+HyperMesh $HMNAME/$HWCOLOR/$HMCURVE header lines) that can be pulled straight
+into a model with *INCLUDE. By default every file uses the same LCID
+(CURVE_ID_START), so swapping the include swaps the pulse without touching the
+rest of the deck. Set UNIQUE_CURVE_IDS = True to give each curve its own LCID
+if several are to be included in the same model.
 
 Two plots are produced of the same family, one in [mm/ms^2] and one in [g],
 irrespective of INPUT_UNITS.
@@ -81,6 +90,21 @@ RISE_FRACTION = 0.2
 # Output location and naming
 OUTPUT_DIR = "curve_family_output"
 FILE_PREFIX = "accel_curve"
+FILE_EXTENSION = ".k"
+
+# --- *DEFINE_CURVE header -----------------------------------------------------
+# LCID written in the keyword. False => every file gets CURVE_ID_START (one
+# include per run, the model always references the same curve). True => IDs
+# CURVE_ID_START, CURVE_ID_START+1, ... (several includes in one model).
+CURVE_ID_START = 2
+UNIQUE_CURVE_IDS = False
+# Curve title shown in HyperMesh ($HMNAME); the a_peak tag is appended to it.
+CURVE_NAME_PREFIX = "curve_acceleration_SLED"
+# HyperMesh display color ($HWCOLOR)
+HW_COLOR = 24
+# Scale factors on abscissa / ordinate (SFA / SFO)
+SFA = 1.0
+SFO = 1.0
 
 # Decimal precision used inside the fixed-width fields
 DECIMALS = 6
@@ -174,12 +198,24 @@ def format_field(value, decimals, width=20):
     return f"{value:>{width}.{decimals}f}"
 
 
-def write_curve_file(filepath, points, decimals, a_peak, t3, delta_v):
-    """Write a *DEFINE_CURVE table; '$' lines are LS-DYNA comments."""
+def write_curve_file(filepath, points, decimals, a_peak, t3, delta_v,
+                     curve_id, curve_name):
+    """Write a *DEFINE_CURVE keyword block ready to be used via *INCLUDE.
+
+    Layout mirrors a HyperMesh export: the $HM... lines are '$' comments to
+    LS-DYNA (HyperMesh reads them for the curve name/color on import), card 1
+    uses 10-character fields, and the point pairs use 20-character fields.
+    """
     lines = [
         f"$ a_peak = {a_peak:.6f} mm/ms^2 = {a_peak / G_IN_MM_PER_MS2:.4f} g",
         f"$ t3 = {t3:.6f} ms,  delta_v = {delta_v:.6f} mm/ms",
         "$ X = time [ms],  Y = acceleration [mm/ms^2]",
+        "*DEFINE_CURVE",
+        f"$HMNAME CURVES{curve_id:>10d}{curve_name}",
+        f"$HWCOLOR CURVES{curve_id:>10d}{HW_COLOR:>8d}",
+        f"$HMCURVE{1:>6d}{0:>5d} {curve_name}",
+        "$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP     LCINT",
+        f"{curve_id:>10d}{'':>10}{SFA:>10.1f}{SFO:>10.1f}",
         "$" + f"{'X':>19}" + f"{'Y':>20}",
     ]
     for x, y in points:
@@ -263,7 +299,7 @@ def main():
               f"{'t1':>10} {'t2':>10} {'t3':>10} {'%window':>9} {'area_check':>12}")
 
     curves = []
-    for a_peak_input in PEAK_ACCELERATIONS:
+    for i, a_peak_input in enumerate(PEAK_ACCELERATIONS):
         a_peak = to_mm_per_ms2(a_peak_input, INPUT_UNITS)
 
         points, area, (t1, t2, t3) = build_trapezoid(
@@ -271,9 +307,12 @@ def main():
         )
 
         tag = sanitize_apeak_for_filename(a_peak_input, INPUT_UNITS)
-        filename = f"{FILE_PREFIX}_apeak_{tag}.dat"
+        filename = f"{FILE_PREFIX}_apeak_{tag}{FILE_EXTENSION}"
         filepath = os.path.join(OUTPUT_DIR, filename)
-        write_curve_file(filepath, points, DECIMALS, a_peak, t3, delta_v)
+        curve_id = CURVE_ID_START + (i if UNIQUE_CURVE_IDS else 0)
+        curve_name = f"{CURVE_NAME_PREFIX}_{tag}"
+        write_curve_file(filepath, points, DECIMALS, a_peak, t3, delta_v,
+                         curve_id, curve_name)
 
         curves.append({"a_peak": a_peak, "points": points, "t3": t3, "path": filepath})
 
