@@ -81,7 +81,7 @@ INPUT_UNITS = "g"
 
 # Family of peak accelerations to generate curves for, in INPUT_UNITS.
 # See "NOTE ON PICKING a_peak" above: these set the pulse durations.
-PEAK_ACCELERATIONS = [20, 30, 40, 50, 60]
+PEAK_ACCELERATIONS = [20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 # Fraction of total curve duration used for rise (and, symmetrically, fall)
 # Must be in (0, 0.5). 0.5 => pure triangle, no plateau.
