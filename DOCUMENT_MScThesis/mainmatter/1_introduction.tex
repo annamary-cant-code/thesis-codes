@@ -3,26 +3,87 @@
 
 
 \section{Motivation}
+The present MSc Thesis in Aerospace Structures and Materials falls under the category of \textit{Engineering Design}, in alternative to the \textit{Scientific Research}-type projects. In \textit{design} projects, it is required to attempt the process of innovation not through the discovery and exploration of a research niche, but rather by applying pre-existing scientific knowledge to enable the concrete realisation of a technical design. In the case of the present thesis, the overall objective consists in proposing a \textit{deisign workflow} and validating it through testing and simulation. If adopted in the preliminary design phase of a drone-based delivery mission, this workflow yields an optimised airbag-type device tailored to a specific failure-and-drop application, in line with the requirements set by the project commissioners. Therefore, the successful completion of this thesis is achieved by:
+\begin{enumerate}
+    \item Proposing an application-specific design workflow that fits within the broader context of the ongoing research effort;
+    \item Testing the workflow, both experimentally and through simulation, to realistically inform the device's design. 
+\end{enumerate} 
 
-Design thesis, rather than research thesis. General objective: design and test a workflow that answers to a specific need + approach requested by a research group for which this project is done. Partners and participation. Broader context on the fact that this is an aerospace engineering project at the service of the medical field.
+The design workflow (informally called \textit{inner (design) loop} throughout this thesis) is inteded as a first attempt to bridge the gap between the long-term, broadly-defined objective of constructing a large-scale drone network (also called \textit{outer (design) loop}) over the region of Piedmont, Italy, and the previously completed research work, consisting in a series of logistic, legislative, and generally high-level evaluations of possible \textbf{drone-based missions} with the objective to \textbf{deliver medical supplies in emergency scenarios}. Such work was conducted by Prof. Enrico Cestino's research group at \textit{Politecnico di Torino}, in collaboration with the \textit{A.O.U. Città della Salute e della Scienza di Torino} hospital complex and automotive consulting company \textit{FEV Italia S.r.l.}, three of the main industrial and research stakeholders working towards helping hospitals in the transition from road to air transport to enhance the logistics of the \textit{Sistema Sanitario Nazionale} (\textit{SSN}, the Italian National Healthcare System) both at an intra- and inter-hospital level.  
 
+This MSc Thesis Project is, therefore, a multi-disciplinary project where the knowledge and techniques of Structural Engineering are put to the service of the Medical field. The airbag-like device resulting from the design process should be able to protect the free-falling medical payload in the event of a drone failure and its subsequent detachment from the latter. The device aims to bring the impact accelerations within the allowable limits of the payload container and of the medical payload being transported, in compliance with the safety regulations regarding dispersion of chemical substances into the environment. However, contrary to most aeronautical projects which do not distinguish between the integrity of the aerial vehicle and the safety of its passengers, this project adopts a "cargo-first" approach where the protection of the highly valuable medical payload is prioritised over the integrity of the drone carrying it. Distinguishing between the safety aspects of the UAV and its payload implies a certain facilitation in the certification process of the UAV, as well as for the modular implementation of the safety device on a variety of drones serving in different, specific delivery missions.  
 
-
-* Questo è l'obiettivo di questa tesi: fare il prossimo passo, cioè avviare il progetto concreto basato sulle analisi di concetto fatte fino a questo momento. La tesi si concentra dunque su un singolo looop progettuale all'interno del loop di progetto aeronautico. Il focus è la progettazione e la simulazione di un dispositivo che protegga il payload in caso di failure di drone e sgancio dallo stesso. Il dispositivo ha come obiettivo quello di rendere le accelerazioni di impatto date dalla missione in caso di dropping con gli ammissibili del contenitore e delle fialette mediche trasportate, iin rispetto delle normative che si preoccupano del danno causato dall'impatto su zone civili e dispersione delle sostanze chimiche nell'ambiente. 
-
-Il vantaggio di questo approccio, cioè sul partire dal dispositivo di safety, è l'impostazione del progetto modulare. Questo dispositivo, se realizzato con certi criteri di safety, è innestabile su droni adatti alle missioni pensate in un'ottica modulare, in cui una volta progettato il dispositivo di protezione, si va a convergenza di progetto modificando i requisiti di missione. 
 
 \section{Project framing}
 \subsection{The need for improved logistics in the Italian NHS}
-logistic failures and why people have thought of drone networks, with some mentions to UAV applications in the medical field and a focused Italian market analysis
-* scenario di una sanità devastata, inefficiente, con problemi di logistica e soddisfazione scarsa delle persone, con problema evidenziato ancora di più da crisi sanitaria come il covid, che nonostante sia avvenuto nel 2020-2021 ha visto Torino come uno dei protagonisti principali, prostrando gli ospedali e la popolazione. 
+
+The business and research idea of shifting transportation from su-ruote to drone-based stems from the spread of the general awareness, highlighted in the Covid-19 pandemic, that the Italian \textit{Sistema Sanitario Nazionale} (\textit{National Healthcare System}) has logistic issues. Furthermore, inequality in distribution of emergency services \cite{Garattini2020}, distribution over the territory. At the same time, at the moment the effort is movoing towards centralisation \cite{Abrescia2026}, which causes inequalities at a regional level, making it exponentially harder to reach further locations espacially in case of emergencies. At the same time, most transporation is on-gomma, \cite{Fantato2023}, although equipped with different emergency equipment and staff, not worth it, when minutes count. in a centralised system, where most of the care happens in big cities and not in the rest of the region. This makes remote areas not easily reachable, and in general in-city transportation not as fast as it is subjected to traffic. Need for improvement of the supply chain and in general, response for transportation. 
+
+
+- solution: drone network, with research groups activating in Piedmont, all over Italy, and also internationally, with unmatched applications (ZIPLINE), and experimental testing here and there (the american example), as it is a generally promising idea as well as a booming market. 
+
+
+Fantato \cite{Fantato2023}
+- most of the italian NHS is based on su gomma transportation, even in emergency cases
+" the type of vehicles used varies from 
+region to region. In Piedmont it mainly consists 
+of ambulances used only for transport plus more advanced vehicles equipped for resuscitation,7 
+replaced in some sites by mSa on a car with a 
+doctor, nurse and rescuer driver, organized on the 
+basis of specific needs of the territory, different in 
+the four macro-areas of the emergency network 
+(rEmE) in which the region was divided." --> defibrillators and emergency equipment travels by ambulance!!
+
+
+Abrescia: Centralised system causes inequality \cite{Abrescia2026}
+"These criteria have 
+a legitimate safety and efficiency rationale: centralization can improve 
+outcomes when volumes and expertise matter, and not every local 
+service can or should be preserved unchanged. The equity problem 
+arises when centralization proceeds without adequate attention to 
+geography, transport time, emergency capacity, and credible territorial 
+alternatives. In that setting, rationalization may produce distance- 
+related inequity, particularly for rural and peripheral populations."
+
+
+Capuzzo \cite{Capuzzo2022}- general SSN crisis
+- piedmont, third most affected region by the pandemic
+- "Thus, according to this Italian experience and the literature, the importance of identi
+fying optimal strategies for the planning of spending budgets available, the development
+of technologies suitable for the management of any health emergencies, the development
+of digitalization process [40,41], and the improvement of the supply chain in terms of
+availability of goods and their manage utilisation was evident"
+
+Garattini 2020 \cite{Garattini2020}
+- inappropriate distribution of emergency service units (AEs)-
+"more than 70% of the total access to public AEs 
+was inappropriate, and empty AEs after the outbreak (for 
+fear of contagion) may be considered indirect evidence of 
+usual inappropriate use." "Another crucial issue for Italian AEs is that they are 
+located in many public hospitals that are of a small size—
+around 30% with < 120 beds, and only 15% with > 600 beds "
+
+
+
+
 
 \subsection{PoliTo’s research group’s work (including normative) and expected contribution}
-
 * Iniziativa dell'A.o.U. città della salute e della scienza di Torino, in collaborazione con il Politecnico di Torino e in occasione del presente lavoro di tesi anche con FEV Italia S.r.l, ha preso l'iniziativa di ricerca per tentare di risolvere il problema, iniziando una serie di progetti a catena con una visione a lungo termine: snellire i l trasporto logistico all'interno della sanità implementando un sistema di droni, che possano aiutare con vari scenari. 
 
 Knowing that the long-term objective is the drone network, this is the work that this particular research group has done until now. The 5 MSc theses, the scientific works, etc. My contribution: an answer to PoliTo’s research: formalise (at a high level, non-detailed level) the project and take a little step forward, toward the long term objective, deciding on the approach. 
 
+In recent years, \textit{Politecnico di Torino}, \textit{ASL Città di Torino}, and \textit{A.O.U. Città della Salute e della Scienza di Torino} have launched a strategic research initiative focused on the use of unmanned aerial vehicles (UAVs) for the delivery of critical medical goods across Torino and its province. The long-term vision is the creation of a fully operational drone-based logistics network capable of rapidly and safely transporting medical supplies, thereby improving delivery speed, efficiency, operational capacity (especially payload mass), and overall safety.
 
-* Questo progetto vede l'intersezione tra l'aeronautica e la medicina. Mettere a disposizione una tecnologia aerea per contribuire al miglioramento del sistema sanitario nazionale italiano. 
+To date, in addition to several publications (e.g. Angelini (2024) \cite{Angelini2024ICAS}), the research effort has produced five Master’s theses, each addressing key aspects required to establish a complete and regulatory-compliant UAV medical delivery ecosystem:
+
+\begin{itemize}
+    \item \textbf{Cavallo (2020)} \cite{Cavallo2020}: Preliminary assessment of UAV platforms suitable under Italian and European regulations. Development of risk maps and definition of optimal trajectories between selected hospitals.
+    \item \textbf{Bertelli (2021)} \cite{Bertelli2021}: Detailed selection of UAV based on mission specifications derived from the medical goods to be transported and ENAC regulatory constraints. Application of the SORA (Specific Operations Risk Assessment) methodology to three feasible mission routes, yielding the safety requirements that operators must satisfy.
+    \item \textbf{Sivieri (2021)} \cite{Sivieri2021}: Identification and characterisation of thermal and vibrational loads encountered during typical UAV medical missions. Experimental testing on milk-derived sera samples to determine their resistance to UAV-induced vibrational stresses.
+    \item \textbf{Fiorentino (2021)} \cite{Fiorentino2021}: Development of a path-planning strategy for life-saving drug distribution in populated environments. Generation of risk maps and implementation of an RRT-based algorithm to minimise global risk and flight time.
+    \item \textbf{Angelini (2023)} \cite{Angelini2023}: Comparative analysis of the safety and economic efficiency of emergency medical deliveries performed by car, drone, and VTOL aircraft. Identification of optimal pharmaceutical delivery hub locations for each transport mode to maximise logistical performance.
+\end{itemize}
+
+
+
 * Sin da subito, il progetto ha assunto un focus logistico, come ogni progetto aeronautico. Impostandolo su analisi di sicurezza, analisi di mercato su scelta di drone, analisi di requisiti, etc. (fai RIASSUNTO) scelte di percoros ottimale, analisi di missione, etc. Questo ha fatto sì che si cominciasse a delineare uno scenario in cui è possibile ottenere l'approvazione dell'ENAC, ente nazionale bla bla bla, per formalizzare questa tipologia di operazione. D'altro canto, in uno scenario in cui per realizzare un'operazione del genere serve la certificazione aeronautica per evidenti rischi causati dal trasporto di medicinali su zone intensamente abitate come Torino, è necessario cominciare una progettazione più concreta per avviare un design loop guidato dalle stringenti normative. 

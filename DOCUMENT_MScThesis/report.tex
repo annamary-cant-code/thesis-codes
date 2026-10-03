@@ -1,7 +1,7 @@
 \documentclass{tudelft-report}
 
 %% Set up the bibliography
-\usepackage{biblatex}
+\usepackage[style=ieee, backend=biber]{biblatex}
 \addbibresource{report.bib}
 
 %% Additional packages and commands
@@ -18,24 +18,25 @@
 \frontmatter
 
 %% Define the main parameters
-\title{A Title to the Report}
-\subtitle{A Catchy Optional Subtitle \\ that Grabs the Attention}
-\author{Author}
+\title{Airbag-Based Protective System for UAV Medical
+Payloads}
+\subtitle{Design and Simulation in LS-DYNA}
+\author{Annamaria Iannuzzo}
 
-\subject{AB1234: Optional Course Name} % Cover only
+% \subject{AB1234: Optional Course Name} % Cover only
 \affiliation{Delft University of Technology} % Cover only
 \coverimage{figures/cover.jpg} % Aspect ratio of 2:3 (portrait) recommended
 \definecolor{title}{HTML}{4884d6} % Color for cover title
 
 \makecover
 
-\input{frontmatter/title-report}
+\input{frontmatter/title-thesis}
 \input{frontmatter/preface}
 \input{frontmatter/summary}
 
 \tableofcontents
-%\listoffigures
-%\listoftables
+\listoffigures
+\listoftables
 
 \input{frontmatter/nomenclature}
 

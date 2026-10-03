@@ -68,8 +68,8 @@ import matplotlib.pyplot as plt
 # =============================================================================
 
 # Initial velocity components to be dissipated [mm/ms]
-VX0 = 17.2
-VY0 = 5.0
+VX0 = 25
+VY0 = 7.5
 
 # Duration of the phenomenon [ms]. Every curve must fit inside this window.
 PHENOMENON_DURATION_MS = 200.0
@@ -81,7 +81,7 @@ INPUT_UNITS = "g"
 
 # Family of peak accelerations to generate curves for, in INPUT_UNITS.
 # See "NOTE ON PICKING a_peak" above: these set the pulse durations.
-PEAK_ACCELERATIONS = [20, 30, 40, 50, 60, 70, 80, 90, 100]
+PEAK_ACCELERATIONS = [20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600]
 
 # Fraction of total curve duration used for rise (and, symmetrically, fall)
 # Must be in (0, 0.5). 0.5 => pure triangle, no plateau.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  9 SEP 2026 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  3 OCT 2026 22:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1015,6 +1015,8 @@ Package biblatex Info: ... file 'blx-dm.def' found.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
 File: blx-dm.def 2025/07/10 v3.21 biblatex datamodel (PK/MW)
 )
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count463
@@ -1122,6 +1124,14 @@ File: biblatex.def 2025/07/10 v3.21 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip22
 \c@smartand=\count539
 )
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.bbx
+File: ieee.bbx 2025-08-01 v1.4f biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric-comp.bbx
+File: numeric-comp.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bbx
@@ -1132,23 +1142,26 @@ Package biblatex Info: ... file 'standard.bbx' found.
 File: standard.bbx 2025/07/10 v3.21 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count540
 \c@bbx:relatedtotal=\count541
-))
-Package biblatex Info: Trying to load citation style 'numeric'...
-Package biblatex Info: ... file 'numeric.cbx' found.
- (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric.cbx
-File: numeric.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
+))))
+Package biblatex Info: Trying to load citation style 'ieee'...
+Package biblatex Info: ... file 'ieee.cbx' found.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-ieee\ieee.cbx
+File: ieee.cbx 2025-08-01 v1.4f biblatex citation style
+Package biblatex Info: Trying to load citation style 'numeric-verb'...
+Package biblatex Info: ... file 'numeric-verb.cbx' found.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric-verb.cbx
+File: numeric-verb.cbx 2025/07/10 v3.21 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\textcite'.
-Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\parencites'.
 Package biblatex Info: Redefining '\smartcites'.
-)
+Package biblatex Info: Redefining '\textcites'.
+))
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
@@ -1332,12 +1345,12 @@ Package biblatex Info: Reference segment=0 on input line 16.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
 )
-<figures/cover.jpg, id=138, 690.55315pt x 1035.70886pt>
+<figures/cover.jpg, id=142, 690.55315pt x 1035.70886pt>
 File: figures/cover.jpg Graphic file (type jpg)
 <use figures/cover.jpg>
-Package pdftex.def Info: figures/cover.jpg  used on input line 30.
+Package pdftex.def Info: figures/cover.jpg  used on input line 31.
 (pdftex.def)             Requested size: 597.50787pt x 896.22354pt.
-LaTeX Font Info:    Trying to load font information for T1+RobotoSlab-TLF on input line 30.
+LaTeX Font Info:    Trying to load font information for T1+RobotoSlab-TLF on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/roboto\t1robotoslab-tlf.fd
 File: T1RobotoSlab-TLF.fd 2019/12/11 (autoinst) Font definitions for T1/RobotoSlab-TLF.
 )
@@ -1345,69 +1358,81 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `RobotoSlab-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/logo-white.pdf, id=139, 114.08723pt x 45.99081pt>
+<figures/logo-white.pdf, id=143, 114.08723pt x 45.99081pt>
 File: figures/logo-white.pdf Graphic file (type pdf)
 <use figures/logo-white.pdf>
-Package pdftex.def Info: figures/logo-white.pdf  used on input line 30.
+Package pdftex.def Info: figures/logo-white.pdf  used on input line 31.
 (pdftex.def)             Requested size: 156.84854pt x 63.23299pt.
-LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 30.
+LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1minzpl.fd
 File: ot1minzpl.fd 2021/05/25 v1.0 font definition file for OT1/minzpl/TLF
 )
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 10.0pt on input line 30.
+(Font)              scaled to size 10.0pt on input line 31.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `minzpl' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 7.3pt on input line 30.
+(Font)              scaled to size 7.3pt on input line 31.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 5.5pt on input line 30.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+(Font)              scaled to size 5.5pt on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 30.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 31.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 ) [1
 
 
-{C:/Users/annam/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/roboto/rbto_j2bk2t.enc} <./figures/cover.jpg> <./figures/logo-white.pdf>] (frontmatter/title-report.tex
-<figures/logo-black.pdf, id=152, 114.08723pt x 45.99081pt>
+{C:/Users/annam/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/roboto/rbto_j2bk2t.enc} <./figures/cover.jpg> <./figures/logo-white.pdf>] (frontmatter/title-thesis.tex
+LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
+(Font)              scaled to size 10.0pt on input line 48.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
+(Font)              scaled to size 10.0pt on input line 48.
+LaTeX Font Info:    Trying to load font information for T1+npxtt on input line 53.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1npxtt.fd
+File: t1npxtt.fd 2000/12/14 v1.0
+)
+LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `npxtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+<figures/logo-black.pdf, id=157, 114.08723pt x 45.99081pt>
 File: figures/logo-black.pdf Graphic file (type pdf)
 <use figures/logo-black.pdf>
-Package pdftex.def Info: figures/logo-black.pdf  used on input line 63.
+Package pdftex.def Info: figures/logo-black.pdf  used on input line 67.
 (pdftex.def)             Requested size: 114.08694pt x 45.99069pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.67 \end{titlepage}
+l.71 \end{titlepage}
                      [1
 
 {C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf.enc} <./figures/logo-black.pdf>]) (frontmatter/preface.tex
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 24.88pt on input line 1.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 4.
 ) (frontmatter/summary.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
@@ -1424,47 +1449,67 @@ LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 \tf@toc=\write6
 \openout6 = `report.toc'.
 
- (frontmatter/nomenclature.tex [3
+ [3
+
+] (report.lof)
+\tf@lof=\write7
+\openout7 = `report.lof'.
+
+ [4
+
+] (report.lot)
+\tf@lot=\write8
+\openout8 = `report.lot'.
+
+ (frontmatter/nomenclature.tex [5
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 14.4pt on input line 6.
 LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
 (Font)              `T1/RobotoSlab-TLF/bold/n' on input line 6.
-) [4
+) [6
 
 {C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc}] (mainmatter/1_introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 96.0pt on input line 1.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 16.
-LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
-(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 16.
 [1
 
 
-]) (mainmatter/2_SoA_and_RnD_gap.tex [2]
+]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 12.0pt on input line 18.
+LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
+(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 18.
+ [2]
+LaTeX Font Info:    Trying to load font information for TS1+zpltlf on input line 80.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ts1zpltlf.fd
+File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
+)
+LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
+(Font)              scaled to size 10.0pt on input line 80.
+) (mainmatter/2_SoA_and_RnD_gap.tex [3{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}]
 Chapter 2.
-) (mainmatter/3_DesignWorkflow_METHODOLOGY.tex [3
+) (mainmatter/3_DesignWorkflow_METHODOLOGY.tex [4
 
 ]
 Chapter 3.
-) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [4
+) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [5
 
 ]
 Chapter 4.
 LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
 (Font)              `T1/RobotoSlab-TLF/bold/n' on input line 22.
-[5
+[6
 
-]) (mainmatter/5_Conclusions.tex [6]
+]) (mainmatter/5_Conclusions.tex [7]
 Chapter 5.
-) (mainmatter/6_ProjectManagement.tex [7
+) (mainmatter/6_ProjectManagement.tex [8
 
 ]
 Chapter 6.
-) (mainmatter/NOTES.tex [8
+) (mainmatter/NOTES.tex [9
 
 ]
 Chapter 7.
@@ -1473,32 +1518,19 @@ Overfull \hbox (243.2579pt too wide) in paragraph at lines 47--52
 \T1/zpltlf/m/n/10 (-20) 15m/s in crociera, https://www.dji-store.it/prodotto/dji-matrice-300-rtk/?srsltid=AfmBOorTcxO1yqTrZgryaDUUjwIWjsdz28hGVDUFh6WNHuZYkw6iRMJC
  []
 
-[9
+[10
 
-]
-LaTeX Font Info:    Trying to load font information for TS1+zpltlf on input line 93.
- (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ts1zpltlf.fd
-File: ts1zpltlf.fd 2021/11/24 v1.0 fd file for TS1/zpltlf
-)
-LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 93.
- [10{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/zpl_TOsF.enc}])
+] [11]) [12]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/sc' will be
+(Font)              scaled to size 10.0pt on input line 64.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/zpltlf/m/sc/10'.
+(microtype)             Ignoring protrusion settings for this character.
+ (appendix/appendix-a.tex [13
 
-LaTeX Warning: Empty bibliography on input line 63.
-
-(appendix/appendix-a.tex [11]
+{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}]
 Appendix A.
-LaTeX Font Info:    Trying to load font information for T1+npxtt on input line 8.
-(C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\t1npxtt.fd
-File: t1npxtt.fd 2000/12/14 v1.0
-)
-LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
-(Font)              scaled to size 10.0pt on input line 8.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `npxtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+(C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
@@ -1507,13 +1539,13 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 11.
-) (appendix/appendix-b.tex [12
+) (appendix/appendix-b.tex [14
 
 ]
 Appendix B.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 8.0pt on input line 9.
-) [13
+) [15
 
 ] (report.aux)
  ***********
@@ -1521,23 +1553,23 @@ LaTeX2e <2026-06-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: B879E52FE57A7FC0B3BCA948203F81A8;6972.
+(rerunfilecheck)             Checksum: 22A446B8B68CBFE9C39FE4FDA8E4E024;7067.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46368 strings out of 467501
- 913862 string characters out of 5408550
- 1825116 words of memory out of 5000000
- 74722 multiletter control sequences out of 15000+600000
- 764151 words of font info for 170 fonts, out of 8000000 for 9000
+ 46761 strings out of 467501
+ 922953 string characters out of 5408550
+ 1826574 words of memory out of 5000000
+ 75039 multiletter control sequences out of 15000+600000
+ 771843 words of font info for 191 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,12n,108p,1245b,1459s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on report.pdf (19 pages, 1701715 bytes).
+ 107i,12n,108p,1330b,1746s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on report.pdf (23 pages, 1756155 bytes).
 PDF statistics:
- 381 PDF objects out of 1000 (max. 8388607)
- 80 named destinations out of 1000 (max. 500000)
- 34084 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 449 PDF objects out of 1000 (max. 8388607)
+ 99 named destinations out of 1000 (max. 500000)
+ 38188 words of extra memory for PDF output out of 42996 (max. 10000000)
 
