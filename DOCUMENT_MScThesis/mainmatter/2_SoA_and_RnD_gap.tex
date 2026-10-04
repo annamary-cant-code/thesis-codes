@@ -1,14 +1,147 @@
+% LTeX: language=en-GB
 \chapter{State of the Art and Research and Development Gap}
 \label{chapter:SoA-and-RnD}
 
-
-\section{Safety-first approach}
-a medical perspective applied to aerospace projects
-
-\section{What I should know for airbag design (BACKGROUND KNOWLEDGE)}
-deve essere chiaro nel Titolo che questa parte non è mia
-Part of literature research for airbag design and simulation, the normative scenario, include some “historical perspective” (rubrics!!!), therefore reference to the automotive and the space fields. 
+(BACKGROUND KNOWLEDGE) - put a little introduction paragraph here, saying that this chapter gatheres important information found in literature and functions as a literature research, tailored to answering the problem, exploring the market, understanding airbag design criteria also through the historical perspective, and then producing the main research questions. 
 
 
-\section{Research objective}
-Research question and sub-questions
+\section{first reason: mini-market analysis - the technology in piedmont}\label{section:market-analysis}
+* ab-zero
+* SkyEU
+* us
+
+* mention CROCE ROSSA ITALIANA (?necessary here? maybe earlier)- launched initiative delivery (ref. 6, tesi sivieri)
+
+* It is evident from research that every solution is possible, the challenge is to have normative approval rather than creativity. 
+
+
+
+\section{second reason: The \textit{payload-first} approach}\label{section:payload-first-approach}
+Chhetri - an updated REVIEW of medical drones in 2026
+* overcome geographical barriers
+and provide critical care in remote or disaster-stricken ar
+eas. 
+* critical role of payload container
+design, including fixed, cable-suspended, and temperature
+controlled systems, and analyze its effect on both the med
+ical supplies and the overall flight dynamics of the aircraft.
+* These
+supplies may include vaccines, medications, blood units, di
+agnostic samples, and organs for transplantation. 
+
+regarding the payload container:
+"It must also meet safety standards, ensuring dust
+tight sealing and protection against strong water jets, thus
+shielding the container and its contents from mechanical
+impacts and external forces. Aerodynamic efficiency is an
+other vital consideration as it lessens the power necessary
+for flight. Additionally, the choice of materials is crucial
+to the container’s performance, with lightweight yet sturdy
+materials selected to preserve structural integrity while pre
+venting unnecessary energy use. Finally, the transport con
+tainer must be operationally compatible, providing flexi
+bility in deployment across various aerial transport plat
+forms." does not mention protection of what is inside. ----- CHECK REFERENCE 25
+
+* drone is designed first, then "put a parachute on it" (the safety requirement by Alulema, which Mass feedback loop: a heavier aircraft needs a bigger parachute, which makes it heavier. This is why the requirement costs 36 percentage points of feasibility (Table 1: 84% → 48%).), because it focuses on PROTECTING PEOPLE ON THE GROUND. while worrying about vibrational and temperature isolation of the payload
+* focus on vibration isolation and temperature isolation, keeping the cold chain
+* general impression: that the impact on aerodynamics and flight mechanics is included before even thinking about the integrity of the payload in case of impact. 
+
+
+WHAT IF WE THOUGHT ABOUT REVERSING THE DESIGN PROCESS? Design the drone AFTER having hypothesised the safety device that is included in the payload container in the first place?
+QUOTES:
+"Success is measured at the patient, not at the device."
+Success is measured at the vial, not at the airframe.
+A drone that survives while the phial arrives cracked has failed the mission.The same goes for a device that works but doesn't serve the patient.
+
+Rodriguez
+Drawing a paralel to the medical tech design approach, which is often something that medical tech designers need to be reminded of when designing the coolest tech for patients. 
+"Ashift inthe traditional technocentricviewofmedicaldevicedesignto
+ahuman-centeredoneisneededtobridgeexistingtranslationalgapsand
+improvehealthequity.
+called "translation gap" or "implementation gap"
+
+in this case, the gap is between the technological potential (the drones) and 2 ends, i.e. the normative safety constraints where a parachute is not enough, and, most importantly, protecting the payload which is arguably more valuable than the drone itself. 
+
+
+\section{What I should know for airbag design}
+\subsection{Historical perspective}
+
+* Automotive Engineering
+
+
+* Space Engineering
+- implemented in impact applications, similar to the one requested for this case, since the 1960's for xxx mission. 
+- analytical, hard-codable solutions are 1Dof and rare, FEM is immediately chosen to include 2- and 3d effects of impact. 
+
+however, both fields have the guidelines in common, which are explained in the following paragraph
+
+
+\subsection{Design guidelines}
+
+% Cose da prendere in considerazione per una progettazione completa di un airbag - literature search category 2
+
+* Avendo un panorama più chiaro su quella che è l'obiettivo a Torino, si è scelto di concentrarsi sulla mitigazione del ground risk whatever. La scelta ricade su una tipologia di dispositivo di sicurezza atto a mitigare il rischio di impatto, danneggiamento delle fiale, dispersione nell'ambiente, etc. un Airbag
+
+
+Perché è stato scelto l'airbag?
+paracadute:
+* pesanti (spessi)
+* non reggono impatto
+* paracadute è soltanto sul drone - medicinali ad ogni modo persi
+* sgancio + paracadute meglio di sgancio + airbag --- obiettivo, protezione medicinali, anche se il drone viene protetto tanto meglio
+* vantaggi: può essere usato in ospedale (basse quote)
+* in acqua ha più senso impermeabilizzare l'airbag e non il contenitore, con il vantaggio che può stare effettivamente a galla
+
+
+
+Stabilito che l'airbag è la tecnologia su cui ci vogliamo concentrare, allora le cose da prendere in considerazione sono:
+lista delle cose del documento in cui ho preso appunti. 
+
+
+Variabili da prendere in considerazione quando c'è da progettare un airbag
+
+Phase 1 variables for peak acceleration
+1.	Shape
+2.	Size
+3.	Fabric
+4.	Vent size
+5.	Vent burst pressure
+6.	Inflation pressure
+
+Phase 2 variables for deployment time
+1.	Housing/container size and geometry
+2.	Air injection inlet pressure
+3.	Air injection mass flow rate
+4.	Seams locations
+5.	Folding pattern
+6.	Number of folds
+
+
+
+\section{Research Objective}
+Building on the findings of previous theses and scientific works (especially those related to mission specifications, regulatory constraints, and environmental loading), the present research aims to:
+
+\begin{objectivebox}
+Design, model, and simulate an airbag-based protective system for UAV medical payloads using LS-DYNA, with the objective of ensuring the structural integrity of pharmaceutical materials and their containment in the event of drone failure (including parachute) and emergency payload release, therefore preventing environmental dispersion and guaranteeing civil safety.
+\end{objectivebox}
+
+\noindent Specifically, the project will:
+
+\begin{itemize}
+    \item Identify and characterise the standard payload container's mechanical allowables based on general packaging requirements of the medical goods intended for UAV transport.
+    \item Develop a conceptual and numerical design of an airbag system capable of deploying during emergency release conditions to absorb impact energy and maintain payload integrity.
+    \item Simulate the dynamic behaviour of the airbag and payload in LS-DYNA under realistic worst-case impact scenarios.
+    \item Assess performance metrics, such as deceleration limits, airbag deployment time, and pharmaceutical survivability.
+\end{itemize}
+
+
+How can a systematic multi-phase simulation workflow be developed to design an airbag-based protective system for medical payloads during UAV emergency-release events?
+
+Sub-questions
+
+\begin{enumerate}
+    \item What are the allowable mechanical limits (acceleration, stress, deformation, etc.) for medical products during emergency release, and how should these define the design envelope?
+    \item How can the inflated airbag configuration be optimised to satisfy impact-absorption requirements while balancing competing design requirements?
+    \item How can the optimised inflated geometry be transformed into a compact and functionally deployable system?
+\end{enumerate}

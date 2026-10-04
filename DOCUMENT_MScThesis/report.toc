@@ -4,34 +4,42 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Project framing}{2}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}The need for improved logistics in the Italian NHS}{2}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}PoliTo’s research group’s work (including normative) and expected contribution}{2}{subsection.1.2.2}%
-\contentsline {chapter}{\numberline {2}State of the Art and Research and Development Gap}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Safety-first approach}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}What I should know for airbag design (BACKGROUND KNOWLEDGE)}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Research objective}{4}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Design workflow (METHODOLOGY)}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Problem statement}{5}{section.3.1}%
-\contentsline {section}{\numberline {3.2}(Outer) design loop formalisation}{5}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Proposed approach}{5}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Testing the Design Worklow RESULTS}{6}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Mission and failure scenario analysis: calculating Vx and Vy}{6}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Studying the payload: calculating allowable impact acceleration}{6}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Material characterisation}{6}{subsection.4.2.1}%
-\contentsline {subsubsection}{TEST}{6}{subsection.4.2.1}%
-\contentsline {subsubsection}{FEM}{6}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Sled test}{6}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Design variables optimisation: the code!!!}{6}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Summary of results}{7}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusions}{8}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General summary}{8}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Recommendations for future work}{8}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Project Management}{9}{chapter.6}%
-\contentsline {chapter}{\numberline {7}Research and Development Gap}{10}{chapter.7}%
-\contentsline {section}{\numberline {7.1}UAV applications in the medical field}{10}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Project presentation: the status-quo in Torino and normative limitations}{10}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Design drivers for airbag systems}{12}{section.7.3}%
-\contentsline {chapter}{References}{13}{chapter*.7}%
-\contentsline {chapter}{\numberline {A}FEM Iterations for glass phial model}{14}{appendix.A}%
-\contentsline {chapter}{\numberline {B}Task Division Example}{15}{appendix.B}%
+\contentsline {subsection}{\numberline {1.2.1}Care centralisation and territorial inequity in the Italian healthcare system}{2}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Prior research and positioning of the present thesis}{2}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Stakeholders}{3}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}Document Outline}{3}{section.1.3}%
+\contentsline {chapter}{\numberline {2}State of the Art and Research and Development Gap}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}first reason: mini-market analysis - the technology in piedmont}{5}{section.2.1}%
+\contentsline {section}{\numberline {2.2}second reason: The \textit {payload-first} approach}{5}{section.2.2}%
+\contentsline {section}{\numberline {2.3}What I should know for airbag design}{6}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Historical perspective}{6}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Design guidelines}{6}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Research Objective}{6}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Design workflow (METHODOLOGY)}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problem statement}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}(Outer) design loop formalisation}{10}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Proposed approach}{10}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Testing the Design Worklow RESULTS}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Mission and failure scenario analysis: calculating Vx and Vy}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Studying the payload: calculating allowable impact acceleration}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Material characterisation}{11}{subsection.4.2.1}%
+\contentsline {subsubsection}{TEST}{11}{subsection.4.2.1}%
+\contentsline {subsubsection}{FEM}{11}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Sled test}{11}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Design variables optimisation: the code!!!}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Summary of results}{12}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusions}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General summary}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Recommendations for future work}{13}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Project Management}{14}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Strategy and planning}{14}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Challenges}{14}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}challenge 1: aligning interests for thesis scope}{14}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}chellenge 2: Computational resources NO MORE}{14}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}challenge 3: IT infrastructure bottleneck}{14}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}challenge 4: going against the judgement of supervisors}{14}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Lessons learned}{14}{section.6.3}%
+\contentsline {chapter}{References}{15}{chapter*.7}%
+\contentsline {chapter}{\numberline {A}FEM Iterations for glass phial model}{16}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Task Division Example}{17}{appendix.B}%
 \contentsfinish 

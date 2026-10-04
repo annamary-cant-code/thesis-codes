@@ -2374,19 +2374,21 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">report.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">Garattini2020</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">Abrescia2026</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">Fantato2023</bcf:citekey>
-    <bcf:citekey order="4" intorder="1">Fantato2023</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">Abrescia2026</bcf:citekey>
-    <bcf:citekey order="6" intorder="1">Capuzzo2022</bcf:citekey>
-    <bcf:citekey order="7" intorder="1">Garattini2020</bcf:citekey>
-    <bcf:citekey order="8" intorder="1">Angelini2024ICAS</bcf:citekey>
-    <bcf:citekey order="9" intorder="1">Cavallo2020</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">Bertelli2021</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">Sivieri2021</bcf:citekey>
-    <bcf:citekey order="12" intorder="1">Fiorentino2021</bcf:citekey>
-    <bcf:citekey order="13" intorder="1">Angelini2023</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">Fantato2023</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">Fantato2023</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">Abrescia2026</bcf:citekey>
+    <bcf:citekey order="4" intorder="1">Garattini2020</bcf:citekey>
+    <bcf:citekey order="5" intorder="1">Capuzzo2022</bcf:citekey>
+    <bcf:citekey order="6" intorder="1">Balasingam2017</bcf:citekey>
+    <bcf:citekey order="7" intorder="1">Scott2017</bcf:citekey>
+    <bcf:citekey order="8" intorder="1">Odigie2021</bcf:citekey>
+    <bcf:citekey order="9" intorder="1">Gangwal2019</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">Cavallo2020</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">Bertelli2021</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">Sivieri2021</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">Fiorentino2021</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">Angelini2023</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">Angelini2024ICAS</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

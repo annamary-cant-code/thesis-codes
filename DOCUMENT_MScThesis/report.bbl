@@ -19,100 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
-    \entry{Garattini2020}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=e3ee3c35e0a13c8ba3aa1562fc8f1b39}{%
-           family={Garattini},
-           familyi={G\bibinitperiod},
-           given={Livio},
-           giveni={L\bibinitperiod}}}%
-        {{hash=a68652194dbe09d46c5ace0b0912d405}{%
-           family={Zanetti},
-           familyi={Z\bibinitperiod},
-           given={Michele},
-           giveni={M\bibinitperiod}}}%
-        {{hash=0cb425cf078dbdf2f571803723d064b6}{%
-           family={Freemantle},
-           familyi={F\bibinitperiod},
-           given={Nicholas},
-           giveni={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{f17dc24b253697b3a1b3359bd1cef29f}
-      \strng{fullhash}{decbe8160f8e939de20a29b9f2d45aee}
-      \strng{fullhashraw}{decbe8160f8e939de20a29b9f2d45aee}
-      \strng{bibnamehash}{decbe8160f8e939de20a29b9f2d45aee}
-      \strng{authorbibnamehash}{decbe8160f8e939de20a29b9f2d45aee}
-      \strng{authornamehash}{f17dc24b253697b3a1b3359bd1cef29f}
-      \strng{authorfullhash}{decbe8160f8e939de20a29b9f2d45aee}
-      \strng{authorfullhashraw}{decbe8160f8e939de20a29b9f2d45aee}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Appl. Health Econ. Health Policy}
-      \field{month}{8}
-      \field{number}{4}
-      \field{title}{The {Italian} {NHS}: What Lessons to Draw from {COVID-19}?}
-      \field{volume}{18}
-      \field{year}{2020}
-      \field{pages}{463\bibrangedash 466}
-      \range{pages}{4}
-      \verb{doi}
-      \verb 10.1007/s40258-020-00594-5
-      \endverb
-    \endentry
-    \entry{Abrescia2026}{article}{}{}
-      \name{author}{5}{}{%
-        {{hash=20d41839d85ef651b97ab011ef0a1176}{%
-           family={Abrescia},
-           familyi={A\bibinitperiod},
-           given={Nicola},
-           giveni={N\bibinitperiod}}}%
-        {{hash=2cdc0c5786109e1f578d2357d42ad118}{%
-           family={Maddaloni},
-           familyi={M\bibinitperiod},
-           given={Adelaide},
-           giveni={A\bibinitperiod}}}%
-        {{hash=68d41d8f6ae3b77e4a9a020ba0ef69c5}{%
-           family={Molinaro},
-           familyi={M\bibinitperiod},
-           given={Gabriella},
-           giveni={G\bibinitperiod}}}%
-        {{hash=5b93d4d8ba02c4cfd9bab5d2bf13f647}{%
-           family={Capponi},
-           familyi={C\bibinitperiod},
-           given={Antonio},
-           giveni={A\bibinitperiod}}}%
-        {{hash=28c7f9440b65a18065c0fc0db14733f4}{%
-           family={D'Abbraccio},
-           familyi={D\bibinitperiod},
-           given={Maurizio},
-           giveni={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{15e580d4fdcc6c59d75cd31ab83e063d}
-      \strng{fullhash}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \strng{fullhashraw}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \strng{bibnamehash}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \strng{authorbibnamehash}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \strng{authornamehash}{15e580d4fdcc6c59d75cd31ab83e063d}
-      \strng{authorfullhash}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \strng{authorfullhashraw}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Eur. J. Public Health}
-      \field{month}{8}
-      \field{number}{4}
-      \field{title}{The long crisis of {Italy's} {National Health Service}: universalism on paper, inequity in practice}
-      \field{volume}{36}
-      \field{year}{2026}
-      \field{pages}{ckag138}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1093/eurpub/ckag138
-      \endverb
-    \endentry
     \entry{Fantato2023}{article}{}{}
       \name{author}{8}{}{%
         {{hash=9ea80144096cfa9f7ff1f98b6b6cbefc}{%
@@ -164,8 +70,8 @@
       \strng{authornamehash}{5c28198c0d0351d6ba9a827c6fe8f2de}
       \strng{authorfullhash}{2d974f26de914e5f8622d80df05d6220}
       \strng{authorfullhashraw}{2d974f26de914e5f8622d80df05d6220}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Ital. J. Emerg. Med.}
@@ -178,6 +84,100 @@
       \range{pages}{9}
       \verb{doi}
       \verb 10.23736/S2532-1285.23.00185-4
+      \endverb
+    \endentry
+    \entry{Abrescia2026}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=20d41839d85ef651b97ab011ef0a1176}{%
+           family={Abrescia},
+           familyi={A\bibinitperiod},
+           given={Nicola},
+           giveni={N\bibinitperiod}}}%
+        {{hash=2cdc0c5786109e1f578d2357d42ad118}{%
+           family={Maddaloni},
+           familyi={M\bibinitperiod},
+           given={Adelaide},
+           giveni={A\bibinitperiod}}}%
+        {{hash=68d41d8f6ae3b77e4a9a020ba0ef69c5}{%
+           family={Molinaro},
+           familyi={M\bibinitperiod},
+           given={Gabriella},
+           giveni={G\bibinitperiod}}}%
+        {{hash=5b93d4d8ba02c4cfd9bab5d2bf13f647}{%
+           family={Capponi},
+           familyi={C\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=28c7f9440b65a18065c0fc0db14733f4}{%
+           family={D'Abbraccio},
+           familyi={D\bibinitperiod},
+           given={Maurizio},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{15e580d4fdcc6c59d75cd31ab83e063d}
+      \strng{fullhash}{bdb9d3b7d88a3b5e721e761fb54aa116}
+      \strng{fullhashraw}{bdb9d3b7d88a3b5e721e761fb54aa116}
+      \strng{bibnamehash}{bdb9d3b7d88a3b5e721e761fb54aa116}
+      \strng{authorbibnamehash}{bdb9d3b7d88a3b5e721e761fb54aa116}
+      \strng{authornamehash}{15e580d4fdcc6c59d75cd31ab83e063d}
+      \strng{authorfullhash}{bdb9d3b7d88a3b5e721e761fb54aa116}
+      \strng{authorfullhashraw}{bdb9d3b7d88a3b5e721e761fb54aa116}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Eur. J. Public Health}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{The long crisis of {Italy's} {National Health Service}: universalism on paper, inequity in practice}
+      \field{volume}{36}
+      \field{year}{2026}
+      \field{pages}{ckag138}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1093/eurpub/ckag138
+      \endverb
+    \endentry
+    \entry{Garattini2020}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=e3ee3c35e0a13c8ba3aa1562fc8f1b39}{%
+           family={Garattini},
+           familyi={G\bibinitperiod},
+           given={Livio},
+           giveni={L\bibinitperiod}}}%
+        {{hash=a68652194dbe09d46c5ace0b0912d405}{%
+           family={Zanetti},
+           familyi={Z\bibinitperiod},
+           given={Michele},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0cb425cf078dbdf2f571803723d064b6}{%
+           family={Freemantle},
+           familyi={F\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{f17dc24b253697b3a1b3359bd1cef29f}
+      \strng{fullhash}{decbe8160f8e939de20a29b9f2d45aee}
+      \strng{fullhashraw}{decbe8160f8e939de20a29b9f2d45aee}
+      \strng{bibnamehash}{decbe8160f8e939de20a29b9f2d45aee}
+      \strng{authorbibnamehash}{decbe8160f8e939de20a29b9f2d45aee}
+      \strng{authornamehash}{f17dc24b253697b3a1b3359bd1cef29f}
+      \strng{authorfullhash}{decbe8160f8e939de20a29b9f2d45aee}
+      \strng{authorfullhashraw}{decbe8160f8e939de20a29b9f2d45aee}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Appl. Health Econ. Health Policy}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{The {Italian} {NHS}: What Lessons to Draw from {COVID-19}?}
+      \field{volume}{18}
+      \field{year}{2020}
+      \field{pages}{463\bibrangedash 466}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1007/s40258-020-00594-5
       \endverb
     \endentry
     \entry{Capuzzo2022}{article}{}{}
@@ -221,8 +221,8 @@
       \strng{authornamehash}{20b940197e66e4cdf6040d5c3fe75b95}
       \strng{authorfullhash}{fce370777161fa4973642bfc9e1ba40d}
       \strng{authorfullhashraw}{fce370777161fa4973642bfc9e1ba40d}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. J. Environ. Res. Public Health}
@@ -237,50 +237,155 @@
       \verb 10.3390/ijerph19042000
       \endverb
     \endentry
-    \entry{Angelini2024ICAS}{inproceedings}{}{}
-      \name{author}{4}{}{%
-        {{hash=a2374b4695dd570d68bd772a1e0be2de}{%
-           family={Angelini},
+    \entry{Balasingam2017}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6c743ac042803033fbd0523daedbd84e}{%
+           family={Balasingam},
+           familyi={B\bibinitperiod},
+           given={Manohari},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{fullhash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{fullhashraw}{6c743ac042803033fbd0523daedbd84e}
+      \strng{bibnamehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authorbibnamehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authornamehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authorfullhash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authorfullhashraw}{6c743ac042803033fbd0523daedbd84e}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. J. Clin. Pract.}
+      \field{month}{9}
+      \field{number}{9}
+      \field{title}{Drones in medicine---{The} rise of the machines}
+      \field{volume}{71}
+      \field{year}{2017}
+      \field{pages}{e12989}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1111/ijcp.12989
+      \endverb
+    \endentry
+    \entry{Scott2017}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=64a98b45a6e53a9ba8d797d814fcba45}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={Judy\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=07eed3c353ed135a03e25af626d1f951}{%
+           family={Scott},
+           familyi={S\bibinitperiod},
+           given={Carlton\bibnamedelima H.},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{fullhash}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{fullhashraw}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{bibnamehash}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{authorbibnamehash}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{authornamehash}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{authorfullhash}{319a0f1975427ba54022b2992cd21dc2}
+      \strng{authorfullhashraw}{319a0f1975427ba54022b2992cd21dc2}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 50th Hawaii Int. Conf. Syst. Sci. ({HICSS})}
+      \field{month}{1}
+      \field{title}{Drone Delivery Models for Healthcare}
+      \field{year}{2017}
+      \field{pages}{3297\bibrangedash 3304}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.24251/hicss.2017.399
+      \endverb
+    \endentry
+    \entry{Odigie2021}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=148518e01ede3a5b71343f9214e411aa}{%
+           family={Odigie},
+           familyi={O\bibinitperiod},
+           given={E.\bibnamedelimi B.},
+           giveni={E\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=a29967f8f4017a7ed5e1b326b539b990}{%
+           family={Adejumo},
            familyi={A\bibinitperiod},
-           given={Davide},
-           giveni={D\bibinitperiod}}}%
-        {{hash=fb8c3ccf486bf1f9e38447b1ce35d014}{%
-           family={Cestino},
-           familyi={C\bibinitperiod},
-           given={Enrico},
-           giveni={E\bibinitperiod}}}%
-        {{hash=eca77cf5fd93193df54ef21f4ec8864e}{%
-           family={Cestino},
-           familyi={C\bibinitperiod},
-           given={Daniela},
-           giveni={D\bibinitperiod}}}%
-        {{hash=d1dbd45e478c5bc1aa17d02d15f01c60}{%
-           family={Cattel},
-           familyi={C\bibinitperiod},
-           given={Francesco},
-           giveni={F\bibinitperiod}}}%
+           given={B.\bibnamedelimi I.\bibnamedelimi G.},
+           giveni={B\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=916183832063744778456e3fb0ce3a76}{%
+           family={Oigbochie},
+           familyi={O\bibinitperiod},
+           given={A.\bibnamedelimi E.},
+           giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
       }
-      \list{location}{1}{%
-        {Florence, Italy}%
-      }
-      \list{publisher}{1}{%
-        {ICAS}%
-      }
-      \strng{namehash}{46ac7d630da52fd78ac24fb293a9d989}
-      \strng{fullhash}{89f5f77c1437cb13fe9b2071bf529410}
-      \strng{fullhashraw}{89f5f77c1437cb13fe9b2071bf529410}
-      \strng{bibnamehash}{89f5f77c1437cb13fe9b2071bf529410}
-      \strng{authorbibnamehash}{89f5f77c1437cb13fe9b2071bf529410}
-      \strng{authornamehash}{46ac7d630da52fd78ac24fb293a9d989}
-      \strng{authorfullhash}{89f5f77c1437cb13fe9b2071bf529410}
-      \strng{authorfullhashraw}{89f5f77c1437cb13fe9b2071bf529410}
+      \strng{namehash}{d89481b78b04581d40cef6eeecb83bc4}
+      \strng{fullhash}{f90a551ba3ba5f37762f7d012ce8bdde}
+      \strng{fullhashraw}{f90a551ba3ba5f37762f7d012ce8bdde}
+      \strng{bibnamehash}{f90a551ba3ba5f37762f7d012ce8bdde}
+      \strng{authorbibnamehash}{f90a551ba3ba5f37762f7d012ce8bdde}
+      \strng{authornamehash}{d89481b78b04581d40cef6eeecb83bc4}
+      \strng{authorfullhash}{f90a551ba3ba5f37762f7d012ce8bdde}
+      \strng{authorfullhashraw}{f90a551ba3ba5f37762f7d012ce8bdde}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the International Council of the Aeronautical Sciences (ICAS)}
-      \field{title}{Comparative Analysis of eVTOL, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
-      \field{year}{2024}
+      \field{journaltitle}{Open J. Med. Res.}
+      \field{number}{1}
+      \field{title}{Importance of drones in healthcare delivery amid a pandemic: Current and generation next application}
+      \field{volume}{2}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.52417/ojmr.v2i1.187
+      \endverb
+    \endentry
+    \entry{Gangwal2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1349cb242ce7851619b23ff71217044d}{%
+           family={Gangwal},
+           familyi={G\bibinitperiod},
+           given={Adarsh},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9034a4a7666453b271d7ce435c70d6f4}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Akshika},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d455df5ad4d5c7864003ff907c3d41c4}{%
+           family={Mohanta},
+           familyi={M\bibinitperiod},
+           given={Shreeja},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c0499178a446877c6acd0df1520f218d}
+      \strng{fullhash}{f901818a0ca5e97cba4093c37f095737}
+      \strng{fullhashraw}{f901818a0ca5e97cba4093c37f095737}
+      \strng{bibnamehash}{f901818a0ca5e97cba4093c37f095737}
+      \strng{authorbibnamehash}{f901818a0ca5e97cba4093c37f095737}
+      \strng{authornamehash}{c0499178a446877c6acd0df1520f218d}
+      \strng{authorfullhash}{f901818a0ca5e97cba4093c37f095737}
+      \strng{authorfullhashraw}{f901818a0ca5e97cba4093c37f095737}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. J. Innov. Res. Sci. Eng. Technol.}
+      \field{month}{8}
+      \field{number}{8}
+      \field{title}{Blood Delivery by Drones: A Case Study on {Zipline}}
+      \field{volume}{8}
+      \field{year}{2019}
+      \field{pages}{8760\bibrangedash 8766}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.15680/IJIRSET.2019.0808063
+      \endverb
     \endentry
     \entry{Cavallo2020}{thesis}{}{}
       \name{author}{1}{}{%
@@ -304,8 +409,8 @@
       \strng{authornamehash}{bcc75b3bc6cc24337dbc5197194ec015}
       \strng{authorfullhash}{bcc75b3bc6cc24337dbc5197194ec015}
       \strng{authorfullhashraw}{bcc75b3bc6cc24337dbc5197194ec015}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Innovative ways of distribution for life-saving medicines during emergency situations}
@@ -431,6 +536,51 @@
       \field{title}{Progettazione e valutazione di un sistema di trasporto innovativo aereo per farmaci emoderivati in condizione di emergenza}
       \field{type}{Master's Thesis}
       \field{year}{2023}
+    \endentry
+    \entry{Angelini2024ICAS}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=a2374b4695dd570d68bd772a1e0be2de}{%
+           family={Angelini},
+           familyi={A\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod}}}%
+        {{hash=fb8c3ccf486bf1f9e38447b1ce35d014}{%
+           family={Cestino},
+           familyi={C\bibinitperiod},
+           given={Enrico},
+           giveni={E\bibinitperiod}}}%
+        {{hash=eca77cf5fd93193df54ef21f4ec8864e}{%
+           family={Cestino},
+           familyi={C\bibinitperiod},
+           given={Daniela},
+           giveni={D\bibinitperiod}}}%
+        {{hash=d1dbd45e478c5bc1aa17d02d15f01c60}{%
+           family={Cattel},
+           familyi={C\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Florence, Italy}%
+      }
+      \list{publisher}{1}{%
+        {ICAS}%
+      }
+      \strng{namehash}{46ac7d630da52fd78ac24fb293a9d989}
+      \strng{fullhash}{89f5f77c1437cb13fe9b2071bf529410}
+      \strng{fullhashraw}{89f5f77c1437cb13fe9b2071bf529410}
+      \strng{bibnamehash}{89f5f77c1437cb13fe9b2071bf529410}
+      \strng{authorbibnamehash}{89f5f77c1437cb13fe9b2071bf529410}
+      \strng{authornamehash}{46ac7d630da52fd78ac24fb293a9d989}
+      \strng{authorfullhash}{89f5f77c1437cb13fe9b2071bf529410}
+      \strng{authorfullhashraw}{89f5f77c1437cb13fe9b2071bf529410}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the International Council of the Aeronautical Sciences (ICAS)}
+      \field{title}{Comparative Analysis of eVTOL, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
+      \field{year}{2024}
     \endentry
   \enddatalist
 \endrefsection
