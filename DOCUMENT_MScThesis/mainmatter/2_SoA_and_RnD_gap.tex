@@ -1,22 +1,125 @@
 % LTeX: language=en-GB
-\chapter{State of the Art and Research and Development Gap}
+\chapter{Background and Research-Development Gap}
 \label{chapter:SoA-and-RnD}
 
-(BACKGROUND KNOWLEDGE) - put a little introduction paragraph here, saying that this chapter gatheres important information found in literature and functions as a literature research, tailored to answering the problem, exploring the market, understanding airbag design criteria also through the historical perspective, and then producing the main research questions. 
+In technology development, it is important to gain a clear idea of two aspects:
+\begin{enumerate}
+    \item \textbf{Research aspect}: if the technology that is being developed requires the exploration of an uncharted research niche, as opposed to utilising pre-existing and consolidated knowledge for the creation of a new product;
+    \item \textbf{Development aspect}: whether the proposed technology targets a well-defined market with unmet customer demand and no established supply.
+\end{enumerate} 
+
+This chapter explores both these aspects in Sections \ref{section:payload-first-approach}-\ref{section:airbag-design-variables} and \ref{section:market-analysis}, respectively. The aim is to gather sufficient background information, from market allocation of the proposed technology to concrete understanding of airbag design criteria, to depict the choices proposed in Chapter \ref{chapter:methodology} regarding operative \textit{methodology} as an answer to the Research Questions proposed at the end of this chapter.
 
 
-\section{first reason: mini-market analysis - the technology in piedmont}\label{section:market-analysis}
-* ab-zero
-* SkyEU
-* us
+\section{Regional Market Analysis: medical UAV logistics in Piedmont}\label{section:market-analysis}
+The Italian National Healthcare System (\textit{SSN}) is structured hierarchically: the guidelines and regulations issued at a \textit{national} level must be implemented locally, at a \textit{regional} level, by each region's \textit{Sistema Sanitario Regionale} (\textit{SSR}, the Regional Healthcare Service). Vice versa, aviation rules follow European-level enforcement mechanisms: Following the 2019 harmonization of European drone operations across the "open" and "specific" categories \cite{EU2019947}, operators seeking authorization for high-risk flights are required to conduct a risk assessment using the Specific Operations Risk Assessment (SORA) methodology developed by JARUS\footnote{\textit{Joint Authorities for Rulemaking on Unmanned Systems}}, making a thorough evaluation of potential failure scenarios while proving compliance with the demanding safety standards imposed by aviation authorities. 
 
-* mention CROCE ROSSA ITALIANA (?necessary here? maybe earlier)- launched initiative delivery (ref. 6, tesi sivieri)
+The discrepancy between modi operandi of the aviation and healthcare authorities has shaped the way drone-network operations have mostly been developing in the last decades in Italy: several emerging, albeit scattered, research groups, either cooperating or competing with industrial counterparts, have achieved geographically limited trial deployments while being unable to scale the operation beyond testing.
 
-* It is evident from research that every solution is possible, the challenge is to have normative approval rather than creativity. 
+A complete summary of such operations, limited to the means of investigation available for the present thesis project, can be found in Table \ref{tab:medical-drone-trials} in Appendix \ref{appendix:medical-drone-trials}. The table shows a clear trend: although potentially booming as several healthcare facilities are exploring the possibility of adopting drone transport and operators are proposing new drone models for them, most activities stop after the initial demonstrations, with the only exception being the region of Abruzzo where the operational phase of the drone drug-delivery service between a strategic hospital and village pharmacies was announced in July 2025 \cite{asl1_uelcome,abruzzospeciale_uelcome}. In general, a pattern of fragmentation, short-lived pilots, and few transitions to a potentially scalable service is observed in the construction of the overall \textit{value chain}, with many independent institutions covering equivalent roles, as shown in Table \ref{tab:actors} in Appendix \ref{appendix:value-chain-actors}.
+
+ 
+
+{\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{\dimexpr0.19\textwidth-2\tabcolsep\relax}
+                   >{\raggedright\arraybackslash}p{\dimexpr0.27\textwidth-2\tabcolsep\relax}
+                   >{\raggedright\arraybackslash}p{\dimexpr0.54\textwidth-2\tabcolsep\relax}@{}}
+\caption{Actors involved in drone delivery of medical goods in Piedmont, grouped by value-chain stage.}
+\label{tab:actors-piedmont}\\
+\toprule
+\textbf{Category} & \textbf{Institution} & \textbf{Scope} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Category} & \textbf{Institution} & \textbf{Scope} \\
+\midrule
+\endhead
+\multicolumn{3}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+
+% ---------------------------------------------------------------------
+\textbf{Drone manufacturers}
+& SkyEU & Autonomous high-speed eVTOL drones for first aid and critical logistics \cite{skyeu_web} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Technology partners}
+& Mavtech & INDOOR technical partner; aerial surveillance and operational-support products \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& FEV Italia & Industrial partner of the DIMEAS feasibility studies; numerical impact analysis \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Payload / container makers}
+& ABzero (Pisa) & Smart Capsule used for the INDOOR flight: sensorised container for blood, organs and drugs \cite{abzero_web, cds_indoor} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Operators}
+& ABzero (Pisa) & Supplied the drone and handled the ENAC authorisation for INDOOR \cite{dot_grant, tecnomedicina_indoor} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Airspace and infrastructure}
+& Torino Caselle and Cuneo Levaldigi airports & Proposed hub and support base for hydrogen drone logistics \cite{hydronews_torino} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Research}
+& PIC4SeR, Politecnico di Torino & Autonomous flight technologies for transporting biological material (INDOOR) \cite{polito_pic4ser} \\
+\cmidrule(l){2-3}
+& DIMEAS, Politecnico di Torino (Prof.~E.~Cestino) & Desk-based feasibility studies for emergency drug delivery in Turin: regulatory platform selection and SORA, risk maps and path planning, payload thermal/vibration loads, cost--safety comparison of car, drone and eVTOL, hub siting \cite{Cavallo2020, Bertelli2021, Sivieri2021, Fiorentino2021, Angelini2023, Angelini2024ICAS} \\
+\cmidrule(l){2-3}
+& Universit\`a di Torino & INDOOR project partner \cite{dot_indoor} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{End users}
+& AOU Citt\`a della Salute e della Scienza & INDOOR test flight between hospital sites; proposed hydrogen logistics plan; pharmacy department partner of DIMEAS feasibility studies \cite{cds_indoor, hydronews_torino} \\
+\cmidrule(l){2-3}
+& Regional Transplant Centre Piemonte--Valle d'Aosta & INDOOR partner for organ and biological transport \cite{dot_indoor} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Promoters and funders}
+& Fondazione DOT & Promoter of the INDOOR project \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& Centro Nazionale Trapianti & Funds the INDOOR research grant at PIC4SeR \cite{dot_grant} \\
+\cmidrule(l){2-3}
+& City of Turin & INDOOR partner; funded the LastMed call \cite{dot_indoor, newpharma_lastmed} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Regulators and authorities}
+& ENAC & National civil aviation authority; INDOOR partner and flight authorisation \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& Regione Piemonte & Regional health authority; drone trials subject to benefit--risk analysis \cite{cr_piemonte} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Alternatives}
+& Tecnocad / Tecnomill / Bylogix & LastMed autonomous ground rover for last-mile drug delivery \cite{ansa_lastmed} \\
+\end{longtable}
+}
+
+Adopting a region-based, rather than a nation-based, approach for market analysis is, therefore, necessary. Table \ref{tab:actors-piedmont} highlights stakeholders involved in Piedmont-based operations and their roles in the value chain, illustrating a fragmented scenario: Project INDOOR, launched by Fondazione DOT in 2021, culminated in a 500\,m-long test flight by an autonomous UAV between two Città della Salute hospital sites, carrying medical goods in a dedicated capsule, on 1st October 2024. In this project, several other stakeholders were involved (in fact, most of the ones present in Table \ref{tab:actors-piedmont}), among which ABzero (a spin-off from \textit{Scuola Normale Superiore di Pisa} responsible for capsule design and handling the ENAC authorisation process for the test flight), parallel research group PIC4SeR from the Department of Electronics and Telecommunications at \textit{Politecnico di Torino}, and \textit{MAVTech S.r.l.} (UAV systems designer company based in Torino). Independently of the INDOOR project of 2021-2024, the startup SkyEU was founded in 2025 promising to develop eVTOL drone systems for critical logistics within, but not limited to, the healthcare sector.
+
+In parallel, and independently of INDOOR, the research group led by Prof. Enrico Cestino at the Department of Mechanical and Aerospace Engineering (DIMEAS) of \textit{Politecnico di Torino}, together with \textit{A.O.U. Città della Salute e della Scienza} and \textit{FEV Italia}, has pursued since 2020 a series of feasibility studies on the Molinette--San Giovanni Bosco route (Section \ref{section:prior-research}). These covered regulatory and mission evaluation, risk mapping and path planning, payload environmental loads, and cost--safety comparisons between road, drone and eVTOL transport. No flight campaign has been carried out so far. This makes the group the only Piedmontese actor whose work so far has been entirely at the planning and assessment level.
+
+On the other hand, the regional administration's general stance with respect to this type of operation highlights the fundamental requirement of thorough benefit-risk analyses to guarantee both the safety of the Piedmontese citizens and the preservation of the medical cargo, possibly needing to limit transportation to exceptional emergencies in mountain areas \cite{cr_piemonte}. From an engineering perspective, these criticalities can be translated in the following barriers for the development of a full-scale, UAV-based delivery network:
+
+\begin{enumerate}
+    \item \textbf{Authorisation of flights}: Operations beyond the open category are approved by compiling the SORA. Among the different classes of mitigations, \textit{ground risk} mitigations (one of the first steps required in the SORA) reduce the consequences of the UAV's impact on the ground after a loss of control, for example by introducing a parachute. It is key for technical stakeholders to prove the reliability of their implemented ground risk mitigations to protect civilians in case of drone failure.
+    \item \textbf{Payload integrity and containment}: In accordance with the regional administration's concerns, current certification standard UN3373 for ground handling of Biological Substances, Category B, establishes that packages must pass a drop test at 1.2m with no leakage from the primary container \hl{CITE STANDARD HERE}. However, in the event of a free-fall from ordinary mission altitudes, this standard loses its significance and the potential for biological material dispersion into the environment becomes highly relevant.  
+    \item \textbf{Unsustainability of the current business models} While costs of road and helicopter transport of biomedical goods such as organs, drugs and other critical supplies are expected to fall significantly with drones, most trials are funded by EU projects and one-time grants, with the consequence of making the project unsustainable and non-scalable.
+\end{enumerate}
+
+
+On the basis of this analysis, several research and development gaps can be identified: SkyEU is endeavouring to enact an economically sustainable business model for large-scale UAV networks, but has a small public record; ABZero has patented capsules equipped with electronics that reliably monitor in-flight vibrations and guarantee thermal control of the medical payload, but these are only certified to the UN3373 standard, whereas in case of in-flight failure a much more conservative approach is needed; regional authorities need reassurance on the safety aspect for civilians, as a 500\,m test flight on a controlled route shows that the obstacle is not drone-making, but guaranteeing safety in everyday scenarios rather than in single monitored missions.
+
+In this scenario, the institutions (\textit{DIMEAS -- Politecnico di Torino, FEV Italia, AOU Città della Salute}) that commissioned the present thesis project aim to tackle, among the three barriers, barrier 2, concerning payload integrity and containment. The proposed solution is an airbag-type device that protects the payload and prevents its dispersion in the event of an impact, especially in view of transporting extremely valuable medicinals and/or biological materials, e.g. human organs for urgent transplant operations. This device is conceived as an add-on to existing capsules such as the one by ABZero, mounted on drones such as SkyEU's, and is intended to help close the certification gap highlighted above, while acknowledging that it does not address the SORA ground risk or the sustainability of the business model.
 
 
 
-\section{second reason: The \textit{payload-first} approach}\label{section:payload-first-approach}
+\section{The \textit{payload-first} design approach}\label{section:payload-first-approach}
+To justify this paragraph: Paradigm shift for design, For all aeronautical projects, Which might be the common denominator for their failure in implementing. It might be a suggestion for future aeronautical projects, in general. That, to guarantee the success of the projects, safety really needs to come first, just like in biomedical projects. 
+
+
 Chhetri - an updated REVIEW of medical drones in 2026
 * overcome geographical barriers
 and provide critical care in remote or disaster-stricken ar
@@ -48,6 +151,13 @@ forms." does not mention protection of what is inside. ----- CHECK REFERENCE 25
 * general impression: that the impact on aerodynamics and flight mechanics is included before even thinking about the integrity of the payload in case of impact. 
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+PUT A BOX HERE ---- the idea of the airbag which tackles limitation 2 presented earlier, combined with the idea of preserving the payload. 
+
+
+
 WHAT IF WE THOUGHT ABOUT REVERSING THE DESIGN PROCESS? Design the drone AFTER having hypothesised the safety device that is included in the payload container in the first place?
 QUOTES:
 "Success is measured at the patient, not at the device."
@@ -64,7 +174,7 @@ called "translation gap" or "implementation gap"
 in this case, the gap is between the technological potential (the drones) and 2 ends, i.e. the normative safety constraints where a parachute is not enough, and, most importantly, protecting the payload which is arguably more valuable than the drone itself. 
 
 
-\section{What I should know for airbag design}
+\section{Airbag impact attenuation: background and design variables}\label{section:airbag-design-variables}
 \subsection{Historical perspective}
 
 * Automotive Engineering
@@ -120,28 +230,26 @@ Phase 2 variables for deployment time
 
 
 \section{Research Objective}
-Building on the findings of previous theses and scientific works (especially those related to mission specifications, regulatory constraints, and environmental loading), the present research aims to:
 
-\begin{objectivebox}
-Design, model, and simulate an airbag-based protective system for UAV medical payloads using LS-DYNA, with the objective of ensuring the structural integrity of pharmaceutical materials and their containment in the event of drone failure (including parachute) and emergency payload release, therefore preventing environmental dispersion and guaranteeing civil safety.
-\end{objectivebox}
-
-\noindent Specifically, the project will:
-
+Having presented the context in which the research project is allocated and having gathered the necessary design information, it is possible to address the requirements set by the project commissioners:
 \begin{itemize}
-    \item Identify and characterise the standard payload container's mechanical allowables based on general packaging requirements of the medical goods intended for UAV transport.
-    \item Develop a conceptual and numerical design of an airbag system capable of deploying during emergency release conditions to absorb impact energy and maintain payload integrity.
-    \item Simulate the dynamic behaviour of the airbag and payload in LS-DYNA under realistic worst-case impact scenarios.
-    \item Assess performance metrics, such as deceleration limits, airbag deployment time, and pharmaceutical survivability.
+    \item Identify and characterise the mechanical allowables of typical medical payloads based on general packaging requirements for UAV-transported medical goods.
+    \item Develop an informed conceptual design of an airbag system capable of deploying during emergency release conditions to absorb impact energy and preserve payload integrity.
 \end{itemize}
 
+These requirements can be summarised in the following Research Objective and Research Questions:
 
+\begin{objectivebox}{Research Objective}
+Develop and validate a design workflow to model and simulate an airbag-based protective system for UAV medical payloads using LS-DYNA, with the primary objective to ensure the structural integrity of pharmaceutical materials and their containment during drone failure and emergency payload release, thereby preventing environmental dispersion and supporting certification requirements.
+\end{objectivebox}
+
+\begin{objectivebox}{Research Question(s)}
 How can a systematic multi-phase simulation workflow be developed to design an airbag-based protective system for medical payloads during UAV emergency-release events?
-
-Sub-questions
-
 \begin{enumerate}
-    \item What are the allowable mechanical limits (acceleration, stress, deformation, etc.) for medical products during emergency release, and how should these define the design envelope?
+    \item What are the allowable mechanical limits (acceleration, stress, etc.) for medical products during emergency release, and how should these define the design envelope?
     \item How can the inflated airbag configuration be optimised to satisfy impact-absorption requirements while balancing competing design requirements?
     \item How can the optimised inflated geometry be transformed into a compact and functionally deployable system?
 \end{enumerate}
+\end{objectivebox}
+
+

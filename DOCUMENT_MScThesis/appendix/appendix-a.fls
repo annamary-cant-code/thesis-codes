@@ -1,0 +1,6 @@
+PWD c:\0_CODES_MScThesis\CODES\DOCUMENT_MScThesis\appendix
+INPUT C:\Users\annam\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
+INPUT c:\0_CODES_MScThesis\CODES\DOCUMENT_MScThesis\appendix\appendix-a.tex
+OUTPUT appendix-a.log
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm0700.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm

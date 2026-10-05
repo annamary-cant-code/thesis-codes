@@ -578,9 +578,612 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the International Council of the Aeronautical Sciences (ICAS)}
-      \field{title}{Comparative Analysis of eVTOL, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
+      \field{booktitle}{Proceedings of the International Council of the Aeronautical Sciences ({ICAS})}
+      \field{title}{Comparative Analysis of e{VTOL}, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
       \field{year}{2024}
+    \endentry
+    \entry{EU2019947}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=a1b813a6e85874b4c945aec2cdbea74c}{%
+           family={{European Commission}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{fullhash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{fullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{bibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorbibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authornamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorfullhash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorfullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Official Journal of the European Union, vol.\ L 152, pp.\ 45--71}
+      \field{month}{6}
+      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 {May} 2019 on the rules and procedures for the operation of unmanned aircraft}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb http://data.europa.eu/eli/reg_impl/2019/947/oj
+      \endverb
+      \verb{url}
+      \verb http://data.europa.eu/eli/reg_impl/2019/947/oj
+      \endverb
+    \endentry
+    \entry{asl1_uelcome}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{ASL 1 Avezzano Sulmona L'Aquila}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Farmaci consegnati con i droni: al via la fase operativa del progetto {Telespazio-Asl}}
+      \verb{urlraw}
+      \verb https://www.asl1abruzzo.it/archivio2_notizie-ed-eventi_0_1191.html
+      \endverb
+      \verb{url}
+      \verb https://www.asl1abruzzo.it/archivio2_notizie-ed-eventi_0_1191.html
+      \endverb
+    \endentry
+    \entry{abruzzospeciale_uelcome}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Abruzzo Speciale}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Farmaci via drone ai pazienti fragili: primo volo da {Avezzano} a {Collelongo}}
+      \verb{urlraw}
+      \verb https://www.abruzzospeciale.it/2025/08/01/farmaci-con-drone-avezzano/
+      \endverb
+      \verb{url}
+      \verb https://www.abruzzospeciale.it/2025/08/01/farmaci-con-drone-avezzano/
+      \endverb
+    \endentry
+    \entry{skyeu_web}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{SkyEU website}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{{SkyEu}}
+      \verb{urlraw}
+      \verb https://skyeu.it/
+      \endverb
+      \verb{url}
+      \verb https://skyeu.it/
+      \endverb
+    \endentry
+    \entry{dot_indoor}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Fondazione D.O.T. Onlus}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{A {Torino} vola il drone per il trasporto di organi e materiale biologico}
+      \verb{urlraw}
+      \verb https://www.fondazionedot.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
+      \endverb
+      \verb{url}
+      \verb https://www.fondazionedot.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
+      \endverb
+    \endentry
+    \entry{abzero_web}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{ABzero website}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Il sistema {ABzero}}
+      \verb{urlraw}
+      \verb https://www.abzero.it/il-sistema-abzero/?lang=en
+      \endverb
+      \verb{url}
+      \verb https://www.abzero.it/il-sistema-abzero/?lang=en
+      \endverb
+    \endentry
+    \entry{cds_indoor}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{AOU Città della Salute e della Scienza di Torino, press release}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{A {Torino} vola il drone per il trasporto di organi e materiale biologico: al via la sperimentazione, con tragitto dal {CTO} alle {Molinette}}
+      \verb{urlraw}
+      \verb https://www.cittadellasalute.to.it/index.php?option=com_content&view=article&id=24515
+      \endverb
+      \verb{url}
+      \verb https://www.cittadellasalute.to.it/index.php?option=com_content&view=article&id=24515
+      \endverb
+    \endentry
+    \entry{dot_grant}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Fondazione D.O.T. Onlus}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Il progetto {INDOOR}: nuove prospettive per il trasporto di organi grazie alla tecnologia dei droni}
+      \verb{urlraw}
+      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
+      \endverb
+      \verb{url}
+      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
+      \endverb
+    \endentry
+    \entry{tecnomedicina_indoor}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{TecnoMedicina}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{A {Torino} vola il drone per il trasporto di organi e materiale biologico}
+      \verb{urlraw}
+      \verb https://www.tecnomedicina.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
+      \endverb
+      \verb{url}
+      \verb https://www.tecnomedicina.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
+      \endverb
+    \endentry
+    \entry{hydronews_torino}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{HydroNews}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Anche a {Torino} un progetto per decarbonizzare la logistica sanitaria con droni a idrogeno}
+      \verb{urlraw}
+      \verb https://www.hydronews.it/anche-a-torino-un-progetto-per-decarbonizzare-la-logistica-sanitaria-con-droni-a-idrogeno/
+      \endverb
+      \verb{url}
+      \verb https://www.hydronews.it/anche-a-torino-un-progetto-per-decarbonizzare-la-logistica-sanitaria-con-droni-a-idrogeno/
+      \endverb
+    \endentry
+    \entry{polito_pic4ser}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Politecnico di Torino, Poliflash}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{A {Torino} vola il primo drone per il trasporto di organi e materiale biologico}
+      \verb{urlraw}
+      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
+      \endverb
+      \verb{url}
+      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
+      \endverb
+    \endentry
+    \entry{newpharma_lastmed}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{New Pharma Italy}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{{LastMed}: il robot che consegna farmaci agli anziani}
+      \verb{urlraw}
+      \verb https://www.newpharmaitaly.it/lastmed-il-robot-che-consegna-farmaci-agli-anziani/
+      \endverb
+      \verb{url}
+      \verb https://www.newpharmaitaly.it/lastmed-il-robot-che-consegna-farmaci-agli-anziani/
+      \endverb
+    \endentry
+    \entry{cr_piemonte}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Consiglio Regionale del Piemonte, press release}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{I droni e il delivery sanitario}
+      \verb{urlraw}
+      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
+      \endverb
+      \verb{url}
+      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
+      \endverb
+    \endentry
+    \entry{ansa_lastmed}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{ANSA}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Tecnocad, farmaci a persone fragili da rover robot automatizzato}
+      \verb{urlraw}
+      \verb https://www.ansa.it/piemonte/notizie/2026/03/23/tecnocad-farmaci-a-persone-fragili-da-rover-robot-automatizzato_b266e9c6-f168-4b25-a2e7-775a83795571.html
+      \endverb
+      \verb{url}
+      \verb https://www.ansa.it/piemonte/notizie/2026/03/23/tecnocad-farmaci-a-persone-fragili-da-rover-robot-automatizzato_b266e9c6-f168-4b25-a2e7-775a83795571.html
+      \endverb
+    \endentry
+    \entry{disalute_aetos}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{DiSalute}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Trasporto di sangue con droni cargo sanitari: il progetto {Aetos} arriva a {Ischia}}
+      \verb{urlraw}
+      \verb https://disalute.it/trasporto-sangue-droni-cargo-sanitari-aetos-ischia/
+      \endverb
+      \verb{url}
+      \verb https://disalute.it/trasporto-sangue-droni-cargo-sanitari-aetos-ischia/
+      \endverb
+    \endentry
+    \entry{hydrogennews_sandbox}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Hydrogen-news.it}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni a idrogeno per il trasporto di medicinali dall'{Aeroporto di Padova}: ecco il progetto {Sandbox}!}
+      \verb{urlraw}
+      \verb https://hydrogen-news.it/droni-a-idrogeno-dallaeroporto-di-padova-ecco-il-progetto-sandbox/
+      \endverb
+      \verb{url}
+      \verb https://hydrogen-news.it/droni-a-idrogeno-dallaeroporto-di-padova-ecco-il-progetto-sandbox/
+      \endverb
+    \endentry
+    \entry{adnkronos_2022}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Adnkronos}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni, boom del trasporto in volo di farmaci}
+      \verb{urlraw}
+      \verb https://www.adnkronos.com/droni-boom-del-trasporto-in-volo-di-farmaci_4BrYXkMkpLBoedJwwIB6nw
+      \endverb
+      \verb{url}
+      \verb https://www.adnkronos.com/droni-boom-del-trasporto-in-volo-di-farmaci_4BrYXkMkpLBoedJwwIB6nw
+      \endverb
+    \endentry
+    \entry{tecnicaospedaliera_ids}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Tecnica Ospedaliera}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Defibrillatore? {Lo} porta il drone}
+      \verb{urlraw}
+      \verb https://www.tecnicaospedaliera.it/defibrillatore-lo-porta-drone/
+      \endverb
+      \verb{url}
+      \verb https://www.tecnicaospedaliera.it/defibrillatore-lo-porta-drone/
+      \endverb
+    \endentry
+    \entry{meteoweb_2022}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{MeteoWeb}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni-infermiere: il boom del trasporto in volo di farmaci, sangue e organi}
+      \verb{urlraw}
+      \verb https://www.meteoweb.eu/2022/11/droni-infermiere-boom-trasporto-farmaci-sangue-organi/1001164442/
+      \endverb
+      \verb{url}
+      \verb https://www.meteoweb.eu/2022/11/droni-infermiere-boom-trasporto-farmaci-sangue-organi/1001164442/
+      \endverb
+    \endentry
+    \entry{ansa_seuam}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{ANSA}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Il defibrillatore del 118 arriva con il drone}
+      \verb{urlraw}
+      \verb https://www.ansa.it/canale_saluteebenessere/notizie/sanita/2024/02/26/il-defibrillatore-del-118-arriva-con-il-drone_f33836ad-4a75-4bba-b190-5a87841a99fb.html
+      \endverb
+      \verb{url}
+      \verb https://www.ansa.it/canale_saluteebenessere/notizie/sanita/2024/02/26/il-defibrillatore-del-118-arriva-con-il-drone_f33836ad-4a75-4bba-b190-5a87841a99fb.html
+      \endverb
+    \endentry
+    \entry{pharmacyscanner_piadena}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Pharmacy Scanner}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni, nel cremonese il primo servizio di trasporto da una farmacia del territorio}
+      \verb{urlraw}
+      \verb https://pharmacyscanner.it/droni-nel-cremonese-il-primo-servizio-di-trasporto-da-una-farmacia-del-territorio/
+      \endverb
+      \verb{url}
+      \verb https://pharmacyscanner.it/droni-nel-cremonese-il-primo-servizio-di-trasporto-da-una-farmacia-del-territorio/
+      \endverb
+    \endentry
+    \entry{supplychain_2022}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Supply Chain Italy}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Boom in {Italia} dei test per il trasporto via drone di materiale medico}
+      \verb{urlraw}
+      \verb https://www.supplychainitaly.it/2022/11/03/boom-in-italia-dei-test-per-il-trasporto-via-drone-di-materiale-medico/
+      \endverb
+      \verb{url}
+      \verb https://www.supplychainitaly.it/2022/11/03/boom-in-italia-dei-test-per-il-trasporto-via-drone-di-materiale-medico/
+      \endverb
+    \endentry
+    \entry{farmacista33_uelcome}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Farmacista33}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Consegna farmaci con droni, in {Abruzzo}: il primo volo operativo}
+      \verb{urlraw}
+      \verb https://www.farmacista33.it/aggiornamento-professionale/31676/consegna-farmaci-con-droni-in-abruzzo-il-primo-volo-operativo.html
+      \endverb
+      \verb{url}
+      \verb https://www.farmacista33.it/aggiornamento-professionale/31676/consegna-farmaci-con-droni-in-abruzzo-il-primo-volo-operativo.html
+      \endverb
+    \endentry
+    \entry{trasportoeuropa_hsr}{misc}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{TrasportoEuropa}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Ospedale {San Raffaele} sperimenta droni per logistica sanitaria}
+      \verb{urlraw}
+      \verb https://www.trasportoeuropa.it/notizie/logistica/ospedale-san-raffaele-sperimenta-droni-per-logistica-sanitaria/
+      \endverb
+      \verb{url}
+      \verb https://www.trasportoeuropa.it/notizie/logistica/ospedale-san-raffaele-sperimenta-droni-per-logistica-sanitaria/
+      \endverb
+    \endentry
+    \entry{cri_sapr}{misc}{}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Croce Rossa Italiana}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Centro Addestramento Nazionale {SAPR} -- {Croce Rossa Italiana}}
+      \verb{urlraw}
+      \verb https://cri.it/cosa-facciamo/formazione/centroaddestramentodroni/
+      \endverb
+      \verb{url}
+      \verb https://cri.it/cosa-facciamo/formazione/centroaddestramentodroni/
+      \endverb
+    \endentry
+    \entry{today_cri}{misc}{}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Today.it}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni per trasportare materiale sanitario: il progetto della {Croce Rossa}}
+      \verb{urlraw}
+      \verb https://www.today.it/attualita/droni-croce-rossa.html
+      \endverb
+      \verb{url}
+      \verb https://www.today.it/attualita/droni-croce-rossa.html
+      \endverb
+    \endentry
+    \entry{quadricottero_2022}{misc}{}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Quadricottero News}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Mercato {UAS} e {AAM} in {Italia} con un focus sul trasporto sanitario, torna {Roma Drone Conference}}
+      \verb{urlraw}
+      \verb https://www.quadricottero.com/2022/11/mercato-uas-e-aam-in-italia-con-un.html
+      \endverb
+      \verb{url}
+      \verb https://www.quadricottero.com/2022/11/mercato-uas-e-aam-in-italia-con-un.html
+      \endverb
+    \endentry
+    \entry{ansa_sandbox}{misc}{}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{ANSA}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni per trasferire merci sanitarie, procede il progetto `{Padova Sandbox}'}
+      \verb{urlraw}
+      \verb https://www.ansa.it/veneto/notizie/2026/05/06/droni-per-trasferire-merci-sanitarie-procede-il-progetto-padova-sandbox_e868e026-ad45-47a8-ae52-71f1a35a627d.html
+      \endverb
+      \verb{url}
+      \verb https://www.ansa.it/veneto/notizie/2026/05/06/droni-per-trasferire-merci-sanitarie-procede-il-progetto-padova-sandbox_e868e026-ad45-47a8-ae52-71f1a35a627d.html
+      \endverb
+    \endentry
+    \entry{rinnovabili_stesi}{misc}{}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Rinnovabili.it}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni a idrogeno verde per la logistica sanitaria in {Veneto}}
+      \verb{urlraw}
+      \verb https://www.rinnovabili.it/mercato/le-aziende-informano/droni-idrogeno-verde-logistica-sanitaria-veneto/
+      \endverb
+      \verb{url}
+      \verb https://www.rinnovabili.it/mercato/le-aziende-informano/droni-idrogeno-verde-logistica-sanitaria-veneto/
+      \endverb
+    \endentry
+    \entry{ansa_hsr}{misc}{}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{ANSA}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Al via progetto per usare i droni per il trasporto di medicinali}
+      \verb{urlraw}
+      \verb https://www.ansa.it/sito/notizie/cronaca/2023/03/30/al-via-progetto-per-usare-i-droni-per-il-trasporto-di-medicinali_295d5112-acd1-4783-b021-8f36bfe90016.html
+      \endverb
+      \verb{url}
+      \verb https://www.ansa.it/sito/notizie/cronaca/2023/03/30/al-via-progetto-per-usare-i-droni-per-il-trasporto-di-medicinali_295d5112-acd1-4783-b021-8f36bfe90016.html
+      \endverb
+    \endentry
+    \entry{hsr_ff2020}{misc}{}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Ospedale San Raffaele}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Testare i droni per il trasporto aereo di materiale biomedicale: il {Living Lab} presso l'{Ospedale San Raffaele}}
+      \verb{urlraw}
+      \verb https://www.hsr.it/news/2023/agosto/progetto-droni-trasporto-medicine
+      \endverb
+      \verb{url}
+      \verb https://www.hsr.it/news/2023/agosto/progetto-droni-trasporto-medicine
+      \endverb
+    \endentry
+    \entry{prealpina_varese}{misc}{}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{La Prealpina}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni per trasportare farmaci tra gli ospedali di {Varese}}
+      \verb{urlraw}
+      \verb https://www.prealpina.it/news/cronaca/384462/droni-per-trasportare-farmaci-tra-gli-ospedali-di-varese.html
+      \endverb
+      \verb{url}
+      \verb https://www.prealpina.it/news/cronaca/384462/droni-per-trasportare-farmaci-tra-gli-ospedali-di-varese.html
+      \endverb
+    \endentry
+    \entry{logisticamente_miulli}{misc}{}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Logisticamente}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni e logistica sanitaria: il caso {Miulli} apre la via ai trasporti medicali del futuro}
+      \verb{urlraw}
+      \verb https://www.logisticamente.it/articoli/56333/droni-logistica-sanitaria-ospedale-miulli/
+      \endverb
+      \verb{url}
+      \verb https://www.logisticamente.it/articoli/56333/droni-logistica-sanitaria-ospedale-miulli/
+      \endverb
+    \endentry
+    \entry{sanitadigitale_boom}{misc}{}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Sanità Digitale}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Trasporto sanitario: è boom di droni in {Italia}}
+      \verb{urlraw}
+      \verb https://www.sanita-digitale.com/tendenze/trasporto-sanitario-e-boom-di-droni-in-italia/
+      \endverb
+      \verb{url}
+      \verb https://www.sanita-digitale.com/tendenze/trasporto-sanitario-e-boom-di-droni-in-italia/
+      \endverb
+    \endentry
+    \entry{quadricottero_aetos}{misc}{}{}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Quadricottero News}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Trasporto sanitario ad alta tecnologia: droni cargo collegano {Pozzuoli} e {Ischia} in 15 minuti}
+      \verb{urlraw}
+      \verb https://www.quadricottero.com/2025/02/trasporto-sanitario-ad-alta-tecnologia.html
+      \endverb
+      \verb{url}
+      \verb https://www.quadricottero.com/2025/02/trasporto-sanitario-ad-alta-tecnologia.html
+      \endverb
+    \endentry
+    \entry{dronezine_uelcome}{misc}{}{}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{DronEzine}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{In {Abruzzo} consegne di medicinali con droni per una sanità sostenibile ed innovativa}
+      \verb{urlraw}
+      \verb https://www.dronezine.it/456680/in-abruzzo-consegne-di-medicinali-con-droni-per-una-sanita-sostenibile-ed-innovativa/
+      \endverb
+      \verb{url}
+      \verb https://www.dronezine.it/456680/in-abruzzo-consegne-di-medicinali-con-droni-per-una-sanita-sostenibile-ed-innovativa/
+      \endverb
+    \endentry
+    \entry{quadricottero_enac_cri}{misc}{}{}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Quadricottero News}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni per il trasporto medicinali e le emergenze, accordo tra {ENAC} e {Croce Rossa Italiana}}
+      \verb{urlraw}
+      \verb https://www.quadricottero.com/2022/09/droni-per-il-trasporto-medicinali-e-le.html
+      \endverb
+      \verb{url}
+      \verb https://www.quadricottero.com/2022/09/droni-per-il-trasporto-medicinali-e-le.html
+      \endverb
+    \endentry
+    \entry{easa_note_2022}{misc}{}{}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{European Union Aviation Safety Agency}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Explanatory Note to Decision 2022/002/{R}}
+      \verb{urlraw}
+      \verb https://www.easa.europa.eu/sites/default/files/dfu/explanatory_note_to_ed_decision_2022-002-r.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.easa.europa.eu/sites/default/files/dfu/explanatory_note_to_ed_decision_2022-002-r.pdf
+      \endverb
+    \endentry
+    \entry{pharmacyscanner_amazon}{misc}{}{}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Pharmacy Scanner}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Drone delivery, {Amazon} dice stop ai test in {Italia}. {``Non} ci sono le condizioni necessarie''}
+      \verb{urlraw}
+      \verb https://pharmacyscanner.it/drone-delivery-amazon-fa-retromarcia-stop-ai-test-in-italia-mancano-le-condizioni-necessarie/
+      \endverb
+      \verb{url}
+      \verb https://pharmacyscanner.it/drone-delivery-amazon-fa-retromarcia-stop-ai-test-in-italia-mancano-le-condizioni-necessarie/
+      \endverb
+    \endentry
+    \entry{supplychain_torino}{misc}{}{}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Supply Chain Italy}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Consegne sanitarie via droni a idrogeno in un progetto per il {Parco della Salute} di {Torino}}
+      \verb{urlraw}
+      \verb https://www.supplychainitaly.it/2025/04/18/consegne-sanitarie-via-droni-a-idrogeno-in-un-progetto-per-il-parco-della-salute-di-torino
+      \endverb
+      \verb{url}
+      \verb https://www.supplychainitaly.it/2025/04/18/consegne-sanitarie-via-droni-a-idrogeno-in-un-progetto-per-il-parco-della-salute-di-torino
+      \endverb
+    \endentry
+    \entry{socialfarma_aetos}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{SocialFarma}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Trasporto sanitario del futuro: i droni accorciano le distanze}
+      \verb{urlraw}
+      \verb https://www.socialfarma.it/trasporto-sanitario-del-futuro-i-droni-accorciano-le-distanze/
+      \endverb
+      \verb{url}
+      \verb https://www.socialfarma.it/trasporto-sanitario-del-futuro-i-droni-accorciano-le-distanze/
+      \endverb
+    \endentry
+    \entry{nordest24_sandbox}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Nordest24}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Droni a idrogeno per materiale sanitario, testato il sistema {Padova Sandbox}}
+      \verb{urlraw}
+      \verb https://www.nordest24.it/padova-sandbox-droni-idrogeno-materiale-sanitario
+      \endverb
+      \verb{url}
+      \verb https://www.nordest24.it/padova-sandbox-droni-idrogeno-materiale-sanitario
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

@@ -1,6 +1,8 @@
 % LTeX: language=en-GB
 \documentclass{tudelft-report}
 
+\usepackage[italian,british]{babel}
+
 %% Set up the bibliography
 \usepackage[style=ieee, backend=biber]{biblatex}
 \addbibresource{report.bib}
@@ -9,16 +11,32 @@
 \usepackage{parskip}
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
+\usepackage{pdflscape} % Single landscape pages (rotated in the PDF viewer too)
+% Draft highlighting: \hl{text to revise}
+\usepackage{soul}
+\sethlcolor{yellow}
+\soulregister{\cite}{7} % Allow \cite and \ref inside \hl{}
+\soulregister{\ref}{7}
+% \renewcommand{\hl}[1]{#1} % Uncomment to hide all highlights (final version)
+% Ragged-right column, width given as a fraction of the line width: P{0.25}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{\dimexpr#1\linewidth-2\tabcolsep\relax}}
 \usepackage[most]{tcolorbox}
 \definecolor{title}{HTML}{4884d6} % Defined here too so the box colour is available before the cover
-\newtcolorbox{objectivebox}[1][]{
+% Usage: \begin{objectivebox}{Box title} ... \end{objectivebox}
+%        optional tcolorbox keys first: \begin{objectivebox}[colframe=red]{Box title}
+\newtcolorbox{objectivebox}[2][]{
   enhanced, breakable,
-  colback=title!8,          % light blue fill
-  frame hidden,             % no outer border...
-  borderline west={3pt}{0pt}{title}, % ...only a thick bar on the left
-  sharp corners,
-  left=10pt, right=8pt, top=6pt, bottom=6pt,
-  before skip=10pt, after skip=10pt,
+  title={#2},
+  colframe=title!60!black,  % frame + title band (darker blue)
+  colback=title!4,          % very light blue body
+  coltitle=white,
+  fonttitle=\sffamily\large,
+  halign title=center,
+  boxrule=1.2pt, titlerule=0pt,
+  arc=2mm,
+  left=10pt, right=10pt, top=8pt, bottom=8pt,
+  toptitle=3pt, bottomtitle=3pt,
+  before skip=12pt, after skip=12pt,
   #1
 }
 
@@ -84,6 +102,10 @@ Payloads}
 
 \input{appendix/appendix-a}
 \input{appendix/appendix-b}
-%\input{appendix/appendix-c} % Create file to add
+\input{appendix/appendix-c}
+
+
+\backmatter
+\input{backmatter/ringraziamenti}
 
 \end{document}

@@ -1,35 +1,348 @@
-\chapter{FEM Iterations for glass phial model}
-\label{appendix:FEMiterations}
+% !TEX root = ../report.tex
+\chapter{Extended Market Analysis}
+\label{appendix:market-analysis-extensive}
 
+% =====================================================================
+% Value-chain actors: drone delivery of medical goods in Italy
+% =====================================================================
 
+\section{Value-chain actors}\label{appendix:value-chain-actors}
+{\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{@{}P{0.19} P{0.27} P{0.54}@{}}
+\caption[Actors involved in drone delivery of medical goods in Italy]{Actors involved in drone delivery of medical goods in Italy, grouped by value-chain stage. \textsuperscript{\textdagger}\,Based in Piedmont.}
+\label{tab:actors}\\
+\toprule
+\textbf{Category} & \textbf{Institution} & \textbf{Scope} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Category} & \textbf{Institution} & \textbf{Scope} \\
+\midrule
+\endhead
+\multicolumn{3}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
 
+% ---------------------------------------------------------------------
+\textbf{Drone manufacturers}
+& SkyEU\textsuperscript{\textdagger} & Autonomous high-speed eVTOL drones for first aid and critical logistics \cite{skyeu_web} \\
+\cmidrule(l){2-3}
+& FlyingBasket & Cargo drones; used for blood transport Pozzuoli--Ischia \cite{disalute_aetos} \\
+\cmidrule(l){2-3}
+& H2C & Hydrogen drones and hydrogen supply system for Padova Sandbox \cite{hydrogennews_sandbox} \\
+\cmidrule(l){2-3}
+& Dronus & ``Radon'' drone for medical delivery \cite{adnkronos_2022} \\
+\cmidrule(l){2-3}
+& Eurolink Systems & ``Beluga'' medical delivery drone, with Universit\`a Cusano \cite{adnkronos_2022} \\
+\cmidrule(l){2-3}
+& IDS Ingegneria Dei Sistemi & Defibrillator-carrying drone (WingBeat project) \cite{tecnicaospedaliera_ids} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Technology partners (role not specified)}
+& Mavtech & INDOOR technical partner; aerial surveillance and operational-support products \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& FEV Italia\textsuperscript{\textdagger} & Industrial partner of the DIMEAS feasibility studies; numerical impact analysis \\
+\cmidrule(l){2-3}
+& Leonardo & VTOL drone demonstration flights in Lazio, with Telespazio and D-Flight \cite{meteoweb_2022} \\
+\cmidrule(l){2-3}
+& Caltec & Technical partner of SIS~118 for the SEUAM defibrillator drone \cite{ansa_seuam} \\
+\cmidrule(l){2-3}
+& AP~74 UAV & Drone company involved in the Piadena pharmacy link \cite{pharmacyscanner_piadena} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Payload / container makers}
+& ABzero & Smart Capsule: sensorised, UN3373-certified container for blood, organs and drugs \cite{abzero_web} \\
+\cmidrule(l){2-3}
+& Carpitech & ``Philotea'' temperature- and atmosphere-controlled capsule \cite{supplychain_2022} \\
+\cmidrule(l){2-3}
+& Air Abruzzo & ``Flying Box'' transport capsule \cite{supplychain_2022} \\
+\cmidrule(l){2-3}
+& Telespazio & TPZ Air 100 drug box used in U-ELCOME \cite{farmacista33_uelcome} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Operators}
+& ABzero & Drone operator for San Raffaele trials; handled ENAC authorisation for INDOOR \cite{trasportoeuropa_hsr, tecnomedicina_indoor} \\
+\cmidrule(l){2-3}
+& Unmanned4you & Operated Aetos blood-transport flights with FlyingBasket \cite{disalute_aetos} \\
+\cmidrule(l){2-3}
+& DL Droni & Piloted the Piadena pharmacy flights \cite{pharmacyscanner_piadena} \\
+\cmidrule(l){2-3}
+& Telespazio & Runs the U-ELCOME hospital-to-village drug delivery service \cite{asl1_uelcome} \\
+\cmidrule(l){2-3}
+& Croce Rossa Italiana & Own drone fleet and certified pilot school; urgent-drug delivery trials \cite{cri_sapr, today_cri} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Airspace, infrastructure and energy}
+& ENAV & Air navigation service provider; coordinated Corus-XUAM \cite{quadricottero_2022} \\
+\cmidrule(l){2-3}
+& D-Flight & U-space services (ENAV group); Corus-XUAM partner \cite{quadricottero_2022} \\
+\cmidrule(l){2-3}
+& DTA & Corus-XUAM partner, Grottaglie airport test site \cite{quadricottero_2022} \\
+\cmidrule(l){2-3}
+& ADPM Drones & ``Hangar'': docking and recharging station for automated missions \cite{quadricottero_2022} \\
+\cmidrule(l){2-3}
+& Gruppo SAVE & Airport group leading Padova Sandbox \cite{hydrogennews_sandbox} \\
+\cmidrule(l){2-3}
+& Heron Air & Operator of Padova airport, Sandbox partner \cite{hydrogennews_sandbox} \\
+\cmidrule(l){2-3}
+& Milani; DBA Group & Build the hydrogen production and refuelling unit for Padova \cite{ansa_sandbox} \\
+\cmidrule(l){2-3}
+& Stesi & Supervision system, ground logistics and spare-parts analytics for Sandbox \cite{rinnovabili_stesi} \\
+\cmidrule(l){2-3}
+& Torino Caselle and Cuneo Levaldigi airports\textsuperscript{\textdagger} & Proposed hub and support base for hydrogen drone logistics \cite{hydronews_torino} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Research}
+& PIC4SeR, Politecnico di Torino\textsuperscript{\textdagger} & Autonomous flight technologies for transporting biological material (INDOOR) \cite{polito_pic4ser} \\
+\cmidrule(l){2-3}
+& DIMEAS, Politecnico di Torino (Prof.~E.~Cestino)\textsuperscript{\textdagger} & Desk-based feasibility studies for emergency drug delivery in Turin: regulatory platform selection and SORA, risk maps and path planning, payload thermal/vibration loads, cost--safety comparison of car, drone and eVTOL, hub siting \cite{Cavallo2020, Bertelli2021, Sivieri2021, Fiorentino2021, Angelini2023, Angelini2024ICAS} \\
+\cmidrule(l){2-3}
+& Universit\`a di Torino\textsuperscript{\textdagger} & INDOOR project partner \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& Scuola Superiore Sant'Anna & Parent institution of the ABzero spin-off \cite{tecnomedicina_indoor} \\
+\cmidrule(l){2-3}
+& Universit\`a Cusano & Co-developer of the ``Beluga'' drone \cite{adnkronos_2022} \\
+\cmidrule(l){2-3}
+& San Raffaele technology centre & Developed the FF2020 drone delivery demonstrations \cite{ansa_hsr} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{End users}
+& AOU Citt\`a della Salute e della Scienza\textsuperscript{\textdagger} & INDOOR test flight between hospital sites; proposed hydrogen logistics plan; pharmacy department partner of DIMEAS feasibility studies \cite{cds_indoor, hydronews_torino} \\
+\cmidrule(l){2-3}
+& Regional Transplant Centre Piemonte--Valle d'Aosta\textsuperscript{\textdagger} & INDOOR partner for organ and biological transport \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& Ospedale San Raffaele & In-campus delivery of drugs and biological samples \cite{hsr_ff2020} \\
+\cmidrule(l){2-3}
+& ASST Sette Laghi & Feasibility study for inter-hospital drug transport \cite{prealpina_varese} \\
+\cmidrule(l){2-3}
+& Piadena community pharmacies & Pharmacy-to-pharmacy drone link \cite{pharmacyscanner_piadena} \\
+\cmidrule(l){2-3}
+& ASL 1 Abruzzo & Hospital-only drugs delivered to remote villages \cite{asl1_uelcome} \\
+\cmidrule(l){2-3}
+& ASL Napoli 2 & Blood transport to Ischia \cite{disalute_aetos} \\
+\cmidrule(l){2-3}
+& Ospedale Miulli & Demonstration flight of life-saving drugs \cite{logisticamente_miulli} \\
+\cmidrule(l){2-3}
+& ASL Lecce & Planned Gallipoli--Casarano hospital link \cite{sanitadigitale_boom} \\
+\cmidrule(l){2-3}
+& Ospedale di Patti & Planned link to the Aeolian Islands \cite{sanitadigitale_boom} \\
+\cmidrule(l){2-3}
+& Ospedale Pediatrico Bambino Ges\`u & Partner in VTOL demonstration flights in Lazio \cite{meteoweb_2022} \\
+\cmidrule(l){2-3}
+& SIS~118 & Emergency service promoting the SEUAM defibrillator drone \cite{ansa_seuam} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Promoters and funders}
+& Fondazione DOT\textsuperscript{\textdagger} & Promoter of the INDOOR project \cite{dot_indoor} \\
+\cmidrule(l){2-3}
+& Centro Nazionale Trapianti & Funds the INDOOR research grant at PIC4SeR \cite{dot_grant} \\
+\cmidrule(l){2-3}
+& City of Turin\textsuperscript{\textdagger} & INDOOR partner; funded the LastMed call \cite{dot_indoor, newpharma_lastmed} \\
+\cmidrule(l){2-3}
+& Regione Veneto & Signatory of the Padova Sandbox agreement \cite{hydrogennews_sandbox} \\
+\cmidrule(l){2-3}
+& Regione Lazio & Partner in VTOL demonstration flights \cite{meteoweb_2022} \\
+\cmidrule(l){2-3}
+& Regione Campania & Institutional support for the Aetos trial \cite{quadricottero_aetos} \\
+\cmidrule(l){2-3}
+& EU research programmes & H2020 Flying Forward 2020; U-ELCOME, co-funded by Horizon \cite{trasportoeuropa_hsr, dronezine_uelcome} \\
+\cmidrule(l){2-3}
+& Abruzzo municipalities and Parco Sirente Velino & Host communities of the U-ELCOME service \cite{asl1_uelcome, farmacista33_uelcome} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Regulators and authorities}
+& ENAC & National civil aviation authority; flight authorisations; protocol with the Red Cross \cite{quadricottero_enac_cri} \\
+\cmidrule(l){2-3}
+& EASA & EU rules for drone operations, Regulation (EU) 2019/947 \cite{easa_note_2022} \\
+\cmidrule(l){2-3}
+& Regione Piemonte\textsuperscript{\textdagger} & Regional health authority; drone trials subject to benefit--risk analysis \cite{cr_piemonte} \\
+\midrule
+% ---------------------------------------------------------------------
+\textbf{Alternatives and exits}
+& Tecnocad / Tecnomill / Bylogix\textsuperscript{\textdagger} & LastMed autonomous ground rover for last-mile drug delivery \cite{ansa_lastmed} \\
+\cmidrule(l){2-3}
+& Amazon Prime Air & Halted drone delivery tests in Italy \cite{pharmacyscanner_amazon} \\
+\end{longtable}
+}
 
+% =====================================================================
+% Trials and planned initiatives
+% =====================================================================
 
-\emph{Adding source code to your report/thesis is supported with the package {\normalfont\texttt{listings}}. An example can be found below. Files can be added using {\normalfont\texttt{\textbackslash lstinputlisting[language=<language>]\{<filename>\}}}.}
+\begin{landscape}
+\section{Trials and planned initiatives}\label{appendix:medical-drone-trials}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{@{}P{0.078} P{0.119} P{0.064} P{0.200} P{0.132} P{0.183} P{0.151} P{0.073}@{}}
+\caption[Drone delivery of medical goods in Italy: trials and planned initiatives]{Drone delivery of medical goods in Italy: trials and planned initiatives (status as reported by the cited sources; checked 5 October 2026).}
+\label{tab:medical-drone-trials}\\
+\toprule
+\textbf{Region} & \textbf{Location / project} & \textbf{Date} & \textbf{Actors} & \textbf{Payload} & \textbf{Route / performance} & \textbf{Reported status} & \textbf{Sources} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Region} & \textbf{Location / project} & \textbf{Date} & \textbf{Actors} & \textbf{Payload} & \textbf{Route / performance} & \textbf{Reported status} & \textbf{Sources} \\
+\midrule
+\endhead
+\multicolumn{8}{r}{\footnotesize\itshape continued on next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
 
-\begin{lstlisting}[language=Python]
-"""
-ISA Calculator: import the function, specify the height and it will return a
-list in the following format: [Temperature,Density,Pressure,Speed of Sound].
-Note that there is no check to see if the maximum altitude is reached.
-"""
-
-import math
-g0 = 9.80665
-R = 287.0
-layer1 = [0, 288.15, 101325.0]
-alt = [0,11000,20000,32000,47000,51000,71000,86000]
-a = [-.0065,0,.0010,.0028,0,-.0028,-.0020]
-
-def atmosphere(h):
-    for i in range(0,len(alt)-1):
-        if h >= alt[i]:
-            layer0 = layer1[:]
-            layer1[0] = min(h,alt[i+1])
-            if a[i] != 0:
-                layer1[1] = layer0[1] + a[i]*(layer1[0]-layer0[0])
-                layer1[2] = layer0[2] * (layer1[1]/layer0[1])**(-g0/(a[i]*R))
-            else:
-                layer1[2] = layer0[2]*math.exp((-g0/(R*layer1[1]))*(layer1[0]-layer0[0]))
-    return [layer1[1],layer1[2]/(R*layer1[1]),layer1[2],math.sqrt(1.4*R*layer1[1])]
-\end{lstlisting}
+% ---------------- Piedmont ----------------
+Piedmont
+& Turin, Molinette $\leftrightarrow$ San Giovanni Bosco feasibility studies
+& 2020--2024
+& DIMEAS (Politecnico di Torino); AOU Citt\`a della Salute e della Scienza (Pharmacy); FEV Italia
+& Life-saving drugs, blood-derived medication
+& Approx.\ 10\,km corridor along the Po, approx.\ 15\,min at 17\,m/s
+& Desk studies (5 MSc theses, 1 conference paper); no flights performed
+& \cite{Cavallo2020, Bertelli2021, Sivieri2021, Fiorentino2021, Angelini2023, Angelini2024ICAS} \\
+\addlinespace
+Piedmont
+& Turin, INDOOR
+& Oct 2024
+& Fondazione DOT; PIC4SeR (Politecnico di Torino); ABzero; AOU Citt\`a della Salute e della Scienza
+& Biological samples (blood) in sensorised capsule
+& CTO $\to$ Molinette, 500\,m, automatic navigation over the city and the Po
+& Single experimental flight
+& \cite{cds_indoor, dot_indoor} \\
+\addlinespace
+Piedmont
+& Turin, hydrogen drone logistics plan
+& Apr 2025
+& AOU Citt\`a della Salute e della Scienza (Commissioner T.~Schael)
+& Drugs, small medical loads
+& Torino Caselle hub, Cuneo Levaldigi support, future Parco della Salute
+& Proposal; no implementation found
+& \cite{hydronews_torino, supplychain_torino} \\
+\midrule
+% ---------------- Abruzzo ----------------
+Abruzzo
+& Avezzano $\to$ Collelongo, U-ELCOME
+& Jul 2025
+& Telespazio (Leonardo/Thales); ASL 1 Abruzzo; municipalities of Collelongo, Montereale, Rocca di Mezzo
+& Hospital-only drugs for frail patients
+& Hospital to village pharmacy, approx.\ 20\,min
+& Start of operational phase; further routes announced
+& \cite{asl1_uelcome, abruzzospeciale_uelcome} \\
+\midrule
+% ---------------- Apulia ----------------
+Apulia
+& Grottaglie $\to$ Manduria, Corus-XUAM
+& by 2022
+& ENAV; D-Flight; DTA
+& Medical material
+& Airport to hospital
+& Test (reported in 2022)
+& \cite{quadricottero_2022} \\
+\addlinespace
+Apulia
+& Taranto, SEUAM
+& Feb 2024
+& SIS~118; Caltec (Campanian aerospace consortium)
+& Automated external defibrillator
+& Urban, simulated cardiac arrest
+& First test of experimental project
+& \cite{ansa_seuam} \\
+\addlinespace
+Apulia
+& Lecce, ASL Lecce
+& 2025
+& ASL Lecce
+& Not specified in source
+& Gallipoli--Casarano hospitals
+& Intended
+& \cite{sanitadigitale_boom} \\
+\addlinespace
+Apulia
+& Acquaviva delle Fonti, Ospedale Miulli
+& Nov 2025
+& Ospedale Miulli
+& Life-saving drugs, biomedical material
+& 25\,kg hexacopter; 25\,km in 25\,min
+& Operational demonstration
+& \cite{logisticamente_miulli} \\
+\midrule
+% ---------------- Campania ----------------
+Campania
+& Pozzuoli $\to$ Ischia, Aetos
+& Feb 2025
+& FlyingBasket; Unmanned4you; ASL Napoli 2
+& Blood, biological samples
+& 17\,km in 15\,min; 4 flights; 5\,kg carried
+& Second trial phase
+& \cite{disalute_aetos, socialfarma_aetos} \\
+\midrule
+% ---------------- Lazio ----------------
+Lazio
+& Rome
+& 2022
+& Leonardo; Telespazio; D-Flight; Ospedale Pediatrico Bambino Ges\`u; Regione Lazio; Aeroporti di Roma
+& Not specified in source
+& Fixed-wing VTOL drones
+& Two demonstration flights
+& \cite{meteoweb_2022} \\
+\midrule
+% ---------------- Lombardy ----------------
+Lombardy
+& Piadena (Cremona)
+& 2021
+& Two community pharmacies; DL Droni; AP~74 UAV
+& Drugs and devices between pharmacies
+& Approx.\ 6\,kg electric drone, approx.\ 1\,kg payload
+& Announced as continuous service; current status not verified
+& \cite{pharmacyscanner_piadena} \\
+\addlinespace
+Lombardy
+& Milan, Ospedale San Raffaele, H2020 Flying Forward 2020
+& Mar 2023
+& Ospedale San Raffaele; EuroUSC Italia (regulatory consultant); ABzero (operator)
+& Drugs, biological samples
+& Within the hospital campus
+& Demonstration campaign, each flight ENAC-authorised
+& \cite{hsr_ff2020, trasportoeuropa_hsr} \\
+\addlinespace
+Lombardy
+& Varese, ASST Sette Laghi
+& 2025
+& ASST Sette Laghi
+& Drugs, urgent materials
+& Between two hospitals a few hundred metres apart
+& Preliminary feasibility study
+& \cite{prealpina_varese} \\
+\midrule
+% ---------------- Sicily ----------------
+Sicily
+& Trapani, Croce Rossa Italiana
+& 2021
+& Croce Rossa Italiana
+& Urgent drugs
+& Port quay $\to$ vessel; 5\,min 30\,s vs 35\,min by sea
+& Simulation exercise
+& \cite{today_cri} \\
+\addlinespace
+Sicily
+& Patti $\to$ Aeolian Islands
+& 2025
+& Ospedale di Patti
+& Not specified in source
+& Patti--Lipari
+& Under development
+& \cite{sanitadigitale_boom} \\
+\midrule
+% ---------------- Veneto ----------------
+Veneto
+& Padova, Padova Sandbox
+& from Mar 2025
+& Gruppo SAVE; ENAC; Regione Veneto; H2C/H2G; Heron Air; Milani; DBA Group; Stesi
+& Medical goods, biological samples (hydrogen drones)
+& Up to 100\,km, 4--5\,kg payload (stated)
+& Ground tests of hydrogen system; first flight expected autumn 2026
+& \cite{hydrogennews_sandbox, nordest24_sandbox} \\
+\end{longtable}
+\end{landscape}
