@@ -793,9 +793,401 @@
       \verb https://www.ansa.it/piemonte/notizie/2026/03/23/tecnocad-farmaci-a-persone-fragili-da-rover-robot-automatizzato_b266e9c6-f168-4b25-a2e7-775a83795571.html
       \endverb
     \endentry
-    \entry{disalute_aetos}{misc}{}{}
+    \entry{chhetri2026survey}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=9be3b9f8864019e4576a1fbbd48ddffc}{%
+           family={Chhetri},
+           familyi={C\bibinitperiod},
+           given={Roshan\bibnamedelima Kumar},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=004cdd43df40c13a6fd788ce0c38e56a}{%
+           family={Jetawatthana},
+           familyi={J\bibinitperiod},
+           given={Sarocha},
+           giveni={S\bibinitperiod}}}%
+        {{hash=499908cefd8d15e343dea018fac8c7e8}{%
+           family={Khamvilai},
+           familyi={K\bibinitperiod},
+           given={Thanakorn},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
+      \strng{fullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{fullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{bibnamehash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{authorbibnamehash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{authornamehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
+      \strng{authorfullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{authorfullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.RO}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{arXiv preprint arXiv:2602.06969}
+      \field{title}{A Survey of Medical Drones from Flight Dynamics, Guidance, Navigation, and Control Perspectives}
+      \field{year}{2026}
+      \verb{eprint}
+      \verb 2602.06969
+      \endverb
+    \endentry
+    \entry{alulema2026how}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=2f701c77fb8cc9045a4d8e3653e80cfe}{%
+           family={Alulema},
+           familyi={A\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=a6492d5073a270d260785d305e25912b}{%
+           family={Acosta-Vargas},
+           familyi={A\bibinithyphendelim V\bibinitperiod},
+           given={Gloria},
+           giveni={G\bibinitperiod}}}%
+        {{hash=03b3aca1e192d9080c1d3271f9e6ff00}{%
+           family={Guevara},
+           familyi={G\bibinitperiod},
+           given={Cesar},
+           giveni={C\bibinitperiod}}}%
+        {{hash=60b7d0fc7f48c216d469eec14b03447d}{%
+           family={Acosta-Vargas},
+           familyi={A\bibinithyphendelim V\bibinitperiod},
+           given={Patricia},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{620b0dae7cae025cd0c1efb07665f699}
+      \strng{fullhash}{955db31865587691b2e2ce3b858757b0}
+      \strng{fullhashraw}{955db31865587691b2e2ce3b858757b0}
+      \strng{bibnamehash}{955db31865587691b2e2ce3b858757b0}
+      \strng{authorbibnamehash}{955db31865587691b2e2ce3b858757b0}
+      \strng{authornamehash}{620b0dae7cae025cd0c1efb07665f699}
+      \strng{authorfullhash}{955db31865587691b2e2ce3b858757b0}
+      \strng{authorfullhashraw}{955db31865587691b2e2ce3b858757b0}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Scientific Reports}
+      \field{number}{1}
+      \field{title}{How stakeholder requirements constrain drone-based medical delivery: probabilistic sizing of eVTOL aircraft at high altitude}
+      \field{volume}{16}
+      \field{year}{2026}
+      \field{pages}{26444}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1038/s41598-026-54743-2
+      \endverb
+    \endentry
+    \entry{rodriguez2023thinking}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=5c1a33105ecbb25eafc87e36b7612f4c}{%
+           family={Rodriguez},
+           familyi={R\bibinitperiod},
+           given={Natalia\bibnamedelima M.},
+           giveni={N\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=668f72f1984e0788f526cd056728f08e}{%
+           family={Burleson},
+           familyi={B\bibinitperiod},
+           given={Grace},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c6b1a3b35572b86ce9160f899da5ab78}{%
+           family={Linnes},
+           familyi={L\bibinitperiod},
+           given={Jacqueline\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=66e48cf86dd59b97d8ff499279a51efd}{%
+           family={Sienko},
+           familyi={S\bibinitperiod},
+           given={Kathleen\bibnamedelima H.},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{e87cb9947cc8193f5baabff300abb894}
+      \strng{fullhash}{a2f6cd4910fb1c5ee5cdc74f56a88974}
+      \strng{fullhashraw}{a2f6cd4910fb1c5ee5cdc74f56a88974}
+      \strng{bibnamehash}{a2f6cd4910fb1c5ee5cdc74f56a88974}
+      \strng{authorbibnamehash}{a2f6cd4910fb1c5ee5cdc74f56a88974}
+      \strng{authornamehash}{e87cb9947cc8193f5baabff300abb894}
+      \strng{authorfullhash}{a2f6cd4910fb1c5ee5cdc74f56a88974}
+      \strng{authorfullhashraw}{a2f6cd4910fb1c5ee5cdc74f56a88974}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Annual Review of Biomedical Engineering}
+      \field{number}{1}
+      \field{title}{Thinking Beyond the Device: An Overview of Human- and Equity-Centered Approaches for Health Technology Design}
+      \field{volume}{25}
+      \field{year}{2023}
+      \field{pages}{257\bibrangedash 280}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.1146/annurev-bioeng-081922-024834
+      \endverb
+    \endentry
+    \entry{HolnickiSzulc2023}{inproceedings}{}{}
+      \name{author}{10}{}{%
+        {{hash=91557a0ad5c50e8dbdff024d897c8e3d}{%
+           family={Holnicki-Szulc},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1ea604e2b297af30dbbaef6248ba9f67}{%
+           family={Faraj},
+           familyi={F\bibinitperiod},
+           given={Rami},
+           giveni={R\bibinitperiod}}}%
+        {{hash=65f2c672673401ca76b2d43c017e0c74}{%
+           family={Graczykowski},
+           familyi={G\bibinitperiod},
+           given={Cezary},
+           giveni={C\bibinitperiod}}}%
+        {{hash=05297c55eef6e961d845a7fb00b09488}{%
+           family={Miku{ł}owski},
+           familyi={M\bibinitperiod},
+           given={Grzegorz},
+           giveni={G\bibinitperiod}}}%
+        {{hash=2da37de86a332b7a22c378aa25e9b081}{%
+           family={Paw{ł}owski},
+           familyi={P\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=77a6f9e6304c07600c58fd7644c47f5c}{%
+           family={Świercz},
+           familyi={Ś\bibinitperiod},
+           given={Andrzej},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a2a202419f1e4b69812684307e4117c2}{%
+           family={Wo{ł}ejsza},
+           familyi={W\bibinitperiod},
+           given={Zbigniew},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=4b6a2d500cb92f3d6935eb5ec6ac9e31}{%
+           family={Knap},
+           familyi={K\bibinitperiod},
+           given={Lech},
+           giveni={L\bibinitperiod}}}%
+        {{hash=e2cb77dbdc5966adf91743db993635c9}{%
+           family={Seku{ł}a},
+           familyi={S\bibinitperiod},
+           given={Krzysztof},
+           giveni={K\bibinitperiod}}}%
+        {{hash=16abb209b784dfa9a7138532c7e57ccc}{%
+           family={Wiącek},
+           familyi={W\bibinitperiod},
+           given={Dariusz},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lisbon, Portugal}%
+      }
+      \strng{namehash}{d9c8d4dce1b9e9b1c0a35718acf0747b}
+      \strng{fullhash}{4250eea832f9b873c68272873c200de8}
+      \strng{fullhashraw}{4250eea832f9b873c68272873c200de8}
+      \strng{bibnamehash}{d9c8d4dce1b9e9b1c0a35718acf0747b}
+      \strng{authorbibnamehash}{d9c8d4dce1b9e9b1c0a35718acf0747b}
+      \strng{authornamehash}{d9c8d4dce1b9e9b1c0a35718acf0747b}
+      \strng{authorfullhash}{4250eea832f9b873c68272873c200de8}
+      \strng{authorfullhashraw}{4250eea832f9b873c68272873c200de8}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 2nd {ECCOMAS} Thematic Conf. Multidisciplinary Des. Optim. Aerosp. Syst. ({AeroBest} 2023)}
+      \field{month}{7}
+      \field{title}{Adaptive airbag systems for protection of general aviation}
+      \field{year}{2023}
+    \endentry
+    \entry{HolnickiSzulc2015}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=91557a0ad5c50e8dbdff024d897c8e3d}{%
+           family={Holnicki-Szulc},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=65f2c672673401ca76b2d43c017e0c74}{%
+           family={Graczykowski},
+           familyi={G\bibinitperiod},
+           given={Cezary},
+           giveni={C\bibinitperiod}}}%
+        {{hash=05297c55eef6e961d845a7fb00b09488}{%
+           family={Miku{ł}owski},
+           familyi={M\bibinitperiod},
+           given={Grzegorz},
+           giveni={G\bibinitperiod}}}%
+        {{hash=a77d17db6b13ef54d5f983fdb08511de}{%
+           family={Mróz},
+           familyi={M\bibinitperiod},
+           given={Arkadiusz},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2da37de86a332b7a22c378aa25e9b081}{%
+           family={Paw{ł}owski},
+           familyi={P\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f95d950e59527810b90d506ab3624d68}{%
+           family={Wiszowaty},
+           familyi={W\bibinitperiod},
+           given={Rafal},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9c8d4dce1b9e9b1c0a35718acf0747b}
+      \strng{fullhash}{20882d113a18e5dc1d84bdb43debecef}
+      \strng{fullhashraw}{20882d113a18e5dc1d84bdb43debecef}
+      \strng{bibnamehash}{20882d113a18e5dc1d84bdb43debecef}
+      \strng{authorbibnamehash}{20882d113a18e5dc1d84bdb43debecef}
+      \strng{authornamehash}{d9c8d4dce1b9e9b1c0a35718acf0747b}
+      \strng{authorfullhash}{20882d113a18e5dc1d84bdb43debecef}
+      \strng{authorfullhashraw}{20882d113a18e5dc1d84bdb43debecef}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. J. Protective Struct.}
+      \field{month}{6}
+      \field{number}{2}
+      \field{title}{Adaptive impact absorption--the concept and potential applications}
+      \field{volume}{6}
+      \field{year}{2015}
+      \field{pages}{357\bibrangedash 377}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1260/2041-4196.6.2.357
+      \endverb
+    \endentry
+    \entry{HolnickiSzulc2009}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=8e7001983ec9d7a81c482b4f1ddbd010}{%
+           family={Holnicki-Szulc},
+           familyi={H\bibinithyphendelim S\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=66e9ed8334b510596e2be0bbf81fb2a5}{%
+           family={Graczykowski},
+           familyi={G\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=21854fd0a809b4843728aaed76b16422}{%
+           family={Miku{ł}owski},
+           familyi={M\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=deb05b04c71a8387846c1ddbc4f65b05}{%
+           family={Mróz},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=629dd059b3ea6bb9dd9447023ae83a09}{%
+           family={Paw{ł}owski},
+           familyi={P\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{06cfde44ba20997bd6c087aba67e06b0}
+      \strng{fullhash}{cd2e7bb3e1dc069e61f1c9377e0faa75}
+      \strng{fullhashraw}{cd2e7bb3e1dc069e61f1c9377e0faa75}
+      \strng{bibnamehash}{cd2e7bb3e1dc069e61f1c9377e0faa75}
+      \strng{authorbibnamehash}{cd2e7bb3e1dc069e61f1c9377e0faa75}
+      \strng{authornamehash}{06cfde44ba20997bd6c087aba67e06b0}
+      \strng{authorfullhash}{cd2e7bb3e1dc069e61f1c9377e0faa75}
+      \strng{authorfullhashraw}{cd2e7bb3e1dc069e61f1c9377e0faa75}
+      \field{extraname}{3}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Solid State Phenom.}
+      \field{title}{Smart technologies for adaptive impact absorption}
+      \field{volume}{154}
+      \field{year}{2009}
+      \field{pages}{187\bibrangedash 194}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.4028/www.scientific.net/SSP.154.187
+      \endverb
+    \endentry
+    \entry{Zhou2019}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=0e666ca1ec9bdcee719414b2940abf9a}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={X.},
+           giveni={X\bibinitperiod}}}%
+        {{hash=afd8000b32015b13e351601b5698f3be}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={S.\bibnamedelimi M.},
+           giveni={S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=475a01ffbc51d29a394f59576f6276c6}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={D.\bibnamedelimi K.},
+           giveni={D\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{eb06ff0f560ea0f4095e2ee60f99dcaa}
+      \strng{fullhash}{a7e57e0df61c6c8fca4d4a2fd93d7228}
+      \strng{fullhashraw}{a7e57e0df61c6c8fca4d4a2fd93d7228}
+      \strng{bibnamehash}{a7e57e0df61c6c8fca4d4a2fd93d7228}
+      \strng{authorbibnamehash}{a7e57e0df61c6c8fca4d4a2fd93d7228}
+      \strng{authornamehash}{eb06ff0f560ea0f4095e2ee60f99dcaa}
+      \strng{authorfullhash}{a7e57e0df61c6c8fca4d4a2fd93d7228}
+      \strng{authorfullhashraw}{a7e57e0df61c6c8fca4d4a2fd93d7228}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IOP Conf. Ser.: Mater. Sci. Eng.}
+      \field{number}{1}
+      \field{title}{Optimal design of airbag landing system without rebound}
+      \field{volume}{531}
+      \field{year}{2019}
+      \field{pages}{012001}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1757-899X/531/1/012001
+      \endverb
+    \endentry
+    \entry{Cole1993}{report}{}{}
+      \name{author}{2}{}{%
+        {{hash=7ee7a41847814dc88abe410208ab1ca4}{%
+           family={Cole},
+           familyi={C\bibinitperiod},
+           given={J.\bibnamedelimi Kenneth},
+           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=4f3a613ba97da885a149074bdb24b3e6}{%
+           family={Waye},
+           familyi={W\bibinitperiod},
+           given={Donald\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Sandia National Laboratories}%
+      }
+      \list{location}{1}{%
+        {Albuquerque, NM, USA}%
+      }
+      \strng{namehash}{cf35ae48967025d20d39594a45466ac1}
+      \strng{fullhash}{cf35ae48967025d20d39594a45466ac1}
+      \strng{fullhashraw}{cf35ae48967025d20d39594a45466ac1}
+      \strng{bibnamehash}{cf35ae48967025d20d39594a45466ac1}
+      \strng{authorbibnamehash}{cf35ae48967025d20d39594a45466ac1}
+      \strng{authornamehash}{cf35ae48967025d20d39594a45466ac1}
+      \strng{authorfullhash}{cf35ae48967025d20d39594a45466ac1}
+      \strng{authorfullhashraw}{cf35ae48967025d20d39594a45466ac1}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{number}{SAND93-2133}
+      \field{title}{{BAG}: A code for predicting the performance of a gas bag impact attenuation system for the {PATHFINDER} lander}
+      \field{type}{Tech. Rep.}
+      \field{year}{1993}
+    \endentry
+    \entry{disalute_aetos}{misc}{}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{howpublished}{DiSalute}
       \field{note}{Accessed 5 October 2026}
@@ -808,8 +1200,8 @@
       \endverb
     \endentry
     \entry{hydrogennews_sandbox}{misc}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{howpublished}{Hydrogen-news.it}
       \field{note}{Accessed 5 October 2026}
@@ -822,8 +1214,8 @@
       \endverb
     \endentry
     \entry{adnkronos_2022}{misc}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{howpublished}{Adnkronos}
       \field{note}{Accessed 5 October 2026}
@@ -836,8 +1228,8 @@
       \endverb
     \endentry
     \entry{tecnicaospedaliera_ids}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{howpublished}{Tecnica Ospedaliera}
       \field{note}{Accessed 5 October 2026}
@@ -850,8 +1242,8 @@
       \endverb
     \endentry
     \entry{meteoweb_2022}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{howpublished}{MeteoWeb}
       \field{note}{Accessed 5 October 2026}
@@ -864,8 +1256,8 @@
       \endverb
     \endentry
     \entry{ansa_seuam}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -878,8 +1270,8 @@
       \endverb
     \endentry
     \entry{pharmacyscanner_piadena}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{howpublished}{Pharmacy Scanner}
       \field{note}{Accessed 5 October 2026}
@@ -892,8 +1284,8 @@
       \endverb
     \endentry
     \entry{supplychain_2022}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
       \field{note}{Accessed 5 October 2026}
@@ -906,8 +1298,8 @@
       \endverb
     \endentry
     \entry{farmacista33_uelcome}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{howpublished}{Farmacista33}
       \field{note}{Accessed 5 October 2026}
@@ -920,8 +1312,8 @@
       \endverb
     \endentry
     \entry{trasportoeuropa_hsr}{misc}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{howpublished}{TrasportoEuropa}
       \field{note}{Accessed 5 October 2026}
@@ -934,8 +1326,8 @@
       \endverb
     \endentry
     \entry{cri_sapr}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{howpublished}{Croce Rossa Italiana}
       \field{note}{Accessed 5 October 2026}
@@ -948,8 +1340,8 @@
       \endverb
     \endentry
     \entry{today_cri}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labeltitlesource}{title}
       \field{howpublished}{Today.it}
       \field{note}{Accessed 5 October 2026}
@@ -962,8 +1354,8 @@
       \endverb
     \endentry
     \entry{quadricottero_2022}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -976,8 +1368,8 @@
       \endverb
     \endentry
     \entry{ansa_sandbox}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -990,8 +1382,8 @@
       \endverb
     \endentry
     \entry{rinnovabili_stesi}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labeltitlesource}{title}
       \field{howpublished}{Rinnovabili.it}
       \field{note}{Accessed 5 October 2026}
@@ -1004,8 +1396,8 @@
       \endverb
     \endentry
     \entry{ansa_hsr}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -1018,8 +1410,8 @@
       \endverb
     \endentry
     \entry{hsr_ff2020}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{howpublished}{Ospedale San Raffaele}
       \field{note}{Accessed 5 October 2026}
@@ -1032,8 +1424,8 @@
       \endverb
     \endentry
     \entry{prealpina_varese}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{howpublished}{La Prealpina}
       \field{note}{Accessed 5 October 2026}
@@ -1046,8 +1438,8 @@
       \endverb
     \endentry
     \entry{logisticamente_miulli}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labeltitlesource}{title}
       \field{howpublished}{Logisticamente}
       \field{note}{Accessed 5 October 2026}
@@ -1060,8 +1452,8 @@
       \endverb
     \endentry
     \entry{sanitadigitale_boom}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labeltitlesource}{title}
       \field{howpublished}{Sanità Digitale}
       \field{note}{Accessed 5 October 2026}
@@ -1074,8 +1466,8 @@
       \endverb
     \endentry
     \entry{quadricottero_aetos}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -1088,8 +1480,8 @@
       \endverb
     \endentry
     \entry{dronezine_uelcome}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{DronEzine}
       \field{note}{Accessed 5 October 2026}
@@ -1102,8 +1494,8 @@
       \endverb
     \endentry
     \entry{quadricottero_enac_cri}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -1116,8 +1508,8 @@
       \endverb
     \endentry
     \entry{easa_note_2022}{misc}{}{}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{European Union Aviation Safety Agency}
       \field{note}{Accessed 5 October 2026}
@@ -1130,8 +1522,8 @@
       \endverb
     \endentry
     \entry{pharmacyscanner_amazon}{misc}{}{}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Pharmacy Scanner}
       \field{note}{Accessed 5 October 2026}
@@ -1144,8 +1536,8 @@
       \endverb
     \endentry
     \entry{supplychain_torino}{misc}{}{}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
       \field{note}{Accessed 5 October 2026}

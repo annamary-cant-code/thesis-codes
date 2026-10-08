@@ -26,6 +26,7 @@
 %        optional tcolorbox keys first: \begin{objectivebox}[colframe=red]{Box title}
 \newtcolorbox{objectivebox}[2][]{
   enhanced, breakable,
+  parbox=false,             % keep the document's paragraph/list spacing (parskip) inside the box
   title={#2},
   colframe=title!60!black,  % frame + title band (darker blue)
   colback=title!4,          % very light blue body
@@ -39,6 +40,23 @@
   before skip=12pt, after skip=12pt,
   #1
 }
+% Coloured tables (used by the design-variables table, Ch. 2)
+\usepackage{colortbl}
+\definecolor{navy}{HTML}{14213D}
+\definecolor{phaseA}{HTML}{1F5A8C}   % Phase 1 (blue)
+\definecolor{phaseB}{HTML}{1B7F79}   % Phase 2 (teal)
+\definecolor{tintA}{HTML}{E8F0F8}
+\definecolor{tintB}{HTML}{E6F4F2}
+\newlength{\colw}
+\newcommand{\gap}{4pt}   % white gap between the two phase blocks
+\newcommand{\cellstrut}{\rule{0pt}{2.8ex}}
+\newcommand{\cellstrutb}{\rule[-1.3ex]{0pt}{0pt}}
+% Sub-subsection titles in italic (Roboto Slab has no italic shape, so use the body font)
+\titleformat{\subsubsection}
+    {\normalfont\fontsize{11}{13.6}\selectfont\bfseries\itshape} % 11pt: between body (10pt) and subsection (12pt)
+    {\thesubsubsection.}
+    {5pt}
+    {}
 
 %% ----------------------------------------------------------------------
 %%    Begin of document + Frontmatter (Roman page numbering)

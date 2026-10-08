@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  5 OCT 2026 22:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  8 OCT 2026 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1341,75 +1341,82 @@ File: tikzlibraryfadings.code.tex 2026-08-01 v3.1.12 (3.1.12)
 File: pgflibraryfadings.code.tex 2026-08-01 v3.1.12 (3.1.12)
 ))) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbposter.code.tex
 Library (tcolorbox): 'tcbposter.code.tex' version '6.10.0'
-))
+)) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2026/05/01 v1.0l Color table columns (DPC)
+
+new hooks used!!
+\minrowclearance=\skip108
+\rownum=\count560
+)
+\colw=\skip109
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 47.
+(Font)              scaled to size 10.0pt on input line 65.
 
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
 
-\@quotelevel=\count560
-\@quotereset=\count561
+\@quotelevel=\count561
+\@quotereset=\count562
 (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 47.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 47.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 65.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 47.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 47.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 65.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 47.
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 47.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 47.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 65.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 47.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 47.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 65.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 47.
-LaTeX Info: Command `\dddot' is already robust on input line 47.
-LaTeX Info: Command `\ddddot' is already robust on input line 47.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Info: Command `\dddot' is already robust on input line 65.
+LaTeX Info: Command `\ddddot' is already robust on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 47.
+Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count562
+\scratchcounter=\count563
 \scratchdimen=\dimen372
 \scratchbox=\box104
-\nofMPsegments=\count563
-\nofMParguments=\count564
+\nofMPsegments=\count564
+\nofMParguments=\count565
 \everyMPshowfont=\toks65
-\MPscratchCnt=\count565
+\MPscratchCnt=\count566
 \MPscratchDim=\dimen373
-\MPnumerator=\count566
-\makeMPintoPDFobject=\count567
+\MPnumerator=\count567
+\makeMPintoPDFobject=\count568
 \everyMPtoPDFconversion=\toks66
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1421,18 +1428,18 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 47.
+Package hyperref Info: Link coloring OFF on input line 65.
  (report.out) (report.out)
 \@outlinefile=\write5
 \openout5 = `report.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 47.
-Package microtype Info: Applying patch `item' on input line 47.
-Package microtype Info: Applying patch `toc' on input line 47.
-Package microtype Info: Applying patch `eqnum' on input line 47.
-Package microtype Info: Applying patch `footnote' on input line 47.
-Package microtype Info: Applying patch `verbatim' on input line 47.
-LaTeX Info: Redefining \microtypesetup on input line 47.
+LaTeX Info: Redefining \microtypecontext on input line 65.
+Package microtype Info: Applying patch `item' on input line 65.
+Package microtype Info: Applying patch `toc' on input line 65.
+Package microtype Info: Applying patch `eqnum' on input line 65.
+Package microtype Info: Applying patch `footnote' on input line 65.
+Package microtype Info: Applying patch `verbatim' on input line 65.
+LaTeX Info: Redefining \microtypesetup on input line 65.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1480,11 +1487,11 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count568
-\c@mv@boldtabular=\count569
-\c@lstlisting=\count570
-LaTeX Info: Redefining \it@ocap on input line 47.
-LaTeX Info: Redefining \it@ccap on input line 47.
+\c@mv@tabular=\count569
+\c@mv@boldtabular=\count570
+\c@lstlisting=\count571
+LaTeX Info: Redefining \it@ocap on input line 65.
+LaTeX Info: Redefining \it@ccap on input line 65.
 Package biblatex Info: Trying to load language 'british'...
 Package biblatex Info: ... file 'british.lbx' found.
 (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\british.lbx
@@ -1507,8 +1514,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
  (report.bbl)
-Package biblatex Info: Reference section=0 on input line 47.
-Package biblatex Info: Reference segment=0 on input line 47.
+Package biblatex Info: Reference section=0 on input line 65.
+Package biblatex Info: Reference segment=0 on input line 65.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks67
@@ -1518,12 +1525,12 @@ Package babel Info: Main language set to 'british'.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
 )
-<figures/cover.jpg, id=230, 690.55315pt x 1035.70886pt>
+<figures/cover.jpg, id=238, 690.55315pt x 1035.70886pt>
 File: figures/cover.jpg Graphic file (type jpg)
 <use figures/cover.jpg>
-Package pdftex.def Info: figures/cover.jpg  used on input line 62.
+Package pdftex.def Info: figures/cover.jpg  used on input line 80.
 (pdftex.def)             Requested size: 597.50787pt x 896.22354pt.
-LaTeX Font Info:    Trying to load font information for T1+RobotoSlab-TLF on input line 62.
+LaTeX Font Info:    Trying to load font information for T1+RobotoSlab-TLF on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/roboto\t1robotoslab-tlf.fd
 File: T1RobotoSlab-TLF.fd 2019/12/11 (autoinst) Font definitions for T1/RobotoSlab-TLF.
 )
@@ -1531,46 +1538,46 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `RobotoSlab-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/logo-white.pdf, id=231, 114.08723pt x 45.99081pt>
+<figures/logo-white.pdf, id=239, 114.08723pt x 45.99081pt>
 File: figures/logo-white.pdf Graphic file (type pdf)
 <use figures/logo-white.pdf>
-Package pdftex.def Info: figures/logo-white.pdf  used on input line 62.
+Package pdftex.def Info: figures/logo-white.pdf  used on input line 80.
 (pdftex.def)             Requested size: 156.84854pt x 63.23299pt.
-LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 62.
+LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1minzpl.fd
 File: ot1minzpl.fd 2021/05/25 v1.0 font definition file for OT1/minzpl/TLF
 )
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 10.0pt on input line 62.
+(Font)              scaled to size 10.0pt on input line 80.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `minzpl' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 7.3pt on input line 62.
+(Font)              scaled to size 7.3pt on input line 80.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 5.5pt on input line 62.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 62.
+(Font)              scaled to size 5.5pt on input line 80.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 62.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 62.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 62.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 62.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 80.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 ) [1
@@ -1591,7 +1598,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `npxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<figures/logo-black.pdf, id=245, 114.08723pt x 45.99081pt>
+<figures/logo-black.pdf, id=253, 114.08723pt x 45.99081pt>
 File: figures/logo-black.pdf Graphic file (type pdf)
 <use figures/logo-black.pdf>
 Package pdftex.def Info: figures/logo-black.pdf  used on input line 67.
@@ -1679,98 +1686,146 @@ Chapter 2.
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 23.
+(Font)              scaled to size 9.0pt on input line 27.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 29.
+(Font)              scaled to size 8.0pt on input line 33.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 32.
- [6]
-
-LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/b/it' undefined
-(Font)              using `T1/RobotoSlab-TLF/b/n' instead on input line 119.
-
-[7]
-Overfull \hbox (58.88307pt too wide) in paragraph at lines 167--173
-\T1/zpltlf/m/n/10 (-20) tional tech-no-cen-tricviewofmed-ic-aldevi-cedesignto ahuman-centeredoneisneededtobridgeexistingtranslationalgapsand
- []
-
-
-LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/light/it' undefined
-(Font)              using `T1/RobotoSlab-TLF/light/n' instead on input line 197.
-
-[8]
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 242.
+(Font)              scaled to size 9.0pt on input line 36.
+ [6] [7] [8]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 11.0pt on input line 176.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 11.0pt on input line 176.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
+(Font)              scaled to size 11.0pt on input line 176.
+ [9]
+LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
+(Font)              scaled to size 9.0pt on input line 189.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 193.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 242.
+(Font)              scaled to size 8.46002pt on input line 193.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `qhv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 11.28003pt on input line 242.
-) (mainmatter/3_DesignWorkflow_METHODOLOGY.tex [9{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
+(Font)              scaled to size 11.28003pt on input line 193.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 11.28003pt on input line 193.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 197.
+LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
+(Font)              scaled to size 9.40002pt on input line 197.
+) (mainmatter/3_DesignWorkflow_METHODOLOGY.tex [10{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 Chapter 3.
 
-Overfull \hbox (243.2579pt too wide) in paragraph at lines 28--33
-\T1/zpltlf/m/n/10 (-20) 15m/s in cro-ci-era, https://www.dji-store.it/prodotto/dji-matrice-300-rtk/?srsltid=AfmBOorTcxO1yqTrZgryaDUUjwIWjsdz28hGVDUFh6WNHuZYkw6iRMJC
- []
+LaTeX Warning: Reference `' on page 11 undefined on input line 11.
 
-[10
 
-] [11]) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [12]
+LaTeX Warning: Citation '' on page 11 undefined on input line 19.
+
+[11
+
+]
+
+LaTeX Warning: Reference `' on page 12 undefined on input line 44.
+
+LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
+(Font)              scaled to size 8.0pt on input line 51.
+[12]
+<figures/chap3/akineton_fiale.jpg, id=590, 447.92343pt x 602.25pt>
+File: figures/chap3/akineton_fiale.jpg Graphic file (type jpg)
+<use figures/chap3/akineton_fiale.jpg>
+Package pdftex.def Info: figures/chap3/akineton_fiale.jpg  used on input line 60.
+(pdftex.def)             Requested size: 165.80624pt x 222.93008pt.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 61.
+LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
+(Font)              scaled to size 7.0pt on input line 61.
+<example-image-b.pdf, id=591, 321.2pt x 240.9pt>
+File: example-image-b.pdf Graphic file (type pdf)
+<use example-image-b.pdf>
+Package pdftex.def Info: example-image-b.pdf  used on input line 66.
+(pdftex.def)             Requested size: 165.80624pt x 124.3571pt.
+
+
+LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/b/it' undefined
+(Font)              using `T1/RobotoSlab-TLF/b/n' instead on input line 86.
+
+LaTeX Font Info:    Font shape `T1/qhv/m/it' will be
+(Font)              scaled to size 11.28003pt on input line 90.
+[13 <./figures/chap3/akineton_fiale.jpg> <C:/Users/annam/AppData/Local/Programs/MiKTeX/tex/latex/mwe/example-image-b.pdf>]
+<figures/chap3/flowchart-mission-first.pdf, id=607, 219.0862pt x 373.86919pt>
+File: figures/chap3/flowchart-mission-first.pdf Graphic file (type pdf)
+<use figures/chap3/flowchart-mission-first.pdf>
+Package pdftex.def Info: figures/chap3/flowchart-mission-first.pdf  used on input line 111.
+(pdftex.def)             Requested size: 201.65753pt x 344.13496pt.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
+(Font)              scaled to size 7.0pt on input line 112.
+<figures/chap3/flowchart-safety-first.pdf, id=608, 219.0862pt x 373.86919pt>
+File: figures/chap3/flowchart-safety-first.pdf Graphic file (type pdf)
+<use figures/chap3/flowchart-safety-first.pdf>
+Package pdftex.def Info: figures/chap3/flowchart-safety-first.pdf  used on input line 118.
+(pdftex.def)             Requested size: 201.65753pt x 344.13496pt.
+ [14 <./figures/chap3/flowchart-mission-first.pdf> <./figures/chap3/flowchart-safety-first.pdf>]
+<figures/chap3/inner_loop_2-rows.png, id=626, 2007.5pt x 1405.25pt>
+File: figures/chap3/inner_loop_2-rows.png Graphic file (type png)
+<use figures/chap3/inner_loop_2-rows.png>
+Package pdftex.def Info: figures/chap3/inner_loop_2-rows.png  used on input line 135.
+(pdftex.def)             Requested size: 448.1309pt x 313.6803pt.
+ [15 <./figures/chap3/inner_loop_2-rows.png>]) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [16]
 Chapter 4.
-LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
-(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 23.
-[13
+[17
 
-]) (mainmatter/5_Conclusions.tex [14]
+]) (mainmatter/5_Conclusions.tex [18]
 Chapter 5.
-) (mainmatter/6_ProjectManagement.tex [15
+) (mainmatter/6_ProjectManagement.tex [19
 
 ]
 Chapter 6.
-) [16
+) [20
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 95.
+(Font)              scaled to size 10.0pt on input line 113.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/zpltlf/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
- [17
+ [21
 
-{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [18] [19] (appendix/appendix-a.tex [20]
+{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [22] [23] (appendix/appendix-a.tex [24]
 Appendix A.
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 6.2pt on input line 14.
-LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 9.0pt on input line 31.
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 7.3pt on input line 31.
-[21
+[25
 
-] [22] [23] [24
+] [26] [27] [28
 
-{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}] [25]) (appendix/appendix-b.tex
+{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc}] [29]) (appendix/appendix-b.tex
 Appendix B.
 (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-LaTeX Font Info:    Font shape `T1/npxtt/m/n' will be
-(Font)              scaled to size 8.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 12.
-) (appendix/appendix-c.tex [26
+) (appendix/appendix-c.tex [30
 
 
 ]
 Appendix C.
-) [27
+) [31
 
-] (backmatter/ringraziamenti.tex) [28
+] (backmatter/ringraziamenti.tex
+
+LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/light/it' undefined
+(Font)              using `T1/RobotoSlab-TLF/light/n' instead on input line 1.
+
+) [32
 
 
 ] (report.aux)
@@ -1782,24 +1837,27 @@ L3 programming layer <2020/03/25>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 8E1376FD281594D9BC7A1FFB750A38F0;9465.
+(rerunfilecheck)             Checksum: 0284121B14F670DBB1AD59721B8827ED;10661.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53981 strings out of 467501
- 1116164 string characters out of 5408550
- 2112321 words of memory out of 5000000
- 81938 multiletter control sequences out of 15000+600000
- 811033 words of font info for 278 fonts, out of 8000000 for 9000
+ 54319 strings out of 467501
+ 1123690 string characters out of 5408550
+ 2118841 words of memory out of 5000000
+ 82169 multiletter control sequences out of 15000+600000
+ 838733 words of font info for 317 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,12n,108p,1461b,2814s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on report.pdf (37 pages, 1931431 bytes).
+ 107i,13n,108p,2256b,2832s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on report.pdf (41 pages, 2273483 bytes).
 PDF statistics:
- 944 PDF objects out of 1000 (max. 8388607)
- 187 named destinations out of 1000 (max. 500000)
- 58404 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1096 PDF objects out of 1200 (max. 8388607)
+ 230 named destinations out of 1000 (max. 500000)
+ 78413 words of extra memory for PDF output out of 89155 (max. 10000000)
 

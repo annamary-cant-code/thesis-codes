@@ -14,6 +14,10 @@ This chapter explores both these aspects in Sections \ref{section:payload-first-
 \section{Regional Market Analysis: medical UAV logistics in Piedmont}\label{section:market-analysis}
 The Italian National Healthcare System (\textit{SSN}) is structured hierarchically: the guidelines and regulations issued at a \textit{national} level must be implemented locally, at a \textit{regional} level, by each region's \textit{Sistema Sanitario Regionale} (\textit{SSR}, the Regional Healthcare Service). Vice versa, aviation rules follow European-level enforcement mechanisms: Following the 2019 harmonization of European drone operations across the "open" and "specific" categories \cite{EU2019947}, operators seeking authorization for high-risk flights are required to conduct a risk assessment using the Specific Operations Risk Assessment (SORA) methodology developed by JARUS\footnote{\textit{Joint Authorities for Rulemaking on Unmanned Systems}}, making a thorough evaluation of potential failure scenarios while proving compliance with the demanding safety standards imposed by aviation authorities. 
 
+\hl{include air risk class somehow?????
+GRC is 6 (p.39). The M2 mitigation, which reduces the effects of ground impact through technical design (p.42, 46), brings it to 3 (p.54).
+ARC (collisions in airspace) is out of scope.}
+
 The discrepancy between modi operandi of the aviation and healthcare authorities has shaped the way drone-network operations have mostly been developing in the last decades in Italy: several emerging, albeit scattered, research groups, either cooperating or competing with industrial counterparts, have achieved geographically limited trial deployments while being unable to scale the operation beyond testing.
 
 A complete summary of such operations, limited to the means of investigation available for the present thesis project, can be found in Table \ref{tab:medical-drone-trials} in Appendix \ref{appendix:medical-drone-trials}. The table shows a clear trend: although potentially booming as several healthcare facilities are exploring the possibility of adopting drone transport and operators are proposing new drone models for them, most activities stop after the initial demonstrations, with the only exception being the region of Abruzzo where the operational phase of the drone drug-delivery service between a strategic hospital and village pharmacies was announced in July 2025 \cite{asl1_uelcome,abruzzospeciale_uelcome}. In general, a pattern of fragmentation, short-lived pilots, and few transitions to a potentially scalable service is observed in the construction of the overall \textit{value chain}, with many independent institutions covering equivalent roles, as shown in Table \ref{tab:actors} in Appendix \ref{appendix:value-chain-actors}.
@@ -110,126 +114,130 @@ On the other hand, the regional administration's general stance with respect to 
 \end{enumerate}
 
 
-On the basis of this analysis, several research and development gaps can be identified: SkyEU is endeavouring to enact an economically sustainable business model for large-scale UAV networks, but has a small public record; ABZero has patented capsules equipped with electronics that reliably monitor in-flight vibrations and guarantee thermal control of the medical payload, but these are only certified to the UN3373 standard, whereas in case of in-flight failure a much more conservative approach is needed; regional authorities need reassurance on the safety aspect for civilians, as a 500\,m test flight on a controlled route shows that the obstacle is not drone-making, but guaranteeing safety in everyday scenarios rather than in single monitored missions.
+On the basis of this analysis, several research and development gaps can be identified: SkyEU is endeavouring to enact an economically sustainable business model for large-scale UAV networks, but has a small public record; ABzero has patented capsules equipped with electronics that reliably monitor in-flight vibrations and guarantee thermal control of the medical payload, but these are only certified to the UN3373 standard, whereas in case of in-flight failure a much more conservative approach is needed; regional authorities need reassurance on the safety aspect for civilians, as a 500\,m test flight on a controlled route shows that the obstacle is not drone-making, but guaranteeing safety in everyday performance rather than in single monitored missions.
 
-In this scenario, the institutions (\textit{DIMEAS -- Politecnico di Torino, FEV Italia, AOU Città della Salute}) that commissioned the present thesis project aim to tackle, among the three barriers, barrier 2, concerning payload integrity and containment. The proposed solution is an airbag-type device that protects the payload and prevents its dispersion in the event of an impact, especially in view of transporting extremely valuable medicinals and/or biological materials, e.g. human organs for urgent transplant operations. This device is conceived as an add-on to existing capsules such as the one by ABZero, mounted on drones such as SkyEU's, and is intended to help close the certification gap highlighted above, while acknowledging that it does not address the SORA ground risk or the sustainability of the business model.
-
-
-
-\section{The \textit{payload-first} design approach}\label{section:payload-first-approach}
-To justify this paragraph: Paradigm shift for design, For all aeronautical projects, Which might be the common denominator for their failure in implementing. It might be a suggestion for future aeronautical projects, in general. That, to guarantee the success of the projects, safety really needs to come first, just like in biomedical projects. 
-
-
-Chhetri - an updated REVIEW of medical drones in 2026
-* overcome geographical barriers
-and provide critical care in remote or disaster-stricken ar
-eas. 
-* critical role of payload container
-design, including fixed, cable-suspended, and temperature
-controlled systems, and analyze its effect on both the med
-ical supplies and the overall flight dynamics of the aircraft.
-* These
-supplies may include vaccines, medications, blood units, di
-agnostic samples, and organs for transplantation. 
-
-regarding the payload container:
-"It must also meet safety standards, ensuring dust
-tight sealing and protection against strong water jets, thus
-shielding the container and its contents from mechanical
-impacts and external forces. Aerodynamic efficiency is an
-other vital consideration as it lessens the power necessary
-for flight. Additionally, the choice of materials is crucial
-to the container’s performance, with lightweight yet sturdy
-materials selected to preserve structural integrity while pre
-venting unnecessary energy use. Finally, the transport con
-tainer must be operationally compatible, providing flexi
-bility in deployment across various aerial transport plat
-forms." does not mention protection of what is inside. ----- CHECK REFERENCE 25
-
-* drone is designed first, then "put a parachute on it" (the safety requirement by Alulema, which Mass feedback loop: a heavier aircraft needs a bigger parachute, which makes it heavier. This is why the requirement costs 36 percentage points of feasibility (Table 1: 84% → 48%).), because it focuses on PROTECTING PEOPLE ON THE GROUND. while worrying about vibrational and temperature isolation of the payload
-* focus on vibration isolation and temperature isolation, keeping the cold chain
-* general impression: that the impact on aerodynamics and flight mechanics is included before even thinking about the integrity of the payload in case of impact. 
+In this scenario, the institutions (\textit{Politecnico di Torino (DIMEAS), FEV Italia, AOU Città della Salute}) that commissioned the present thesis project aim to tackle, among the three barriers, barrier 2, concerning payload integrity and containment. The proposed solution is an airbag-type device that protects the payload and prevents its dispersion in the event of an impact, especially in view of transporting extremely valuable medicinals and/or biological materials, e.g. human organs for urgent transplant operations. This device is conceived as an add-on to existing capsules such as the one by ABzero, mounted on drones such as SkyEU's, and is intended to help close the certification gap highlighted above, while acknowledging that it does not address the issues linked to SORA ground risk or the sustainability of the business model.
 
 
 
+\section{Airframe-first vs. Safety-first: a design-philosophy gap}\label{section:payload-first-approach}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
-PUT A BOX HERE ---- the idea of the airbag which tackles limitation 2 presented earlier, combined with the idea of preserving the payload. 
+This section builds on the research-development gap presented earlier by attempting to connect its root causes to a discrepancy between design philosophies applied in the aeronautical and the biomedical sectors. The proposed design solution (the airbag-type device) is, in fact, a suggestion to solve an "aeronautical problem" implementing a "medical approach".
 
+The issue of proving compliance to match demanding safety standards imposed by the certification authorities does not appear to be a Piedmont-only (or even an Italy-only) problem, but rather a widespread trend that affects all non-standard aeronautical projects across the field. As highlighted, for example, in \cite{chhetri2026survey}, most UAV producers focus on optimising their aerial vehicle's design, minimising mission-related vibrational loads, thermal loads, overall mass, but also proposing ever more efficient cargo-drop mechanisms and ways to overcome geographical obstacles, all partaking in a feedback loop against aerodynamic and flight-mechanics performance metrics. This machine-centric approach appears to be the default, especially considering that UAV-based missions are, naturally, radically different from standard airline and/or general aviation operations, where \hl{the safety of the passengers is undistinguishable from the safety of the vehicle} and where, therefore, stringent certification requirements strongly limit design freedom \hl{CITE SOMETHING HERE?}. A common consequence of focusing exclusively on technological potential when designing UAV-based operations is, therefore, neglecting the safety assurance aspect of the project, which is usually delegated to including a parachute-type device in the final design phases. As pointed out by \cite{alulema2026how} in their design feasibility evaluation study, the introduction of a parachute usually increases the risk of falling into a mass-increase feedback loop: the parachute increases the airframe's overall mass, which then requires a larger, thus heavier, parachute for efficient deceleration during free-fall, which again results in an excessive mass increase, and so on. This negative feedback loop results either in never reaching design convergence, or otherwise in having to accept a smaller parachute with reduced deceleration capacity, still implying a relatively high ground-impact velocity and almost certainly destructive damage to the airframe, its cargo, and the impacted areas on the ground.     
 
+The general impression given by the brief market analysis conducted earlier and the observations gathered in the present paragraph is that, perhaps, the "airframe-first" approach adopted in the majority of \hl{nascenti? appena nuove?} UAV-based operations is not sustainable for the projects' longevity beyond pilot flights, and that it might be necessary to embrace a paradigm shift in design approaches. Specifically, there might be potential in drawing inspiration from the biomedical field, where medical technology designers are encouraged to shift from a techno-centric to a human-centred approach to avoid the \textit{translation gap} or \textit{implementation gap}, i.e. the potential to introduce or enhance health inequity when trying to implement extremely advanced technology that does not take into account all necessities and limitations of human patients \cite{rodriguez2023thinking}. 
 
-WHAT IF WE THOUGHT ABOUT REVERSING THE DESIGN PROCESS? Design the drone AFTER having hypothesised the safety device that is included in the payload container in the first place?
-QUOTES:
-"Success is measured at the patient, not at the device."
-Success is measured at the vial, not at the airframe.
-A drone that survives while the phial arrives cracked has failed the mission.The same goes for a device that works but doesn't serve the patient.
-
-Rodriguez
-Drawing a paralel to the medical tech design approach, which is often something that medical tech designers need to be reminded of when designing the coolest tech for patients. 
-"Ashift inthe traditional technocentricviewofmedicaldevicedesignto
-ahuman-centeredoneisneededtobridgeexistingtranslationalgapsand
-improvehealthequity.
-called "translation gap" or "implementation gap"
-
-in this case, the gap is between the technological potential (the drones) and 2 ends, i.e. the normative safety constraints where a parachute is not enough, and, most importantly, protecting the payload which is arguably more valuable than the drone itself. 
+Just like success is measured on the patient and not on the device in the biomedical field, in the case of UAV-based medical delivery operations success should be measured on payload integrity and protection of civilians, not (only) on the capabilities of the airframe. A drone that survives an in-flight failure while sacrificing its payload and threatening irreversible human damage has undoubtedly failed its mission, as for a biomedical device that functions correctly but does not serve the patient. This reasoning leads to the first of the contributions proposed in the present thesis, which is the \textit{"safety-first"} design principle presented in Section \ref{section:outer-design-loop}. This thesis aims to serve as a test-bed for this proposed approach, where exploring the airbag design process helps bridge the gap between current development efforts and certification.
 
 
 \section{Airbag impact attenuation: background and design variables}\label{section:airbag-design-variables}
-\subsection{Historical perspective}
+Airbag-type devices have a well-established, enduring research-development record with contributions found across multiple industries. The information presented in Sections \ref{section:airbag-historical-perspective} and \ref{section:airbag-design-guidelines} aims to represent the State of the Art practices adopted in airbag design. The scope of this investigation is developing a solid, although perhaps not comprehensive, understanding of design recommendations on which to base the proposal for the design workflow of later Section \ref{section:inner-design-loop}.
 
-* Automotive Engineering
+\subsection{Established applications and common working principle}\label{section:airbag-historical-perspective}
+Airbag technology is well established across two primary sectors: \textit{automotive} and \textit{aerospace}.
 
+In the automotive industry, these systems are implemented during vehicle crashes, distinguishing between general automobile crashes and motorcycle impacts. In the space industry, ever since the early space missions of the 1960s, airbags have been deployed during the final landing phases of space capsules. Within the aeronautical industry, specifically in the "specific" operations category, other niche applications have emerged, such as the experimental study of adaptive airbag systems for the protection of UAVs and general aviation vehicles \cite{HolnickiSzulc2023} (following a long track record of exploration in the field of adaptive technologies for impact absorption \cite{HolnickiSzulc2015, HolnickiSzulc2009}). 
 
-* Space Engineering
-- implemented in impact applications, similar to the one requested for this case, since the 1960's for xxx mission. 
-- analytical, hard-codable solutions are 1Dof and rare, FEM is immediately chosen to include 2- and 3d effects of impact. 
+In either case, the primary objective of the airbag-type device remains the same: to be stored compactly in ordinary mission conditions, inflate within the allowable time before impact (whether during an emergency impact or landing), and decelerate the target body (whether a crash test dummy or a spacecraft) far more gently than in case of direct impact. When analysing these systems, purely analytical, hard-codable solutions are typically limited to single-degree-of-freedom (1-DoF) formulations, immediately resolving to the use of far more computationally-heavy finite element analyses to capture the complex two- and three-dimensional effects of the impact. The only exception to this trend is the technical report NATICK/TR-87/042 published by T. F. Patterson in 1985\footnote{T. F. Patterson, \textit{Design, Fabrication and Testing of an Airdrop Platform Utilizing Airbags as Shock Absorbers}, NATICK/TR-87/042, U.S. Army Natick Research, Development and Engineering Center, Aug. 1985.}, which presents a 6-DoF analytical simulation built on closed-form component models, but remains inaccessible at the time of writing of the present literature search.
 
-however, both fields have the guidelines in common, which are explained in the following paragraph
-
-
-\subsection{Design guidelines}
-
-% Cose da prendere in considerazione per una progettazione completa di un airbag - literature search category 2
-
-* Avendo un panorama più chiaro su quella che è l'obiettivo a Torino, si è scelto di concentrarsi sulla mitigazione del ground risk whatever. La scelta ricade su una tipologia di dispositivo di sicurezza atto a mitigare il rischio di impatto, danneggiamento delle fiale, dispersione nell'ambiente, etc. un Airbag
+Despite the diversity of fields, all applications share identical fundamental working principles. An example of an analytical study of airbag-based impact events, and one of the most significant papers in shaping this thesis' work, is Zhou et al. (2019) \cite{Zhou2019}, in turn heavily rooted in the SAND93-2133 technical report \cite{Cole1993} on a code for predicting the performance of the Pathfinder lander's airbag impact attenuation system, which describes the core working principle of airbag energy dissipation in a one-degree-of-freedom impact event. 
 
 
-Perché è stato scelto l'airbag?
-paracadute:
-* pesanti (spessi)
-* non reggono impatto
-* paracadute è soltanto sul drone - medicinali ad ogni modo persi
-* sgancio + paracadute meglio di sgancio + airbag --- obiettivo, protezione medicinali, anche se il drone viene protetto tanto meglio
-* vantaggi: può essere usato in ospedale (basse quote)
-* in acqua ha più senso impermeabilizzare l'airbag e non il contenitore, con il vantaggio che può stare effettivamente a galla
+\hl{MORE DETAILED DESCRIPTION HERE NEEDED? YES
+remake side-by-side airbag impact diagram? yes, to explain the working principle of the CALCULATION LOOP}
+
+The idea is that i can turn this working principle into a multi-variable problem that requires some optimisation too. 
 
 
-
-Stabilito che l'airbag è la tecnologia su cui ci vogliamo concentrare, allora le cose da prendere in considerazione sono:
-lista delle cose del documento in cui ho preso appunti. 
-
+\subsection{Design guidelines and variables}\label{section:airbag-design-guidelines}
 
 Variabili da prendere in considerazione quando c'è da progettare un airbag
 
-Phase 1 variables for peak acceleration
-1.	Shape
-2.	Size
-3.	Fabric
-4.	Vent size
-5.	Vent burst pressure
-6.	Inflation pressure
-
-Phase 2 variables for deployment time
-1.	Housing/container size and geometry
-2.	Air injection inlet pressure
-3.	Air injection mass flow rate
-4.	Seams locations
-5.	Folding pattern
-6.	Number of folds
+Size
+Venting mechanism
+Fabric/material (bursting vs. venting aspects)
+Impact modelling (horizontal velocity component, mention that there is a study that was not accessible to analytically include it, everyone just resorts to FEM)
 
 
+Air injection - pirotecnico vs. non, differenti meccanismi (polverina innescata, oppure bombolette simili a quelle motociclistiche)
 
-\section{Research Objective}
+Patterning - transforming the 3d-shape into 2d seamable shapes, minimising number of seams.
+Seaming - where to put them and how to stitch them, with different patterns possible. Usually simulatable with beam elements
+Folding patterns and techniques	- some standard patterns that need to be adjusted according to local geometry and OPTIMISED for deployment time.  
+Housing/container - unfolding triggering the opening of the container. 
+
+Design ideas / process	8
+Optimisation and evaluation	14
+Testing validation	15
+1DoF case – things to remember	16
+
+
+\subsubsection{Summary of design variables}
+Based on the information gathered in Section \ref{section:airbag-design-guidelines}, it is possible to summarise airbag design variables and classify them based on the design phase they partake in, as shown in Table \ref{tab:airbag-design-variables}. Specifically, Phase 1 focuses on designing an airbag in its fully-inflated configuration to limit peak impact acceleration below the allowable limit set by the payload's integrity requirement, while Phase 2 requires making design choices oriented at optimising deployment time and leading to prototyping.
+
+\begin{table}[h]
+\centering
+\small
+\setlength{\tabcolsep}{9pt}
+\setlength{\colw}{\dimexpr(\textwidth-4\tabcolsep-\gap)/2\relax}
+\renewcommand{\arraystretch}{1.2}
+
+\begin{tabular}{%
+  >{\raggedright\arraybackslash}p{\colw}
+  !{\color{white}\vrule width \gap}
+  >{\raggedright\arraybackslash}p{\colw}}
+
+% ---- title band ----
+\multicolumn{2}{c}{\cellcolor{navy}\color{white}\sffamily\large\bfseries
+  \cellstrut Airbag design variables\cellstrutb} \\[\gap]
+
+% ---- phase headers ----
+\multicolumn{1}{c!{\color{white}\vrule width \gap}}{\cellcolor{phaseA}\color{white}\sffamily\normalsize\bfseries
+  \rule[-1.7ex]{0pt}{4.3ex}Phase 1 - design for peak acceleration} &
+\multicolumn{1}{c}{\cellcolor{phaseB}\color{white}\sffamily\normalsize\bfseries
+  \rule[-1.7ex]{0pt}{4.3ex}Phase 2 - design for deployment time} \\
+
+% ---- phase contents ----
+\cellcolor{tintA}%
+\begin{minipage}[t]{\colw}
+\raggedright
+\vspace{3pt}
+\begin{enumerate}[leftmargin=*, topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=3pt,
+                  label=\textcolor{phaseA}{\bfseries\arabic*.}]
+  \item Shape
+  \item Characteristic size
+  \item Inflation pressure
+  \item Fabric type, thickness
+  \item Venting mechanism - vent burst pressure and/or fabric porosity
+\end{enumerate}
+\vspace{9pt}
+\end{minipage}
+&
+\cellcolor{tintB}%
+\begin{minipage}[t]{\colw}
+\raggedright
+\vspace{3pt}
+\begin{enumerate}[leftmargin=*, topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=3pt,
+                  label=\textcolor{phaseB}{\bfseries\arabic*.}]
+  \item Housing/container size and geometry
+  \item Air injection inlet pressure
+  \item Air injection mass flow rate
+  \item Seams locations
+  \item Folding pattern
+  \item Number of folds
+\end{enumerate}
+\vspace{9pt}
+\end{minipage}
+\\
+\end{tabular}
+
+\caption{Airbag design variables by design phase.}
+\label{tab:airbag-design-variables}
+\end{table}
+
+
+\section{Research-Development Objective}
 
 Having presented the context in which the research project is allocated and having gathered the necessary design information, it is possible to address the requirements set by the project commissioners:
 \begin{itemize}
@@ -239,7 +247,7 @@ Having presented the context in which the research project is allocated and havi
 
 These requirements can be summarised in the following Research Objective and Research Questions:
 
-\begin{objectivebox}{Research Objective}
+\begin{objectivebox}{Research-Development Objective}
 Develop and validate a design workflow to model and simulate an airbag-based protective system for UAV medical payloads using LS-DYNA, with the primary objective to ensure the structural integrity of pharmaceutical materials and their containment during drone failure and emergency payload release, thereby preventing environmental dispersion and supporting certification requirements.
 \end{objectivebox}
 
