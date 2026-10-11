@@ -61,10 +61,15 @@ An electronic version of this thesis is available at \url{http://repository.tude
 
 \end{center}
 
-%% Insert the TU Delft logo at the bottom of the page
+%% Insert the TU Delft, PoliTo, AOU and FEV logos in a row at the bottom of the page
 \begin{tikzpicture}[remember picture, overlay]
     \node[above=10mm] at (current page.south) {%
-        \includegraphics{figures/logo-black}
+        \makebox[\textwidth]{%
+            \raisebox{-0.5\height}{\includegraphics[height=13mm]{figures/cover_and_logos/logo-black}}\hfill
+            \raisebox{-0.5\height}{\includegraphics[height=14mm]{figures/cover_and_logos/Polito_Logo_2021_BLU.png}}\hfill
+            \raisebox{-0.5\height}{\includegraphics[height=15mm]{figures/cover_and_logos/logo_AOU_cropped.png}}\hfill
+            \raisebox{-0.5\height}{\includegraphics[height=9mm]{figures/cover_and_logos/FEV_logo_red.png}}%
+        }%
     };
 \end{tikzpicture}
 

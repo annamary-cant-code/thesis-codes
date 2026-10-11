@@ -70,8 +70,8 @@
       \strng{authornamehash}{5c28198c0d0351d6ba9a827c6fe8f2de}
       \strng{authorfullhash}{2d974f26de914e5f8622d80df05d6220}
       \strng{authorfullhashraw}{2d974f26de914e5f8622d80df05d6220}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Ital. J. Emerg. Med.}
@@ -122,8 +122,8 @@
       \strng{authornamehash}{15e580d4fdcc6c59d75cd31ab83e063d}
       \strng{authorfullhash}{bdb9d3b7d88a3b5e721e761fb54aa116}
       \strng{authorfullhashraw}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Eur. J. Public Health}
@@ -164,8 +164,8 @@
       \strng{authornamehash}{f17dc24b253697b3a1b3359bd1cef29f}
       \strng{authorfullhash}{decbe8160f8e939de20a29b9f2d45aee}
       \strng{authorfullhashraw}{decbe8160f8e939de20a29b9f2d45aee}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Appl. Health Econ. Health Policy}
@@ -221,8 +221,8 @@
       \strng{authornamehash}{20b940197e66e4cdf6040d5c3fe75b95}
       \strng{authorfullhash}{fce370777161fa4973642bfc9e1ba40d}
       \strng{authorfullhashraw}{fce370777161fa4973642bfc9e1ba40d}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. J. Environ. Res. Public Health}
@@ -253,8 +253,8 @@
       \strng{authornamehash}{6c743ac042803033fbd0523daedbd84e}
       \strng{authorfullhash}{6c743ac042803033fbd0523daedbd84e}
       \strng{authorfullhashraw}{6c743ac042803033fbd0523daedbd84e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. J. Clin. Pract.}
@@ -290,8 +290,8 @@
       \strng{authornamehash}{319a0f1975427ba54022b2992cd21dc2}
       \strng{authorfullhash}{319a0f1975427ba54022b2992cd21dc2}
       \strng{authorfullhashraw}{319a0f1975427ba54022b2992cd21dc2}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 50th Hawaii Int. Conf. Syst. Sci. ({HICSS})}
@@ -330,8 +330,8 @@
       \strng{authornamehash}{d89481b78b04581d40cef6eeecb83bc4}
       \strng{authorfullhash}{f90a551ba3ba5f37762f7d012ce8bdde}
       \strng{authorfullhashraw}{f90a551ba3ba5f37762f7d012ce8bdde}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Open J. Med. Res.}
@@ -371,8 +371,8 @@
       \strng{authornamehash}{c0499178a446877c6acd0df1520f218d}
       \strng{authorfullhash}{f901818a0ca5e97cba4093c37f095737}
       \strng{authorfullhashraw}{f901818a0ca5e97cba4093c37f095737}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. J. Innov. Res. Sci. Eng. Technol.}
@@ -640,8 +640,8 @@
       \endverb
     \endentry
     \entry{skyeu_web}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{SkyEU website}
       \field{note}{Accessed 5 October 2026}
@@ -654,8 +654,8 @@
       \endverb
     \endentry
     \entry{dot_indoor}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Fondazione D.O.T. Onlus}
       \field{note}{Accessed 5 October 2026}
@@ -989,8 +989,8 @@
       \strng{authorfullhash}{4250eea832f9b873c68272873c200de8}
       \strng{authorfullhashraw}{4250eea832f9b873c68272873c200de8}
       \field{extraname}{1}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 2nd {ECCOMAS} Thematic Conf. Multidisciplinary Des. Optim. Aerosp. Syst. ({AeroBest} 2023)}
@@ -1040,8 +1040,8 @@
       \strng{authorfullhash}{20882d113a18e5dc1d84bdb43debecef}
       \strng{authorfullhashraw}{20882d113a18e5dc1d84bdb43debecef}
       \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. J. Protective Struct.}
@@ -1093,8 +1093,8 @@
       \strng{authorfullhash}{cd2e7bb3e1dc069e61f1c9377e0faa75}
       \strng{authorfullhashraw}{cd2e7bb3e1dc069e61f1c9377e0faa75}
       \field{extraname}{3}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Solid State Phenom.}
@@ -1185,9 +1185,1392 @@
       \field{type}{Tech. Rep.}
       \field{year}{1993}
     \endentry
-    \entry{disalute_aetos}{misc}{}{}
+    \entry{Smith2007}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=35dc218f0d6acca5c1c0d3a4eee66223}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Timothy\bibnamedelima R.},
+           giveni={T\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=0bffb6d8d32e80e0b6222f587c83a1fc}{%
+           family={Sandy},
+           familyi={S\bibinitperiod},
+           given={Charles\bibnamedelima R.},
+           giveni={C\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=96e0d6953fc970c79da2f445582f986f}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Darrell},
+           giveni={D\bibinitperiod}}}%
+        {{hash=f7fbb0fef673f6de4729d05db20d833b}{%
+           family={Willey},
+           familyi={W\bibinitperiod},
+           given={Cliff},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Williamsburg, VA, USA}%
+      }
+      \list{organization}{1}{%
+        {AIAA}%
+      }
+      \strng{namehash}{95581f5ae0d4bb27a1ca79d6a0738562}
+      \strng{fullhash}{72d2e50de3b3af3e1a50a1e96e7f19e9}
+      \strng{fullhashraw}{72d2e50de3b3af3e1a50a1e96e7f19e9}
+      \strng{bibnamehash}{72d2e50de3b3af3e1a50a1e96e7f19e9}
+      \strng{authorbibnamehash}{72d2e50de3b3af3e1a50a1e96e7f19e9}
+      \strng{authornamehash}{95581f5ae0d4bb27a1ca79d6a0738562}
+      \strng{authorfullhash}{72d2e50de3b3af3e1a50a1e96e7f19e9}
+      \strng{authorfullhashraw}{72d2e50de3b3af3e1a50a1e96e7f19e9}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 19th {AIAA} Aerodyn. Decelerator Syst. Technol. Conf. Seminar}
+      \field{month}{5}
+      \field{note}{AIAA Paper 2007-2523}
+      \field{title}{{CEV} airbag landing system design}
+      \field{year}{2007}
+      \verb{doi}
+      \verb 10.2514/6.2007-2523
+      \endverb
+    \endentry
+    \entry{Crane1985}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=bb25219da87de5656ad0980573748422}{%
+           family={Crane},
+           familyi={C\bibinitperiod},
+           given={H.\bibnamedelimi Richard},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb25219da87de5656ad0980573748422}
+      \strng{fullhash}{bb25219da87de5656ad0980573748422}
+      \strng{fullhashraw}{bb25219da87de5656ad0980573748422}
+      \strng{bibnamehash}{bb25219da87de5656ad0980573748422}
+      \strng{authorbibnamehash}{bb25219da87de5656ad0980573748422}
+      \strng{authornamehash}{bb25219da87de5656ad0980573748422}
+      \strng{authorfullhash}{bb25219da87de5656ad0980573748422}
+      \strng{authorfullhashraw}{bb25219da87de5656ad0980573748422}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Phys. Teach.}
+      \field{month}{12}
+      \field{title}{The air bag: An exercise in {Newton's} laws}
+      \field{volume}{23}
+      \field{year}{1985}
+      \field{pages}{576\bibrangedash 594}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1119/1.2341925
+      \endverb
+    \endentry
+    \entry{DoDeWeck2012}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=99cd37ad180a8326f3e408e8ff3de646}{%
+           family={Do},
+           familyi={D\bibinitperiod},
+           given={Sydney},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4609c893394803eeb1039a63154c68a5}{%
+           family={{de Weck}},
+           familyi={d\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{82f96daf77b768f1472ca41800824929}
+      \strng{fullhash}{82f96daf77b768f1472ca41800824929}
+      \strng{fullhashraw}{82f96daf77b768f1472ca41800824929}
+      \strng{bibnamehash}{82f96daf77b768f1472ca41800824929}
+      \strng{authorbibnamehash}{82f96daf77b768f1472ca41800824929}
+      \strng{authornamehash}{82f96daf77b768f1472ca41800824929}
+      \strng{authorfullhash}{82f96daf77b768f1472ca41800824929}
+      \strng{authorfullhashraw}{82f96daf77b768f1472ca41800824929}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Astronaut.}
+      \field{month}{12}
+      \field{number}{1}
+      \field{title}{A personal airbag system for the {Orion} Crew Exploration Vehicle}
+      \field{volume}{81}
+      \field{year}{2012}
+      \field{pages}{239\bibrangedash 255}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/j.actaastro.2012.06.022
+      \endverb
+    \endentry
+    \entry{WarrickLee2001}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=9b30ddf2a5d5c8a7e2d6bd3521292cb4}{%
+           family={Warrick},
+           familyi={W\bibinitperiod},
+           given={James\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=f1f4b7902fe3b0e5f06384b792e43805}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Calvin\bibnamedelima K.},
+           giveni={C\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA, USA}%
+      }
+      \list{organization}{1}{%
+        {AIAA}%
+      }
+      \strng{namehash}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{fullhash}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{fullhashraw}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{bibnamehash}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{authorbibnamehash}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{authornamehash}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{authorfullhash}{9e3920b1dce600477d4f26a51d386b87}
+      \strng{authorfullhashraw}{9e3920b1dce600477d4f26a51d386b87}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 16th {AIAA} Aerodyn. Decelerator Syst. Technol. Conf. Seminar}
+      \field{month}{5}
+      \field{note}{AIAA Paper 2001-2047}
+      \field{title}{Advanced airbag system for cargo airdrop}
+      \field{year}{2001}
+      \verb{doi}
+      \verb 10.2514/6.2001-2047
+      \endverb
+    \endentry
+    \entry{Tutt2008}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=3d1703d3ffe4ff89d3f14600167d954a}{%
+           family={Tutt},
+           familyi={T\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=585626e2f21bea27957df94a59991642}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={R.\bibnamedelimi Keith},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=e4f3bc544744ec039c1832d14710d6c4}{%
+           family={Lyle},
+           familyi={L\bibinitperiod},
+           given={Karen},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dearborn, MI, USA}%
+      }
+      \strng{namehash}{12ce0be4611d2b5ba33b830f65c8f39f}
+      \strng{fullhash}{3dcc2fb190eb78478487fef16dac124b}
+      \strng{fullhashraw}{3dcc2fb190eb78478487fef16dac124b}
+      \strng{bibnamehash}{3dcc2fb190eb78478487fef16dac124b}
+      \strng{authorbibnamehash}{3dcc2fb190eb78478487fef16dac124b}
+      \strng{authornamehash}{12ce0be4611d2b5ba33b830f65c8f39f}
+      \strng{authorfullhash}{3dcc2fb190eb78478487fef16dac124b}
+      \strng{authorfullhashraw}{3dcc2fb190eb78478487fef16dac124b}
+      \field{extraname}{1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 10th Int. {LS-DYNA} Users Conf.}
+      \field{month}{6}
+      \field{title}{Development of an airbag landing system for the {Orion} crew module}
+      \field{year}{2008}
+    \endentry
+    \entry{GardinierTaylor1999}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=9c75d04843f60dfe2da93e56bce1b2ad}{%
+           family={Gardinier},
+           familyi={G\bibinitperiod},
+           given={Debra\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=65d16e65d74f1da27ae4e7bfc6ece2e1}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Anthony\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Toulouse, France}%
+      }
+      \list{organization}{1}{%
+        {AIAA}%
+      }
+      \strng{namehash}{6583b56fb242402b679a495af4e99bc1}
+      \strng{fullhash}{6583b56fb242402b679a495af4e99bc1}
+      \strng{fullhashraw}{6583b56fb242402b679a495af4e99bc1}
+      \strng{bibnamehash}{6583b56fb242402b679a495af4e99bc1}
+      \strng{authorbibnamehash}{6583b56fb242402b679a495af4e99bc1}
+      \strng{authornamehash}{6583b56fb242402b679a495af4e99bc1}
+      \strng{authorfullhash}{6583b56fb242402b679a495af4e99bc1}
+      \strng{authorfullhashraw}{6583b56fb242402b679a495af4e99bc1}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. {CEAS}/{AIAA} 15th Aerodyn. Decelerator Balloon Technol. Conf.}
+      \field{month}{6}
+      \field{note}{AIAA Paper 99-1757}
+      \field{title}{Design and testing of the {K-1} reusable launch vehicle landing system airbags}
+      \field{year}{1999}
+      \field{pages}{418\bibrangedash 427}
+      \range{pages}{10}
+    \endentry
+    \entry{Taylor2001}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=65d16e65d74f1da27ae4e7bfc6ece2e1}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Anthony\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=dcd4fb0d34d4a965d95962dc116ed39e}{%
+           family={Benney},
+           familyi={B\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d26511b24f439cc6d9e0a04d07ee8f2d}{%
+           family={Bagdonovich},
+           familyi={B\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA, USA}%
+      }
+      \list{organization}{1}{%
+        {AIAA}%
+      }
+      \strng{namehash}{6f8b7ec27dba4fc8171f38e12b8ec373}
+      \strng{fullhash}{3ee7b9a5963e95553a538595e175b6a3}
+      \strng{fullhashraw}{3ee7b9a5963e95553a538595e175b6a3}
+      \strng{bibnamehash}{3ee7b9a5963e95553a538595e175b6a3}
+      \strng{authorbibnamehash}{3ee7b9a5963e95553a538595e175b6a3}
+      \strng{authornamehash}{6f8b7ec27dba4fc8171f38e12b8ec373}
+      \strng{authorfullhash}{3ee7b9a5963e95553a538595e175b6a3}
+      \strng{authorfullhashraw}{3ee7b9a5963e95553a538595e175b6a3}
+      \field{extraname}{1}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 16th {AIAA} Aerodyn. Decelerator Syst. Technol. Conf. Seminar}
+      \field{month}{5}
+      \field{note}{AIAA Paper 2001-2045}
+      \field{title}{Investigation of the application of airbag technology to provide a softlanding capability for military heavy airdrop}
+      \field{year}{2001}
+      \verb{doi}
+      \verb 10.2514/6.2001-2045
+      \endverb
+    \endentry
+    \entry{McCullough1964}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=8a28877e97d3b060e5ffdd1d132b9ed7}{%
+           family={McCullough},
+           familyi={M\bibinitperiod},
+           given={Jerry\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=c43c16cc33322b550aa452549617ff12}{%
+           family={Stafford},
+           familyi={S\bibinitperiod},
+           given={Frank\bibnamedelima A.},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=53279996a3194e65d6c04a601bf8e307}{%
+           family={Benson},
+           familyi={B\bibinitperiod},
+           given={Harold\bibnamedelima E.},
+           giveni={H\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {El Centro, CA, USA}%
+      }
+      \strng{namehash}{61226a4741a5fdae613b8f0b24f81487}
+      \strng{fullhash}{8cf2cc4cd374eeb8001183d76490e318}
+      \strng{fullhashraw}{8cf2cc4cd374eeb8001183d76490e318}
+      \strng{bibnamehash}{8cf2cc4cd374eeb8001183d76490e318}
+      \strng{authorbibnamehash}{8cf2cc4cd374eeb8001183d76490e318}
+      \strng{authornamehash}{61226a4741a5fdae613b8f0b24f81487}
+      \strng{authorfullhash}{8cf2cc4cd374eeb8001183d76490e318}
+      \strng{authorfullhashraw}{8cf2cc4cd374eeb8001183d76490e318}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Symp. Parachute Technol. Eval.}
+      \field{month}{4}
+      \field{note}{NASA Manned Spacecraft Center, Houston, TX, USA, NASA CR-53291}
+      \field{title}{Attenuation of landing impact for manned spacecraft}
+      \field{year}{1964}
+    \endentry
+    \entry{Cadogan2002}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=acd1d4900ad6f0f6e301e1aecc2cea38}{%
+           family={Cadogan},
+           familyi={C\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=77231f19069173b506dff7fd9be510ee}{%
+           family={Sandy},
+           familyi={S\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4394782c9e67435f8ba039de98a9cba8}{%
+           family={Grahne},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b63115e036fa487a7b4eb84877197bab}
+      \strng{fullhash}{3d0aa8f28b157383ae5e64389b364690}
+      \strng{fullhashraw}{3d0aa8f28b157383ae5e64389b364690}
+      \strng{bibnamehash}{3d0aa8f28b157383ae5e64389b364690}
+      \strng{authorbibnamehash}{3d0aa8f28b157383ae5e64389b364690}
+      \strng{authornamehash}{b63115e036fa487a7b4eb84877197bab}
+      \strng{authorfullhash}{3d0aa8f28b157383ae5e64389b364690}
+      \strng{authorfullhashraw}{3d0aa8f28b157383ae5e64389b364690}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Astronaut.}
+      \field{number}{10}
+      \field{title}{Development and evaluation of the {Mars} {Pathfinder} inflatable airbag landing system}
+      \field{volume}{50}
+      \field{year}{2002}
+      \field{pages}{633\bibrangedash 640}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1016/S0094-5765(01)00215-6
+      \endverb
+    \endentry
+    \entry{Lim2015}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=7e786954021bde5b6cf1bbce4fb46b81}{%
+           family={Lim},
+           familyi={L\bibinitperiod},
+           given={Joon-Hong},
+           giveni={J\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=cb87aa27d9874b551c0eff8dbcc05461}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jong-Sun},
+           giveni={J\bibinithyphendelim S\bibinitperiod}}}%
+        {{hash=9a061e41d208838b6d1ccce3ed701699}{%
+           family={Yun},
+           familyi={Y\bibinitperiod},
+           given={Yong-Won},
+           giveni={Y\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=f4d86b4b059fcdf4cdee0d04b76c78f3}{%
+           family={Jeong},
+           familyi={J\bibinitperiod},
+           given={Seong-Beom},
+           giveni={S\bibinithyphendelim B\bibinitperiod}}}%
+        {{hash=3e0856604c7ca40684b8b90fae324666}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Gyung-Jin},
+           giveni={G\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{f435c89b7816ee67d0534a6141b22d62}
+      \strng{fullhash}{a47eab370e45d7a5d4cb6eb7af19416f}
+      \strng{fullhashraw}{a47eab370e45d7a5d4cb6eb7af19416f}
+      \strng{bibnamehash}{a47eab370e45d7a5d4cb6eb7af19416f}
+      \strng{authorbibnamehash}{a47eab370e45d7a5d4cb6eb7af19416f}
+      \strng{authornamehash}{f435c89b7816ee67d0534a6141b22d62}
+      \strng{authorfullhash}{a47eab370e45d7a5d4cb6eb7af19416f}
+      \strng{authorfullhashraw}{a47eab370e45d7a5d4cb6eb7af19416f}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proc. Inst. Mech. Eng. D, J. Automobile Eng.}
+      \field{number}{5}
+      \field{title}{Design of an airbag system of a mid-sized automobile for pedestrian protection}
+      \field{volume}{229}
+      \field{year}{2015}
+      \field{pages}{656\bibrangedash 669}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1177/0954407014551186
+      \endverb
+    \endentry
+    \entry{Alekseychuk2024}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=2e3e3b9580c55e13cd69736e6a9b2646}{%
+           family={Alekseychuk},
+           familyi={A\bibinitperiod},
+           given={I.\bibnamedelimi I.},
+           giveni={I\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=5cb273fb6019b0971648da5f17c4c8c7}{%
+           family={Krachinova},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi V.},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{fullhash}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{fullhashraw}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{bibnamehash}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{authorbibnamehash}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{authornamehash}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{authorfullhash}{305a860d3f059f7c0f9960ba59e69b0c}
+      \strng{authorfullhashraw}{305a860d3f059f7c0f9960ba59e69b0c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Belarusian National University of Technology, Minsk, Belarus}
+      \field{title}{Working of airbag system}
+      \field{year}{2024}
+    \endentry
+    \entry{Shen2025}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6a099cca8a1915d47f3d0e7a731733fa}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Xinyi},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c516694a48f9d44630214dd75cc4658b}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xuefeng},
+           giveni={X\bibinitperiod}}}%
+        {{hash=f1bd46f52bc223fdf850d20957430f8e}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Caishan},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{88ed13fd25cbd4ecfb7f4f6f4daa202e}
+      \strng{fullhash}{0020f99538ea07e4d686ca709d45d63e}
+      \strng{fullhashraw}{0020f99538ea07e4d686ca709d45d63e}
+      \strng{bibnamehash}{0020f99538ea07e4d686ca709d45d63e}
+      \strng{authorbibnamehash}{0020f99538ea07e4d686ca709d45d63e}
+      \strng{authornamehash}{88ed13fd25cbd4ecfb7f4f6f4daa202e}
+      \strng{authorfullhash}{0020f99538ea07e4d686ca709d45d63e}
+      \strng{authorfullhashraw}{0020f99538ea07e4d686ca709d45d63e}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Chin. J. Aeronaut.}
+      \field{number}{8}
+      \field{title}{A review of airbag landing system for spacecraft}
+      \field{volume}{38}
+      \field{year}{2025}
+      \field{pages}{103569}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.cja.2025.103569
+      \endverb
+    \endentry
+    \entry{CasidayFrey2000}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=58020f0e4dcfe2160418bc1cd2d34bf1}{%
+           family={Casiday},
+           familyi={C\bibinitperiod},
+           given={Rachel},
+           giveni={R\bibinitperiod}}}%
+        {{hash=f4fe81652f57928c36c5c25c113f42c1}{%
+           family={Frey},
+           familyi={F\bibinitperiod},
+           given={Regina},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{fullhash}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{fullhashraw}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{bibnamehash}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{authorbibnamehash}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{authornamehash}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{authorfullhash}{d863926c03e578beb1ab1f3ac865448f}
+      \strng{authorfullhashraw}{d863926c03e578beb1ab1f3ac865448f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Department of Chemistry, Washington University in St. Louis, St. Louis, MO, USA}
+      \field{note}{Stoichiometry and the Gas Constant Experiment}
+      \field{title}{Gas laws save lives: The chemistry behind airbags}
+      \field{year}{2000}
+    \endentry
+    \entry{TaylorGardinier1999}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=65d16e65d74f1da27ae4e7bfc6ece2e1}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Anthony\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=9c75d04843f60dfe2da93e56bce1b2ad}{%
+           family={Gardinier},
+           familyi={G\bibinitperiod},
+           given={Debra\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=ba8cab99ae9e445df993b8727f12419d}{%
+           family={Sabberton},
+           familyi={S\bibinitperiod},
+           given={Andy},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Toulouse, France}%
+      }
+      \list{organization}{1}{%
+        {AIAA}%
+      }
+      \strng{namehash}{6f8b7ec27dba4fc8171f38e12b8ec373}
+      \strng{fullhash}{c6cb93c58e7c299086c8f9dcdce4bce5}
+      \strng{fullhashraw}{c6cb93c58e7c299086c8f9dcdce4bce5}
+      \strng{bibnamehash}{c6cb93c58e7c299086c8f9dcdce4bce5}
+      \strng{authorbibnamehash}{c6cb93c58e7c299086c8f9dcdce4bce5}
+      \strng{authornamehash}{6f8b7ec27dba4fc8171f38e12b8ec373}
+      \strng{authorfullhash}{c6cb93c58e7c299086c8f9dcdce4bce5}
+      \strng{authorfullhashraw}{c6cb93c58e7c299086c8f9dcdce4bce5}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. {CEAS}/{AIAA} 15th Aerodyn. Decelerator Balloon Technol. Conf.}
+      \field{month}{6}
+      \field{note}{AIAA Paper 99-1743}
+      \field{title}{Design optimization of the {Beagle II} {Mars} lander airbags through explicit finite element analysis}
+      \field{year}{1999}
+      \verb{doi}
+      \verb 10.2514/6.1999-1743
+      \endverb
+    \endentry
+    \entry{Peng2021}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=955eae6cb72d6de5f904ca5de8d9eb67}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Wenxiang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=040d0415f037617de5b1cda755564f8e}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Mingming},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b45fc3561031fcbc2bf68efba71f7c36}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yifan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=fae1660d558d23703607b71ed9c7f243}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Zhenghao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=91386791c2ecf81d6cec1801bcafd69d}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Hesong},
+           giveni={H\bibinitperiod}}}%
+        {{hash=b1f937cdbad49ad70b0c992b421b2684}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Hang},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{3b1259f4273f6a084b0e994c7c460c27}
+      \strng{fullhash}{f128a8c228227783a853dd2a1c856d1f}
+      \strng{fullhashraw}{f128a8c228227783a853dd2a1c856d1f}
+      \strng{bibnamehash}{f128a8c228227783a853dd2a1c856d1f}
+      \strng{authorbibnamehash}{f128a8c228227783a853dd2a1c856d1f}
+      \strng{authornamehash}{3b1259f4273f6a084b0e994c7c460c27}
+      \strng{authorfullhash}{f128a8c228227783a853dd2a1c856d1f}
+      \strng{authorfullhashraw}{f128a8c228227783a853dd2a1c856d1f}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IOP Conf. Ser.: Earth Environ. Sci.}
+      \field{note}{NEPEE 2020}
+      \field{number}{1}
+      \field{title}{Numerical study on the bearing properties of multi-airbag inflatable bolt in soft soil}
+      \field{volume}{696}
+      \field{year}{2021}
+      \field{pages}{012048}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1755-1315/696/1/012048
+      \endverb
+    \endentry
+    \entry{Tutt2009}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=547779305540b77ef563025c7ce12c14}{%
+           family={Tutt},
+           familyi={T\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9bb1a779db1473532c5b8cd2d006bd84}{%
+           family={Gill},
+           familyi={G\bibinitperiod},
+           given={Susannah},
+           giveni={S\bibinitperiod}}}%
+        {{hash=89ae5a8755db2504c6910509c7fd5738}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1c274d17ceafee26ba448cfb9279dea0}{%
+           family={Johnson},
+           familyi={J\bibinitperiod},
+           given={Keith},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Seattle, WA, USA}%
+      }
+      \list{organization}{1}{%
+        {AIAA}%
+      }
+      \strng{namehash}{ca74ca4d3b1886fbf9a684ac7ab0891b}
+      \strng{fullhash}{6832ebadaacd49b5047fb04827d683b1}
+      \strng{fullhashraw}{6832ebadaacd49b5047fb04827d683b1}
+      \strng{bibnamehash}{6832ebadaacd49b5047fb04827d683b1}
+      \strng{authorbibnamehash}{6832ebadaacd49b5047fb04827d683b1}
+      \strng{authornamehash}{ca74ca4d3b1886fbf9a684ac7ab0891b}
+      \strng{authorfullhash}{6832ebadaacd49b5047fb04827d683b1}
+      \strng{authorfullhashraw}{6832ebadaacd49b5047fb04827d683b1}
+      \field{extraname}{2}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 20th {AIAA} Aerodyn. Decelerator Syst. Technol. Conf. Seminar}
+      \field{month}{5}
+      \field{note}{AIAA Paper 2009-2922}
+      \field{title}{A summary of the development of a nominal land landing airbag impact attenuation system for the {Orion} crew module}
+      \field{year}{2009}
+      \verb{doi}
+      \verb 10.2514/6.2009-2922
+      \endverb
+    \endentry
+    \entry{Verma2025}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=462f83966beb7314041e108d1fdcd82c}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Ajay\bibnamedelima Kumar},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=7d9da223a7344f4ab3fe741c1a5bd668}{%
+           family={Majee},
+           familyi={M\bibinitperiod},
+           given={Satyam},
+           giveni={S\bibinitperiod}}}%
+        {{hash=65ce74863066fde3cabb3473cb8464b8}{%
+           family={Yadav},
+           familyi={Y\bibinitperiod},
+           given={Rishabh},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6a2b9dd0af58035d489a90965910b7a7}{%
+           family={Mandal},
+           familyi={M\bibinitperiod},
+           given={Shubhjeet},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2b0f741917b9725d235d5086307e1e4f}{%
+           family={Mahato},
+           familyi={M\bibinitperiod},
+           given={Sumit\bibnamedelima Kumar},
+           giveni={S\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=6d17f686423f20a20a505225f8dcc9eb}{%
+           family={Pramanik},
+           familyi={P\bibinitperiod},
+           given={Bittu\bibnamedelima Kumar},
+           giveni={B\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=5d01dc4b3af27624ed28a6d4efb831ac}{%
+           family={Pandit},
+           familyi={P\bibinitperiod},
+           given={Aman},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{17a88a298f6b07c485e75c482d3fd3e0}
+      \strng{fullhash}{c58544585786ed348dac44aba19615d7}
+      \strng{fullhashraw}{c58544585786ed348dac44aba19615d7}
+      \strng{bibnamehash}{17a88a298f6b07c485e75c482d3fd3e0}
+      \strng{authorbibnamehash}{17a88a298f6b07c485e75c482d3fd3e0}
+      \strng{authornamehash}{17a88a298f6b07c485e75c482d3fd3e0}
+      \strng{authorfullhash}{c58544585786ed348dac44aba19615d7}
+      \strng{authorfullhashraw}{c58544585786ed348dac44aba19615d7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. Res. J. Educ. Technol.}
+      \field{month}{3}
+      \field{number}{3}
+      \field{title}{Advancements in airbag deployment technology for enhanced passenger safety}
+      \field{volume}{7}
+      \field{year}{2025}
+    \endentry
+    \entry{Hirth2007}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=3db3dfbc94c1e83e56afcbebf9c5d91d}{%
+           family={Hirth},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5891dcb0ec76cadbbadd32b151876f1f}{%
+           family={Haufe},
+           familyi={H\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ebc74237cc3e7418f46a1c8047255f6d}{%
+           family={Olovsson},
+           familyi={O\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Frankenthal, Germany}%
+      }
+      \strng{namehash}{c770bb2ca291ddebbba63ac27a47b9ab}
+      \strng{fullhash}{61f6a222bb3c59cc923d2063780386ca}
+      \strng{fullhashraw}{61f6a222bb3c59cc923d2063780386ca}
+      \strng{bibnamehash}{61f6a222bb3c59cc923d2063780386ca}
+      \strng{authorbibnamehash}{61f6a222bb3c59cc923d2063780386ca}
+      \strng{authornamehash}{c770bb2ca291ddebbba63ac27a47b9ab}
+      \strng{authorfullhash}{61f6a222bb3c59cc923d2063780386ca}
+      \strng{authorfullhashraw}{61f6a222bb3c59cc923d2063780386ca}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 6. {LS-DYNA} Anwenderforum}
+      \field{title}{Airbag simulation with {LS-DYNA}: Past--present--future}
+      \field{year}{2007}
+    \endentry
+    \entry{Lee2009}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=bf5d571a5735e3c93ae0a6838a5c3cc9}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Jeong\bibnamedelima Keun},
+           giveni={J\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=ed9ae38c777d8b8fb4c33dd2d37d6340}{%
+           family={Ha},
+           familyi={H\bibinitperiod},
+           given={Won\bibnamedelima Pil},
+           giveni={W\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=a75560ecb1cd303c6a0cde5c78417b6a}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Jae\bibnamedelima Hyun},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=e35eb5868bea36bac92e27c791c6bf3c}{%
+           family={Chae},
+           familyi={C\bibinitperiod},
+           given={Duk\bibnamedelima Byung},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=13d6f2466b62b576960a650f05397dfb}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Jae\bibnamedelima Hyung},
+           giveni={J\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Stuttgart, Germany}%
+      }
+      \strng{namehash}{53f0dfa83bbd5efc924549943f3198e2}
+      \strng{fullhash}{0d86c31c9aa438e063e3e00072ed2cad}
+      \strng{fullhashraw}{0d86c31c9aa438e063e3e00072ed2cad}
+      \strng{bibnamehash}{0d86c31c9aa438e063e3e00072ed2cad}
+      \strng{authorbibnamehash}{0d86c31c9aa438e063e3e00072ed2cad}
+      \strng{authornamehash}{53f0dfa83bbd5efc924549943f3198e2}
+      \strng{authorfullhash}{0d86c31c9aa438e063e3e00072ed2cad}
+      \strng{authorfullhashraw}{0d86c31c9aa438e063e3e00072ed2cad}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 21st Int. Tech. Conf. Enhanced Safety Veh. ({ESV})}
+      \field{month}{6}
+      \field{note}{Paper no.\ 09-0363}
+      \field{title}{Validation methodology on airbag deployment process of driver side airbag}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb https://www-nrd.nhtsa.dot.gov/pdf/ESV/Proceedings/21/09-0363.pdf
+      \endverb
+      \verb{url}
+      \verb https://www-nrd.nhtsa.dot.gov/pdf/ESV/Proceedings/21/09-0363.pdf
+      \endverb
+    \endentry
+    \entry{Dobrich2014}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=482b11602458465d5dbba2e3785a1a67}{%
+           family={Döbrich},
+           familyi={D\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod}}}%
+        {{hash=584684d2a51cd6ea9b606a7cb152a2d9}{%
+           family={Gereke},
+           familyi={G\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=da7dcf1a3a999d6b2cb802ba087a7562}{%
+           family={Cherif},
+           familyi={C\bibinitperiod},
+           given={Chokri},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{b74c3ea9c1348bce38dc3374df6f34df}
+      \strng{fullhash}{55922b6a635b3de6a8f8189329a5be09}
+      \strng{fullhashraw}{55922b6a635b3de6a8f8189329a5be09}
+      \strng{bibnamehash}{55922b6a635b3de6a8f8189329a5be09}
+      \strng{authorbibnamehash}{55922b6a635b3de6a8f8189329a5be09}
+      \strng{authornamehash}{b74c3ea9c1348bce38dc3374df6f34df}
+      \strng{authorfullhash}{55922b6a635b3de6a8f8189329a5be09}
+      \strng{authorfullhashraw}{55922b6a635b3de6a8f8189329a5be09}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Key Eng. Mater.}
+      \field{title}{Modelling and simulation of the coupling of normal pressure and shear force in plain woven fabrics}
+      \field{volume}{611--612}
+      \field{year}{2014}
+      \field{pages}{363\bibrangedash 367}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.4028/www.scientific.net/KEM.611-612.363
+      \endverb
+    \endentry
+    \entry{Yang2015}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=46a9c13d82d78760d0ea0a1161a558fd}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Hyun-Ik},
+           giveni={H\bibinithyphendelim I\bibinitperiod}}}%
+        {{hash=9a061e41d208838b6d1ccce3ed701699}{%
+           family={Yun},
+           familyi={Y\bibinitperiod},
+           given={Yong-Won},
+           giveni={Y\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=3e0856604c7ca40684b8b90fae324666}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Gyung-Jin},
+           giveni={G\bibinithyphendelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb3e42ab1b9032f4bf61071ef2de43e1}
+      \strng{fullhash}{12eb3027c5b73a7278e1440894a1053b}
+      \strng{fullhashraw}{12eb3027c5b73a7278e1440894a1053b}
+      \strng{bibnamehash}{12eb3027c5b73a7278e1440894a1053b}
+      \strng{authorbibnamehash}{12eb3027c5b73a7278e1440894a1053b}
+      \strng{authornamehash}{cb3e42ab1b9032f4bf61071ef2de43e1}
+      \strng{authorfullhash}{12eb3027c5b73a7278e1440894a1053b}
+      \strng{authorfullhashraw}{12eb3027c5b73a7278e1440894a1053b}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proc. Inst. Mech. Eng. D, J. Automobile Eng.}
+      \field{number}{9}
+      \field{title}{Design of a pedestrian protection airbag system using experiments}
+      \field{volume}{230}
+      \field{year}{2016}
+      \field{pages}{1182\bibrangedash 1195}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1177/0954407015603854
+      \endverb
+    \endentry
+    \entry{KhanMoatamedi2008}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=5832f00425763867be55ad4bf2d097dd}{%
+           family={Khan},
+           familyi={K\bibinitperiod},
+           given={M.\bibnamedelimi U.},
+           giveni={M\bibinitperiod\bibinitdelim U\bibinitperiod}}}%
+        {{hash=df449d85d85e9bdf4fe4d9aa0bcd10c4}{%
+           family={Moatamedi},
+           familyi={M\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{fullhash}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{fullhashraw}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{bibnamehash}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{authorbibnamehash}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{authornamehash}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{authorfullhash}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \strng{authorfullhashraw}{f74cbcdb806ae1a83cb72ad7c559d09b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. J. Crashworthiness}
+      \field{month}{2}
+      \field{number}{1}
+      \field{title}{A review of airbag test and analysis}
+      \field{volume}{13}
+      \field{year}{2008}
+      \field{pages}{67\bibrangedash 76}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1080/13588260701731674
+      \endverb
+    \endentry
+    \entry{Fokin2003}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=e1c8e06ca4cad9f237e667662dc77cec}{%
+           family={Fokin},
+           familyi={F\bibinitperiod},
+           given={Dmitri},
+           giveni={D\bibinitperiod}}}%
+        {{hash=cd79ad5ac26433a76e8269d62472c5af}{%
+           family={Lokhande},
+           familyi={L\bibinitperiod},
+           given={Nitin},
+           giveni={N\bibinitperiod}}}%
+        {{hash=5107696128afe7135ea06b39b37735c8}{%
+           family={Fredriksson},
+           familyi={F\bibinitperiod},
+           given={Lars},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Ulm, Germany}%
+      }
+      \strng{namehash}{95982a618e569970b918e272c3975e1f}
+      \strng{fullhash}{ca28a9b48443491eaf7e7594fbe8367d}
+      \strng{fullhashraw}{ca28a9b48443491eaf7e7594fbe8367d}
+      \strng{bibnamehash}{ca28a9b48443491eaf7e7594fbe8367d}
+      \strng{authorbibnamehash}{ca28a9b48443491eaf7e7594fbe8367d}
+      \strng{authornamehash}{95982a618e569970b918e272c3975e1f}
+      \strng{authorfullhash}{ca28a9b48443491eaf7e7594fbe8367d}
+      \strng{authorfullhashraw}{ca28a9b48443491eaf7e7594fbe8367d}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 4th Eur. {LS-DYNA} Users Conf.}
+      \field{month}{5}
+      \field{title}{On airbag simulation in {LS-DYNA} with the use of the arbitrary {Lagrangian}--{Eulerian} method}
+      \field{year}{2003}
+    \endentry
+    \entry{Jang2021}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=23ae3eda7914eed1af9cd8dc5d9107db}{%
+           family={Jang},
+           familyi={J\bibinitperiod},
+           given={Dong-Hwan},
+           giveni={D\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{fullhash}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{fullhashraw}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{bibnamehash}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{authorbibnamehash}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{authornamehash}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{authorfullhash}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \strng{authorfullhashraw}{23ae3eda7914eed1af9cd8dc5d9107db}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Korean Soc. Manuf. Process Eng.}
+      \field{month}{1}
+      \field{number}{1}
+      \field{title}{A wearable safety device for the body protection of motorcyclists}
+      \field{volume}{20}
+      \field{year}{2021}
+      \field{pages}{25\bibrangedash 33}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.14775/ksmpe.2021.20.01.025
+      \endverb
+    \endentry
+    \entry{Madlung1996}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=4cfaf1b8d588df7fd1b6e552d15c500b}{%
+           family={Madlung},
+           familyi={M\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{fullhash}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{fullhashraw}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{bibnamehash}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{authorbibnamehash}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{authornamehash}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{authorfullhash}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \strng{authorfullhashraw}{4cfaf1b8d588df7fd1b6e552d15c500b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Chem. Educ.}
+      \field{month}{4}
+      \field{number}{4}
+      \field{title}{The chemistry behind the air bag: High tech in first-year chemistry}
+      \field{volume}{73}
+      \field{year}{1996}
+      \field{pages}{347\bibrangedash 348}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1021/ed073p347
+      \endverb
+    \endentry
+    \entry{Munoz2007}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=4ca63c93107a2fd00283632d6d6b4bba}{%
+           family={Muñoz},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=aea09756676200281deb20de15b4f5da}{%
+           family={Carlón},
+           familyi={C\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=1afa4f7ec06a82d56a82ea0f85616bb8}{%
+           family={Negro},
+           familyi={N\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1a6022e473abaf9556f125b105ab2def}{%
+           family={Mansilla},
+           familyi={M\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ef66ea7f06fd0f2ad4524187b7c8316c}{%
+           family={Martín},
+           familyi={M\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lyon, France}%
+      }
+      \strng{namehash}{29cb4cb15b81c1b5719ab783d770a48a}
+      \strng{fullhash}{8408d0e4e556d6a0fd8fd0787bb8a495}
+      \strng{fullhashraw}{8408d0e4e556d6a0fd8fd0787bb8a495}
+      \strng{bibnamehash}{8408d0e4e556d6a0fd8fd0787bb8a495}
+      \strng{authorbibnamehash}{8408d0e4e556d6a0fd8fd0787bb8a495}
+      \strng{authornamehash}{29cb4cb15b81c1b5719ab783d770a48a}
+      \strng{authorfullhash}{8408d0e4e556d6a0fd8fd0787bb8a495}
+      \strng{authorfullhashraw}{8408d0e4e556d6a0fd8fd0787bb8a495}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 20th Int. Tech. Conf. Enhanced Safety Veh. ({ESV})}
+      \field{month}{6}
+      \field{note}{Paper no.\ 07-0309}
+      \field{title}{Application of numerical methods to the simulation of the earliest stages of the airbag deployment}
+      \field{year}{2007}
+    \endentry
+    \entry{Ruff2007}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=95306335d49c1a7d4d390513e3749fd0}{%
+           family={Ruff},
+           familyi={R\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1303ae70c42acb317ab7478bd3b910f3}{%
+           family={Jost},
+           familyi={J\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=74c18540c0254afa61b720cf32a807f5}{%
+           family={Eichberger},
+           familyi={E\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{da51ca61f3d47b20a52c907bd95ebec8}
+      \strng{fullhash}{cba588405a9c77792205b1e69797f600}
+      \strng{fullhashraw}{cba588405a9c77792205b1e69797f600}
+      \strng{bibnamehash}{cba588405a9c77792205b1e69797f600}
+      \strng{authorbibnamehash}{cba588405a9c77792205b1e69797f600}
+      \strng{authornamehash}{da51ca61f3d47b20a52c907bd95ebec8}
+      \strng{authorfullhash}{cba588405a9c77792205b1e69797f600}
+      \strng{authorfullhashraw}{cba588405a9c77792205b1e69797f600}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Veh. Syst. Dyn.}
+      \field{number}{10}
+      \field{title}{Simulation of an airbag deployment in out-of-position situations}
+      \field{volume}{45}
+      \field{year}{2007}
+      \field{pages}{953\bibrangedash 967}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1080/00423110701538304
+      \endverb
+    \endentry
+    \entry{Kamiji1998}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=3c8f1bea95d1c2abb9901b2226ce91ae}{%
+           family={Kamiji},
+           familyi={K\bibinitperiod},
+           given={Koichi},
+           giveni={K\bibinitperiod}}}%
+        {{hash=119ad969e1e8c66cac5b257d386f355e}{%
+           family={Morita},
+           familyi={M\bibinitperiod},
+           given={Yoshihiko},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b97172a16b795255bed186af8ce2152a}{%
+           family={Nagai},
+           familyi={N\bibinitperiod},
+           given={Makoto},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Windsor, ON, Canada}%
+      }
+      \strng{namehash}{e8fbdca1e3cbe4458cd6bea6df9a0a32}
+      \strng{fullhash}{46b31bf8e6067eec74dc6ecad3e8de37}
+      \strng{fullhashraw}{46b31bf8e6067eec74dc6ecad3e8de37}
+      \strng{bibnamehash}{46b31bf8e6067eec74dc6ecad3e8de37}
+      \strng{authorbibnamehash}{46b31bf8e6067eec74dc6ecad3e8de37}
+      \strng{authornamehash}{e8fbdca1e3cbe4458cd6bea6df9a0a32}
+      \strng{authorfullhash}{46b31bf8e6067eec74dc6ecad3e8de37}
+      \strng{authorfullhashraw}{46b31bf8e6067eec74dc6ecad3e8de37}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 16th Int. Tech. Conf. Enhanced Safety Veh. ({ESV})}
+      \field{note}{Paper no.\ 98-S5-O-12}
+      \field{title}{Study of test procedure to evaluate airbag deployment force}
+      \field{volume}{2}
+      \field{year}{1998}
+      \field{pages}{1071\bibrangedash 1079}
+      \range{pages}{9}
+    \endentry
+    \entry{Ritmeijer2005}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=f0c792a9d204d1fda5d974f31498684a}{%
+           family={Ritmeijer},
+           familyi={R\bibinitperiod},
+           given={P.\bibnamedelimi A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=16aac312ce352bc2f3e6de2f2c09f4d7}{%
+           family={Happee},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e931e0e223569048b751d0441e81e5e0}{%
+           family={Bosch-Rekveldt},
+           familyi={B\bibinithyphendelim R\bibinitperiod},
+           given={M.\bibnamedelimi G.\bibnamedelimi C.},
+           giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a2cc40b45d1ec55e5f684294787ede54}{%
+           family={{van der Made}},
+           familyi={v\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Detroit, MI, USA}%
+      }
+      \list{organization}{1}{%
+        {SAE International}%
+      }
+      \strng{namehash}{54567689f0ddbf6778e064d41bf5066f}
+      \strng{fullhash}{63f84e69632ebaa1e45ddf93ba067221}
+      \strng{fullhashraw}{63f84e69632ebaa1e45ddf93ba067221}
+      \strng{bibnamehash}{63f84e69632ebaa1e45ddf93ba067221}
+      \strng{authorbibnamehash}{63f84e69632ebaa1e45ddf93ba067221}
+      \strng{authornamehash}{54567689f0ddbf6778e064d41bf5066f}
+      \strng{authorfullhash}{63f84e69632ebaa1e45ddf93ba067221}
+      \strng{authorfullhashraw}{63f84e69632ebaa1e45ddf93ba067221}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2005 {SAE} World Congr.}
+      \field{month}{4}
+      \field{note}{SAE Technical Paper 2005-01-1230}
+      \field{title}{Validation of gasflow airbag simulation methods}
+      \field{year}{2005}
+      \verb{doi}
+      \verb 10.4271/2005-01-1230
+      \endverb
+    \endentry
+    \entry{Thornton2004}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=66315c349b33dda68d4d6792eda60993}{%
+           family={Thornton},
+           familyi={T\bibinitperiod},
+           given={Miles},
+           giveni={M\bibinitperiod}}}%
+        {{hash=3ba0ebdff8c86e293cebb6310d76e7ff}{%
+           family={Sturt},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=891429ed8b68a3e8ef75b90e7532707b}{%
+           family={Kalabina},
+           familyi={K\bibinitperiod},
+           given={Anastasia},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Dearborn, MI, USA}%
+      }
+      \strng{namehash}{70d711a0f555da8012a0800f5f3325f5}
+      \strng{fullhash}{ccd62bee23965b33a0dbdfa5b34d9e9e}
+      \strng{fullhashraw}{ccd62bee23965b33a0dbdfa5b34d9e9e}
+      \strng{bibnamehash}{ccd62bee23965b33a0dbdfa5b34d9e9e}
+      \strng{authorbibnamehash}{ccd62bee23965b33a0dbdfa5b34d9e9e}
+      \strng{authornamehash}{70d711a0f555da8012a0800f5f3325f5}
+      \strng{authorfullhash}{ccd62bee23965b33a0dbdfa5b34d9e9e}
+      \strng{authorfullhashraw}{ccd62bee23965b33a0dbdfa5b34d9e9e}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 8th Int. {LS-DYNA} Users Conf.}
+      \field{month}{5}
+      \field{title}{Rapid development of multiple fold patterns for airbag simulation in {LS-DYNA} using {Oasys} {Primer}}
+      \field{year}{2004}
+    \endentry
+    \entry{Bulathsinghala2021}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=0af88cc76eeb2a39c2c99e3acc769be0}{%
+           family={Bulathsinghala},
+           familyi={B\bibinitperiod},
+           given={Rameesh\bibnamedelima Lakshan},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=6401ee4c63a67dc18a62b3d1e69fde33}{%
+           family={Fernando},
+           familyi={F\bibinitperiod},
+           given={Sandun},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bc8c9a68ff852f66537afc55510dce7b}{%
+           family={Jayawardana},
+           familyi={J\bibinitperiod},
+           given={Thantirige\bibnamedelimb Sanath\bibnamedelima Siroshana},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=9f687e52844cdff87adc32b1e17477ea}{%
+           family={Heenkenda},
+           familyi={H\bibinitperiod},
+           given={Nilanthi},
+           giveni={N\bibinitperiod}}}%
+        {{hash=c6a72ee9af7edc6f03ddace652ed7677}{%
+           family={Jeyakumar},
+           familyi={J\bibinitperiod},
+           given={Sajeeva},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f02941c72a753fbfbcaabc7f0ceb5e3d}{%
+           family={Packiyarasa},
+           familyi={P\bibinitperiod},
+           given={Prathees},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5ffb0f97de8d25fcc22c29eb1d4234aa}{%
+           family={Hemamala},
+           familyi={H\bibinitperiod},
+           given={Gamage},
+           giveni={G\bibinitperiod}}}%
+        {{hash=7e1028ad5bac1ccf57143f8a129cdc89}{%
+           family={Wijesena},
+           familyi={W\bibinitperiod},
+           given={Dhananatha},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{aaebd91fe62b669c203766a6bb760ef5}
+      \strng{fullhash}{8d5dcfa9d301b81a004d030a46b9c3e9}
+      \strng{fullhashraw}{8d5dcfa9d301b81a004d030a46b9c3e9}
+      \strng{bibnamehash}{aaebd91fe62b669c203766a6bb760ef5}
+      \strng{authorbibnamehash}{aaebd91fe62b669c203766a6bb760ef5}
+      \strng{authornamehash}{aaebd91fe62b669c203766a6bb760ef5}
+      \strng{authorfullhash}{8d5dcfa9d301b81a004d030a46b9c3e9}
+      \strng{authorfullhashraw}{8d5dcfa9d301b81a004d030a46b9c3e9}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Res. J. Text. Appar.}
+      \field{number}{2}
+      \field{title}{An automatic air inflated tubeless safety jacket for motorbike riders}
+      \field{volume}{26}
+      \field{year}{2022}
+      \field{pages}{170\bibrangedash 186}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1108/RJTA-01-2021-0002
+      \endverb
+    \endentry
+    \entry{ComuneTorinoWind-AVG}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ee5a14ee6b94d97829bfde23fadbf95d}{%
+           family={{ARPA Piemonte}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{bibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorbibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authornamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
+      \field{month}{12}
+      \field{note}{CSV, CC BY. Accessed: Oct. 11, 2026}
+      \field{title}{Velocità media annua del vento 2006--2018 (Annual mean wind speed 2006--2018), dataset}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://aperto.comune.torino.it/dataset/velocita-media-annua-del-vento-2006-2018
+      \endverb
+      \verb{url}
+      \verb https://aperto.comune.torino.it/dataset/velocita-media-annua-del-vento-2006-2018
+      \endverb
+    \endentry
+    \entry{ComuneTorinoWind-MAX}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ee5a14ee6b94d97829bfde23fadbf95d}{%
+           family={{ARPA Piemonte}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{bibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorbibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authornamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
+      \field{month}{12}
+      \field{note}{CSV, CC BY 4.0. Accessed: Oct. 11, 2026}
+      \field{title}{Raffica di vento massima 2006--2018 (Maximum wind gust 2006--2018), dataset}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
+      \endverb
+      \verb{url}
+      \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
+      \endverb
+    \endentry
+    \entry{disalute_aetos}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{DiSalute}
       \field{note}{Accessed 5 October 2026}
@@ -1200,8 +2583,8 @@
       \endverb
     \endentry
     \entry{hydrogennews_sandbox}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Hydrogen-news.it}
       \field{note}{Accessed 5 October 2026}
@@ -1214,8 +2597,8 @@
       \endverb
     \endentry
     \entry{adnkronos_2022}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Adnkronos}
       \field{note}{Accessed 5 October 2026}
@@ -1228,8 +2611,8 @@
       \endverb
     \endentry
     \entry{tecnicaospedaliera_ids}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Tecnica Ospedaliera}
       \field{note}{Accessed 5 October 2026}
@@ -1242,8 +2625,8 @@
       \endverb
     \endentry
     \entry{meteoweb_2022}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{MeteoWeb}
       \field{note}{Accessed 5 October 2026}
@@ -1256,8 +2639,8 @@
       \endverb
     \endentry
     \entry{ansa_seuam}{misc}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -1270,8 +2653,8 @@
       \endverb
     \endentry
     \entry{pharmacyscanner_piadena}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Pharmacy Scanner}
       \field{note}{Accessed 5 October 2026}
@@ -1284,8 +2667,8 @@
       \endverb
     \endentry
     \entry{supplychain_2022}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
       \field{note}{Accessed 5 October 2026}
@@ -1298,8 +2681,8 @@
       \endverb
     \endentry
     \entry{farmacista33_uelcome}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Farmacista33}
       \field{note}{Accessed 5 October 2026}
@@ -1312,8 +2695,8 @@
       \endverb
     \endentry
     \entry{trasportoeuropa_hsr}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{TrasportoEuropa}
       \field{note}{Accessed 5 October 2026}
@@ -1326,8 +2709,8 @@
       \endverb
     \endentry
     \entry{cri_sapr}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Croce Rossa Italiana}
       \field{note}{Accessed 5 October 2026}
@@ -1340,8 +2723,8 @@
       \endverb
     \endentry
     \entry{today_cri}{misc}{}{}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Today.it}
       \field{note}{Accessed 5 October 2026}
@@ -1354,8 +2737,8 @@
       \endverb
     \endentry
     \entry{quadricottero_2022}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -1368,8 +2751,8 @@
       \endverb
     \endentry
     \entry{ansa_sandbox}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -1382,8 +2765,8 @@
       \endverb
     \endentry
     \entry{rinnovabili_stesi}{misc}{}{}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Rinnovabili.it}
       \field{note}{Accessed 5 October 2026}
@@ -1396,8 +2779,8 @@
       \endverb
     \endentry
     \entry{ansa_hsr}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -1410,8 +2793,8 @@
       \endverb
     \endentry
     \entry{hsr_ff2020}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Ospedale San Raffaele}
       \field{note}{Accessed 5 October 2026}
@@ -1424,8 +2807,8 @@
       \endverb
     \endentry
     \entry{prealpina_varese}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{La Prealpina}
       \field{note}{Accessed 5 October 2026}
@@ -1438,8 +2821,8 @@
       \endverb
     \endentry
     \entry{logisticamente_miulli}{misc}{}{}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Logisticamente}
       \field{note}{Accessed 5 October 2026}
@@ -1452,8 +2835,8 @@
       \endverb
     \endentry
     \entry{sanitadigitale_boom}{misc}{}{}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Sanità Digitale}
       \field{note}{Accessed 5 October 2026}
@@ -1519,20 +2902,6 @@
       \endverb
       \verb{url}
       \verb https://www.easa.europa.eu/sites/default/files/dfu/explanatory_note_to_ed_decision_2022-002-r.pdf
-      \endverb
-    \endentry
-    \entry{pharmacyscanner_amazon}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Pharmacy Scanner}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{Drone delivery, {Amazon} dice stop ai test in {Italia}. {``Non} ci sono le condizioni necessarie''}
-      \verb{urlraw}
-      \verb https://pharmacyscanner.it/drone-delivery-amazon-fa-retromarcia-stop-ai-test-in-italia-mancano-le-condizioni-necessarie/
-      \endverb
-      \verb{url}
-      \verb https://pharmacyscanner.it/drone-delivery-amazon-fa-retromarcia-stop-ai-test-in-italia-mancano-le-condizioni-necessarie/
       \endverb
     \endentry
     \entry{supplychain_torino}{misc}{}{}

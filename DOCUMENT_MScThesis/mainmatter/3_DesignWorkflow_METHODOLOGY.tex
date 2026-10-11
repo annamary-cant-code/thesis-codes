@@ -1,36 +1,32 @@
 % LTeX: language=en-GB
-\chapter{Methodology - Airbag Design Workflow}
+\chapter{Methodology: the Airbag Design Workflow}
 \label{chapter:methodology}
 
 
 \section{Problem statement}
-To properly outline and, more importantly, test the workflow proposed as a main objective of this thesis, it is necessary to identify the specific context in which this project is embedded, as it originates from prior research work conducted within the specific framework of Torino. The design inputs presented below were gathered from analysing the results presented by the group (\cite{Cavallo2020}, \cite{Bertelli2021}, \cite{Sivieri2021}, \cite{Fiorentino2021}, and \cite{Angelini2023}) and categorising them into mission aspects on which to root the proposal of Section \ref{section:proposed-approach}.
+To properly outline and, more importantly, test the workflow proposed as a main objective of this thesis, it is necessary to identify the specific context in which this project is embedded, as it originates from prior research work conducted within the specific framework of Turin. The design inputs presented below were gathered from analysing the results presented by the group (\cite{Cavallo2020}, \cite{Bertelli2021}, \cite{Sivieri2021}, \cite{Fiorentino2021}, and \cite{Angelini2023}) and categorising them into mission aspects on which to root the proposal of Section \ref{section:proposed-approach}.
 
 \subsection{Reference mission and design inputs}
 \subsubsection{Route and flight profile}
-The reference mission is based on a hospital-to-hospital route as initially suggested by Cavallo (2020) \cite{Cavallo2020}, connecting two hospitals across the city of Torino as shown in Fig. \ref{} \hl{INCLUDE FIGURE HERE!!!!}, representing a city map with route schematics. In particular, the starting point is the Molinette Hospital in the south-east region of the city, and the destination is the San Giovanni Bosco hospital in the \hl{north-west} sector. As they are located far apart, these two hospitals require medical deliveries to traverse a broad part of the city's territory. The hospitals are connected through two possible routes:
+The reference mission is based on a hospital-to-hospital route as initially suggested by Cavallo (2020) \cite{Cavallo2020}, connecting two hospitals across the city of Turin as shown in Fig. \ref{fig:trajectory-map}, representing a city map with route schematics. In particular, the starting point is the Molinette Hospital in the southern region of the city, and the destination is the San Giovanni Bosco hospital in the northern sector. As they are located far apart, these two hospitals require medical deliveries to traverse a broad part of the city's territory. The hospitals are connected through two possible routes:
 \begin{itemize}
-    \item \textbf{Route A}: Initially hypothesised by Cavallo and confirmed by Bertelli (2021) \cite{Bertelli2021}, it takes advantage of the above-water air corridor over the river Po and its tributary Stura, mostly skirting the city and flying over city ground only in the relatively short segments connecting the hospitals to the rivers. Among the two routes, it is the safest (and, thus, most certifiable) as it reduces the probability of ground impact in case of drone failure due to the UAV's permanence in the above-water air corridor. This route was selected as viable within the Concept of Operations (ConOps) that informed the preliminary drafting of the SORA. Approximate length: 10\,km. Approximate duration time: 15\,min, comparable to ambulance-based delivery times.
-    \item \textbf{Route B}: A crude alternative to Bertelli's Route A, connecting the two hospitals in a straight line over the city. Angelini (2023) \cite{Angelini2023} deemed this route infeasible based on their comparative safety analysis of delivery means, primarily due to the lack of proper risk mitigation measures concerning in-flight failures. However, as the approach proposed in this thesis aims at partially mitigating these risks, it was chosen to consider this route (at least for preliminary evaluation). 
+    \item \textbf{Route A}: Initially hypothesised by Cavallo and confirmed by Bertelli (2021) \cite{Bertelli2021}, it takes advantage of the above-water air corridor over the river Po and its tributary Stura, mostly skirting the city and flying over city ground only in the relatively short segments connecting the hospitals to the rivers. Among the two routes, it is the safest (and, thus, most certifiable according to Cavallo) as it reduces the probability of ground impact in case of drone failure due to the UAV's permanence in the above-water air corridor. This route was selected as viable within the Concept of Operations (ConOps) that informed the preliminary drafting of the SORA. Approximate length: 10\,km. Approximate duration time: 15\,min, comparable to ambulance-based delivery times.
+    \item \textbf{Route B}: A crude alternative to Cavallo and Bertelli's Route A, connecting the two hospitals in a straight line over the city. Angelini (2023) \cite{Angelini2023} deemed this route infeasible based on their comparative safety analysis of delivery means, primarily due to the lack of proper risk mitigation measures concerning in-flight failures. However, as the approach proposed in this thesis aims at partially mitigating these risks, it was chosen to consider this route (at least for preliminary evaluation).
+    \item \textbf{Alternative routes \textit{(omitted from analysis)}}: Fiorentino (2021) \cite{Fiorentino2021} and Angelini (2024)'s \cite{Angelini2023} work is rooted in minimum risk-based route selection considering territories that extend beyond city borders, specifically including the entire province\footnote{In Italy, local government is organised across three administrative levels: regions, provinces, and municipalities. Here, assessing the Province of Turin corresponds to evaluating the territorial sub-region of Piedmont administered by the provincial capital of Turin.} in case of Angelini's study. Either using the RRT* algorithm in Fiorentino's case or the Dijkstra and A* algorithms in Angelini's case, these two studies share a common approach of considering multiple layers (\hl{such as population density, shelters, and critical infrastructure CHECK}) to calculate the probabilistic minimum-risk paths for different means of transportation (eVTOL, UAV, etc.), without predefined start and end points, thereby determining the optimal drone hub location across the province. \hl{valid for FIORENTINO TOO???} The results of these works were omitted from the definition of the reference mission for two main reasons. First, they do not specifically target hospital-to-hospital operations; their scope focuses on optimising general logistics rather than facilitating inter-hospital transport, contrarily to one of the primary objectives of the present thesis. Second, their findings indicate that drone operations, when evaluated against the merit indices adopted in their analyses, are deemed unviable due to safety constraints. In contrast, the objective of this research is precisely to identify a mission scenario that is unfeasible under current conditions and implement risk-mitigation strategies to ultimately enable drone transit.
 \end{itemize}
 
-In either case, as specified in Bertelli's ConOps, the cruising height is about 75\,m, at 17\,m/s cruising velocity (approximately 70\% of the maximum cruising speed allowed by the UAV platform of 25\,m/s, unsustainable for the entire duration of the mission at the time of evaluation), with possible speed variations according to mission urgency if specified in the ConOps as considered by Angelini.   
 
-Accounting for the presence of wind in the operating environment, wind speed in Turin averages about 2\,m/s (7\,km/h), with a peak of about 28.4\,m/s (102\,km/h) in 2013\cite{}\hl{THE REPORT ABOUT WIND FROM THE COMUNE!!!!}. \hl{go and look AT THE CODE FOR THE VALUE OF WIND YOUR DUMB ASS DECIDED TO USE}
+In either Route A or B, as specified in Bertelli's ConOps, the cruising height is about 75\,m, at 17\,m/s cruising velocity (approximately 70\% of the maximum cruising speed allowed by the UAV platform of 25\,m/s, unsustainable for the entire duration of the mission at the time of evaluation), with possible speed variations according to mission urgency if specified in the ConOps. 
 
+Accounting for the presence of wind in the operating environment, wind speed in Turin averages about 1.8\,m/s (6.5\,km/h) \cite{ComuneTorinoWind-AVG}, with a peak of about 28.6\,m/s (103\,km/h) in 2013 \cite{ComuneTorinoWind-MAX}.
 
-
-
-\hl{EXTRA THINGS TO INCLUDE
-ENAC's restrictive rules are satisfied by the water corridor (Cav p.37)
-Risk-based route selection (Ang, Fio):
-Dijkstra and A* for the minimum-risk path (Ang p.17). It is a static algorithm run on a per-cell risk map, and the output is maps for the Turin province.
-Input maps: population density (p.35) and shelters (ref. 17, p.40)
-Probabilistic risk maps
-Fio 2021 uses RRT* for path planning, with the "layers" idea of combined risk factors
-Primatesta (Bert refs 8–9, Fio p.40) was an inspiration for Davide's work too. Romeo and Cestino is Ang ref. 8.
-Merit index: three conditions (payload, route length, safety), with weights that depend on mission type (Ang p.86). Safety penalises the drone much more heavily than the eVTOL.}
-
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=0.54\textheight, keepaspectratio, trim=35 24 41 7, clip]{figures/chap3/trajectory-map-satellite.pdf}
+    \caption[Reference mission routes across Turin]{Reference mission routes across Turin, from the Molinette Hospital to the San Giovanni Bosco Hospital: Route A (above-the-river trajectory) and Route B (straight-line trajectory).\protect\footnotemark}
+    \label{fig:trajectory-map}
+\end{figure}
+\footnotetext{Imagery: Esri, Maxar, Earthstar Geographics, and the GIS User Community. Basemap: Web Mercator; grid: WGS84 / UTM 32N.}
 
 
 \subsubsection{UAV Platform}
@@ -41,7 +37,7 @@ The chosen failure scenario implies an in-flight malfunction or fatal failure of
 
 
 \subsubsection{Payload container}
-The design of the payload container to be carried by the UAV platform in delivery missions was proposed, but never fully prototyped, by Sivieri (2021) \cite{Sivieri2021}. Its geometry is shown in Fig.\ref{} \hl{INSERT FIGURE HERE}: The central body is a cylinder capped with two hemispherical domes. In Sivieri's original design, this container had to be constructed via stratifying four layers, from inside out: first layer of 3d-printed PET-G with thickness 2\,mm, second layer of manually applied thermal insulation of unknown effective thickness, third layer of 3D-printed PET-G and 2\,mm thickness, and a final layer of manually-applied thermo-reflective paint. This sandwich-type structure was designed specifically for evaluating the thermal and vibration loads of a reference mission similar to the one presented earlier, and thus avoiding making considerations on transportability, attachment mechanisms, and other application-specific parameters. 
+The design of the payload container to be carried by the UAV platform in delivery missions was proposed, but never fully prototyped, by Sivieri (2021) \cite{Sivieri2021}. Its geometry is shown in Fig. \hl{INSERT FIGURE HERE}: The central body is a cylinder capped with two hemispherical domes. In Sivieri's original design, this container had to be constructed via stratifying four layers, from inside out: first layer of 3d-printed PET-G with thickness 2\,mm, second layer of manually applied thermal insulation of unknown effective thickness, third layer of 3D-printed PET-G and 2\,mm thickness, and a final layer of manually-applied thermo-reflective paint. This sandwich-type structure was designed specifically for evaluating the thermal and vibration loads of a reference mission similar to the one presented earlier, and thus avoiding making considerations on transportability, attachment mechanisms, and other application-specific parameters. 
 
 Due to the artisanal nature of this design, linked to the difficulty in modelling specific 3D-printed PETG and the unquantifiable specifications of the insulation material, the payload container was modelled by retaining its shape with a 5 mm thick shell [\hl{verify thickness in the FE model}] of injection-moulded Acrylonitrile butadiene styrene (ABS), commonly used in packaging. The cavity is filled with polyurethane foam, chosen to simulate a protective wrapping (such as bubble wrap) that medical operators would use as established praxis to mitigate vibrations. The thermal paint is omitted from the payload container modelling process.
 
@@ -64,7 +60,7 @@ Akineton is a pharmaceutical product commonly used in the treatment of Parkinson
     \begin{subfigure}[b]{0.37\textwidth}
         \centering
         \includegraphics[width=\textwidth]{example-image-b}
-        \caption{Single Akineton phial.}
+        \caption{\hl{Single Akineton phial.}}
         \label{fig:akineton_phial}
     \end{subfigure}
     \caption{Akineton Fiale packaging and single phial.}
@@ -119,7 +115,7 @@ A direct consequence of applying the Safety-First design principle in UAV-based 
         \caption{\textit{Safety-First} approach}
         \label{fig:flowchart-safety-first}
     \end{subfigure}
-    \caption{Sequence of design events in the two approaches: the order of the mission and safety loops is swapped.}
+    \caption{Sequence of design events in the two approaches: \textit{mission-first} and \textit{safety-first} loops.}
     \label{fig:flowcharts-mission-vs-safety}
 \end{figure}
 

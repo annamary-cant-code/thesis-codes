@@ -169,9 +169,14 @@
         \node[rotate=90,below right=40mm and 3mm] at (current page.west) {%
             \ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
 
-        %% Add the logo in the bottom left
-        \node[above right=10mm] at (current page.south west) {%
-            \includegraphics[width=0.35\linewidth]{figures/logo-white.pdf}};
+        %% Add the banner with the TU Delft, PoliTo, AOU and FEV logos at the bottom
+        \node[above=0,fill=black!85,minimum width={\paperwidth},inner ysep=10mm,opacity=0.6,text opacity=1] at (current page.south) {%
+            \makebox[0.9\paperwidth]{%
+                \raisebox{-0.5\height}{\includegraphics[height=15mm]{figures/cover_and_logos/logo-white.pdf}}\hfill
+                \raisebox{-0.5\height}{\includegraphics[height=17mm]{figures/cover_and_logos/PoliTO_CMYK_bianco-logo.png}}\hfill
+                \raisebox{-0.5\height}{\includegraphics[height=19mm]{figures/cover_and_logos/logo_AOU_white.png}}\hfill
+                \raisebox{-0.5\height}{\includegraphics[height=11mm]{figures/cover_and_logos/FEV_logo_white.png}}%
+            }};
 
         %% Add the banner with the title, subtitle, subject and author(s)
         \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%

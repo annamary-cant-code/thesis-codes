@@ -1,5 +1,5 @@
 % LTeX: language=en-GB
-\chapter{Results - Through the Workflow}
+\chapter{Results: through the Workflow}
 \label{chapter:results}
 
 Do not include too many implementation details
@@ -38,7 +38,66 @@ MENTION MODEL ITERATIONS TRIAL-AND-ERROR IN THE APPENDIX \ref{appendix:FEMiterat
 
 \subsection{Sled test}
 
-\section{Design variables optimisation: the code!!!}
+\section{Design variables optimisation: the code!!!}\label{section:optimisation-code}
+
+\begin{lstlisting}[language=Python, frame=single,
+  literate={·}{{$\cdot$}}1 {→}{{$\rightarrow$}}2 {−}{{-}}1
+           {ρ}{{$\rho$}}1 {φ}{{$\varphi$}}1 {ṁ}{{$\dot{m}$}}1
+           {≤}{{$\leq$}}1 {≥}{{$\geq$}}1]
+init: geometry(h=0), m0 = P0·V0/(R·T0)
+loop while t < t_max:
+  choose dt from previous load (hysteresis)
+  F_n = max((P−Pamb)·A_prev, 0) → a_x, a_y          [explicit: old P, old A]
+  u_new = u + a·dt ;  h_new = clamp(h + u_n,new·dt)  [semi-implicit Euler]
+  A, V = geometry(h_new) ;  A_vent = A_or + φ(S − A)
+  ρ = m/V → P, T adiabatic from previous state
+  repeat N sub-steps (dt/N):                          [sub-cycling, not iteration]
+      if P ≤ Pamb: stop
+      dm = ṁ(P,T,A_vent)·dt/N → m, ρ, P (old T), T
+  P = max(P, Pamb)
+  if P > P_burst → BURST  | if h ≥ D0 → BOTTOMED | if y_pen ≤ 0 → REBOUND
+  advance state
+\end{lstlisting}
+
+\begin{table}[h!]
+\centering
+\caption{Airbag design variables by design phase.}
+\label{tab:airbag-design-variables-selected}
+\begin{thesistable}{
+  colspec = {X[l] X[l]},
+  % ---- phase headers (blue = Phase 1, teal = Phase 2) and tinted contents
+  row{1} = {c},
+  cell{1}{1} = {bg=phaseA}, cell{1}{2} = {bg=phaseB},
+  cell{2}{1} = {bg=tintA},  cell{2}{2} = {bg=tintB},
+  row{2} = {abovesep=5pt, belowsep=6pt},
+  vline{2} = {wd=\gap, fg=white},
+}
+Phase 1 -- design for peak acceleration & Phase 2 -- design for deployment time \\
+\begin{minipage}[t]{\linewidth}
+\begin{enumerate}[leftmargin=*, topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=3pt,
+                  label=\textcolor{phaseA}{\bfseries\arabic*.}]
+  \item Shape
+  \item Characteristic size
+  \item Inflation pressure
+  \item Fabric type, thickness
+  \item Venting mechanism - vent burst pressure and/or fabric porosity
+\end{enumerate}
+\end{minipage}
+&
+\begin{minipage}[t]{\linewidth}
+\begin{enumerate}[leftmargin=*, topsep=0pt, partopsep=0pt, parsep=0pt, itemsep=3pt,
+                  label=\textcolor{phaseB}{\bfseries\arabic*.}]
+  \item Housing/container size and geometry
+  \item Air injection inlet pressure
+  \item Air injection mass flow rate
+  \item Seams locations
+  \item Folding pattern
+  \item Number of folds
+\end{enumerate}
+\end{minipage}
+\\
+\end{thesistable}
+\end{table}
 
 * codice ispirato da Zhou et al 2019 - spiegazione del modello e dell'aspetto dei vari blocchi
 * Sapendo che le thresholds delle provette sono tot, allora si può convergere verso un pre-dimensionamento dell'airbag con tot dimensioni o caratteristiche. 

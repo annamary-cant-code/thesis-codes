@@ -40,17 +40,51 @@
   before skip=12pt, after skip=12pt,
   #1
 }
-% Coloured tables (used by the design-variables table, Ch. 2)
+%% ----------------------------------------------------------------------
+%%    Table house style (modelled on tab:variable_inventory)
+%%    navy header band, thin rules between rows, navy bottom rule;
+%%    blue/teal = group or phase, light tint = group-label column
+%% ----------------------------------------------------------------------
 \usepackage{colortbl}
-\definecolor{navy}{HTML}{14213D}
-\definecolor{phaseA}{HTML}{1F5A8C}   % Phase 1 (blue)
-\definecolor{phaseB}{HTML}{1B7F79}   % Phase 2 (teal)
+\usepackage{hhline}
+\usepackage{tabularray}
+\definecolor{navy}{HTML}{14213D}     % header band, bottom rule
+\definecolor{phaseA}{HTML}{1F5A8C}   % group / Phase 1 (blue)
+\definecolor{phaseB}{HTML}{1B7F79}   % group / Phase 2 (teal)
 \definecolor{tintA}{HTML}{E8F0F8}
 \definecolor{tintB}{HTML}{E6F4F2}
-\newlength{\colw}
-\newcommand{\gap}{4pt}   % white gap between the two phase blocks
-\newcommand{\cellstrut}{\rule{0pt}{2.8ex}}
-\newcommand{\cellstrutb}{\rule[-1.3ex]{0pt}{0pt}}
+\colorlet{tblrule}{navy!18}          % thin rule between rows
+\colorlet{grouprulecol}{phaseA!45}   % rule between groups
+\newcommand{\tblfont}{\footnotesize} % font size of every table
+\newcommand{\gap}{4pt}               % white gap between colour blocks
+% Floating tables: \begin{table} \caption{..} \begin{thesistable}{colspec=..} .. \end{thesistable} \end{table}
+\NewTblrEnviron{thesistable}
+\SetTblrInner[thesistable]{
+  width = \linewidth,
+  rowsep = 1.5pt,
+  cells = {font=\tblfont},
+  row{1} = {bg=navy, fg=white, font=\tblfont\sffamily\bfseries, abovesep=4pt, belowsep=4pt},
+  hline{3-Y} = {0.4pt, fg=tblrule},
+  hline{Z} = {0.8pt, fg=navy},
+}
+% Multi-page tables: longtable with the same look (tabularray's longtblr
+% breaks on repeated headers with the current LaTeX kernel).
+%   L{0.3}: ragged-right column, 0.3\linewidth wide; G{0.2}: group-label column
+\newcommand{\tblstrut}{\rule[-0.9ex]{0pt}{0pt}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{\dimexpr#1\linewidth-2\tabcolsep\relax}<{\tblstrut}}
+\newcolumntype{G}[1]{>{\columncolor{tintA}\leavevmode\color{phaseA}\sffamily\bfseries\raggedright\arraybackslash}p{\dimexpr#1\linewidth-2\tabcolsep\relax}<{\tblstrut}}
+\newcommand{\hd}[1]{\leavevmode\textcolor{white}{\sffamily\bfseries #1}}   % header cell
+\newcommand{\headrow}{\rowcolor{navy}\rule[-1.4ex]{0pt}{4.4ex}}           % start of header row
+\newcommand{\itemrule}[1]{\hhline{>{\arrayrulecolor{tintA}}->{\arrayrulecolor{tblrule}}*{#1}{-}}} % rule within a group (#1 = columns after the group column)
+\newcommand{\grouprule}{\arrayrulecolor{grouprulecol}\specialrule{0.6pt}{0pt}{0pt}}         % rule between groups
+% Teal (Phase 2) variants; no optional arguments here: they would break \noalign
+\newcommand{\itemruleB}[1]{\hhline{>{\arrayrulecolor{tintB}}->{\arrayrulecolor{tblrule}}*{#1}{-}}}
+\newcommand{\groupruleB}{\arrayrulecolor{phaseB!45}\specialrule{0.6pt}{0pt}{0pt}}
+\newcommand{\tintB}{\cellcolor{tintB}\color{phaseB}}                                      % switch a G cell to the teal (Phase 2) tint
+\newcommand{\grouphead}[3]{\multicolumn{#1}{>{\columncolor{#2}}l}{\rule[-1ex]{0pt}{3.4ex}\hd{#3}}\\*} % full-width group band (never left alone at a page bottom): {columns}{colour}{label}
+\newcommand{\lastrule}{\arrayrulecolor{navy}\specialrule{0.8pt}{0pt}{0pt}\arrayrulecolor{black}}
+\newcommand{\contfoot}[1]{\multicolumn{#1}{r}{\footnotesize\itshape continued on next page}\\}
+\newcommand{\longtablesetup}{\tblfont\setlength{\tabcolsep}{6pt}\renewcommand{\arraystretch}{1}\setlength{\extrarowheight}{2.5pt}}
 % Sub-subsection titles in italic (Roboto Slab has no italic shape, so use the body font)
 \titleformat{\subsubsection}
     {\normalfont\fontsize{11}{13.6}\selectfont\bfseries\itshape} % 11pt: between body (10pt) and subsection (12pt)
@@ -74,7 +108,7 @@ Payloads}
 
 % \subject{AB1234: Optional Course Name} % Cover only
 \affiliation{Delft University of Technology} % Cover only
-\coverimage{figures/cover.jpg} % Aspect ratio of 2:3 (portrait) recommended
+\coverimage{figures/cover_and_logos/cover.jpg} % Aspect ratio of 2:3 (portrait) recommended
 \definecolor{title}{HTML}{4884d6} % Color for cover title
 
 \makecover
