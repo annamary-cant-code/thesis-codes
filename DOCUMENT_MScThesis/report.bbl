@@ -639,20 +639,6 @@
       \verb https://www.abruzzospeciale.it/2025/08/01/farmaci-con-drone-avezzano/
       \endverb
     \endentry
-    \entry{skyeu_web}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{SkyEU website}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{{SkyEu}}
-      \verb{urlraw}
-      \verb https://skyeu.it/
-      \endverb
-      \verb{url}
-      \verb https://skyeu.it/
-      \endverb
-    \endentry
     \entry{dot_indoor}{misc}{}{}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -665,6 +651,34 @@
       \endverb
       \verb{url}
       \verb https://www.fondazionedot.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
+      \endverb
+    \endentry
+    \entry{dot_grant}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Fondazione D.O.T. Onlus}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Il progetto {INDOOR}: nuove prospettive per il trasporto di organi grazie alla tecnologia dei droni}
+      \verb{urlraw}
+      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
+      \endverb
+      \verb{url}
+      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
+      \endverb
+    \endentry
+    \entry{polito_pic4ser}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Politecnico di Torino, Poliflash}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{A {Torino} vola il primo drone per il trasporto di organi e materiale biologico}
+      \verb{urlraw}
+      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
+      \endverb
+      \verb{url}
+      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
       \endverb
     \endentry
     \entry{abzero_web}{misc}{}{}
@@ -695,20 +709,6 @@
       \verb https://www.cittadellasalute.to.it/index.php?option=com_content&view=article&id=24515
       \endverb
     \endentry
-    \entry{dot_grant}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Fondazione D.O.T. Onlus}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{Il progetto {INDOOR}: nuove prospettive per il trasporto di organi grazie alla tecnologia dei droni}
-      \verb{urlraw}
-      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
-      \endverb
-      \verb{url}
-      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
-      \endverb
-    \endentry
     \entry{tecnomedicina_indoor}{misc}{}{}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -724,8 +724,8 @@
       \endverb
     \endentry
     \entry{hydronews_torino}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{HydroNews}
       \field{note}{Accessed 5 October 2026}
@@ -735,20 +735,6 @@
       \endverb
       \verb{url}
       \verb https://www.hydronews.it/anche-a-torino-un-progetto-per-decarbonizzare-la-logistica-sanitaria-con-droni-a-idrogeno/
-      \endverb
-    \endentry
-    \entry{polito_pic4ser}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Politecnico di Torino, Poliflash}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{A {Torino} vola il primo drone per il trasporto di organi e materiale biologico}
-      \verb{urlraw}
-      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
-      \endverb
-      \verb{url}
-      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
       \endverb
     \endentry
     \entry{newpharma_lastmed}{misc}{}{}
@@ -765,20 +751,6 @@
       \verb https://www.newpharmaitaly.it/lastmed-il-robot-che-consegna-farmaci-agli-anziani/
       \endverb
     \endentry
-    \entry{cr_piemonte}{misc}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Consiglio Regionale del Piemonte, press release}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{I droni e il delivery sanitario}
-      \verb{urlraw}
-      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
-      \endverb
-      \verb{url}
-      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
-      \endverb
-    \endentry
     \entry{ansa_lastmed}{misc}{}{}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
@@ -791,6 +763,34 @@
       \endverb
       \verb{url}
       \verb https://www.ansa.it/piemonte/notizie/2026/03/23/tecnocad-farmaci-a-persone-fragili-da-rover-robot-automatizzato_b266e9c6-f168-4b25-a2e7-775a83795571.html
+      \endverb
+    \endentry
+    \entry{skyeu_web}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{SkyEU website}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{{SkyEu}}
+      \verb{urlraw}
+      \verb https://skyeu.it/
+      \endverb
+      \verb{url}
+      \verb https://skyeu.it/
+      \endverb
+    \endentry
+    \entry{cr_piemonte}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Consiglio Regionale del Piemonte, press release}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{I droni e il delivery sanitario}
+      \verb{urlraw}
+      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
+      \endverb
+      \verb{url}
+      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
       \endverb
     \endentry
     \entry{chhetri2026survey}{article}{}{}
@@ -909,8 +909,8 @@
       \strng{authornamehash}{e87cb9947cc8193f5baabff300abb894}
       \strng{authorfullhash}{a2f6cd4910fb1c5ee5cdc74f56a88974}
       \strng{authorfullhashraw}{a2f6cd4910fb1c5ee5cdc74f56a88974}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Annual Review of Biomedical Engineering}
@@ -1653,8 +1653,8 @@
       \strng{authornamehash}{88ed13fd25cbd4ecfb7f4f6f4daa202e}
       \strng{authorfullhash}{0020f99538ea07e4d686ca709d45d63e}
       \strng{authorfullhashraw}{0020f99538ea07e4d686ca709d45d63e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Chin. J. Aeronaut.}

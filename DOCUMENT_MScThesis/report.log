@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  11 OCT 2026 23:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  12 OCT 2026 22:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1846,54 +1846,54 @@ Chapter 2.
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 26.
-LaTeX Font Info:    Trying to load font information for T1+qhv on input line 28.
+(Font)              scaled to size 8.0pt on input line 25.
+LaTeX Font Info:    Trying to load font information for T1+qhv on input line 27.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 7.52002pt on input line 28.
+(Font)              scaled to size 7.52002pt on input line 27.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `qhv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 7.52002pt on input line 28.
+(Font)              scaled to size 7.52002pt on input line 27.
  [6{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}]
 
 LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/b/it' undefined
-(Font)              using `T1/RobotoSlab-TLF/b/n' instead on input line 111.
+(Font)              using `T1/RobotoSlab-TLF/b/n' instead on input line 104.
 
 LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/it' aliased to
-(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 111.
+(Font)              `T1/RobotoSlab-TLF/bold/n' on input line 104.
 
 LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/light/it' undefined
-(Font)              using `T1/RobotoSlab-TLF/light/n' instead on input line 116.
+(Font)              using `T1/RobotoSlab-TLF/light/n' instead on input line 109.
 
 [7] [8]
-<figures/chap2/Zhou-et-al_2019_diagram.pdf, id=568, 752.8125pt x 316.3017pt>
+<figures/chap2/Zhou-et-al_2019_diagram.pdf, id=566, 752.8125pt x 316.3017pt>
 File: figures/chap2/Zhou-et-al_2019_diagram.pdf Graphic file (type pdf)
 <use figures/chap2/Zhou-et-al_2019_diagram.pdf>
-Package pdftex.def Info: figures/chap2/Zhou-et-al_2019_diagram.pdf  used on input line 136.
+Package pdftex.def Info: figures/chap2/Zhou-et-al_2019_diagram.pdf  used on input line 129.
 (pdftex.def)             Requested size: 448.1309pt x 188.29112pt.
  [9 <./figures/chap2/Zhou-et-al_2019_diagram.pdf>]
 <figures/chap2/Zhou-et-al_2019_flowChart.pdf, id=592, 598.15468pt x 276.07141pt>
 File: figures/chap2/Zhou-et-al_2019_flowChart.pdf Graphic file (type pdf)
 <use figures/chap2/Zhou-et-al_2019_flowChart.pdf>
-Package pdftex.def Info: figures/chap2/Zhou-et-al_2019_flowChart.pdf  used on input line 157.
+Package pdftex.def Info: figures/chap2/Zhou-et-al_2019_flowChart.pdf  used on input line 150.
 (pdftex.def)             Requested size: 448.1309pt x 206.8382pt.
  [10{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newpx/px-lms.enc} <./figures/chap2/Zhou-et-al_2019_flowChart.pdf>]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 11.0pt on input line 177.
+(Font)              scaled to size 11.0pt on input line 170.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 11.0pt on input line 177.
+(Font)              scaled to size 11.0pt on input line 170.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
-(Font)              scaled to size 11.0pt on input line 177.
+(Font)              scaled to size 11.0pt on input line 170.
  [11] [12]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 339.
+(Font)              scaled to size 9.40002pt on input line 332.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 11.28003pt on input line 339.
+(Font)              scaled to size 11.28003pt on input line 332.
  [13]) (mainmatter/3_DesignWorkflow_METHODOLOGY.tex [14]
 Chapter 3.
 [15
@@ -1941,12 +1941,13 @@ File: figures/chap3/flowchart-safety-first.pdf Graphic file (type pdf)
 <use figures/chap3/flowchart-safety-first.pdf>
 Package pdftex.def Info: figures/chap3/flowchart-safety-first.pdf  used on input line 114.
 (pdftex.def)             Requested size: 201.65753pt x 344.23976pt.
-<figures/chap3/inner_loop_2-rows.png, id=1118, 2007.5pt x 1405.25pt>
+ [19 <./figures/chap3/flowchart-mission-first.pdf> <./figures/chap3/flowchart-safety-first.pdf>]
+<figures/chap3/inner_loop_2-rows.png, id=1164, 2007.5pt x 1505.625pt>
 File: figures/chap3/inner_loop_2-rows.png Graphic file (type png)
 <use figures/chap3/inner_loop_2-rows.png>
-Package pdftex.def Info: figures/chap3/inner_loop_2-rows.png  used on input line 131.
-(pdftex.def)             Requested size: 448.1309pt x 313.6803pt.
- [19 <./figures/chap3/flowchart-mission-first.pdf> <./figures/chap3/flowchart-safety-first.pdf>] [20 <./figures/chap3/inner_loop_2-rows.png>]) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [21]
+Package pdftex.def Info: figures/chap3/inner_loop_2-rows.png  used on input line 134.
+(pdftex.def)             Requested size: 448.1309pt x 336.08603pt.
+ [20 <./figures/chap3/inner_loop_2-rows.png>]) (mainmatter/4_TestingDesignWorkflow_RESULTS.tex [21]
 Chapter 4.
 (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
@@ -1955,7 +1956,34 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 47.
  [22
 
-]) (mainmatter/5_Conclusions.tex [23]
+]
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 8.0pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 6.2pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 5.5pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
+(Font)              scaled to size 8.0pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
+(Font)              scaled to size 6.2pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
+(Font)              scaled to size 5.5pt on input line 119.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
+(Font)              scaled to size 6.2pt on input line 119.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
+(Font)              scaled to size 5.5pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 10.0pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 7.3pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
+(Font)              scaled to size 10.0pt on input line 119.
+LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
+(Font)              scaled to size 7.3pt on input line 119.
+) (mainmatter/5_Conclusions.tex [23]
 Chapter 5.
 ) (mainmatter/6_ProjectManagement.tex [24
 
@@ -2001,23 +2029,23 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 0BB1D30A0DC77500BE9032307E44E6E2;10680.
+(rerunfilecheck)             Checksum: 7A62EF12446CBA4E65FD794E84700BF7;10690.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57151 strings out of 467501
- 1199795 string characters out of 5408550
- 2210495 words of memory out of 5000000
- 84906 multiletter control sequences out of 15000+600000
- 828089 words of font info for 316 fonts, out of 8000000 for 9000
+ 58214 strings out of 467501
+ 1223646 string characters out of 5408550
+ 2223609 words of memory out of 5000000
+ 85973 multiletter control sequences out of 15000+600000
+ 846555 words of font info for 338 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,12n,108p,2226b,2908s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,12n,157p,2226b,2908s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/txfonts/t1xtt.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on report.pdf (47 pages, 10040801 bytes).
+Output written on report.pdf (47 pages, 10054278 bytes).
 PDF statistics:
- 1696 PDF objects out of 1728 (max. 8388607)
- 294 named destinations out of 1000 (max. 500000)
- 69760 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1682 PDF objects out of 1728 (max. 8388607)
+ 275 named destinations out of 1000 (max. 500000)
+ 81024 words of extra memory for PDF output out of 89155 (max. 10000000)
 

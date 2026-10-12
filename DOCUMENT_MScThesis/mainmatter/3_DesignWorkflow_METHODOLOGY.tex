@@ -121,10 +121,13 @@ A direct consequence of applying the Safety-First design principle in UAV-based 
 
 
 
-\subsection{Inner design loop: a payload-protection subsystem design workflow}\label{section:inner-design-loop}
-* Inner design loop formalisation: specific requirements and design steps of one of the processes in the safety loop of 3.1b. DEVELOPING, greater deal of a process. 
-* the loop is payload-specific and device-specific, i.e. an airbag needs to protect a glass phial. 
-* The diagram  + objectives, i.e. where this MSc Thesis “stops” 
+\subsection{\hl{Inner design loop: a payload-protection subsystem design workflow}}\label{section:inner-design-loop}
+This is how this thesis proposes to go through the design process, expanding the "safety loop" highlighted in Section \ref{section:outer-design-loop}, based on the information distilled in Section \ref{section:airbag-design-guidelines}. The loop shown in Fig. \ref{fig:inner-design-loop} is divided into two main parts. The first part is partially payload-specific and is the deliverable of this master thesis; it extends up to the point where geometry-specific decisions have to be made. The second part leads directly to prototyping, on the basis of more specific design decisions that are tailored to the next step in the outer design loop, the mission loop.
+
+
+\subsubsection{\hl{Step 0 - Preliminary mission analysis}}
+This step is about the preliminary analysis of the impact conditions of the payload: it analyzes the conditions in which the pillar is dropped, implements some statistical analysis, and then calculates how the payload arrives on the ground. The useful outputs of this phase are the time of freefall and the impact velocities in the vertical and horizontal directions.
+mission inputs ($t_{fall}$, $V_x$, $V_y$)
 
 \begin{figure}[htbp]
     \centering
@@ -134,44 +137,26 @@ A direct consequence of applying the Safety-First design principle in UAV-based 
 \end{figure}
 
 
+\subsubsection{\hl{Step 1 - Axial compression test (experimental)}}
+experimental characterisation of glass phials breaking point
+Step 1 is about testing the payload in the lab to obtain information on how it behaves from a breaking perspective. The idea is to conduct a testing campaign to characterize the material the phials are made of, so that this information can be fed to the next step, where this behavior needs to be reproduced at an FEM level. $F_{fail}$
+
+\subsubsection{\hl{Step 2 - Axial compression test (FEM)}}
+matching the experimental behaviour at a FEM level to reproduce the mechanical behaviour of the material, limited to the compression behaviour as that is what is going to happen in the event of a fall.
+To reproduce the behavior observed in the lab, with the objective of creating a material card that can properly characterize the breaking behavior of the phial, the model aims to reproduce the testing conditions as faithfully as possible, in order to produce realistic phials that could then be inserted into a more complete breaking model in the sled test of step 3, $FT_{fail}$
+
+\subsubsection{\hl{Step 3 - Sled test}}
+emulation of a sled test inspired by the automotive field, input-output
+The sled test is about subjecting the payload container, in its design as proposed by Sierra 2021, to realistic impact conditions and scenarios. In particular, the idea is to reproduce an acceleration profile similar to that experienced by the peeled wooden counter in free fall from the conditions described in step 0. The idea is that the accelerations to which the payload is subjected are strictly linked with the kinetic energy that needs to be dissipated in the impact event. This latter approach is inspired by the automotive industry, which correlates an input acceleration profile with an output acceleration profile. Output: payload allowable acceleration $a_{allow}$
+
+\subsubsection{\hl{Step 4 - Design variables optimisation}}
+code, trying to simulate the impact of the actual thing in python to size the airbag
+This is the fourth and last step of this master's thesis deliverable, and the idea is that it turns all the boundary conditions, such as breaking mode, peak acceleration, and impact velocities, into a viable airbag design that, based on the work presented in the earlier Section 2.1, is optimized following certain criteria like mass, rebound, et cetera, and outputs sizing parameters that can be used to inform the design of a future, geometry-specific design.
 
 
-\hl{The upper row (Steps~0--4) gathers the mission inputs ($t_{fall}$, $V_x$, $V_y$) and the payload allowable acceleration $a_{allow}$, derived through experimental and numerical axial compression tests ($F_{fail}$, $FT_{fail}$) and an FEM sled test, and feeds them into the optimisation of the design variables. The resulting sizing parameters pass to the geometry-specific solution in the lower row (Steps~5--6), which is verified by impact and deployment testing (Steps~7A--7B) and iterated (dashed line) until the final design is reached. The red dashed line marks the scope of this MSc thesis.}
-
-
-\begin{enumerate}[start=0]
-    \item \textbf{Mission analysis}: calculate impact xxxxsxsxsxsxs
-    \item \textbf{Axial compression test (experimental)}: experimental characterisation of glass phials breaking point
-    \item \textbf{Axial compression test (FEM)}: matching the experimental behaviour at a fem level to reproduce mechanical behaviour of material, limited to the compression behaviour as that is what is going to happen in the event of a fall. 
-    \item \textbf{Sled test} - emulation of a sled test inspired by the automotive field, input-output
-    \item \textbf{Design variables optimisation} - code, trying to simulate the impact of the actual thing in python to seize the airbag
-    \item \textbf{Design of inflated configuration} - tailoring the airbag seizing  to the payload and UAV geometry
-    \item \textbf{Folding method optimisation with time constraint} - matching gas generator mechanism to geometry of the drone and payload and impact time and deployment requirements (really heare?), and including folds in the idea, like, standard folds, etc. 
-    \item \textbf{Impact and Deployment testing} validating the prototype through testing in a feedback loop where virtual and practical behaviours match. 
-\end{enumerate}
-
-
-
-* bring it back to the design variables found in section 2, explicitely saying which ones i'll focus on and why - payload-specific, ect.
-
-CHOOSE LOOKING AT THE CODE!!!!!!!!!!!!!!!!!!!!!!!!!
-
-for the last part of the diagram
-Phase 1 variables for - acceleration
-1.	Shape
-2.	Size
-6.	Inflation pressure
-3.	Fabric
-4.	Vent size - venting mechanism (hypothesis) / Vent burst pressure
-
-SOME ARE MISSING HERE - check the code
-
-Payload-specific variables - deployment time
-1.	Housing/container size and geometry
-2.	Air injection inlet pressure
-3.	Air injection mass flow rate
-4.	Seams locations
-5.	Folding pattern
-6.	Number of folds
-
-THESE SHOULD BE LISTED ONLY FOR PROTOTYPING.
+\subsubsection{\hl{Steps 5-7 - Design of inflated configuration, Folding method optimisation with time constraint, Impact and Deployment testing}}
+tailoring the airbag sizing to the payload and UAV geometry
+matching the gas generator mechanism to the geometry of the drone and payload, and to the impact time and deployment requirements
+and including folds in the idea, like standard folds, etc.
+validating the prototype through testing in a feedback loop where virtual and practical behaviours match.
+Steps 5 and 6 are geometry-specific, meaning that Step 5 is the moment where the fully inflated configuration is designed around a payload, whereas Step 6 is where this full configuration is studied and optimized when it comes to folding patterns, seaming patterns and stowage. The two are inherently interconnected, but Step 6 focuses on the optimization of a different parameter, which is the time of deployment, as explained earlier in the variable definition for airbag design. After a folding mechanism and a full design have been hypothesized, the design is tested through a thorough testing campaign divided into two steps, Steps 7A and 7B, which have to do with impact testing and deployment testing. The solutions hypothesized through FEM and through modeling are put to the test by making a prototype and testing the product in the impact conditions it was initially designed for, in a loop between design and testing until convergence is reached and we have a final design ready to be prepared.

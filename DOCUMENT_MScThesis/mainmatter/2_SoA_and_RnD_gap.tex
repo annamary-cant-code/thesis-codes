@@ -12,7 +12,6 @@ This chapter explores both these aspects in Sections \ref{section:payload-first-
 
 
 \section{Regional Market Analysis: medical UAV logistics in Piedmont}\label{section:market-analysis}
-\hl{DIVIDE TABLE GROUPING INDOOR PROJECT?}
 The Italian National Healthcare System (\textit{SSN}) is structured hierarchically: the guidelines and regulations issued at a \textit{national} level must be implemented locally, at a \textit{regional} level, by each region's \textit{Sistema Sanitario Regionale} (\textit{SSR}, the Regional Healthcare Service). Vice versa, aviation rules follow European-level enforcement mechanisms: Following the 2019 harmonisation of European drone operations across the "open" and "specific" categories \cite{EU2019947}, operators seeking authorisation for high-risk flights are required to conduct a thorough risk analysis using the \textit{Specific Operations Risk Assessment (SORA)} methodology developed by JARUS\footnote{\textit{Joint Authorities for Rulemaking on Unmanned Systems}}, making a detailed evaluation of potential failure scenarios while proving compliance with the demanding safety standards imposed by aviation authorities. 
 
 The discrepancy between modi operandi of the aviation and healthcare authorities has shaped the way drone-network operations have mostly been developing in the last decades in Italy: several emerging, albeit scattered, research groups, either cooperating or competing with industrial counterparts, have achieved geographically circumscribed trial deployments while being unable to scale the operation beyond testing.
@@ -22,71 +21,65 @@ A complete summary of such operations, limited to the means of investigation ava
  
 
 {\longtablesetup
-\begin{longtable}{G{0.19} L{0.27} L{0.54}}
-\caption{Actors involved in drone delivery of medical goods in Piedmont, grouped by value-chain stage.}
+\begin{longtable}{G{0.14} L{0.17} L{0.27} L{0.42}}
+\caption{Actors involved in drone delivery of medical goods in Piedmont, grouped by project.}
 \label{tab:actors-piedmont}\\
-\headrow\hd{Category} & \hd{Institution} & \hd{Scope} \\
+\headrow\hd{Project} & \hd{Role} & \hd{Institution} & \hd{Scope} \\
 \endfirsthead
-\headrow\hd{Category} & \hd{Institution} & \hd{Scope} \\
+\headrow\hd{Project} & \hd{Role} & \hd{Institution} & \hd{Scope} \\
 \endhead
-\contfoot{3}
+\contfoot{4}
 \endfoot
 \lastrule
 \endlastfoot
 
 % ---------------------------------------------------------------------
-Drone manufacturers
-& SkyEU & Autonomous high-speed eVTOL drones for first aid and critical logistics \cite{skyeu_web} \\
+INDOOR (2021-2024)
+& Promoter & Fondazione DOT & Project promoter \cite{dot_indoor} \\
+\itemrule{3}
+& Funder & Centro Nazionale Trapianti & Research grant at PIC4SeR \cite{dot_grant} \\
+\itemrule{3}
+& Funder & City of Turin & Project partner \cite{dot_indoor} \\
+\itemrule{3}
+& Research & PIC4SeR, Politecnico di Torino & Autonomous flight technologies for transporting biological material \cite{polito_pic4ser} \\
+\itemrule{3}
+& Research & Universit\`a di Torino & Project partner \cite{dot_indoor} \\
+\itemrule{3}
+& Technology partner & Mavtech & Technical partner; aerial surveillance and operational-support products \cite{dot_indoor} \\
+\itemrule{3}
+& Operator, payload maker & ABzero (Pisa) & Supplied the drone and the Smart Capsule (sensorised container for blood, organs and drugs); handled the ENAC authorisation \cite{abzero_web, cds_indoor, dot_grant, tecnomedicina_indoor} \\
+\itemrule{3}
+& End user & AOU Citt\`a della Salute e della Scienza & Test flight between hospital sites \cite{cds_indoor} \\
+\itemrule{3}
+& End user & Regional Transplant Centre Piemonte--Valle d'Aosta & Organ and biological transport \cite{dot_indoor} \\
+\itemrule{3}
+& Regulator & ENAC & National civil aviation authority; project partner and flight authorisation \cite{dot_indoor} \\
 \grouprule
 % ---------------------------------------------------------------------
-Technology partners
-& Mavtech & INDOOR technical partner; aerial surveillance and operational-support products \cite{dot_indoor} \\
-\itemrule{2}
-& FEV Italia & Industrial partner of the DIMEAS feasibility studies; numerical impact analysis \\
+DIMEAS feasibility studies (2020-2024)
+& Research & DIMEAS, Politecnico di Torino (Prof.~E.~Cestino) & Desk-based feasibility studies for emergency drug delivery in Turin: regulatory platform selection and SORA, risk maps and path planning, payload thermal/vibration loads, cost--safety comparison of car, drone and eVTOL, hub siting \cite{Cavallo2020, Bertelli2021, Sivieri2021, Fiorentino2021, Angelini2023, Angelini2024ICAS} \\
+\itemrule{3}
+& Technology partner & FEV Italia & Industrial partner; numerical impact analysis \\
+\itemrule{3}
+& End user & AOU Citt\`a della Salute e della Scienza & Pharmacy department partner \\
 \grouprule
 % ---------------------------------------------------------------------
-Payload / container makers
-& ABzero (Pisa) & Smart Capsule used for the INDOOR flight: sensorised container for blood, organs and drugs \cite{abzero_web, cds_indoor} \\
+Hydrogen logistics plan
+& End user & AOU Citt\`a della Salute e della Scienza & Proposed hydrogen drone logistics plan \cite{hydronews_torino} \\
+\itemrule{3}
+& Infrastructure & Torino Caselle and Cuneo Levaldigi airports & Proposed hub and support base \cite{hydronews_torino} \\
 \grouprule
 % ---------------------------------------------------------------------
-Operators
-& ABzero (Pisa) & Supplied the drone and handled the ENAC authorisation for INDOOR \cite{dot_grant, tecnomedicina_indoor} \\
+LastMed
+& Funder & City of Turin & Funded the LastMed call \cite{newpharma_lastmed} \\
+\itemrule{3}
+& Alternative (ground) & Tecnocad / Tecnomill / Bylogix & Autonomous ground rover for last-mile drug delivery \cite{ansa_lastmed} \\
 \grouprule
 % ---------------------------------------------------------------------
-Airspace and infrastructure
-& Torino Caselle and Cuneo Levaldigi airports & Proposed hub and support base for hydrogen drone logistics \cite{hydronews_torino} \\
-\grouprule
-% ---------------------------------------------------------------------
-Research
-& PIC4SeR, Politecnico di Torino & Autonomous flight technologies for transporting biological material (INDOOR) \cite{polito_pic4ser} \\
-\itemrule{2}
-& DIMEAS, Politecnico di Torino (Prof.~E.~Cestino) & Desk-based feasibility studies for emergency drug delivery in Turin: regulatory platform selection and SORA, risk maps and path planning, payload thermal/vibration loads, cost--safety comparison of car, drone and eVTOL, hub siting \cite{Cavallo2020, Bertelli2021, Sivieri2021, Fiorentino2021, Angelini2023, Angelini2024ICAS} \\
-\itemrule{2}
-& Universit\`a di Torino & INDOOR project partner \cite{dot_indoor} \\
-\grouprule
-% ---------------------------------------------------------------------
-End users
-& AOU Citt\`a della Salute e della Scienza & INDOOR test flight between hospital sites; proposed hydrogen logistics plan; pharmacy department partner of DIMEAS feasibility studies \cite{cds_indoor, hydronews_torino} \\
-\itemrule{2}
-& Regional Transplant Centre Piemonte--Valle d'Aosta & INDOOR partner for organ and biological transport \cite{dot_indoor} \\
-\grouprule
-% ---------------------------------------------------------------------
-Promoters and funders
-& Fondazione DOT & Promoter of the INDOOR project \cite{dot_indoor} \\
-\itemrule{2}
-& Centro Nazionale Trapianti & Funds the INDOOR research grant at PIC4SeR \cite{dot_grant} \\
-\itemrule{2}
-& City of Turin & INDOOR partner; funded the LastMed call \cite{dot_indoor, newpharma_lastmed} \\
-\grouprule
-% ---------------------------------------------------------------------
-Regulators and authorities
-& ENAC & National civil aviation authority; INDOOR partner and flight authorisation \cite{dot_indoor} \\
-\itemrule{2}
-& Regione Piemonte & Regional health authority; drone trials subject to benefit--risk analysis \cite{cr_piemonte} \\
-\grouprule
-% ---------------------------------------------------------------------
-Alternatives
-& Tecnocad / Tecnomill / Bylogix & LastMed autonomous ground rover for last-mile drug delivery \cite{ansa_lastmed} \\
+Independent
+& Drone manufacturer & SkyEU & Autonomous high-speed eVTOL drones for first aid and critical logistics \cite{skyeu_web} \\
+\itemrule{3}
+& Regulator & Regione Piemonte & Regional health authority; drone trials subject to benefit--risk analysis \cite{cr_piemonte} \\
 \end{longtable}
 }
 
@@ -120,9 +113,9 @@ Just like success is measured on the patient and not on the device in the biomed
 
 
 \section{Airbag impact attenuation: background knowledge}\label{section:airbag-design-variables}
-Airbag-type devices have a well-established, enduring research-development record with contributions found across multiple industries. The information presented in Sections \ref{section:airbag-historical-perspective} and \ref{section:airbag-design-guidelines} aims to represent the State of the Art practices adopted in airbag design. The scope of this investigation is developing a solid, although perhaps not comprehensive, understanding of design recommendations on which to base the proposal for the design workflow of later Section \ref{section:inner-design-loop}.
+Airbag-type devices have a well-established, enduring research-development record with contributions found across multiple industries. The information presented in Sections \ref{section:airbag-industry-perspective} and \ref{section:airbag-design-guidelines} aims to represent the State of the Art practices adopted in airbag design. The scope of this investigation is developing a solid, although perhaps not comprehensive, understanding of design recommendations on which to base the proposal for the design workflow of later Section \ref{section:inner-design-loop}.
 
-\subsection{Established applications and common working principle}\label{section:airbag-historical-perspective}
+\subsection{Established applications and common working principle}\label{section:airbag-industry-perspective}
 Airbag technology is well established across two primary sectors: \textit{automotive} and \textit{aerospace}.
 
 In the automotive industry, these systems are implemented during vehicle crashes, distinguishing between general automobile crashes and motorcycle impacts. In the space industry, ever since the early space missions of the 1960s, airbags have been deployed during the final landing phases of space capsules. Within the aeronautical industry, specifically in the "specific" operations category, other niche applications have emerged, such as the experimental study of adaptive airbag systems for the protection of UAVs and general aviation vehicles \cite{HolnickiSzulc2023} (following a long track record of exploration in the field of adaptive technologies for impact absorption \cite{HolnickiSzulc2015, HolnickiSzulc2009}). 

@@ -31,7 +31,13 @@
 \contentsline {subsection}{\numberline {3.1.2}Information gap}{18}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Proposed approach}{18}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Outer design loop: formalising the \textit {Safety-First} principle}{18}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Inner design loop: a payload-protection subsystem design workflow}{19}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.2}\texthl {Inner design loop: a payload-protection subsystem design workflow}}{19}{subsection.3.2.2}%
+\contentsline {subsubsection}{\texthl {Step 0 - Preliminary mission analysis}}{20}{subsection.3.2.2}%
+\contentsline {subsubsection}{\texthl {Step 1 - Axial compression test (experimental)}}{20}{figure.caption.12}%
+\contentsline {subsubsection}{\texthl {Step 2 - Axial compression test (FEM)}}{20}{figure.caption.12}%
+\contentsline {subsubsection}{\texthl {Step 3 - Sled test}}{20}{figure.caption.12}%
+\contentsline {subsubsection}{\texthl {Step 4 - Design variables optimisation}}{21}{figure.caption.12}%
+\contentsline {subsubsection}{\texthl {Steps 5-7 - Design of inflated configuration, Folding method optimisation with time constraint, Impact and Deployment testing}}{21}{figure.caption.12}%
 \contentsline {chapter}{\numberline {4}Results: through the Workflow}{22}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Mission and failure scenario analysis: calculating Vx and Vy}{22}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Studying the payload: calculating allowable impact acceleration}{22}{section.4.2}%
