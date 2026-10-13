@@ -1,29 +1,196 @@
 \chapter*{Nomenclature}
 \addcontentsline{toc}{chapter}{Nomenclature}
+\markboth{Nomenclature}{Nomenclature} % running header (otherwise shows "List of Tables")
 
-\emph{If a nomenclature is required, a simple template can be found below for convenience. Feel free to use, adapt or completely remove.}
+% Thin rule between rows (no group column, unlike \itemrule)
+\providecommand{\nomrule}[1]{\hhline{>{\arrayrulecolor{tblrule}}*{#1}{-}}}
 
-\section*{Abbreviations}
+\section*{\hl{Abbreviations}}
 
-\begin{longtable}{p{2.5cm}p{8cm}}
-    \toprule
-    Abbreviation & Definition \\
-    \midrule\endhead % Add abbreviations alphabetically here:
-    ISA & International Standard Atmosphere \\
-    ... \\
-    \bottomrule
+{\longtablesetup
+\begin{longtable}{L{0.18} L{0.82}}
+\headrow\hd{Abbreviation} & \hd{Definition} \\
+\endhead
+\contfoot{2}
+\endfoot
+\lastrule
+\endlastfoot
+% Add abbreviations alphabetically here:
+ABS & Acrylonitrile butadiene styrene \\
+\nomrule{2}
+AOU & \textit{Azienda Ospedaliero-Universitaria} (University Hospital Trust) \\
+\nomrule{2}
+ASL & \textit{Azienda Sanitaria Locale} (Local Health Authority) \\
+\nomrule{2}
+ASST & \textit{Azienda Socio-Sanitaria Territoriale} (Territorial Social and Health Authority) \\
+\nomrule{2}
+ConOps & Concept of Operations \\
+\nomrule{2}
+CTO & \textit{Centro Traumatologico Ortopedico} (Orthopaedic Trauma Centre, Turin) \\
+\nomrule{2}
+DIMEAS & \textit{Dipartimento di Ingegneria Meccanica e Aerospaziale} (Department of Mechanical and Aerospace Engineering, Politecnico di Torino) \\
+\nomrule{2}
+DoF & Degree(s) of freedom \\
+\nomrule{2}
+DTA & \textit{Distretto Tecnologico Aerospaziale} (Apulian Aerospace Technology Cluster) \\
+\nomrule{2}
+EASA & European Union Aviation Safety Agency \\
+\nomrule{2}
+ENAC & \textit{Ente Nazionale per l'Aviazione Civile} (Italian Civil Aviation Authority) \\
+\nomrule{2}
+ENAV & \textit{Ente Nazionale di Assistenza al Volo} (Italian Air Navigation Service Provider) \\
+\nomrule{2}
+EU & European Union \\
+\nomrule{2}
+eVTOL & Electric vertical take-off and landing \\
+\nomrule{2}
+FEM & Finite Element Method \\
+\nomrule{2}
+H2020 & Horizon 2020 (EU research and innovation programme) \\
+\nomrule{2}
+JARUS & Joint Authorities for Rulemaking on Unmanned Systems \\
+\nomrule{2}
+MTOM & Maximum take-off mass \\
+\nomrule{2}
+PET & Polyethylene terephthalate \\
+\nomrule{2}
+PET-G & Polyethylene terephthalate glycol-modified \\
+\nomrule{2}
+PIC4SeR & PoliTo Interdepartmental Centre for Service Robotics \\
+\nomrule{2}
+PU & Polyurethane \\
+\nomrule{2}
+RRT & Rapidly-exploring Random Tree (RRT*: asymptotically optimal variant) \\
+\nomrule{2}
+SIS 118 & \textit{Società Italiana Sistema 118} (Italian Society of the 118 Emergency Medical System) \hl{[verify]} \\
+\nomrule{2}
+SORA & Specific Operations Risk Assessment \\
+\nomrule{2}
+SSN & \textit{Sistema Sanitario Nazionale} (Italian National Healthcare System) \\
+\nomrule{2}
+SSR & \textit{Sistema Sanitario Regionale} (Regional Healthcare Service) \\
+\nomrule{2}
+UAV & Unmanned aerial vehicle \\
+\nomrule{2}
+UN3373 & UN number for Biological Substance, Category B (transport packaging standard) \\
+\nomrule{2}
+VTOL & Vertical take-off and landing \\
 \end{longtable}
+}
 
-\section*{Symbols}
+\section*{\hl{Symbols}}
 
-\begin{longtable}{p{2.5cm}p{8cm}p{2.5cm}}
-    \toprule
-    Symbol & Definition & Unit \\
-    \midrule\endhead % Add Latin symbols alphabetically here:
-    $V$ & Velocity & [m/s] \\
-    ... \\
-    \midrule % Add Greek symbols alphabetically here:
-    $\rho$ & Density & [kg/m$^3$] \\
-    ... \\
-    \bottomrule
+{\longtablesetup
+\begin{longtable}{L{0.16} L{0.64} L{0.20}}
+\headrow\hd{Symbol} & \hd{Definition} & \hd{Unit} \\
+\endhead
+\contfoot{3}
+\endfoot
+\lastrule
+\endlastfoot
+% Add Latin symbols alphabetically here:
+\grouphead{3}{phaseA}{Latin symbols}
+$A_t$ & Airbag--ground footprint area at time $t$ & [\si{\metre\squared}] \\
+\nomrule{3}
+$A_\text{vent}$ & Effective vent area & [\si{\metre\squared}] \\
+\nomrule{3}
+$a$ & Payload acceleration & [\si{\metre\per\second\squared}] \\
+\nomrule{3}
+$a_\text{allow}$ & Allowable payload acceleration & [\si{\metre\per\second\squared}] \\
+\nomrule{3}
+$a_\text{lim}$ & Design acceleration limit, $a_\text{allow}/\mathit{SF}$ & [\si{\metre\per\second\squared}] \\
+\nomrule{3}
+$D_0$ & Initial airbag diameter (characteristic dimension) & [\si{\metre}] \\
+\nomrule{3}
+$D_t$ & Airbag diameter at time $t$ & [\si{\metre}] \\
+\nomrule{3}
+$F_\text{fail}$ & Phial failure force under axial compression & [\si{\newton}] \\
+\nomrule{3}
+$F_n$ & Normal ground reaction force on the airbag & [\si{\newton}] \\
+\nomrule{3}
+$FT_\text{fail}$ & Phial brittle failure threshold & \hl{[verify]} \\
+\nomrule{3}
+$g$ & Gravitational acceleration & [\si{\metre\per\second\squared}] \\
+\nomrule{3}
+$h$ & Stroke, i.e.\ payload travel while compressing the airbag & [\si{\metre}] \\
+\nomrule{3}
+$k$ & Airbag shape coefficient (sphere: 0.5; cylinder: 1) \hl{[verify]} & [--] \\
+\nomrule{3}
+$L_0$ & Initial airbag length (cylindrical airbag) & [\si{\metre}] \\
+\nomrule{3}
+% CHECK: Ch. 2 uses M, Ch. 4 uses M_p for the same quantity
+$M$, $M_\text{p}$ & Payload mass & [\si{\kilogram}] \\
+\nomrule{3}
+$m$ & Gas mass inside the airbag & [\si{\kilogram}] \\
+\nomrule{3}
+$\dot{m}$ & Vented gas mass flow rate & [\si{\kilogram\per\second}] \\
+\nomrule{3}
+$\mathbf{n}$ & Unit vector along the impact (stroke) direction & [--] \\
+\nomrule{3}
+$n_\text{ply}$ & Number of fabric plies & [--] \\
+\nomrule{3}
+$P_0$ & Initial inflation pressure & [\si{\pascal}] \\
+\nomrule{3}
+% CHECK: Ch. 2 uses both P_atm and P_amb for the same quantity
+$P_\text{amb}$, $P_\text{atm}$ & Ambient (atmospheric) pressure & [\si{\pascal}] \\
+\nomrule{3}
+$P_\text{bag}$ & Airbag internal pressure & [\si{\pascal}] \\
+\nomrule{3}
+$P_\text{burst}$ & Airbag burst pressure & [\si{\pascal}] \\
+\nomrule{3}
+$P_\text{open}$ & Vent opening threshold pressure & [\si{\pascal}] \\
+\nomrule{3}
+$\mathit{PEN}$ & Penalty weight on constraint violations & [--] \\
+\nomrule{3}
+$R$ & Specific gas constant & [\si{\joule\per\kilogram\per\kelvin}] \\
+\nomrule{3}
+$\mathit{SF}$ & Safety factor on the allowable acceleration & [--] \\
+\nomrule{3}
+$\mathit{SF}_\text{burst}$ & Design factor on membrane tension & [--] \\
+\nomrule{3}
+$T$ & Gas temperature & [\si{\kelvin}] \\
+\nomrule{3}
+$T_0$ & Initial gas temperature & [\si{\kelvin}] \\
+\nomrule{3}
+$t$ & Time & [\si{\second}] \\
+\nomrule{3}
+$t_0$ & Initial time (onset of impact) & [\si{\second}] \\
+\nomrule{3}
+$t_\text{fall}$ & Free-fall time & [\si{\second}] \\
+\nomrule{3}
+$u_0$ & Initial vertical impact velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+$u_t$ & Payload velocity at time $t$ & [\si{\metre\per\second}] \\
+\nomrule{3}
+$u_{n,0}$ & Initial impact velocity along $\mathbf{n}$ & [\si{\metre\per\second}] \\
+\nomrule{3}
+$u_\text{res,max}$ & Maximum allowable residual velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+$u_{x,0}$ & Initial horizontal impact velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+$V_0$ & Initial airbag volume & [\si{\metre\cubed}] \\
+\nomrule{3}
+$V_t$ & Airbag volume at time $t$ & [\si{\metre\cubed}] \\
+\nomrule{3}
+% CHECK: Ch. 3 uses V_x, V_y for velocities; Ch. 4 uses u_{x,0}, u_0, and V_t is a volume
+$V_x$, $V_y$ & Horizontal and vertical impact velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+% CHECK: Eq. (2.1) uses v; elsewhere impact velocity is u
+$v$ & Impact velocity & [\si{\metre\per\second}] \\
+% Add Greek symbols alphabetically here:
+\grouphead{3}{phaseB}{Greek symbols}
+$\gamma$ & Specific heat ratio & [--] \\
+\nomrule{3}
+$\Delta m$ & Gas mass vented in one timestep & [\si{\kilogram}] \\
+\nomrule{3}
+$\Delta t$ & Timestep & [\si{\second}] \\
+\nomrule{3}
+$\eta_\text{seam}$ & Seam efficiency (fraction of fabric strength retained at seams) & [--] \\
+\nomrule{3}
+$\theta$ & Impact angle, measured from the vertical & [\si{\degree}] \\
+\nomrule{3}
+$\rho_t$ & Gas density at time $t$ & [\si{\kilogram\per\metre\cubed}] \\
+\nomrule{3}
+$\varphi_\text{vent}$ & Vent open-area fraction & [--] \\
 \end{longtable}
+}

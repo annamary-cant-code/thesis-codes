@@ -37,7 +37,25 @@ The chosen failure scenario implies an in-flight malfunction or fatal failure of
 
 
 \subsubsection{Payload container}
-The design of the payload container to be carried by the UAV platform in delivery missions was proposed, but never fully prototyped, by Sivieri (2021) \cite{Sivieri2021}. Its geometry is shown in Fig. \hl{INSERT FIGURE HERE}: The central body is a cylinder capped with two hemispherical domes. In Sivieri's original design, this container had to be constructed via stratifying four layers, from inside out: first layer of 3d-printed PET-G with thickness 2\,mm, second layer of manually applied thermal insulation of unknown effective thickness, third layer of 3D-printed PET-G and 2\,mm thickness, and a final layer of manually-applied thermo-reflective paint. This sandwich-type structure was designed specifically for evaluating the thermal and vibration loads of a reference mission similar to the one presented earlier, and thus avoiding making considerations on transportability, attachment mechanisms, and other application-specific parameters. 
+The design of the payload container to be carried by the UAV platform in delivery missions was proposed, but never fully prototyped, by Sivieri (2021) \cite{Sivieri2021}. Its geometry is shown in Fig. \ref{fig:payload_container} as modelled for the scope of the present thesis: the central body is a cylinder capped with two hemispherical domes. In Sivieri's original design, this container had to be constructed via stratifying four layers, from inside out: first layer of 3d-printed PET-G with thickness 2\,mm, second layer of manually applied thermal insulation of unknown effective thickness, third layer of 3D-printed PET-G and 2\,mm thickness, and a final layer of manually-applied thermo-reflective paint. This sandwich-type structure was designed specifically for evaluating the thermal and vibration loads of a reference mission similar to the one presented earlier, and thus avoiding making considerations on transportability, attachment mechanisms, and other application-specific parameters. From a structural perspective, the first and third layer of Sivieri's design were connected by four radial ribs, but this detail was deliberately omitted in the exemplification of the payload container for modelling simplicity and redundancy, as explained later in Section \ref{section:step4-sledTest}. 
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chap3/payload_container_full.png}
+        \caption{Full view of the closed container.}
+        \label{fig:payload_container_full}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chap3/payload_container_section.png}
+        \caption{Sectioned view showing the outer shell, the foam filling, and the housed payload.}
+        \label{fig:payload_container_section}
+    \end{subfigure}
+    \caption[Payload container geometry]{\hl{IT's REALLY UGLY}Payload container geometry: cylindrical central body capped with two hemispherical domes.}
+    \label{fig:payload_container}
+\end{figure}
 
 Due to the artisanal nature of this design, linked to the difficulty in modelling specific 3D-printed PETG and the unquantifiable specifications of the insulation material, the payload container was modelled by retaining its shape with a 5 mm thick shell [\hl{verify thickness in the FE model}] of injection-moulded Acrylonitrile butadiene styrene (ABS), commonly used in packaging. The cavity is filled with polyurethane foam, chosen to simulate a protective wrapping (such as bubble wrap) that medical operators would use as established praxis to mitigate vibrations. The thermal paint is omitted from the payload container modelling process.
 
@@ -46,12 +64,9 @@ Due to the artisanal nature of this design, linked to the difficulty in modellin
 \subsubsection{Payload}
 Considering the wide variety of medical goods potentially suitable for UAV-based air transport, it was necessary to identify a payload representative of standard shipments, excluding human organs and specialized equipment (e.g. defibrillators) to focus specifically on pharmaceuticals. Therefore, glass phials of the medicinal product \textit{Akineton Fiale}, containing \textit{biperidene lactate} at a concentration of 5\,mg/ml in injectable solution and shown in Fig.\ref{fig:akineton}\footnote{Source of photo: \url{https://www.guttafarm.net/akineton-cena}.}, were chosen. The product is commercially supplied in boxes of five phials, each individually packaged in a plastic blister tray.
 
-Akineton is a pharmaceutical product commonly used in the treatment of Parkinson's disease and drug-induced extrapyramidal symptoms, and is usually administered by intravenous or intramuscular injection. For the purposes of the present thesis, only the mechanical properties of the glass container are of interest, as the pharmacological action of the medical fluid is not relevant to the type of structural analyses implemented in this study.
-
-
-\begin{figure}[htbp]
+\begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.37\textwidth}
+    \begin{subfigure}[b]{0.25\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chap3/akineton_fiale.jpg}
         \caption{Akineton Fiale, 5\,mg/ml injectable solution, as supplied in its original packaging.}
@@ -67,6 +82,7 @@ Akineton is a pharmaceutical product commonly used in the treatment of Parkinson
     \label{fig:akineton}
 \end{figure}
 
+Akineton is a pharmaceutical product commonly used in the treatment of Parkinson's disease and drug-induced extrapyramidal symptoms, and is usually administered by intravenous or intramuscular injection. For the purposes of the present thesis, only the mechanical properties of the glass container are of interest, as the pharmacological action of the medical fluid is not relevant to the type of structural analyses implemented in this study.
 
 
 \subsection{Information gap}
@@ -100,16 +116,16 @@ In response to the gap identified in Section \ref{section:payload-first-approach
 A direct consequence of applying the Safety-First design principle in UAV-based operations' design is changing the sequence of design events, as exemplified in the simple flowcharts of Fig. \ref{fig:flowcharts-mission-vs-safety}, where Fig. \ref{fig:flowchart-mission-first} and Fig. \ref{fig:flowchart-safety-first} compare scenarios in which the mission loop can be interchanged with the safety loop to achieve design convergence. 
 
 
-\begin{figure}[htbp]
+\begin{figure}[!htb]
     \centering
-    \begin{subfigure}[t]{0.45\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chap3/flowchart-mission-first.pdf}
         \caption{\textit{Mission-First} approach}
         \label{fig:flowchart-mission-first}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[t]{0.45\textwidth}
+    \hspace{0.08\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chap3/flowchart-safety-first.pdf}
         \caption{\textit{Safety-First} approach}
@@ -121,42 +137,34 @@ A direct consequence of applying the Safety-First design principle in UAV-based 
 
 
 
-\subsection{\hl{Inner design loop: a payload-protection subsystem design workflow}}\label{section:inner-design-loop}
-This is how this thesis proposes to go through the design process, expanding the "safety loop" highlighted in Section \ref{section:outer-design-loop}, based on the information distilled in Section \ref{section:airbag-design-guidelines}. The loop shown in Fig. \ref{fig:inner-design-loop} is divided into two main parts. The first part is partially payload-specific and is the deliverable of this master thesis; it extends up to the point where geometry-specific decisions have to be made. The second part leads directly to prototyping, on the basis of more specific design decisions that are tailored to the next step in the outer design loop, the mission loop.
+\subsection{Inner design loop: a payload-protection subsystem design workflow}\label{section:inner-design-loop}
+This section aims to expand the \textit{Safety loop} concept presented in Section \ref{section:outer-design-loop} by informing it with the design guidelines distilled in Section \ref{section:airbag-design-guidelines}. The proposed workflow can be seen in Fig. \ref{fig:inner-design-loop}, and is divided into seven steps that bridge the gap between payload allowables' evaluation and safety device (airbag) prototyping. The loop is also split into two main branches, highlighting the boundary between the present MSc Thesis' deliverable and steps left to future developers. The first branch (steps 0-4) is partially payload-specific, meaning that some of the considerations made throughout these steps depend on the specific medical payload considered, while also generalisable to a broader spectrum of medical payload receptacles; the second branch (steps 5-7) are exclusively geometry-specific, implying that they require information on receptacle design, UAV-container hooking mechanism, and general information on system bulk, making them unattainable for the DIMEAS feasibility studies group, as they currently lack access to a functional medical payload container beyond their initial artisanal prototype by \cite{Sivieri2021}. Completing the workflow should lead directly to the \text{Mission loop} as shown earlier in Section \ref{section:outer-design-loop}.
 
-
-\subsubsection{\hl{Step 0 - Preliminary mission analysis}}
-This step is about the preliminary analysis of the impact conditions of the payload: it analyzes the conditions in which the pillar is dropped, implements some statistical analysis, and then calculates how the payload arrives on the ground. The useful outputs of this phase are the time of freefall and the impact velocities in the vertical and horizontal directions.
-mission inputs ($t_{fall}$, $V_x$, $V_y$)
-
-\begin{figure}[htbp]
+\begin{figure}[!htb]
     \centering
-    \includegraphics[width=\textwidth]{figures/chap3/inner_loop_2-rows.png}
+    \includegraphics[width=0.85\textwidth]{figures/chap3/inner_loop_2-rows.png}
     \caption{Inner design loop, specific for the airbag-based payload-protection subsystem.}
     \label{fig:inner-design-loop}
 \end{figure}
 
 
-\subsubsection{\hl{Step 1 - Axial compression test (experimental)}}
-experimental characterisation of glass phials breaking point
-Step 1 is about testing the payload in the lab to obtain information on how it behaves from a breaking perspective. The idea is to conduct a testing campaign to characterize the material the phials are made of, so that this information can be fed to the next step, where this behavior needs to be reproduced at an FEM level. $F_{fail}$
+\subsubsection{Step 0 - Preliminary mission analysis}
+This step covers the preliminary analysis of the payload's impact conditions. It evaluates the drop scenario, incorporates statistical analysis of wind direction and cruising conditions, and computes the trajectory and landing location of the payload. Serving as a general free-fall analysis, this phase yields key design inputs: the free-fall time ($t_{\text{fall}}$) and the horizontal and vertical impact velocities ($V_x$, $V_y$ respectively).
 
-\subsubsection{\hl{Step 2 - Axial compression test (FEM)}}
-matching the experimental behaviour at a FEM level to reproduce the mechanical behaviour of the material, limited to the compression behaviour as that is what is going to happen in the event of a fall.
-To reproduce the behavior observed in the lab, with the objective of creating a material card that can properly characterize the breaking behavior of the phial, the model aims to reproduce the testing conditions as faithfully as possible, in order to produce realistic phials that could then be inserted into a more complete breaking model in the sled test of step 3, $FT_{fail}$
+\subsubsection{Step 1 - Axial compression test (experimental)}
+This step covers the experimental characterisation of the glass phials' (the selected medical payload) breaking point through laboratory testing. The goal is to conduct a test campaign to characterise the phial's mechanical behaviour, specifically providing key data, such as the failure force ($F_{\text{fail}}$, better defined in Section \ref{section:step1-test}), which feeds into the next phase to accurately calibrate the Finite Element Method (FEM) model.
 
-\subsubsection{\hl{Step 3 - Sled test}}
-emulation of a sled test inspired by the automotive field, input-output
-The sled test is about subjecting the payload container, in its design as proposed by Sierra 2021, to realistic impact conditions and scenarios. In particular, the idea is to reproduce an acceleration profile similar to that experienced by the peeled wooden counter in free fall from the conditions described in step 0. The idea is that the accelerations to which the payload is subjected are strictly linked with the kinetic energy that needs to be dissipated in the impact event. This latter approach is inspired by the automotive industry, which correlates an input acceleration profile with an output acceleration profile. Output: payload allowable acceleration $a_{allow}$
+\subsubsection{Step 2 - Axial compression test (FEM)}
+This step focuses on matching the experimental behaviour observed in Step 1 with a Finite Element Method (FEM) model to accurately reproduce the material's mechanical response. Specifically, both experimentally and in the FEM model, the phials are subjected to axial compression loads, resembling the stress type to which they would be subjected to during an impact event. To replicate the laboratory results and build a calibrated material card that captures the phial's failure behaviour, the simulation mirrors the physical testing setup as closely as possible. This yields a generally realistic phial model, complete with its brittle failure threshold ($FT_{\text{fail}}$), that can be integrated into the full sled-test impact simulation in Step 3.
 
-\subsubsection{\hl{Step 4 - Design variables optimisation}}
-code, trying to simulate the impact of the actual thing in python to size the airbag
-This is the fourth and last step of this master's thesis deliverable, and the idea is that it turns all the boundary conditions, such as breaking mode, peak acceleration, and impact velocities, into a viable airbag design that, based on the work presented in the earlier Section 2.1, is optimized following certain criteria like mass, rebound, et cetera, and outputs sizing parameters that can be used to inform the design of a future, geometry-specific design.
+\subsubsection{Step 3 - Sled test}
+This step involves simulating a sled test, heavily inspired by automotive industry practices, to observe the mechanical response of a test article (such as a dummy in vehicle crash testing, or in this case, a glass phial) measured through perceived accelerations and damage under an input acceleration profile. The simulated test subjects the payload container (based on the artisanal design proposed by \cite{Sivieri2021}) to realistic impact scenarios by reproducing an acceleration profile equivalent to a free-fall impact under the conditions defined in Step 0. This approach relies on the principle that the accelerations experienced by the payload directly correlate with the kinetic energy that must be dissipated during impact, linking the input acceleration profile to the resulting output. The primary output of this phase is the payload's allowable acceleration ($a_{\text{allow}}$).
+
+\subsubsection{Step 4 - Design variables optimisation}
+This fourth and final step of the thesis deliverable translates the established boundary conditions evaluated in previous steps (failure loads, allowable peak accelerations, impact velocities) into a numerical Python script for airbag sizing. Building upon the framework established in Section 2.1, the simulation optimises the airbag design against critical criteria, including total mass, bottoming-out speed, and rebound behaviour. Ultimately, this tool yields fundamental sizing parameters that will inform the future geometry-specific design of the system.
 
 
-\subsubsection{\hl{Steps 5-7 - Design of inflated configuration, Folding method optimisation with time constraint, Impact and Deployment testing}}
-tailoring the airbag sizing to the payload and UAV geometry
-matching the gas generator mechanism to the geometry of the drone and payload, and to the impact time and deployment requirements
-and including folds in the idea, like standard folds, etc.
-validating the prototype through testing in a feedback loop where virtual and practical behaviours match.
-Steps 5 and 6 are geometry-specific, meaning that Step 5 is the moment where the fully inflated configuration is designed around a payload, whereas Step 6 is where this full configuration is studied and optimized when it comes to folding patterns, seaming patterns and stowage. The two are inherently interconnected, but Step 6 focuses on the optimization of a different parameter, which is the time of deployment, as explained earlier in the variable definition for airbag design. After a folding mechanism and a full design have been hypothesized, the design is tested through a thorough testing campaign divided into two steps, Steps 7A and 7B, which have to do with impact testing and deployment testing. The solutions hypothesized through FEM and through modeling are put to the test by making a prototype and testing the product in the impact conditions it was initially designed for, in a loop between design and testing until convergence is reached and we have a final design ready to be prepared.
+\subsubsection{Steps 5-7: Design of inflated configuration, folding method optimisation, impact and deployment testing}
+Steps 5 and 6 shift the focus to geometry-specific development. Step 5 details the fully inflated configuration tailored directly to the geometry of the payload and UAV, matching the gas generator mechanism to the drone layout and impact timelines. Step 6 then builds upon this complete configuration by incorporating real-world manufacturing constraints, such as folding patterns, seaming details, and stowage volume, to optimise the deployment mechanism. While inherently interconnected, Step 6 specifically targets deployment time optimisation, as defined in Table \ref{tab:variable_inventory}.
+
+Once a preliminary design and folding mechanism are established, the prototype undergoes a two-part experimental validation campaign: Step 7A (deployment testing) and Step 7B (impact testing). This phase validates the FEM models of steps 5 and 6 by subjecting physical prototypes to real-world impact conditions, operating in an iterative feedback loop between simulation and testing until design convergence is achieved.

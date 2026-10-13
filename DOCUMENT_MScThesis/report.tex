@@ -18,6 +18,11 @@
 \soulregister{\cite}{7} % Allow \cite and \ref inside \hl{}
 \soulregister{\ref}{7}
 % \renewcommand{\hl}[1]{#1} % Uncomment to hide all highlights (final version)
+% Thesis version: \confidentialtrue = full, strictly confidential version (never disclosed)
+%                 \confidentialfalse = public version with modified data (TU Delft repository)
+% Usage: \ifconfidential <full-version content> \else <public-version content> \fi
+\newif\ifconfidential
+\confidentialtrue
 % Ragged-right column, width given as a fraction of the line width: P{0.25}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{\dimexpr#1\linewidth-2\tabcolsep\relax}}
 \usepackage[most]{tcolorbox}

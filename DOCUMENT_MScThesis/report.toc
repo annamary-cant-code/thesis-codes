@@ -27,17 +27,17 @@
 \contentsline {subsubsection}{UAV Platform}{17}{figure.caption.9}%
 \contentsline {subsubsection}{Failure scenario and impact conditions}{17}{figure.caption.9}%
 \contentsline {subsubsection}{Payload container}{17}{figure.caption.9}%
-\contentsline {subsubsection}{Payload}{17}{figure.caption.9}%
+\contentsline {subsubsection}{Payload}{17}{figure.caption.10}%
 \contentsline {subsection}{\numberline {3.1.2}Information gap}{18}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Proposed approach}{18}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Outer design loop: formalising the \textit {Safety-First} principle}{18}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}\texthl {Inner design loop: a payload-protection subsystem design workflow}}{19}{subsection.3.2.2}%
-\contentsline {subsubsection}{\texthl {Step 0 - Preliminary mission analysis}}{20}{subsection.3.2.2}%
-\contentsline {subsubsection}{\texthl {Step 1 - Axial compression test (experimental)}}{20}{figure.caption.12}%
-\contentsline {subsubsection}{\texthl {Step 2 - Axial compression test (FEM)}}{20}{figure.caption.12}%
-\contentsline {subsubsection}{\texthl {Step 3 - Sled test}}{20}{figure.caption.12}%
-\contentsline {subsubsection}{\texthl {Step 4 - Design variables optimisation}}{21}{figure.caption.12}%
-\contentsline {subsubsection}{\texthl {Steps 5-7 - Design of inflated configuration, Folding method optimisation with time constraint, Impact and Deployment testing}}{21}{figure.caption.12}%
+\contentsline {section}{\numberline {3.2}Proposed approach}{19}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Outer design loop: formalising the \textit {Safety-First} principle}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Inner design loop: a payload-protection subsystem design workflow}{19}{subsection.3.2.2}%
+\contentsline {subsubsection}{Step 0 - Preliminary mission analysis}{20}{figure.caption.13}%
+\contentsline {subsubsection}{Step 1 - Axial compression test (experimental)}{20}{figure.caption.13}%
+\contentsline {subsubsection}{Step 2 - Axial compression test (FEM)}{20}{figure.caption.13}%
+\contentsline {subsubsection}{Step 3 - Sled test}{21}{figure.caption.13}%
+\contentsline {subsubsection}{Step 4 - Design variables optimisation}{21}{figure.caption.13}%
+\contentsline {subsubsection}{Steps 5-7: Design of inflated configuration, folding method optimisation, impact and deployment testing}{21}{figure.caption.13}%
 \contentsline {chapter}{\numberline {4}Results: through the Workflow}{22}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Mission and failure scenario analysis: calculating Vx and Vy}{22}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Studying the payload: calculating allowable impact acceleration}{22}{section.4.2}%
@@ -47,24 +47,25 @@
 \contentsline {subsection}{\numberline {4.2.2}Sled test}{22}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Design variables optimisation: the code!!!}{22}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Summary of results}{23}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Conclusions}{24}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General summary}{24}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Recommendations for future work}{24}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Project Management}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Strategy and planning}{25}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Challenges}{25}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}challenge 1: aligning interests for thesis scope}{25}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}chellenge 2: Computational resources NO MORE}{25}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}challenge 3: IT infrastructure bottleneck}{25}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}challenge 4: going against the judgement of supervisors}{25}{subsection.6.2.4}%
-\contentsline {section}{\numberline {6.3}Lessons learned}{25}{section.6.3}%
-\contentsline {chapter}{References}{26}{chapter*.14}%
-\contentsline {chapter}{\numberline {A}Extended Market Analysis}{32}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Value-chain actors}{32}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{34}{appendix.A.2}%
-\contentsline {chapter}{\numberline {B}FEM Iterations for glass phial model}{36}{appendix.B}%
-\contentsline {chapter}{\numberline {C}Task Division Example}{37}{appendix.C}%
-\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{38}{appendix*.16}%
+\contentsline {section}{\numberline {4.5}System design hypothesis}{24}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusions}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General summary}{25}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Recommendations for future work}{25}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Project Management}{26}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Strategy and planning}{26}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Challenges}{26}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}challenge 1: aligning interests for thesis scope}{26}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}chellenge 2: Computational resources NO MORE}{26}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}challenge 3: IT infrastructure bottleneck}{26}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}challenge 4: going against the judgement of supervisors}{26}{subsection.6.2.4}%
+\contentsline {section}{\numberline {6.3}Lessons learned}{26}{section.6.3}%
+\contentsline {chapter}{References}{27}{chapter*.15}%
+\contentsline {chapter}{\numberline {A}Extended Market Analysis}{33}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Value-chain actors}{33}{appendix.A.1}%
+\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{35}{appendix.A.2}%
+\contentsline {chapter}{\numberline {B}FEM Iterations for glass phial model}{37}{appendix.B}%
+\contentsline {chapter}{\numberline {C}Task Division Example}{38}{appendix.C}%
+\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{39}{appendix*.17}%
 \babel@toc {italian}{}\relax 
 \babel@toc {british}{}\relax 
 \contentsfinish 
