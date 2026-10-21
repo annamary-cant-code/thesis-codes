@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces One-degree-of-freedom airbag impact model in the unstroked (a) and stroked (b) states, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{9}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Calculation flowchart of the one-degree-of-freedom airbag impact model, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces \texthl {manca per caso la freccia di terminazione?} Calculation flowchart of the one-degree-of-freedom airbag impact model, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{10}{figure.caption.8}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Reference mission routes across Turin}}{16}{figure.caption.9}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Payload container geometry}}{18}{figure.caption.10}%
@@ -10,6 +10,13 @@
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Sequence of design events in the two approaches: \textit {mission-first} and \textit {safety-first} loops.}}{19}{figure.caption.12}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Inner design loop, specific for the airbag-based payload-protection subsystem.}}{20}{figure.caption.13}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Glass phial containing saline solution, annotated with dimensions.}}{26}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Test arrangement: phial held by a PETG adaptor and lower clamp, with the compression head applying the load from above.}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Observed phial breaking modes: \textit {Dome} (A), \textit {Bulge} (B), \textit {Neck} (C), \textit {Base} (D) and \textit {Body Wall} (E), together with examples of hybrid modes (A+D and D+E).}}{28}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \texthl {Distribution of the observed breaking modes.}}}{28}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces \texthl {Experimental load-displacement curves of all tested phials up to the failure point, grouped by batch (Batch A, $n=29$; Batch B, $n=36$).}}}{29}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \texthl {Load-displacement curve of the PETG adaptor, trimmed and shifted to the origin. The adaptor stiffness, $K_{PETG} = 2037$\,N/mm, is obtained by a linear fit within the load band of Mode A failures (20-316\,N).}}}{30}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces \texthl {Failure load distributions of Batch A and Batch B. Top: fitted two-parameter Weibull probability density functions, with the 1st and 5th percentiles marked. Bottom: individual failure loads, grouped by batch and displacement rate.}}}{30}{figure.caption.20}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

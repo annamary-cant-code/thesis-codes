@@ -132,8 +132,9 @@ the physical size of each grid cell is computed:
   cell width  = (x_max - x_min) / N_COLS
   cell height = (y_max - y_min) / N_ROWS
 
-At 200x200 resolution over this area, each cell measures approximately
-10 m x 6.5 m.
+The bounding box measures approximately 4757 m (easting) x 6924 m (northing).
+At the current 500x500 resolution (250,000 cells), each cell measures
+approximately 9.5 m x 13.8 m.
 
 
 --------------------------------------------------------------------------------
@@ -156,7 +157,7 @@ CLASSIFICATION APPROACH — CENTRE POINT SAMPLING
   This is a deliberate simplification: rather than computing what fraction of
   each cell's area is covered by each terrain type (a majority-vote approach),
   only the centre point is tested. This approximation is justified because at
-  10 m cell resolution most cells fall cleanly within a single terrain type,
+  ~10 m cell resolution most cells fall cleanly within a single terrain type,
   and boundary errors affect only cells whose centre lands near a terrain edge.
   For a probabilistic risk map this level of precision is entirely acceptable.
 
@@ -177,7 +178,7 @@ ROAD BUFFERING
   This buffer is applied in metres rather than degrees, making it exact.
 
 SPATIAL INDEXING — STRtree
-  Testing 40,000 cell centres against 1,400+ individual geometries naively
+  Testing 250,000 cell centres against 1,400+ individual geometries naively
   would require millions of geometric intersection checks. To avoid this, each
   terrain layer is loaded into a Shapely STRtree (Sort-Tile-Recursive tree) — a
   spatial index that organises geometries into a hierarchy of bounding boxes.
@@ -186,7 +187,7 @@ SPATIAL INDEXING — STRtree
   are geographically far from the query point in a few comparisons, reducing
   the number of precise intersection checks from hundreds to typically fewer
   than ten per cell. The tree is built once per terrain class and queried
-  40,000 times, making Block 3 complete in tens of seconds rather than hours.
+  250,000 times, making Block 3 complete in tens of seconds rather than hours.
 
 OUTPUT — terrain_grid
   A (N_ROWS x N_COLS) integer array encoding the terrain label of every cell:

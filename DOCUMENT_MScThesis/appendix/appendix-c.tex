@@ -1,28 +1,50 @@
 % !TEX root = ../report.tex
-\chapter{Task Division Example}
-%\label{chapter:title}
+\chapter{Development Iterations of the Glass Phial FE Model}
+\label{appendix:FEMiterations}
 
-\emph{If a task division is required, a simple template can be found below for convenience. Feel free to use, adapt or completely remove.}
 
-\begin{table}[htb]
-    \setlength\extrarowheight{4pt}
-    \centering
-    \caption{Distribution of the workload}
-    \label{tab:taskdivision}
-    \begin{tabularx}{\textwidth}{lXX}
-        \toprule
-        & Task & Student Name(s) \\
-        \midrule
-        & Summary & \\
-        Chapter 1 & Introduction &  \\
-        Chapter 2 &  & \\
-        Chapter 3 &  & \\
-        Chapter * &  & \\
-        Chapter * & Conclusion &  \\
-        \midrule
-        & Editors & \\
-        & CAD and Figures & \\
-        & Document Design and Layout & \\
-        \bottomrule
-    \end{tabularx}
+\begin{table}[!h]
+\centering
+\caption{Sequence of FEM modelling iterations for the axial compression test.}
+\label{tab:FEMiterations}
+\begin{thesistable}{
+  colspec = {Q[c] X[0.75,l] X[1.45,l] X[1.3,l] X[1.6,l]},
+  colsep = 4pt,
+  rowsep = 1pt,
+  cells = {valign=t},
+}
+V & Solver & Model / elements & Material / failure & Outcome / reason for change \\
+1 & Abaqus/Standard (implicit, static)
+  & 2\,ml Akineton phial, quarter model; C3D10 (glass), S4/S4R stiff platens; contact pairs
+  & Elastic + MAXPE damage initiation, linear displacement-based evolution
+  & Contact convergence issues; usable force--displacement curve only in the purely elastic case \\
+2 & Abaqus/Explicit
+  & As V1; general contact; variable mass scaling
+  & \texttt{*BRITTLE CRACKING/SHEAR/FAILURE}; strain- and energy-based cracking variants
+  & Immediate element erosion, strong oscillations, no readable reaction force. Switch to LS-DYNA (limited Abaqus licences; student licence available) and to the 5\,ml saline phial (safety) \\
+3 & LS-DYNA explicit
+  & 5\,ml phial; 10-node tetrahedra (ELFORM 16)
+  & \texttt{*MAT\_BRITTLE\_DAMAGE} (MAT\_096), as recommended by the industrial supervisor
+  & No functional breaking criterion; reaction force not readable \\
+4 & LS-DYNA explicit
+  & 0.1\,mm hexahedra; platen 100\,mm/s, 2\,mm stroke, no mass scaling
+  & MAT\_096
+  & Breaking criterion active, but reaction force null or strongly oscillating \\
+5 & LS-DYNA implicit
+  & Hexahedral model of V4
+  & Linear elastic; implicit breaking criteria explored
+  & Stiffness far above MTS value; implicit criteria unsatisfactory. Return to explicit \\
+6 & LS-DYNA explicit
+  & Shells ELFORM 16, NIP\,=\,5, mid-surface map mesh (thick shells rejected). Quarter model at 0.5\,mm first, then full model at 0.1\,mm
+  & \texttt{*MAT\_GLASS} (MAT\_280); EPSCR raised from 0.005 to 0.1 after it was found to govern deletion
+  & First measurable reaction force comparable with MTS data. Quarter model dropped: convergence issues at 0.5\,mm and imposed symmetric crack pattern; full model enabled by DelftBlue HPC \\
+7 & LS-DYNA implicit (eigen)
+  & Full 0.1\,mm model of V6
+  & --
+  & Mode 18 (bending-type) selected as deterministic imperfection \\
+8 & LS-DYNA explicit (final)
+  & Full model, 0.1\,mm shells (batch-A geometry, caliper-measured); mode 18 at 0.08\,mm via \texttt{*PERTURBATION\_NODE} + 1$^\circ$ tilt about horizontal centroidal axis; $T_{load} \gtrsim 10\,T_1$
+  & MAT\_280: FT\,=\,0.060\,GPa (calibrated, batch A), FTSCL\,=\,1.2, FRACEN not set, EPSCR\,=\,0.1; no \texttt{*MAT\_ADD\_EROSION}
+  & Final calibrated model \\
+\end{thesistable}
 \end{table}

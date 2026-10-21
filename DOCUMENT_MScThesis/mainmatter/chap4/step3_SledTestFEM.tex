@@ -1,0 +1,87 @@
+% LTeX: language=en-GB
+% !TEX root = ../../report.tex
+\section{Step 3 - Sled test (FEM)}\label{section:step3-sledTest}
+% objective: maximum constant acceleration the packaged phial withstands
+% input: calibrated MAT_280 card from Step 2 (unchanged, same 0.1 mm mesh)
+% output: acceleration allowable -> (x2, impact scaling) -> airbag sizing
+
+\subsection{Implementation}
+
+\subsubsection{Model setup}
+% components: bay, sponge, mask, phial
+% materials: phial = Step 2 card reused as-is; sponge MAT_LOW_DENSITY_FOAM; bay, mask
+% mesh: phial include identical to Step 2 (FRACEN not set -> mesh must match)
+% contact: CONTACT_AUTOMATIC_GENERAL
+% full container vs reduced slice: slice rejected (no valid symmetry, parts slipping)
+Since the geometry of the payload bay was never defined [patented? designed?] by the research group, the shape assumed here is taken from a previous thesis~\cite{[key?]} (2001). The model is composed of four parts: the outer shell of the payload bay, the inner sponge, the mask holding the phials, and the glass phials, which represent the medical payload carried in typical missions. The setup is meant to represent a typical carry-on configuration [check wording].
+
+The sponge represents a protective layer such as bubble wrap, of the kind an operator would use to attenuate impacts. Its presence strongly affects the results, since it is part of the attenuation mechanism protecting the phials. Some simulations were also run without the sponge, and in that case the allowable acceleration drops from [value?] to [value?].
+
+Apart from the glass of the phials, none of the materials has a failure criterion implemented. The aim of the analysis is to preserve the phials, not to study the failure of the whole payload, so the payload bay, the sponge and the mask are assumed to remain intact. The model therefore uses three non-glass materials, described below.
+
+The outer shell of the payload bay is meshed with shell elements of 5~mm size and 2~mm thickness, with the material card in Table~\ref{tab:bay_card}. The mask holding the glass phials is meshed with shell elements of [thickness?]~mm thickness, with the material card in Table~\ref{tab:mask_card}. The sponge is meshed with [element type and size?]. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on [source?] and is shown in Figure~\ref{fig:sponge_curve}, with the material card in Table~\ref{tab:sponge_card}.
+
+The parts interact through \texttt{CONTACT\_AUTOMATIC\_GENERAL} in LS-DYNA, which again treats every part as potentially in contact with every other part. In addition, an interior contact was defined for the sponge to prevent element inversion under large compression.
+
+A reduced model [half? quarter?] of the system was initially developed, but the full model was adopted instead because of the asymmetry of the system [which asymmetry? phial layout? loading?].
+
+
+
+\subsubsection{Loading}
+% characteristic time scale calculated based on the integral of acceleration being the dissipated velocity
+% *BOUNDARY_PRESCRIBED_MOTION_RIGID on the bay, acceleration curve (shape, rise, plateau)
+% amplitude search: increase a until failure (analogue of FT calibration procedure)
+The input of the model is an acceleration time history, prescribed through \texttt{*BOUNDARY\_PRESCRIBED\_MOTION\_RIGID} on two rigid rings attached to the payload bay [how are they connected? shared nodes? constrained nodes?], while the rest of the bay remains deformable. The rings represent the straps that hold the payload, in the same way as the restraints on a test sled. The curve has a trapezoidal shape: an initial ramp of duration $t_r$, a plateau at constant acceleration $a$ of duration $t_p$, and a descending ramp of duration $t_r$. The ramps avoid discontinuities in the acceleration, which would excite spurious high-frequency oscillations, so that the velocity and displacement histories remain smooth. The acceleration is therefore applied at the attachment points, and reaches the phials only after being transmitted through the deformable bay, the sponge and the mask.
+
+The impact is characterised by an initial velocity $\mathbf{v}_0$, which includes both horizontal and vertical components [how are the $x$, $y$, $z$ components handled?]. Over the deceleration this velocity must be brought completely to zero, so the integral of the acceleration curve must equal the velocity dissipated by the system:
+\begin{equation}
+  \int_0^{T} a(t)\,\mathrm{d}t = a\,(t_r + t_p) = \lVert \mathbf{v}_0 \rVert,
+  \qquad T = 2t_r + t_p .
+  \label{eq:pulse_area}
+\end{equation}
+This condition defines a family of acceleration curves: for a given amplitude $a$, Eq.~\eqref{eq:pulse_area} fixes the plateau duration $t_p = \lVert \mathbf{v}_0 \rVert / a - t_r$, and therefore the characteristic time scale of the event. The aim is to reproduce an impact as closely as possible, applying an acceleration profile similar to the peak observed in an impact event.
+
+The maximum acceleration the phials can withstand is found with a search procedure analogous to the calibration of \texttt{FT}: the amplitude $a$ is increased step by step, with the duration adjusted through Eq.~\eqref{eq:pulse_area}, until the phial breaks. Since a larger amplitude also implies a shorter pulse, the resulting limit refers to this pulse shape and to the given initial velocity.
+
+The limit is expressed in terms of the acceleration prescribed at the rings [or: measured at ...?].
+Acceleration applied in the x, y, and z direction, and sweeping to detect the most critical direction. 
+
+\subsubsection{Mass scaling}
+% where it is applied, added mass (%), resulting dt gain
+% effect on phial inertial load; correction or sensitivity check
+\begin{itemize}
+    \item \textbf{Why it's needed.} The 0.1~mm phial shells set the stable timestep ($\Delta t \approx l_e/c \approx 1.9\times10^{-5}$~ms). Multiply that by the event duration to show the cycle count is impractical without scaling, even on DelftBlue.
+    \item \textbf{How it's applied.} \texttt{*CONTROL\_TIMESTEP}, \texttt{DT2MS}: give the target $\Delta t$, and say whether scaling applies only to elements below the target (negative \texttt{DT2MS}).
+    \item \textbf{Where the mass lands.} Almost entirely on the phial, since it has the smallest elements. Report it as numbers: phial 3~g $\rightarrow$ 170~g ($\times 57$), and the added mass as a \% of the total model.
+    \item \textbf{Physical consequence.} At a given bay acceleration, the phial's inertial load scales with its mass. The phial--sponge frequency drops by $\sqrt{57} \approx 7.5\times$.
+    \item \textbf{How the bias is handled.} Either a native-mass reference run, or the analytical SDOF correction with its validity condition stated (deep isolation, $r \gg 1$, including the native case).
+    \item \textbf{Check.} Added mass reported from \texttt{d3hsp}/\texttt{GLSTAT}; KE/IE stays low during the plateau.
+\end{itemize}
+
+\subsubsection{Requested outputs and failure detection}
+% how "phial broken" is defined: first crack (HISV#1), force/energy drop, element deletion
+% NODOUT (phial node acc.), RCFORC, GLSTAT, MATSUM, d3plot HISV
+\begin{itemize}
+    \item \textbf{Definition of ``broken''.} State which event counts as failure: first crack initiation at any integration point (\texttt{HISV\#1} $\geq 1$), or through-thickness failure (all \texttt{NIPF} $= 5$ points cracked).
+    \item \textbf{Consistency with Step 2.} The failure event must be the same one used to read the failure force in the \texttt{FT} calibration (first force drop). If the definitions differ, \texttt{FT} and the allowable refer to different events.
+    \item \textbf{Primary indicator.} \texttt{HISV\#1} crack flag from d3plot, using the max-IP fringe.
+    \item \textbf{Secondary confirmation.} Phial internal-energy discontinuity (\texttt{MATSUM}), plus the jump in the phial node's acceleration (\texttt{NODOUT}).
+    \item \textbf{What is not a criterion.} \texttt{EPSCR} $= 0.1$ deletion is a numerical backstop, not a failure definition.
+    \item \textbf{Spurious events excluded.} \texttt{HISV\#1} $= -1$ (compressive flag), and contact-penetration spikes.
+    \item \textbf{Time resolution.} The output interval has to be fine enough to place the crack within the acceleration plateau.
+    \item \textbf{Allowable definition.} The highest acceleration level without failure, i.e.\ the bracket between the last pass and the first fail, with the sweep step stated as the resolution.
+\end{itemize}
+
+
+\subsection{Results}
+\subsubsection{Model verification}        % energy balance, added mass, hourglass
+\subsubsection{Acceleration sweep}        % survive/fail per level -> allowable
+\subsubsection{Failure location and mode} % crack origin vs Step 2 / MTS breaking modes
+\subsubsection{Mass-scaling effect}       % scaled vs native (or analytical correction)
+\subsubsection{From sled to impact allowable}
+% ----> CONCLUSIONE: I have what I need to design the damn airbag.
+
+\subsubsection{Step 3 deliverable: allowable payload acceleration}
+
+
+

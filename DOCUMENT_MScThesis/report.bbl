@@ -2568,6 +2568,42 @@
       \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
       \endverb
     \endentry
+    \entry{datsiou2018weibull}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=367e53b2d619724ec31eeb19a7aeb2af}{%
+           family={Datsiou},
+           familyi={D\bibinitperiod},
+           given={K.\bibnamedelimi C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4e9bb12e72b15bc43fe0324e00cf79c4}{%
+           family={Overend},
+           familyi={O\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{fullhash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{fullhashraw}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{bibnamehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authorbibnamehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authornamehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authorfullhash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authorfullhashraw}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Structural Safety}
+      \field{note}{Open access, CC BY license}
+      \field{title}{Weibull parameter estimation and goodness-of-fit for glass strength data}
+      \field{volume}{73}
+      \field{year}{2018}
+      \field{pages}{29\bibrangedash 41}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.strusafe.2018.02.002
+      \endverb
+    \endentry
     \entry{disalute_aetos}{misc}{}{}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -2947,6 +2983,7 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{[key?]}
 \endrefsection
 \endinput
 

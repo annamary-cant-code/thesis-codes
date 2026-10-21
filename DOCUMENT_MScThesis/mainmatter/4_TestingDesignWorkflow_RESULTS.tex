@@ -2,138 +2,18 @@
 \chapter{Results: through the Workflow}
 \label{chapter:results}
 
-Do not include too many implementation details
+This chapter presents an example of how the airbag design workflow can be applied following the steps presented in Section \ref{section:inner-design-loop}. Each step requires its own ad-hoc procedure and analysis of the results. Hence, the procedure of each step is described first, its results are presented, and these are then fed into the next step. This structure is meant to show how the output of each step is used in the next, starting from a preliminary mission analysis, continuing with the characterisation of the medical payload and resulting allowables, and ending with recommendations on the design of an airbag intended to protect the payload in case of a drone failure.
 
-\section{Mission and failure scenario analysis: calculating Vx and Vy}
-* Mi servono degli input: prendo le informazioni raccolte nella fase preliminare di analisi missione (ref analisi missione)per stabilire probabilità di impatto and what not. 
-
-* traiettoria
-* punto di partenza, punto di arrivo
-* drone scelto
-* payload scelto
-* medicinali scelti per simulazione
-
-* serve energia di impatto?
-
----> risultati del WP2
-
-\section{Studying the payload: calculating allowable impact acceleration}
-
-\subsection{Material characterisation}
-\subsubsection{TEST}\label{section:step1-test}
-\subsubsection{FEM}
-MENTION MODEL ITERATIONS TRIAL-AND-ERROR IN THE APPENDIX \ref{appendix:FEMiterations}!!!! FROM ABAQUS IMPLICIT TO CURRENT DECISIONS. Step by step, as in "version 1, abaqus implicit". Version 2, ls-dyna tetra elastic. Etc. MODAL PERTURBATION
+The inputs used in this example are partly experimental and partly hypothesised. The material model of the glass phials is calibrated against experimental compression tests, while the geometry of the payload bay and the behaviour of the sponge are representative assumptions. Therefore, the numerical results should be read as a demonstration of the workflow, not as the qualification of a specific design.
 
 
-* impact of container in LS-Dyna and what not. 
-* diversi angoli di assetto per vedere il caso peggiore di accelerazioni locali
-* cosa  possono sopportare le fialette e il contenitore????
-* tipi di impatto, contenitore tipico che le contiene (menzionare la tesi del tipello) e che per il dimensionamento non viene considerato, approssimato a infinitamente rigido e che trasmette le accelerazioni di impatto così come le riceve ----> airbag deve essere dimensionato così
---------> tutte le analisi statistiche di prima, che hanno tenuto in considerazione anche il fatto che prima o poi si sorvolerà la città una volta risolti i cavilli burocratici che impongono una certa mitigazione del rischio ---> airbag. 
+\input{mainmatter/chap4/step0_MissionAnalysis}
+\input{mainmatter/chap4/step1_CompressionTest}
+\input{mainmatter/chap4/step2_CompressionFEM}
+\input{mainmatter/chap4/step3_SledTestFEM}
+\input{mainmatter/chap4/step4_Optimisation}
 
-----> risultati del WP3
-
-----> CONCLUSIONE: I have what I need to design the damn airbag. 
-
-
-\subsection{Sled test}\label{section:step4-sledTest}
-
-\section{Design variables optimisation: the code!!!}\label{section:optimisation-code}
-
-\begin{lstlisting}[language=Python, frame=single,
-  literate={·}{{$\cdot$}}1 {→}{{$\rightarrow$}}2 {−}{{-}}1
-           {ρ}{{$\rho$}}1 {φ}{{$\varphi$}}1 {ṁ}{{$\dot{m}$}}1
-           {≤}{{$\leq$}}1 {≥}{{$\geq$}}1]
-init: geometry(h=0), m0 = P0·V0/(R·T0)
-loop while t < t_max:
-  choose dt from previous load (hysteresis)
-  F_n = max((P−Pamb)·A_prev, 0) → a_x, a_y          [explicit: old P, old A]
-  u_new = u + a·dt ;  h_new = clamp(h + u_n,new·dt)  [semi-implicit Euler]
-  A, V = geometry(h_new) ;  A_vent = A_or + φ(S − A)
-  ρ = m/V → P, T adiabatic from previous state
-  repeat N sub-steps (dt/N):                          [sub-cycling, not iteration]
-      if P ≤ Pamb: stop
-      dm = ṁ(P,T,A_vent)·dt/N → m, ρ, P (old T), T
-  P = max(P, Pamb)
-  if P > P_burst → BURST  | if h ≥ D0 → BOTTOMED | if y_pen ≤ 0 → REBOUND
-  advance state
-\end{lstlisting}
-
-\begin{table}[h!]
-\centering
-\caption{Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}
-\label{tab:airbag-design-variables-selected}
-\begin{thesistable}{
-  colspec = {Q[l] X[1,l] Q[l] X[1.12,l]},
-  % ---- column headers (blue = fixed inputs, teal = design variables)
-  cell{1}{1} = {c=2}{c, bg=phaseA},
-  cell{1}{3} = {c=2}{c, bg=phaseB},
-  vline{3} = {wd=\gap, fg=white},
-  % ---- category bands, left half
-  cell{2,7,11}{1} = {c=2}{bg=tintA, fg=phaseA, font=\tblfont\sffamily\bfseries},
-  hline{7,11} = {1-2}{0.6pt, fg=grouprulecol},
-  % ---- category bands, right half
-  cell{2,7,9}{3} = {c=2}{bg=tintB, fg=phaseB, font=\tblfont\sffamily\bfseries},
-  hline{7,9} = {3-4}{0.6pt, fg=phaseB!45},
-  % ---- derived quantities (not inputs), greyed out
-  cell{6,14}{1-2} = {fg=navy!60, font=\tblfont\itshape},
-  % ---- categorical variables: one row per option
-  cell{11}{3} = {r=3}{l},
-  cell{14}{3} = {r=5}{l},
-}
-Fixed inputs and boundary conditions & & Optimisable design variables & \\
-% ------------------------------------------------------------------------------------------------
-Impact scenario & & Continuous (searched by the optimiser) & \\
-$M_\text{p}$  & \qty{0.5}{\kilogram}, payload mass
-  & $D_0$ & \qtyrange{0.39}{1.5}{\metre}, diameter \\
-$u_0$  & \qty{17.2}{\metre\per\second}, vertical impact speed
-  & $L_0/D_0$ & \numrange{0.5}{4.0}, aspect ratio (cylinder only) \\
-$u_{x,0}$ & \qty{5.0}{\metre\per\second}, horizontal impact speed
-  & $P_0$ & $P_\text{amb}$ to \qty{1.4e5}{\pascal}, inflation pressure \\
-$u_{n,0}$ & $\approx$\,\qty{17.9}{\metre\per\second} along $\mathbf{n}$, at $\theta \approx \ang{16.2}$ (derived)
-  & $\varphi_\text{vent}$ & \numrange{0}{0.10}, vent open-area fraction \\
-% ------------------------------------------------------------------------------------------------
-Environment & & Discrete -- integer (searched by the optimiser) & \\
-$P_\text{amb}$ & \qty{101325}{\pascal}, ambient pressure
-  & $n_\text{ply}$ & $\{1,\dots,4\}$, number of fabric plies \\
-$g$ & \qty{9.81}{\metre\per\second\squared}
-  & Discrete -- categorical (enumerated) & \\
-$T_0$ & \qty{288}{\kelvin}, initial gas temperature
-  & Shape & sphere ($k = 0.5$), cylinder ($k = 1$) \\
-% ------------------------------------------------------------------------------------------------
-Requirements and safety factors & & Fabric & Nylon 6,6, silicone-coated: \qty{600}{\newton\per\centi\metre}, \qty{180}{\gram\per\metre\squared} \\
-$a_\text{allow}$ & \qty{500}{\metre\per\second\squared}, allowable payload acceleration
-  & & PET, PU-coated: \qty{550}{\newton\per\centi\metre}, \qty{190}{\gram\per\metre\squared} \\
-$\mathit{SF}$ & 1.2, safety factor on $a_\text{allow}$
-  & & Aramid, coated: \qty{1000}{\newton\per\centi\metre}, \qty{260}{\gram\per\metre\squared} \\
-$a_\text{lim}$ & $a_\text{allow}/\mathit{SF} \approx \qty{417}{\metre\per\second\squared}$ (derived)
-  & Gas & N\textsubscript{2}: $R = \qty{296.8}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.400$ \\
-$u_\text{res,max}$ & \qty{2.0}{\metre\per\second}, residual speed cap
-  & & He: $R = \qty{2076.9}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.667$ \\
-$\eta_\text{seam}$ & 0.70, seam efficiency on fabric strength
-  & & Ar: $R = \qty{208.1}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.667$ \\
-$\mathit{SF}_\text{burst}$ & 1.50, design factor on membrane tension
-  & & CO\textsubscript{2}: $R = \qty{188.9}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.289$ \\
-$\mathit{PEN}$ & $10^4$, penalty weight on constraint violations
-  & & Dry air: $R = \qty{287.0}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.400$ \\
-\end{thesistable}
-\end{table}
-
-* codice ispirato da Zhou et al 2019 - spiegazione del modello e dell'aspetto dei vari blocchi
-* Sapendo che le thresholds delle provette sono tot, allora si può convergere verso un pre-dimensionamento dell'airbag con tot dimensioni o caratteristiche. 
-* oracle code for direzionamento verso un punto di partenza per il design
-
-* I CHOSE THE CRUDE IMPLEMENTATION --- THIS IS BECAUSE THE ONLY COUPLING ANALYTICAL MODEL IS MISSING AND I CANNOT RETRIEVE IT. THEREFORE THIS IS MY IMPLEMENTATION XXX
-Title: "Design, Fabrication and Testing of an Airdrop Platform Utilizing Airbags as Shock Absorbers"
-
-Author: Timothy F. Patterson
-
-Report: NATICK/TR-87/042 (DTIC accession ADA199593)
-
-Date: August 1985 (work performed March 1984–May 1985)
 \section{Summary of results}
-Actual design variables p inflation, diameter, shape, etc
-
 **RESULTS: BRING IT BACK TO THE RESEARCH QUESTIONS!!!!!**
 
 

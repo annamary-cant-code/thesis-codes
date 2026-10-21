@@ -639,20 +639,6 @@
       \verb https://www.abruzzospeciale.it/2025/08/01/farmaci-con-drone-avezzano/
       \endverb
     \endentry
-    \entry{skyeu_web}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{SkyEU website}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{{SkyEu}}
-      \verb{urlraw}
-      \verb https://skyeu.it/
-      \endverb
-      \verb{url}
-      \verb https://skyeu.it/
-      \endverb
-    \endentry
     \entry{dot_indoor}{misc}{}{}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -665,6 +651,34 @@
       \endverb
       \verb{url}
       \verb https://www.fondazionedot.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
+      \endverb
+    \endentry
+    \entry{dot_grant}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Fondazione D.O.T. Onlus}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{Il progetto {INDOOR}: nuove prospettive per il trasporto di organi grazie alla tecnologia dei droni}
+      \verb{urlraw}
+      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
+      \endverb
+      \verb{url}
+      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
+      \endverb
+    \endentry
+    \entry{polito_pic4ser}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Politecnico di Torino, Poliflash}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{A {Torino} vola il primo drone per il trasporto di organi e materiale biologico}
+      \verb{urlraw}
+      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
+      \endverb
+      \verb{url}
+      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
       \endverb
     \endentry
     \entry{abzero_web}{misc}{}{}
@@ -695,20 +709,6 @@
       \verb https://www.cittadellasalute.to.it/index.php?option=com_content&view=article&id=24515
       \endverb
     \endentry
-    \entry{dot_grant}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Fondazione D.O.T. Onlus}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{Il progetto {INDOOR}: nuove prospettive per il trasporto di organi grazie alla tecnologia dei droni}
-      \verb{urlraw}
-      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
-      \endverb
-      \verb{url}
-      \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
-      \endverb
-    \endentry
     \entry{tecnomedicina_indoor}{misc}{}{}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -724,8 +724,8 @@
       \endverb
     \endentry
     \entry{hydronews_torino}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{HydroNews}
       \field{note}{Accessed 5 October 2026}
@@ -735,20 +735,6 @@
       \endverb
       \verb{url}
       \verb https://www.hydronews.it/anche-a-torino-un-progetto-per-decarbonizzare-la-logistica-sanitaria-con-droni-a-idrogeno/
-      \endverb
-    \endentry
-    \entry{polito_pic4ser}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Politecnico di Torino, Poliflash}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{A {Torino} vola il primo drone per il trasporto di organi e materiale biologico}
-      \verb{urlraw}
-      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
-      \endverb
-      \verb{url}
-      \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
       \endverb
     \endentry
     \entry{newpharma_lastmed}{misc}{}{}
@@ -765,20 +751,6 @@
       \verb https://www.newpharmaitaly.it/lastmed-il-robot-che-consegna-farmaci-agli-anziani/
       \endverb
     \endentry
-    \entry{cr_piemonte}{misc}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Consiglio Regionale del Piemonte, press release}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{I droni e il delivery sanitario}
-      \verb{urlraw}
-      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
-      \endverb
-      \verb{url}
-      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
-      \endverb
-    \endentry
     \entry{ansa_lastmed}{misc}{}{}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
@@ -791,6 +763,34 @@
       \endverb
       \verb{url}
       \verb https://www.ansa.it/piemonte/notizie/2026/03/23/tecnocad-farmaci-a-persone-fragili-da-rover-robot-automatizzato_b266e9c6-f168-4b25-a2e7-775a83795571.html
+      \endverb
+    \endentry
+    \entry{skyeu_web}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{SkyEU website}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{{SkyEu}}
+      \verb{urlraw}
+      \verb https://skyeu.it/
+      \endverb
+      \verb{url}
+      \verb https://skyeu.it/
+      \endverb
+    \endentry
+    \entry{cr_piemonte}{misc}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Consiglio Regionale del Piemonte, press release}
+      \field{note}{Accessed 5 October 2026}
+      \field{title}{I droni e il delivery sanitario}
+      \verb{urlraw}
+      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
+      \endverb
+      \verb{url}
+      \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
       \endverb
     \endentry
     \entry{chhetri2026survey}{article}{}{}
@@ -909,8 +909,8 @@
       \strng{authornamehash}{e87cb9947cc8193f5baabff300abb894}
       \strng{authorfullhash}{a2f6cd4910fb1c5ee5cdc74f56a88974}
       \strng{authorfullhashraw}{a2f6cd4910fb1c5ee5cdc74f56a88974}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Annual Review of Biomedical Engineering}
@@ -1653,8 +1653,8 @@
       \strng{authornamehash}{88ed13fd25cbd4ecfb7f4f6f4daa202e}
       \strng{authorfullhash}{0020f99538ea07e4d686ca709d45d63e}
       \strng{authorfullhashraw}{0020f99538ea07e4d686ca709d45d63e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Chin. J. Aeronaut.}
@@ -2506,6 +2506,104 @@
       \verb 10.1108/RJTA-01-2021-0002
       \endverb
     \endentry
+    \entry{ComuneTorinoWind-AVG}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ee5a14ee6b94d97829bfde23fadbf95d}{%
+           family={{ARPA Piemonte}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{bibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorbibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authornamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
+      \field{month}{12}
+      \field{note}{CSV, CC BY. Accessed: Oct. 11, 2026}
+      \field{title}{Velocità media annua del vento 2006--2018 (Annual mean wind speed 2006--2018), dataset}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://aperto.comune.torino.it/dataset/velocita-media-annua-del-vento-2006-2018
+      \endverb
+      \verb{url}
+      \verb https://aperto.comune.torino.it/dataset/velocita-media-annua-del-vento-2006-2018
+      \endverb
+    \endentry
+    \entry{ComuneTorinoWind-MAX}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ee5a14ee6b94d97829bfde23fadbf95d}{%
+           family={{ARPA Piemonte}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{fullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{bibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorbibnamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authornamehash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhash}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \strng{authorfullhashraw}{ee5a14ee6b94d97829bfde23fadbf95d}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
+      \field{month}{12}
+      \field{note}{CSV, CC BY 4.0. Accessed: Oct. 11, 2026}
+      \field{title}{Raffica di vento massima 2006--2018 (Maximum wind gust 2006--2018), dataset}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
+      \endverb
+      \verb{url}
+      \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
+      \endverb
+    \endentry
+    \entry{datsiou2018weibull}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=367e53b2d619724ec31eeb19a7aeb2af}{%
+           family={Datsiou},
+           familyi={D\bibinitperiod},
+           given={K.\bibnamedelimi C.},
+           giveni={K\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=4e9bb12e72b15bc43fe0324e00cf79c4}{%
+           family={Overend},
+           familyi={O\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{fullhash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{fullhashraw}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{bibnamehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authorbibnamehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authornamehash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authorfullhash}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \strng{authorfullhashraw}{af7bbb4ec3b20e514e2abd391e4e423b}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Structural Safety}
+      \field{note}{Open access, CC BY license}
+      \field{title}{Weibull parameter estimation and goodness-of-fit for glass strength data}
+      \field{volume}{73}
+      \field{year}{2018}
+      \field{pages}{29\bibrangedash 41}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1016/j.strusafe.2018.02.002
+      \endverb
+    \endentry
     \entry{disalute_aetos}{misc}{}{}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -2689,8 +2787,8 @@
       \endverb
     \endentry
     \entry{ansa_sandbox}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -2703,8 +2801,8 @@
       \endverb
     \endentry
     \entry{rinnovabili_stesi}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Rinnovabili.it}
       \field{note}{Accessed 5 October 2026}
@@ -2717,8 +2815,8 @@
       \endverb
     \endentry
     \entry{ansa_hsr}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
       \field{note}{Accessed 5 October 2026}
@@ -2731,8 +2829,8 @@
       \endverb
     \endentry
     \entry{hsr_ff2020}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Ospedale San Raffaele}
       \field{note}{Accessed 5 October 2026}
@@ -2745,8 +2843,8 @@
       \endverb
     \endentry
     \entry{prealpina_varese}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{La Prealpina}
       \field{note}{Accessed 5 October 2026}
@@ -2759,8 +2857,8 @@
       \endverb
     \endentry
     \entry{logisticamente_miulli}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Logisticamente}
       \field{note}{Accessed 5 October 2026}
@@ -2773,8 +2871,8 @@
       \endverb
     \endentry
     \entry{sanitadigitale_boom}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Sanità Digitale}
       \field{note}{Accessed 5 October 2026}
@@ -2787,8 +2885,8 @@
       \endverb
     \endentry
     \entry{quadricottero_aetos}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -2801,8 +2899,8 @@
       \endverb
     \endentry
     \entry{dronezine_uelcome}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{DronEzine}
       \field{note}{Accessed 5 October 2026}
@@ -2815,8 +2913,8 @@
       \endverb
     \endentry
     \entry{quadricottero_enac_cri}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -2829,8 +2927,8 @@
       \endverb
     \endentry
     \entry{easa_note_2022}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{European Union Aviation Safety Agency}
       \field{note}{Accessed 5 October 2026}
@@ -2842,23 +2940,9 @@
       \verb https://www.easa.europa.eu/sites/default/files/dfu/explanatory_note_to_ed_decision_2022-002-r.pdf
       \endverb
     \endentry
-    \entry{pharmacyscanner_amazon}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Pharmacy Scanner}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{Drone delivery, {Amazon} dice stop ai test in {Italia}. {``Non} ci sono le condizioni necessarie''}
-      \verb{urlraw}
-      \verb https://pharmacyscanner.it/drone-delivery-amazon-fa-retromarcia-stop-ai-test-in-italia-mancano-le-condizioni-necessarie/
-      \endverb
-      \verb{url}
-      \verb https://pharmacyscanner.it/drone-delivery-amazon-fa-retromarcia-stop-ai-test-in-italia-mancano-le-condizioni-necessarie/
-      \endverb
-    \endentry
     \entry{supplychain_torino}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
       \field{note}{Accessed 5 October 2026}
@@ -2871,8 +2955,8 @@
       \endverb
     \endentry
     \entry{socialfarma_aetos}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{SocialFarma}
       \field{note}{Accessed 5 October 2026}
@@ -2885,8 +2969,8 @@
       \endverb
     \endentry
     \entry{nordest24_sandbox}{misc}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Nordest24}
       \field{note}{Accessed 5 October 2026}
@@ -2899,6 +2983,7 @@
       \endverb
     \endentry
   \enddatalist
+  \missing{[key?]}
 \endrefsection
 \endinput
 

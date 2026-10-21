@@ -1,36 +1,27 @@
 % !TEX root = ../report.tex
-\chapter{FEM Iterations for glass phial model}
-\label{appendix:FEMiterations}
+\chapter{Safety Measures for the Experimental Campaign}
+\label{appendix:exp-campaign}
+
+\section{Safety precautions}\label{sec:safety-analysis}
+The glass phials used in this test contained saline solution. The possibility of skin or eye contact with the liquid content or glass fragments in case of phial rupture was nonetheless considered. To mitigate the risks associated with both fragment ejection and liquid release, the following precautions were adopted:
+
+\begin{itemize}
+    \item \textbf{Precaution 1:} The phial was fully constrained within the PETG adaptor up to the height of its main body, as shown in Fig. \ref{fig:compression_setup}, limiting the lateral dispersion of both glass fragments and liquid content upon failure. A small clearance was left between the top of the phial and the top of the PETG adaptor, sufficient to allow the compression head to apply the load directly onto the phial without interference from the adaptor itself.
+    \item \textbf{Precaution 2:} All personnel present in the test area wore safety glasses for eye protection for the entire duration of the test.
+    \item \textbf{Precaution 3:} The testing machine was operated under velocity control, with the applied force continuously monitored; upon detection of the load drop associated with phial failure, the machine automatically and immediately halted crosshead motion, preventing any further loading of the fragmented test article.
+\end{itemize}
+
+\noindent No other significant hazards (electrical or otherwise) were associated with the test, as the testing machine was operated within its standard, intended use envelope.
 
 
+\section{Persons allowed in the test area}
+Access to the test area during the execution of the test was restricted to the following personnel:
 
+\begin{itemize}
+    \item the author of the present thesis, Annamaria Iannuzzo;
+    \item PhD candidate, MSc Thesis co-supervisor, and test supervisor Davide Angelini;
+    \item MSc Thesis co-supervisor, prof. Enrico Cestino.
+\end{itemize}
 
+\noindent No other personnel were permitted within the test area for the entire duration of the test.
 
-\emph{Adding source code to your report/thesis is supported with the package {\normalfont\texttt{listings}}. An example can be found below. Files can be added using {\normalfont\texttt{\textbackslash lstinputlisting[language=<language>]\{<filename>\}}}.}
-
-\begin{lstlisting}[language=Python]
-"""
-ISA Calculator: import the function, specify the height and it will return a
-list in the following format: [Temperature,Density,Pressure,Speed of Sound].
-Note that there is no check to see if the maximum altitude is reached.
-"""
-
-import math
-g0 = 9.80665
-R = 287.0
-layer1 = [0, 288.15, 101325.0]
-alt = [0,11000,20000,32000,47000,51000,71000,86000]
-a = [-.0065,0,.0010,.0028,0,-.0028,-.0020]
-
-def atmosphere(h):
-    for i in range(0,len(alt)-1):
-        if h >= alt[i]:
-            layer0 = layer1[:]
-            layer1[0] = min(h,alt[i+1])
-            if a[i] != 0:
-                layer1[1] = layer0[1] + a[i]*(layer1[0]-layer0[0])
-                layer1[2] = layer0[2] * (layer1[1]/layer0[1])**(-g0/(a[i]*R))
-            else:
-                layer1[2] = layer0[2]*math.exp((-g0/(R*layer1[1]))*(layer1[0]-layer0[0]))
-    return [layer1[1],layer1[2]/(R*layer1[1]),layer1[2],math.sqrt(1.4*R*layer1[1])]
-\end{lstlisting}

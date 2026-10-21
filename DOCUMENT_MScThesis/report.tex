@@ -12,11 +12,14 @@
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
 \usepackage{pdflscape} % Single landscape pages (rotated in the PDF viewer too)
+\usepackage{placeins} % \FloatBarrier: keep figures/tables inside their own section
 % Draft highlighting: \hl{text to revise}
 \usepackage{soul}
 \sethlcolor{yellow}
 \soulregister{\cite}{7} % Allow \cite and \ref inside \hl{}
 \soulregister{\ref}{7}
+% Placeholder for content still to be written: \fillin{what goes here}
+\newcommand{\fillin}[1]{\hl{[TO FILL: #1]}}
 % \renewcommand{\hl}[1]{#1} % Uncomment to hide all highlights (final version)
 % Thesis version: \confidentialtrue = full, strictly confidential version (never disclosed)
 %                 \confidentialfalse = public version with modified data (TU Delft repository)
@@ -27,6 +30,35 @@
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{\dimexpr#1\linewidth-2\tabcolsep\relax}}
 \usepackage[most]{tcolorbox}
 \definecolor{title}{HTML}{4884d6} % Defined here too so the box colour is available before the cover
+% LS-DYNA keyword cards typeset like a Notepad++ editor (Inconsolata ~ Consolas, has a bold weight)
+% Usage: \begin{dynacard}[label=lst:xxx]{Box title} <verbatim .k lines> \end{dynacard}
+%        @value@ highlights a field in bold red; the @ are not printed and take no space
+\usepackage[varqu]{zi4}
+\definecolor{dynaKw}{RGB}{0,0,200}
+\definecolor{dynaCmt}{RGB}{0,128,0}
+\definecolor{dynaGutter}{RGB}{232,232,232}
+\lstdefinelanguage{lsdyna}{
+  morecomment=[l]{\$},                         % $ comment lines
+  moredelim=[l][\color{dynaKw}\bfseries]{*},   % *KEYWORD lines
+  moredelim=[is][\color{red}\bfseries]{@}{@},  % highlighted field
+}
+\newtcblisting[auto counter, number within=chapter, list inside=lol]{dynacard}[2][]{
+  listing only, enhanced, sharp corners,
+  colback=white, colframe=black!35, boxrule=0.4pt,
+  left=8mm, top=1mm, bottom=1mm,
+  title={LS-DYNA input \thetcbcounter: #2},
+  fonttitle=\small\bfseries, coltitle=black, colbacktitle=black!8,
+  halign title=center, lefttitle=2mm, righttitle=2mm,  % centred on the whole box, not just the code area
+  overlay={\fill[dynaGutter] (interior.south west) rectangle ([xshift=6mm]title.south west);},
+  listing options={
+    language=lsdyna,
+    backgroundcolor={}, aboveskip=0pt, belowskip=0pt,  % override the class-wide \lstset
+    basicstyle=\ttfamily\footnotesize,
+    commentstyle=\color{dynaCmt},
+    columns=fullflexible, keepspaces=true,
+    numbers=left, numberstyle=\tiny\color{black!50}, numbersep=4mm,
+  },
+  #1}
 % Usage: \begin{objectivebox}{Box title} ... \end{objectivebox}
 %        optional tcolorbox keys first: \begin{objectivebox}[colframe=red]{Box title}
 \newtcolorbox{objectivebox}[2][]{

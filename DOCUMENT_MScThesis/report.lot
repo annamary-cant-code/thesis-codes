@@ -6,15 +6,19 @@
 \contentsline {table}{\numberline {2.3}{\ignorespaces Airbag design variables identified in the literature, grouped by design focus and subcategory, with the associated trade-offs.}}{12}{table.2.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}}{23}{table.caption.14}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Uncertain parameters of the drop model, each sampled from a Gaussian distribution.}}{24}{table.caption.14}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Experimental data selected for the calibration of the FEM glass material.}}{31}{table.caption.21}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}}{36}{table.caption.22}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Supervisory team, roles, and communication channels.}}{39}{table.caption.23}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline planning from the research proposal.}}{41}{table.caption.24}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Actors involved in drone delivery of medical goods in Italy}}{33}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces Drone delivery of medical goods in Italy: trials and planned initiatives}}{35}{table.A.2}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Actors involved in drone delivery of medical goods in Italy}}{50}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Drone delivery of medical goods in Italy: trials and planned initiatives}}{52}{table.A.2}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Distribution of the workload}}{38}{table.caption.16}%
+\contentsline {table}{\numberline {C.1}{\ignorespaces Sequence of FEM modelling iterations for the axial compression test.}}{55}{table.caption.26}%
 \babel@toc {italian}{}\relax 
 \babel@toc {british}{}\relax 
 \contentsfinish 

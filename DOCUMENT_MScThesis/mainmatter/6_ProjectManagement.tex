@@ -2,31 +2,171 @@
 \chapter{Project Management}
 \label{chapter:projectManagement}
 
-Inspired by the Gibb's reflective cycle (?)
+\section{Project organisation and stakeholders}
+\label{sec:pm-organisation}
+ 
+\subsection{Context}
+This thesis was conceived as a continuation of a research line initiated by Politecnico di Torino in 2020, during the COVID-19 emergency, and carried on until 2023 with the last master's thesis before this one. The former theses [five?] worked at a conceptual and evaluation level, with no hardware, focusing on the delivery of medical goods in the Turin territory through UAV-based operations. This is the first of these theses to take a design-oriented step, and it formalises the findings of the former ones.
+%The thesis continues a Politecnico di Torino research line on UAV delivery of medical goods in Turin. Five earlier MSc theses (2020--2023) worked at a conceptual and evaluation level, with no hardware.
 
-\section{Strategy and planning}
-planning strategy (especially at the beginning), 5 supervisors to update independently, different means of updates
-- weekly meetings that became only when i had updates
-- regular bi-weekly meetings
-- irregular meetings and informal discussions here and there because of huge workload
+The formal setup is a TU Delft graduation agreement, with Politecnico di Torino as the host university, FEV Italia as the industrial partner and the Molinette hospital as the advisory hospital. The official start was on [23 or 25?] March 2026, with a nominal duration of eight months.
+%Formal setup: a TU~Delft graduation agreement with Politecnico di Torino as host university\footnote{The standard TU~Delft graduation agreement template refers to the host organisation as ``Company''.}. FEV Italia S.r.l.\ is the only industrial partner.
+
+ 
+\subsection{Supervisory team}
+The supervisory team was composed of five members. First, Bianca Giovanardi from TU Delft was the responsible supervisor of the thesis, followed by a series of external supervisors belonging to three different Italian institutions. The host institution, Politecnico di Torino, provided two supervisors: Prof. Enrico Cestino, the main professor interested in this research line, and Davide Angelini, PhD student and co-supervisor of this thesis. At an industrial level, Eng. Sergio Bianco from FEV Italia S.r.l. advised on the FEM parts of the thesis. Finally, Dr. Daniela Cestino, representative of the Citt\`a della Salute and of the Molinette hospital, acted as medical advisor.
+
+Each of the supervisors requested a different means of communication. Structured meetings were organized mostly with the universities, while ad-hoc meetings were organized with S. Bianco and D. Cestino [?], depending on their availability. The frequency of updates and meetings is summarized in Table~\ref{tab:pm-supervisors}.
+\begin{table}[htbp]
+    \centering
+    \caption{Supervisory team, roles, and communication channels.}
+    \label{tab:pm-supervisors}
+    \small
+    \begin{tabularx}{\textwidth}{@{}l l l X@{}}
+        \toprule
+        \textbf{Supervisor} & \textbf{Organisation} & \textbf{Role} & \textbf{Channel and frequency} \\
+        \midrule
+        B.~Giovanardi & TU Delft                  & Responsible supervisor    & Bi-weekly meetings \\
+        E.~Cestino    & Politecnico di Torino     & Host supervisor           & Weekly meetings, skipped when there was no update \\
+        D.~Angelini   & Politecnico di Torino     & Co-supervisor             & Weekly meetings, together with E.~Cestino \\
+        S.~Bianco     & FEV Italia S.r.l.         & Industrial co-supervisor  & Ad hoc, fitted to his availability \\
+        D.~Cestino    & A.O.U.\ Città della Salute & Medical co-supervisor     & Ad hoc, for supply of the medicinal phials \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\subsection{Monitoring and communication}
+The way the individual supervisors were consulted already poses a challenge for how communication was conducted throughout the thesis, i.e. coordination was not straightforward. The only joint meeting among all the relevant parties was the pre-kick-off alignment, attended by [X, Y and Z], while S. Bianco and D. Cestino were only ever consulted individually. As a result, the student was the only information link between the parties involved, and each supervisor saw a partial picture through a separate channel, so expectations diverged over time [example?].
+\begin{itemize}
+    \item Progress was reported weekly or bi-weekly to the academic supervisors throughout. Supervisors could follow the modelling difficulties as they happened.
+    \item Reporting was transparent about difficulties as well as progress. Each milestone presentation tracked every work package and design step as planned, in progress or done, including steps not achieved (for example WP3 and Steps 2--3 at the midterm).
+    \item Meetings were adapted to need: weekly sessions were skipped when there was no update, and industrial meetings were fitted to availability.
+    \item \textbf{Weakness:} there was no shared progress record across supervisors, and no joint review after kick-off.
+    \item \textbf{Weakness:} the change of scope was not recorded in a dated decision.
+\end{itemize}
+
+\subsection{Stakeholder priorities}
+The process of aligning the expectations of the different parties also posed a challenge for this thesis, as the home and host institutions had divergent priorities. Politecnico di Torino and FEV Italia were interested in a rigorous characterisation of the glass phials and, in general, of the medical payload. For TU Delft, the main concern was that the scope be feasible within the nominal time [?]: the TU Delft supervisor judged the planned work to be more than sufficient from the start, and at the beginning even overshooting.
+ 
+\subsection{Resources by party}
+The resources offered by the stakeholders are listed below, focusing specifically on what each of them offered and contributed to the thesis.
+\begin{itemize}
+    \item \textbf{TU Delft:} supervision and access to the DelftBlue HPC.
+    \item \textbf{Politecnico di Torino:} the MTS compression testing facility, plus HPC and licences as expected in the research proposal.
+    \item \textbf{FEV Italia:} a workstation with HyperWorks, and modelling support.
+    \item \textbf{A.O.U.\ Città della Salute (Molinette):} the medicinal phials.
+\end{itemize}
+ 
+ 
+
+% ---------------------------------------------------------------------
+\section{Planning: baseline versus execution}
+\label{sec:pm-planning}
+ 
+\subsection{Baseline}
+The timeline hypothesised at the beginning of the MSc Thesis project is shown in \ref{tab:pm-baseline}, where the different project phases and milestones presented in the first project proposal are highlighted in chronological order.
+\begin{table}[htbp]
+    \centering
+    \caption{Baseline planning from the research proposal.}
+    \label{tab:pm-baseline}
+    \small
+    \begin{tabularx}{\textwidth}{@{}X l l@{}}
+        \toprule
+        \textbf{Phase / milestone} & \textbf{Planned duration} & \textbf{Planned date (opt.\ / max.)} \\
+        \midrule
+        Phase 0: Mission envelope and allowables & 3 weeks  & 19/06 \\
+        Phase 1: Inflated configuration          & 7 weeks  & 07/08 \\
+        \midrule
+        \textit{Midterm review}                           & --       & 31/07 - 07/08 \\
+        \midrule
+        Phase 2: Folding and deployment          & 10 weeks & 16/10 \\
+        \midrule
+        \textit{Green light review}                      & --       & 23/10 - 13/11 \\
+        \textit{Final submission}                         & --       & 13/11 - 11/12 \\
+        \midrule
+        Phase 3: Refinement for prototyping      & \textit{Future work}      & -- \\        
+        \bottomrule
+    \end{tabularx}
+\end{table}
+ 
+\subsection{Scope evolution and execution}
+As expected [why?], the thesis work evolved away from the initial planning. The project proposal at the beginning considered the full design, with four sub-questions, including regulations and experimental testing of samples [?], and an end date of 30 September. In the new research proposal [?], the main question became workflow-centred. The scope then changed again as the iterations went by. The main deviation was Step~0 [?], which was planned to take three weeks and took several months, as higher importance was given to the modelling than initially hypothesised. At the midterm review, sub-question~3 was put in brackets, i.e. set aside, and the scope moved to its current state. Although no formal replan was made after the midterm, it was agreed among the supervisors that the focus would be on a thorough [honest?] characterisation of the payload before informing the airbag design, with a general readjustment of the timeline to allow for the regular conduction of the green light meeting and the delivery of the final portfolio.
 
 
-\section{Challenges}
-\subsection{challenge 1: aligning interests for thesis scope}
-- 5 supervisors with 5 different visions of my thesis work. what contributed was a lack of a unified platform to check my progress and congregate materials. 
+\begin{itemize}
+    \item \textbf{Project proposal V2:} full design, 4 sub-questions including regulation, experimental testing on pharmaceutical samples, and an end date of 30/09.
+    \item \textbf{Research proposal:} the main question becomes workflow-centred; there are 3 sub-questions; the regulatory question is dropped; and experiments become ``if required''.
+    \item shifing the scope as iterations go by. The main deviation was Phase~0: planned at 3~weeks, it took several months.
+    \begin{itemize}
+        \item About 6 model iterations were needed for the compression test.
+        \item Several more were needed for the sled test, including the sponge.
+    \end{itemize}
+    \item \textbf{Midterm review (04/08):} sub-question 3 (folding and deployment) is put in brackets.
+    \item The midterm review was held on 04/08, inside its window.
+    \item \textbf{After the midterm:} the focus moves to the workflow and characterisation. No formal re-plan was made after the midterm.
+    \item Green light is now expected on 13/11 and submission on 30/11, both inside the windows set in the research proposal. They may move earlier if the work finishes sooner.
+\end{itemize}
 
-\subsection{chellenge 2: Computational resources NO MORE}
-- by contract, politecnico should have given the resources, hpc and licences
-- unexpected maintenance, with delay
-- resolution: access to DelftBlue. Out of contract, otherwise the thesis should have been changed
 
-\subsection{challenge 3: IT infrastructure bottleneck}
-- resulting project flow from company pc to personal pc, because no permission to install a VPN and launch from the company's computer. 
 
-\subsection{challenge 4: going against the judgement of supervisors}
-- scegliere shell invece che solids in case of fev supervisor
-- scegliere full invece che reduced model in case of tudelft supervisor.
+ 
+\subsection{Final scope definition}
+The final evolution of the research process settled in this way: Sub-question 1 (allowables):  answered in full, through experimental and FEM characterisation. Sub-question 2 (inflated configuration): answered at pre-design level, using an optimisation wrapper extended to 2D (including horizontal velocity, seam efficiency and fabric transpiration). Sub-question 3 (folding and deployment): moved to future work. Main question (workflow): answered. The upstream steps were developed with high fidelity. Closing deliverable: a design recommendations chapter, concluding that the design must be payload-specific before prototyping.
+Instead of putting the original research questions, describe them better earlier and explain the evolution here. 
 
-\section{Lessons learned}
-I'm really mad
 
+ 
+% ---------------------------------------------------------------------
+\section{Critical events and their management}
+\label{sec:pm-events}
+ 
+\subsection{Scope narrowing: from airbag design to workflow and characterisation}
+\label{subsec:pm-scope}
+About two months into the research process, right after the literature research phase, the TU Delft supervisor raised the possibility of narrowing the scope and framed two branches: the thesis would focus either on the airbag design or on the pre-design, i.e. the workflow before the airbag design. The two were practically mutually exclusive. The student first chose the airbag design branch, but the question was not formally presented to the Politecnico di Torino supervisors, whose priority on the phials had been known since the initial definition of the thesis. In hindsight, this is where the divergence of expectations described above started [check].
+
+The second decision point came after the midterm. By then it was clear that building high-fidelity models in the pre-design part of the thesis took far more iterations than planned, together with the realisation that the downstream sizing depends on the upstream allowables, so sizing on unverified models would carry their errors forward. This was the basis of the reasoning for insisting on the modelling part, and it aligned perfectly with the expectations of Politecnico di Torino and FEV Italia, whose position was ``credible allowables first''. The outcome was that the scope moved from designing the airbag, as initially planned, to the workflow before the design of the airbag. This meant taking the road the TU Delft supervisor had already outlined at the beginning of the thesis, while keeping the main research question [check against the previous paragraph]. In this case the scopes aligned, and everybody agreed that the design must be payload-specific and that characterisation first was the right order.
+ 
+\subsection{Loss of computational resources}
+\label{subsec:pm-hpc}
+Up until the midterm review, which took place at the beginning of August, the only resources available were a local machine running Python and an LS-DYNA student licence, limited to four cores and 128\,000 elements [nodes?]. The expected HPC access, which was supposed to be granted about a month before the midterm meeting, was delayed by maintenance. This meant that a further delay was forecast: it was hypothesised that, to unlock new computational power at Politecnico di Torino, the student would need to wait at least another month, with a one-month queue to be expected, for a delay of three months in total, including the month already lost. At that point the options were to continue with the Politecnico di Torino HPC and ask for an extension, to obtain computational power elsewhere, or to change the thesis topic, either salvaging the work or redefining it completely. In the end, computational power was unlocked thanks to the intervention of TU Delft, which offered access to its DelftBlue cluster outside of the thesis agreement, as something not agreed upon before the thesis, and the topic was not changed.
+ 
+\subsection{Split toolchain between workstations}
+\label{subsec:pm-toolchain}
+Another constraint concerned the toolchain used for pre- and post-processing of the same calculations. The FEV workstation had HyperWorks installed with industrial licences, but the IT policy of the company blocked the installation of the VPN needed to connect to DelftBlue and launch the LS-DYNA input files there. On the contrary, the personal PC had VPN access to DelftBlue but no HyperWorks installed, and the only usable pre- and post-processor was LS-PrePost, which is not nearly as flexible as HyperWorks.
+
+The impact on the project was that data could only flow out of the FEV PC, so the DelftBlue results could never be post-processed in HyperWorks. Every large model change required the full round trip of going back to the FEV PC and editing the model there, and large files risked exceeding the limits of the only transport channel, e-mail [why only e-mail?]. This caused many time-consuming issues and a significant loss of time. It also carried the risk of losing files and of model incompatibilities: parameters were sometimes edited on the personal computer and then not implemented on the large model, so the same changes had to be done again. In general, the lack of transferability of the models was particularly difficult to manage. The small mitigation that was adopted was splitting the model into modular input files (\texttt{*INCLUDE}), so that only the parts being changed had to be transferred. This is also standard practice in industrial FEM; however, not having the same pre- and post-processor on the same machine remained a challenge.
+ 
+\subsection{Technical decisions under conflicting advice}
+\label{subsec:pm-technical}
+On two occasions, the decisions of the student conflicted with the advice given by one of the supervisors. 
+
+
+ 
+\paragraph{Modelling approach for the phial.}
+The first example concerned the modelling approach for the phial. The industrial supervisor suggested a solid-element model with a material card developed for concrete and ceramics. With this approach, however, there were still contact issues, the material behaviour was not adequate to the type of failure observed in the lab, and the reaction force was zero [noisy?] or strongly oscillating in the model, pointing to contact sensitivities and to a material model not formulated for glass. The student therefore decided to switch to shell elements and, after an independent literature review, to adopt a glass-specific material model, \texttt{*MAT\_GLASS} (MAT\_280). This made it possible, for the first time, to obtain reaction forces that were measurable and comparable with the MTS data.
+ 
+\paragraph{Fidelity of the sled-test model.}
+The second occasion was when the TU Delft supervisor advised using a reduced model for the sled test, because of the computational cost and the risk of not finishing on time. However, the student realised that the reduced model relied on a symmetry that the system does not have, so its results could not be considered physically valid, nor presented as such to a thesis committee with a critical judgement. The decision was therefore to build the full container model, keeping the reduced model as a fallback plan and taking full responsibility for any delay. As an outcome, the full model was built successfully and the green light date did not move.
+
+% ---------------------------------------------------------------------
+\section{Self-assessment}
+\label{sec:pm-self}
+Self-evaluation of performance is important. On one hand, what worked is Milestones were held despite a forecast delay of about 3~months: the midterm was on time and the green light and submission stay inside the proposal windows; A recommended technical approach was overturned with evidence: the shell elements and glass material model that were adopted produced the first usable comparison with experiment. Somehow adapting to the communication style of every supervisor and carrying the project forward despite the accidents above. 
+ 
+on the other hand, in all honest evaluation, there were also things that did not work. Phase~0 was badly underestimated. 3~weeks were planned against several months actually needed, because the iterations required for brittle-failure and contact modelling were not foreseen. The divergence in supervisor priorities was never raised openly. Trying to deliver both the airbag work and the phial characterisation increased the workload and delayed convergence on scope. Too long was spent on the recommended solid-element approach before switching, because there was no criterion for when to stop.
+
+IDEA: propose it as the natural evolution of research, you start with one thing and then understand that much more work is necessary to actually do it. 
+
+% ---------------------------------------------------------------------
+\section{Lessons learned and recommendations}
+\label{sec:pm-lessons}
+Overall, the lessons learned from this magical experience were:
+\begin{itemize}
+    \item Schedule joint milestone reviews (kick-off, midterm, green light) with all supervisors in the initial plan.
+    \item Keep one shared progress record that every supervisor can access. This is against what was adopted, i.e. different platforms for different supervisors (github, teams, dropbox, etc.)
+    \item Keep a decision log, and confirm scope changes in writing on the date they are made.
+    \item Put scope conflicts to all parties early and get a decision, rather than absorbing them as extra work.
+    \item Set stopping criteria for technical approaches, for example ``after $N$ iterations with no usable output, escalate or switch''.
+    \item Plan iteration buffers for modelling tasks that are new to you, especially brittle failure and contact.
+    \item Confirm resource availability (HPC, licences, VPN, software on each machine) in the agreement before kick-off, not only in the proposal.
+\end{itemize}
