@@ -11,6 +11,7 @@
 \usepackage{parskip}
 \setlist{itemsep=-2pt} % Reducing white space in lists slightly
 \renewcommand{\deg}{\si{\degree}\xspace} % Use \deg easily, everywhere
+\sisetup{per-mode = symbol} % \per as a slash, never a negative exponent: J/(kg K), not J kg^-1 K^-1
 \usepackage{pdflscape} % Single landscape pages (rotated in the PDF viewer too)
 \usepackage{placeins} % \FloatBarrier: keep figures/tables inside their own section
 % Draft highlighting: \hl{text to revise}
@@ -42,6 +43,8 @@
   moredelim=[l][\color{dynaKw}\bfseries]{*},   % *KEYWORD lines
   moredelim=[is][\color{red}\bfseries]{@}{@},  % highlighted field
 }
+\newcommand{\dynahl}[1]{\textcolor{red}{\bfseries #1}}  % highlight used via !...! escapes in dynacard
+\newcommand{\dynafont}{\footnotesize}  % card font size; \renewcommand{\dynafont}{\scriptsize} locally for narrow cards
 \newtcblisting[auto counter, number within=chapter, list inside=lol]{dynacard}[2][]{
   listing only, enhanced, sharp corners,
   colback=white, colframe=black!35, boxrule=0.4pt,
@@ -53,9 +56,10 @@
   listing options={
     language=lsdyna,
     backgroundcolor={}, aboveskip=0pt, belowskip=0pt,  % override the class-wide \lstset
-    basicstyle=\ttfamily\footnotesize,
+    basicstyle=\ttfamily\dynafont,
     commentstyle=\color{dynaCmt},
     columns=fullflexible, keepspaces=true,
+    escapeinside={!}{!},  % !\dynahl{FT}! highlights text in $ comment lines too, where @...@ is ignored
     numbers=left, numberstyle=\tiny\color{black!50}, numbersep=4mm,
   },
   #1}
@@ -77,6 +81,21 @@
   before skip=12pt, after skip=12pt,
   #1
 }
+% Pseudocode boxes, same frame as dynacard; breakable so long algorithms flow over pages
+% Usage: \begin{algobox}[label=alg:xxx]{Box title} \begin{algorithmic}[1] ... \end{algorithmic} \end{algobox}
+%        \Cont continues a \Require/\Ensure list; \Block{text} is an unnumbered coloured heading line
+%        (the strut adds space above it, so no \Statex is needed between blocks)
+\usepackage{algpseudocode}
+\algnewcommand{\Cont}{\item[]}
+\algnewcommand{\Block}[1]{\Statex\rule{0pt}{3ex}\textcolor{title!60!black}{\sffamily\bfseries\small #1}}
+\newtcolorbox[auto counter, number within=chapter, crefname={Algorithm}{Algorithms}]{algobox}[2][]{
+  enhanced, breakable, sharp corners,
+  colback=white, colframe=black!35, boxrule=0.4pt,
+  left=3mm, right=3mm, top=1mm, bottom=1mm,
+  title={Algorithm \thetcbcounter: #2},
+  fonttitle=\small\bfseries, coltitle=black, colbacktitle=black!8,
+  halign title=center,
+  #1}
 %% ----------------------------------------------------------------------
 %%    Table house style (modelled on tab:variable_inventory)
 %%    navy header band, thin rules between rows, navy bottom rule;

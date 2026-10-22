@@ -9,9 +9,9 @@ def simulate_airbag(
         # geometry / structural
         D0, L0, d_or, P0, shape,
         # impact scenario
-        M_payload, u0,
+        M_payload, uy0,
         # fabric material: supplier data, per unit width / per unit area
-        T_ult_Ncm, areal_weight, t_ply, n_ply,
+        N_ult_Ncm, areal_weight, t_ply, n_ply,
         # gas / environment
         T0, R_gas, gamma, P_amb, g,
         # control
@@ -26,13 +26,13 @@ def simulate_airbag(
     R0 = D0 / 2.0
     k_shape = 1.0 if shape == 1 else 0.5
 
-    # Fabric strength is a per-unit-width datum (N/cm); n plies carry it in parallel.
+    # Fabric strength is a per-unit-width membrane force N (N/cm); n plies carry it in parallel.
     # Thickness follows from the ply stack, it does not buy strength on its own.
     d_fabric    = n_ply * t_ply                     # [m] stack thickness, reporting only
-    T_ult       = 100.0 * n_ply * T_ult_Ncm         # [N/m] ultimate (1 N/cm = 100 N/m)
-    T_allow     = eta_seam * T_ult / sf_burst       # [N/m] allowable at the seam
-    P_burst     = P_amb + T_allow / (k_shape * R0)  # sizing limit
-    P_burst_ult = P_amb + T_ult / (k_shape * R0)    # unfactored, for reporting
+    N_ult       = 100.0 * n_ply * N_ult_Ncm         # [N/m] ultimate (1 N/cm = 100 N/m)
+    N_allow     = eta_seam * N_ult / sf_burst       # [N/m] allowable at the seam
+    P_burst     = P_amb + N_allow / (k_shape * R0)  # sizing limit
+    P_burst_ult = P_amb + N_ult / (k_shape * R0)    # unfactored, for reporting
 
     # fabric area of the undeformed bag
     if shape == 1:                                  # cylinder: side + 2 caps
@@ -43,7 +43,7 @@ def simulate_airbag(
 
     # impact axis n, fixed along the initial velocity. Computed once: recomputing it
     # every step would zero the tangential velocity and collapse the model to 1-DOF.
-    theta = np.arctan2(ux0, u0)
+    theta = np.arctan2(ux0, uy0)
     sin_theta = np.sin(theta)
     cos_theta = np.cos(theta)
 
@@ -51,18 +51,18 @@ def simulate_airbag(
     h = 0.0              # crush along n
     y_pen = 0.0          # vertical penetration
     x = 0.0              # horizontal position
-    u_x = ux0
-    u_y = u0
+    ux = ux0
+    uy = uy0
     D_abrasion = 0.0
     burst = False
     abraded = False
     rebounded = False
-    u_rebound = 0.0
+    u_rebound_y = 0.0
     bottomed = False
-    u_residual = 0.0     # vertical velocity when the full stroke is reached
+    u_residual_y = 0.0   # vertical velocity when the full stroke is reached
     u_residual_n = 0.0
     u_residual_x = 0.0
-    fail_t = None
+    t_stop = None        # time of the stopping event (failure or full stroke)
     fail_P = None
 
     geom0 = airbag_geometry_from_h(h, D0, L0, shape=shape)
@@ -76,29 +76,29 @@ def simulate_airbag(
     P_bag = P0
     rho_prev = m_gas / V_prev
 
-    (t_hist, V_hist, P_hist, m_hist, a_hist, u_hist, h_hist, x_hist, ux_hist, D_hist,
+    (t_hist, V_hist, P_hist, m_hist, ay_hist, uy_hist, h_hist, x_hist, ux_hist, D_hist,
      y_pen_hist, un_hist, ax_hist, ares_hist, load_hist) = ([] for _ in range(15))
 
-    u_n0 = u_x * sin_theta + u_y * cos_theta
+    un0 = ux * sin_theta + uy * cos_theta
     t_hist.append(t)
     V_hist.append(V_prev)
     P_hist.append(P_bag)
     m_hist.append(m_gas)
-    a_hist.append(np.nan)    # accelerations and loads are undefined at t=0
-    u_hist.append(u_y)
+    ay_hist.append(np.nan)   # accelerations and loads are undefined at t=0
+    uy_hist.append(uy)
     h_hist.append(h)
     x_hist.append(x)
-    ux_hist.append(u_x)
+    ux_hist.append(ux)
     D_hist.append(D_abrasion)
     y_pen_hist.append(y_pen)
-    un_hist.append(u_n0)
+    un_hist.append(un0)
     ax_hist.append(np.nan)
     ares_hist.append(np.nan)
     load_hist.append(np.nan)
 
     while t < t_max:
 
-        # adaptive step on the previous bag load F_n/M, with hysteresis
+        # adaptive step on the previous bag load Fn/M, with hysteresis
         DT_FINE   = 1e-5
         DT_COARSE = 2e-4
         A_TRIGGER_fine = 0.03 * a_allow
@@ -111,23 +111,23 @@ def simulate_airbag(
             dt = DT_COARSE
 
         # 1) dynamics: bag force along n resolved into x and y, gravity in y only
-        F_n = max((P_bag - P_amb) * A_prev, 0.0)
-        F_x = -F_n * sin_theta
-        F_y = -F_n * cos_theta
+        Fn = max((P_bag - P_amb) * A_prev, 0.0)
+        Fx = -Fn * sin_theta
+        Fy = -Fn * cos_theta
 
-        a_y = F_y / M_payload + g
-        a_x = F_x / M_payload
-        a_res = np.sqrt(a_x**2 + a_y**2)
-        load_n = F_n / M_payload      # load felt by the payload along n
+        ay = Fy / M_payload + g
+        ax = Fx / M_payload
+        ares = np.sqrt(ax**2 + ay**2)
+        load_n = Fn / M_payload      # load felt by the payload along n
 
-        u_x_new = u_x + a_x * dt
-        u_y_new = u_y + a_y * dt
-        u_n_new = u_x_new * sin_theta + u_y_new * cos_theta
+        ux_new = ux + ax * dt
+        uy_new = uy + ay * dt
+        un_new = ux_new * sin_theta + uy_new * cos_theta
 
-        h_new = h + u_n_new * dt
+        h_new = h + un_new * dt
         h_new = min(max(h_new, 0.0), D0)
-        y_pen_new = y_pen + u_y_new * dt
-        x_new = x + u_x_new * dt
+        y_pen_new = y_pen + uy_new * dt
+        x_new = x + ux_new * dt
 
         # 2) geometry from the new crush
         geom = airbag_geometry_from_h(h_new, D0, L0, shape=shape)
@@ -147,7 +147,7 @@ def simulate_airbag(
             P_amb=P_amb,
 
             dt=dt,
-            A_or=A_vent,
+            A_vent=A_vent,
 
             P_prev=P_bag,
             rho_prev=rho_prev,
@@ -167,7 +167,7 @@ def simulate_airbag(
         # 4) history
         if verbose:
             print(f"t={t:.7f}, h={h:.4f}, y_pen={y_pen:.4f}, V={V_new:.4e}, P={P_new:.1f}, "
-                  f"A={A_new:.5f}, a_y={a_y:.3f}, a_x={a_x:.3f}, m={m_new:.4f}")
+                  f"A={A_new:.5f}, ay={ay:.3f}, ax={ax:.3f}, m={m_new:.4f}")
 
         t_next = t + dt
 
@@ -175,22 +175,22 @@ def simulate_airbag(
         V_hist.append(V_new)
         P_hist.append(P_new)
         m_hist.append(m_new)
-        a_hist.append(a_y)
-        u_hist.append(u_y_new)
+        ay_hist.append(ay)
+        uy_hist.append(uy_new)
         h_hist.append(h_new)
         x_hist.append(x_new)
-        ux_hist.append(u_x_new)
+        ux_hist.append(ux_new)
         D_hist.append(D_abrasion)
         y_pen_hist.append(y_pen_new)
-        un_hist.append(u_n_new)
-        ax_hist.append(a_x)
-        ares_hist.append(a_res)
+        un_hist.append(un_new)
+        ax_hist.append(ax)
+        ares_hist.append(ares)
         load_hist.append(load_n)
 
         # 5) termination: the first failure wins
         if P_new > P_burst:
             burst = True
-            fail_t, fail_P = t_next, P_new
+            t_stop, fail_P = t_next, P_new
             if verbose:
                 print("\n*** AIRBAG BURST (hoop over-pressure) ***")
                 print(f"    P = {P_new:.0f} Pa exceeded P_burst = {P_burst:.0f} Pa "
@@ -200,19 +200,19 @@ def simulate_airbag(
 
         if h_new >= D0:
             bottomed = True
-            u_residual = u_y_new
-            u_residual_n = u_n_new
-            u_residual_x = u_x_new
-            fail_t = t_next
+            u_residual_y = uy_new
+            u_residual_n = un_new
+            u_residual_x = ux_new
+            t_stop = t_next
             if verbose:
                 print(f"\n*** FULL STROKE (h reached D0={D0:.3f} m) at t={t_next:.4f} s, "
-                    f"u_residual={u_residual:.3f} m/s ***\n")
+                    f"u_residual_y={u_residual_y:.3f} m/s ***\n")
             break
 
         if y_pen_new <= 0.0:
             rebounded = True
-            u_rebound = u_y_new
-            fail_t = t_next
+            u_rebound_y = uy_new
+            t_stop = t_next
             if verbose:
                 print("\n*** AIRBAG REBOUND ***")
                 print(f"    y_pen = {y_pen_new:.4f} m <= 0 at t = {t_next:.4f} s — design REBOUNDED.")
@@ -223,8 +223,8 @@ def simulate_airbag(
         t = t_next
         h = h_new
         y_pen = y_pen_new
-        u_x = u_x_new
-        u_y = u_y_new
+        ux = ux_new
+        uy = uy_new
         x = x_new
 
         A_prev = A_new
@@ -239,8 +239,8 @@ def simulate_airbag(
     V_hist = np.array(V_hist)
     P_hist = np.array(P_hist)
     m_hist = np.array(m_hist)
-    a_hist = np.array(a_hist)
-    u_hist = np.array(u_hist)
+    ay_hist = np.array(ay_hist)
+    uy_hist = np.array(uy_hist)
     h_hist = np.array(h_hist)
     x_hist = np.array(x_hist)
     ux_hist = np.array(ux_hist)
@@ -251,11 +251,13 @@ def simulate_airbag(
     ares_hist = np.array(ares_hist)
     load_hist = np.array(load_hist)
 
-    a_peak = float(np.nanmax(np.abs(a_hist)))      # vertical
+    a_peak_y = float(np.nanmax(np.abs(ay_hist)))   # vertical
     a_peak_n = float(np.nanmax(load_hist))         # along n, the sizing quantity
-    a_peak_resultant = float(np.nanmax(np.abs(ares_hist)))
+    a_peak_res = float(np.nanmax(np.abs(ares_hist)))
     survived = not (burst or rebounded or abraded)
     P_peak     = float(np.nanmax(P_hist))
+    settled    = not (burst or bottomed or rebounded)   # ran to t_max: payload caught and settling
+    u_final_n  = float(un_hist[-1])                     # velocity along n at the end of the run [m/s]
 
     if make_plots:
         fig, axs = plt.subplots(3, 3, figsize=(14, 10), sharex=True)
@@ -263,9 +265,9 @@ def simulate_airbag(
         plots = [
             (h_hist,     "h [m]",          "Crush Along n"),
             (y_pen_hist, "y_pen [m]",      "Vertical Penetration"),
-            (u_hist,     "u_y [m/s]",      "Vertical Velocity"),
+            (uy_hist,    "u_y [m/s]",      "Vertical Velocity"),
             (un_hist,    "u_n [m/s]",      "Velocity Along n"),
-            (a_hist,     "a_y [m/s^2]",    "Vertical Acceleration"),
+            (ay_hist,    "a_y [m/s^2]",    "Vertical Acceleration"),
             (ares_hist,  "a_res [m/s^2]",  "Resultant Acceleration"),
             (P_hist,     "P_bag [Pa]",     "Internal Pressure"),
             (m_hist,     "m [kg]",         "Gas Mass"),
@@ -302,26 +304,28 @@ def simulate_airbag(
         "m_gas0": m_gas0,
         "S_surface": S_surface,
         "A_vent0": A_or + phi_vent * S_surface,   # vent area at impact
-        "a_peak": a_peak,          # max |a_y|
-        "a_peak_resultant": a_peak_resultant,
-        "a_peak_n": a_peak_n,      # max F_n/M, constrained by a_allow
+        "a_peak_y": a_peak_y,      # max |ay|
+        "a_peak_res": a_peak_res,
+        "a_peak_n": a_peak_n,      # max Fn/M, constrained by a_allow
         "theta": theta,
         "survived": survived,
         "burst": burst,
         "rebounded": rebounded,
-        "u_rebound": u_rebound,
+        "u_rebound_y": u_rebound_y,
         "bottomed": bottomed,
-        "u_residual": u_residual,          # vertical
+        "u_residual_y": u_residual_y,      # vertical
         "u_residual_n": u_residual_n,
         "u_residual_x": u_residual_x,
-        "fail_t": fail_t,
+        "t_stop": t_stop,
         "h_max": float(np.max(h_hist)),
         "x_final": float(x_hist[-1]),
         "P_burst": P_burst,            # allowable (eta_seam / sf_burst applied)
         "P_burst_ult": P_burst_ult,    # unfactored
-        "T_allow": T_allow,            # [N/m] allowable membrane tension
+        "N_allow": N_allow,            # [N/m] allowable membrane force per unit width
         "d_fabric": d_fabric,          # [m] n_ply * t_ply
         "n_ply": n_ply,
         "P_peak": P_peak,
+        "settled": settled,        # no burst / bottoming / rebound by t_max
+        "u_final_n": u_final_n,    # velocity along n at the last time step [m/s]
         "D_abrasion": D_abrasion,  # always 0 (no friction model), kept for compatibility
     }

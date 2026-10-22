@@ -2604,6 +2604,57 @@
       \verb 10.1016/j.strusafe.2018.02.002
       \endverb
     \endentry
+    \entry{DCFEA2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=e98d1900e965c170b27b5fc1fdc67025}{%
+           family={{DCFEA\_Simulation\_Tutorial}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{fullhash}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{fullhashraw}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{bibnamehash}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{authorbibnamehash}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{authornamehash}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{authorfullhash}{e98d1900e965c170b27b5fc1fdc67025}
+      \strng{authorfullhashraw}{e98d1900e965c170b27b5fc1fdc67025}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{YouTube video}
+      \field{month}{8}
+      \field{note}{Accessed: Oct. 21, 2026}
+      \field{title}{{LS-Dyna} tutorial---Use of {Mat\_Glass} to model behavior of glasses, including a ball impact on glass}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=WR0_zx7L1Ew
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=WR0_zx7L1Ew
+      \endverb
+    \endentry
+    \entry{LSDYNA_KW_II}{manual}{}{}
+      \list{location}{1}{%
+        {Livermore, CA, USA}%
+      }
+      \list{organization}{1}{%
+        {Livermore Software Technology (LST), an Ansys Company}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{edition}{R16}
+      \field{note}{Accessed: Oct. 21, 2026}
+      \field{title}{{LS-DYNA} Keyword User's Manual, Volume {II}: Material Models}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://lsdyna.ansys.com/manuals-download/
+      \endverb
+      \verb{url}
+      \verb https://lsdyna.ansys.com/manuals-download/
+      \endverb
+    \endentry
     \entry{disalute_aetos}{misc}{}{}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -2969,8 +3020,8 @@
       \endverb
     \endentry
     \entry{nordest24_sandbox}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Nordest24}
       \field{note}{Accessed 5 October 2026}

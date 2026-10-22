@@ -16,8 +16,8 @@ CURVE_MAX_PTS = 4000      # curve decimation in the combined animation (display 
 N_ROWS, N_COLS = 4, 4
 
 
-def replay_histories(D0, L0, d_or, P0, shape, M_payload, u0,
-                     T_ult_Ncm, areal_weight, t_ply, n_ply,
+def replay_histories(D0, L0, d_or, P0, shape, M_payload, uy0,
+                     N_ult_Ncm, areal_weight, t_ply, n_ply,
                      T0, R_gas, gamma, P_amb, g,
                      dt, t_max, a_allow, ux0, phi_vent=0.0,
                      eta_seam=0.70, sf_burst=1.50):
@@ -25,22 +25,22 @@ def replay_histories(D0, L0, d_or, P0, shape, M_payload, u0,
     only returns scalars). Keep in sync with airbag_simulation_function.py by hand."""
     R0 = D0 / 2.0
     k_shape = 1.0 if shape == 1 else 0.5
-    T_ult = 100.0 * n_ply * T_ult_Ncm               # [N/m] (1 N/cm = 100 N/m)
-    T_allow = eta_seam * T_ult / sf_burst
-    P_burst = P_amb + T_allow / (k_shape * R0)
+    N_ult = 100.0 * n_ply * N_ult_Ncm               # [N/m] (1 N/cm = 100 N/m)
+    N_allow = eta_seam * N_ult / sf_burst
+    P_burst = P_amb + N_allow / (k_shape * R0)
     A_or = (np.pi / 4) * d_or ** 2
     S_surface = (np.pi * D0 * L0 + 0.5 * np.pi * D0 ** 2) if shape == 1 else np.pi * D0 ** 2
 
-    theta = np.arctan2(ux0, u0)
+    theta = np.arctan2(ux0, uy0)
     sin_theta, cos_theta = np.sin(theta), np.cos(theta)
 
     t = 0.0
     h = 0.0
     y_pen = 0.0
     x = 0.0
-    u_x, u_y = ux0, u0
+    ux, uy = ux0, uy0
     burst = bottomed = rebounded = False
-    fail_t = None
+    t_stop = None
 
     geom0 = airbag_geometry_from_h(h, D0, L0, shape=shape)
     A_prev, V_prev = geom0["A_t"], geom0["V_t"]
@@ -48,11 +48,11 @@ def replay_histories(D0, L0, d_or, P0, shape, M_payload, u0,
     T_gas, P_bag, rho_prev = T0, P0, m_gas / V_prev
 
     t_hist, h_hist, x_hist = [t], [h], [x]
-    y_pen_hist, P_hist, a_hist = [y_pen], [P_bag], [np.nan]
-    u_hist, un_hist = [u_y], [u_x * sin_theta + u_y * cos_theta]
+    y_pen_hist, P_hist, ay_hist = [y_pen], [P_bag], [np.nan]
+    uy_hist, un_hist = [uy], [ux * sin_theta + uy * cos_theta]
     ares_hist, m_hist, V_hist = [np.nan], [m_gas], [V_prev]
-    ux_hist, ax_hist, T_hist = [u_x], [np.nan], [T_gas]
-    Fx_hist, Fy_hist, Fn_hist = [np.nan], [np.nan], [np.nan]
+    ux_hist, ax_hist, T_hist = [ux], [np.nan], [T_gas]
+    Fx_hist, Fy_net_hist, Fn_hist = [np.nan], [np.nan], [np.nan]
 
     while t < t_max:
         DT_FINE, DT_COARSE = 1e-5, 2e-4
@@ -63,65 +63,65 @@ def replay_histories(D0, L0, d_or, P0, shape, M_payload, u0,
         elif load_prev < A_TRIGGER_coarse:
             dt = DT_COARSE
 
-        F_n = max((P_bag - P_amb) * A_prev, 0.0)
-        F_x = -F_n * sin_theta
-        F_y = -F_n * cos_theta
-        a_y = F_y / M_payload + g
-        a_x = F_x / M_payload
-        a_res = np.sqrt(a_x ** 2 + a_y ** 2)
+        Fn = max((P_bag - P_amb) * A_prev, 0.0)
+        Fx = -Fn * sin_theta
+        Fy = -Fn * cos_theta
+        ay = Fy / M_payload + g
+        ax = Fx / M_payload
+        ares = np.sqrt(ax ** 2 + ay ** 2)
 
-        u_x_new = u_x + a_x * dt
-        u_y_new = u_y + a_y * dt
-        u_n_new = u_x_new * sin_theta + u_y_new * cos_theta
+        ux_new = ux + ax * dt
+        uy_new = uy + ay * dt
+        un_new = ux_new * sin_theta + uy_new * cos_theta
 
-        h_new = min(max(h + u_n_new * dt, 0.0), D0)
-        y_pen_new = y_pen + u_y_new * dt
-        x_new = x + u_x_new * dt
+        h_new = min(max(h + un_new * dt, 0.0), D0)
+        y_pen_new = y_pen + uy_new * dt
+        x_new = x + ux_new * dt
 
         geom = airbag_geometry_from_h(h_new, D0, L0, shape=shape)
         A_new, V_new = max(geom["A_t"], 0.0), geom["V_t"]
 
         thermo = thermo_step(m_prev=m_gas, V_t=V_new, gamma=gamma, P_amb=P_amb, dt=dt,
-                             A_or=A_or + phi_vent * max(S_surface - A_new, 0.0),
+                             A_vent=A_or + phi_vent * max(S_surface - A_new, 0.0),
                              P_prev=P_bag, rho_prev=rho_prev,
                              T_prev=T_gas, R_gas=R_gas, verbose=False)
         P_new = max(thermo["P_bag"], P_amb)
 
         t_next = t + dt
         t_hist.append(t_next); h_hist.append(h_new); x_hist.append(x_new)
-        y_pen_hist.append(y_pen_new); P_hist.append(P_new); a_hist.append(a_y)
-        u_hist.append(u_y_new); un_hist.append(u_n_new); ares_hist.append(a_res)
+        y_pen_hist.append(y_pen_new); P_hist.append(P_new); ay_hist.append(ay)
+        uy_hist.append(uy_new); un_hist.append(un_new); ares_hist.append(ares)
         m_hist.append(thermo["m_t"]); V_hist.append(V_new)
-        ux_hist.append(u_x_new); ax_hist.append(a_x); T_hist.append(thermo["T_t"])
-        Fx_hist.append(F_x); Fy_hist.append(M_payload * a_y); Fn_hist.append(F_n)
+        ux_hist.append(ux_new); ax_hist.append(ax); T_hist.append(thermo["T_t"])
+        Fx_hist.append(Fx); Fy_net_hist.append(M_payload * ay); Fn_hist.append(Fn)   # Fy_net includes g
 
         if P_new > P_burst:
             burst = True
-            fail_t = t_next
+            t_stop = t_next
             break
         if h_new >= D0:
             bottomed = True
-            fail_t = t_next
+            t_stop = t_next
             break
         if y_pen_new <= 0.0:
             rebounded = True
-            fail_t = t_next
+            t_stop = t_next
             break
 
         t = t_next
-        h, y_pen, u_x, u_y, x = h_new, y_pen_new, u_x_new, u_y_new, x_new
+        h, y_pen, ux, uy, x = h_new, y_pen_new, ux_new, uy_new, x_new
         A_prev, V_prev = A_new, V_new
         P_bag, rho_prev, T_gas, m_gas = P_new, thermo["rho_t"], thermo["T_t"], thermo["m_t"]
 
     arr = np.asarray
     return dict(t_hist=arr(t_hist), h_hist=arr(h_hist), x_hist=arr(x_hist),
-                y_pen_hist=arr(y_pen_hist), P_hist=arr(P_hist), a_hist=arr(a_hist),
-                u_hist=arr(u_hist), un_hist=arr(un_hist), ares_hist=arr(ares_hist),
+                y_pen_hist=arr(y_pen_hist), P_hist=arr(P_hist), ay_hist=arr(ay_hist),
+                uy_hist=arr(uy_hist), un_hist=arr(un_hist), ares_hist=arr(ares_hist),
                 m_hist=arr(m_hist), V_hist=arr(V_hist),
                 ux_hist=arr(ux_hist), ax_hist=arr(ax_hist), T_hist=arr(T_hist),
-                Fx_hist=arr(Fx_hist), Fy_hist=arr(Fy_hist), Fn_hist=arr(Fn_hist),
+                Fx_hist=arr(Fx_hist), Fy_net_hist=arr(Fy_net_hist), Fn_hist=arr(Fn_hist),
                 P_burst=P_burst, burst=burst, bottomed=bottomed, rebounded=rebounded,
-                fail_t=fail_t)
+                t_stop=t_stop)
 
 
 def _pressure_color(P, P_burst):
@@ -168,9 +168,9 @@ def _plot_specs(replay, M_payload):
         (replay["Fx_hist"],    "F_x [N]",         "Horizontal Force"),
 
         (replay["y_pen_hist"], "y_pen [m]",       "Vertical Penetration"),
-        (replay["u_hist"],     "u_y [m/s]",       "Vertical Velocity"),
-        (replay["a_hist"],     "a_y [m/s^2]",     "Vertical Acceleration"),
-        (replay["Fy_hist"],    "F_y [N]",         "Net Vertical Force (incl. g)"),
+        (replay["uy_hist"],    "u_y [m/s]",       "Vertical Velocity"),
+        (replay["ay_hist"],    "a_y [m/s^2]",     "Vertical Acceleration"),
+        (replay["Fy_net_hist"], "F_y,net [N]",     "Net Vertical Force (incl. g)"),
 
         (replay["h_hist"],     "h [m]",           "Displacement Along n"),
         (replay["un_hist"],    "u_n [m/s]",       "Velocity Along n"),
@@ -250,7 +250,7 @@ def run_postprocessing(inputs, res, feasible, show_popups=True, save_plot_matrix
             fail_reason = "TIMEOUT (never bottomed)"
         else:
             fail_reason = "INFEASIBLE (a_peak_n or u_residual_n over limit)"
-        fail_overlay_t = replay["fail_t"] if replay["fail_t"] is not None else replay["t_hist"][-1]
+        fail_overlay_t = replay["t_stop"] if replay["t_stop"] is not None else replay["t_hist"][-1]
 
     frame_idx = np.linspace(0, last_idx, min(n_steps, MAX_FRAMES)).astype(int)
     frame_idx = np.unique(frame_idx)

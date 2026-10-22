@@ -33,13 +33,13 @@ A reduced model [half? quarter?] of the system was initially developed, but the 
 % amplitude search: increase a until failure (analogue of FT calibration procedure)
 The input of the model is an acceleration time history, prescribed through \texttt{*BOUNDARY\_PRESCRIBED\_MOTION\_RIGID} on two rigid rings attached to the payload bay [how are they connected? shared nodes? constrained nodes?], while the rest of the bay remains deformable. The rings represent the straps that hold the payload, in the same way as the restraints on a test sled. The curve has a trapezoidal shape: an initial ramp of duration $t_r$, a plateau at constant acceleration $a$ of duration $t_p$, and a descending ramp of duration $t_r$. The ramps avoid discontinuities in the acceleration, which would excite spurious high-frequency oscillations, so that the velocity and displacement histories remain smooth. The acceleration is therefore applied at the attachment points, and reaches the phials only after being transmitted through the deformable bay, the sponge and the mask.
 
-The impact is characterised by an initial velocity $\mathbf{v}_0$, which includes both horizontal and vertical components [how are the $x$, $y$, $z$ components handled?]. Over the deceleration this velocity must be brought completely to zero, so the integral of the acceleration curve must equal the velocity dissipated by the system:
+The impact is characterised by an initial velocity $\mathbf{u}_0 = (u_{x,0}, u_{y,0})$, which includes both horizontal and vertical components [how are the $x$, $y$, $z$ components handled?]. Over the deceleration this velocity must be brought completely to zero, so the integral of the acceleration curve must equal the velocity dissipated by the system:
 \begin{equation}
-  \int_0^{T} a(t)\,\mathrm{d}t = a\,(t_r + t_p) = \lVert \mathbf{v}_0 \rVert,
+  \int_0^{T} a(t)\,\mathrm{d}t = a\,(t_r + t_p) = \lVert \mathbf{u}_0 \rVert,
   \qquad T = 2t_r + t_p .
   \label{eq:pulse_area}
 \end{equation}
-This condition defines a family of acceleration curves: for a given amplitude $a$, Eq.~\eqref{eq:pulse_area} fixes the plateau duration $t_p = \lVert \mathbf{v}_0 \rVert / a - t_r$, and therefore the characteristic time scale of the event. The aim is to reproduce an impact as closely as possible, applying an acceleration profile similar to the peak observed in an impact event.
+This condition defines a family of acceleration curves: for a given amplitude $a$, Eq.~\eqref{eq:pulse_area} fixes the plateau duration $t_p = \lVert \mathbf{u}_0 \rVert / a - t_r$, and therefore the characteristic time scale of the event. The aim is to reproduce an impact as closely as possible, applying an acceleration profile similar to the peak observed in an impact event.
 
 The maximum acceleration the phials can withstand is found with a search procedure analogous to the calibration of \texttt{FT}: the amplitude $a$ is increased step by step, with the duration adjusted through Eq.~\eqref{eq:pulse_area}, until the phial breaks. Since a larger amplitude also implies a shorter pulse, the resulting limit refers to this pulse shape and to the given initial velocity.
 

@@ -68,8 +68,8 @@ import matplotlib.pyplot as plt
 # =============================================================================
 
 # Initial velocity components to be dissipated [mm/ms]
-VX0 = 25
-VY0 = 7.5
+VX0 = 7.5
+VY0 = 25
 
 # Duration of the phenomenon [ms]. Every curve must fit inside this window.
 PHENOMENON_DURATION_MS = 200.0

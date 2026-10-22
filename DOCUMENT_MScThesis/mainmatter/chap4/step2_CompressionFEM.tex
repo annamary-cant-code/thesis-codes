@@ -1,41 +1,147 @@
 % LTeX: language=en-GB
 % !TEX root = ../../report.tex
 \section{Step 2 - Axial compression test (FEM)}\label{section:step2-fem-compression}
-% objective: calibrate FT against experimental failure force; downstream use
-% final modelling choices in 3-4 lines -> chronology in \ref{appendix:FEMiterations}
+The quantity of interest for the calibration of the glass phial's mechanical behaviour is the \textit{tensile strength} \texttt{FT} of the glass material card in LS-DYNA (\texttt{*MAT\_GLASS}, corresponding to the material model \texttt{*MAT\_280}), which governs the failure load observed in the FEM model. \texttt{FT} is tuned iteratively until the failure force predicted by the FEM matches the value of 98.7\,N measured experimentally. The calibrated model is then used to characterise the behaviour of the same glass phials in a separate FEM model, aimed at predicting the maximum impact acceleration that the phials can withstand. This value is one of the key design parameters for sizing the airbag protection device. 
 
-INPUT from previous step in workflow vs. OUTPUT for next step
+The model is built using \textit{explicit} time integration. The unit system used in the present model is as follows:
+\begin{table}[htbp]
+  \centering
+  \caption{Engineering Units}
+  \label{tab:units}
+  \begin{thesistable}{
+    width = 0.6\linewidth,
+    colspec = {X[1,l] X[1,l]},
+  }
+    Quantity measured & Units \\
+    Time              & ms \\
+    Distance          & mm \\
+    Mass              & kg \\
+    Stress / Pressure & GPa (kN/mm$^2$) \\
+    Force             & kN \\
+    Energy / Work     & J (kN$\cdot$mm) \\
+    Velocity          & mm/ms \\
+    Acceleration      & mm/ms$^2$ \\
+    Density           & kg/mm$^3$ \\
+  \end{thesistable}
+\end{table}
 
-The quantity of interest in the calibration is the tensile strength \texttt{FT} of the glass material card in LS-DYNA (\texttt{*MAT\_GLASS}), which governs the failure force predicted by the FEM model. \texttt{FT} is tuned iteratively until the failure force predicted by the FEM matches the value measured experimentally.
-
-The calibrated material model is then used to characterise the glass in a separate FEM model, aimed at predicting the maximum acceleration that the phials can withstand. This value is one of the key design parameters for sizing the airbag protection device.
-
-The current modelling choices are the result of several model iterations, carried out by trial and error, from a first implicit analysis in Abaqus to the present LS-DYNA model. These iterations are summarised in Appendix~\ref{appendix:FEMiterations}.
+The current modelling choices are the result of several model iterations, carried out by trial and error, from a first implicit analysis (using Abaqus as a solver) to the present LS-DYNA model. These iterations are summarised in Appendix \ref{appendix:FEMiterations}.
 
 \subsection{Implementation}
-\subsubsection{Model setup}
-explicit analysis MENTION THIS!!!
+\subsubsection{Model setup and glass material modelling}
 % geometry (full model), components, mesh, contact, boundary conditions
-The model is composed of three parts: the base, the crosshead and the glass phial. The idea is to imitate the experimental test, where the glass phial is compressed in the axial direction, i.e. the vertical (Y) direction.
 
-The crosshead and the base belong to the same super-part, called machine, and they are meshed in exactly the same way. Both are made of solid hexa elements with an average size of 0.2 mm, extruded to a thickness of 1 mm in the vertical direction. In plan they measure 18 x 18 mm (base) and 14 x 14 mm (crosshead). Both have enough surface area to cover the base and the dome of the glass phial, so that the breaking pressure and the reaction force from the base are applied correctly.
+The model is composed of three parts, as shown in Fig.~\ref{fig:fem-model-setup}: the \textit{base}, the \textit{crosshead} and the \textit{glass phial}. The numerical setup aims to imitate the experimental test, where the glass phial is compressed in the axial direction, i.e. the vertical (Y) direction. The absence of the PETG holder in the present numerical model is a decision rooted in the risk of inaccurate or excessively complex modelling, as it was 3D printed with a reticular filling that would require a destructive intervention to be observed. The consequences of omitting the PETG adaptor in the FEM model are explored and accounted for in the results presented later.
 
-They are modelled with a material that treats them as infinitely rigid bodies (keyword? e.g. \texttt{*MAT\_RIGID}), free to move only in one controlled direction, in this case Y. The base is then constrained in Y by a boundary condition that imposes a displacement of 0. The crosshead moves downwards and applies the pressure on the phial in a quasi-static regime. The trick of leaving the Y direction free and then imposing a zero-displacement boundary condition on the base makes it possible to measure the reaction force on the base. With a fully constrained rigid body, this measurement would be harder and would need a slightly different procedure.
+\begin{figure}[h!]
+    \centering
+    % TODO: replace the placeholder box with the actual figure once available
+    % \includegraphics[width=0.8\textwidth]{figures/chap4/step2-fem/fem_model_setup.png}
+    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: FEM model setup}}
+    \caption{FEM model of the axial compression test, composed of the \textit{base}, the \textit{crosshead} and the \textit{glass phial}.}
+    \label{fig:fem-model-setup}
+\end{figure}
 
-% CARD OF RIGID MATERIAL HERE
+Within the FEM model, the crosshead and the base belong to the same super-part, named \textit{machine}, and they are meshed identically. Both are made of solid hexa elements with an average side length of 0.2\,mm, extruded to a thickness of 1\,mm in the vertical direction. In plan, they measure 18 x 18\,mm (base) and 14 x 14\,mm (crosshead). Both have enough surface area to cover the base and the dome of the glass phial, so that the breaking pressure and the reaction force from the base are applied correctly.
 
-The phial is meshed with shell elements of thickness 0.4 mm. The mesh has a regular size (element size?) and is mostly quads, with trias where needed to follow the shape, so that it keeps the curvatures of the dome and the fillets of the rounded-corner geometry. The material used for the glass phial is:
+The two parts are modelled with a material that treats them as infinitely rigid bodies (\texttt{*MAT\_RIGID}, material model \texttt{*MAT\_020}), with only one free degree of freedom, in this case the displacement in the Y-direction. The base is then constrained in Y by a boundary condition that imposes a displacement of 0\,mm, while the crosshead moves downwards and applies pressure on the phial in a quasi-static regime. The numerical workaround of leaving the Y direction free and then imposing a zero-displacement boundary condition on the base makes it possible to measure the reaction force exerted on it in the direction of the degree of freedom that was chosen as liable. With a fully constrained rigid body, this measurement would not be so straightforward, needing a slightly different procedure. The material card applied to the machine's parts can be found in LS-DYNA input \ref{lst:mat-rigid}.
 
-% CARD FOR THE GLASS PHIAL'S MATERIAL
 
-The phial simply rests on the base surface. Its interaction with the base and the crosshead is described by \texttt{*CONTACT\_AUTOMATIC\_SINGLE\_SURFACE\_ID},
-the most general contact model in LS-DYNA. It puts “everyone against everyone” without defining master-slave pairs. The tangential behaviour is defined by a friction coefficient of 0.3 for both static (\texttt{FS}) and dynamic (\texttt{FD}) friction. The movement of the phial is not restricted in any way. It only feels the reaction force from below and the force applied by the moving crosshead.
+\begin{dynacard}[label=lst:mat-rigid]{Rigid material card for the base and crosshead}
+*MAT_RIGID
+$HMNAME MATERIAL         3acciaio_matrigid_y-free
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$      MID       RHO         E        PR         N    COUPLE         M     ALIAS
+         3   7.8E-06     210.0       0.3
+$      CMO      CON1      CON2
+       1.0         6         7
+\end{dynacard}
 
-The movement of the crosshead is controlled in velocity. It is applied with an initial ramp that scales up to a constant velocity (value?). \hl{JUSTIFY RAMP WITH NON-ZERO ACCELERATION AND RISK OF HAVING UNELEGANT SPIKES IN FEM} The monitored outputs are the displacement of the crosshead, the displacement of the glass node on top of the dome, and the reaction forces on both the crosshead and the base. In a quasi-static application these two forces must be equal. The application velocity is higher than in the actual experiment, which would be too slow to simulate (too slow to simulate in what sense? runtime?), but still low enough to stay out of the dynamic regime, as explained in the modal analysis section.
 
-native timestep estimation
+The glass phial is meshed with shell elements of thickness 0.4\,mm, with 5 integration points along the thickness. The structured mesh has a regular size of 0.1\,mm and is mostly composed of quads, with trias where needed to follow the shape, so that it keeps the curvatures of the dome and the fillets of the rounded-corner geometry. The material used for the glass phial is shown in LS-DYNA input \ref{lst:mat-glass-raw}, which highlights the \textit{tensile strength} \texttt{FT} as the parameter to fine-tune the numerical prediction of the phial's failure load. The card has several parameters of interest that govern the post-fracture behaviour, which is not of interest for the present analysis as the objective is to identify the material's point of brittle failure, aligned with the broader aim to avoid medicinal dispersion during an impact-failure event. However, an informed attempt to model glass behaviour with an acceptable degree of fidelity in both the pre- and post-fracture regimes was made by setting material parameters based on a separate literature search across worked examples of \texttt{*MAT\_GLASS} implementations \cite{DCFEA2025} and the LS-DYNA user manual \cite[p.~1989-2001]{LSDYNA_KW_II}:
+
+\begin{itemize}
+  \item \texttt{RHO}: Density, 2.6E-06 kg/mm$^3$ (2600 kg/m$^3$);
+  \item \texttt{E}: Young\'s modulus, 70 GPa, a relatively well-established value for commercial soda-lime glass;
+  \item \texttt{PR}: Poisson\'s ratio, 0.23, chosen within a range between 0.20 to 0.25 for soda-lime glass; 
+  \item \texttt{ILAW}: Flag to choose the degradation procedure (among two options, 0 and 1) when critical stress is reached. The default value of 0 signifies that the family of parameters relative to \texttt{NCYCR} (found in lines 8-9 of the material card) have to be defined;
+  \item \texttt{FMOD}: Flag to choose between failure criteria (among six options). The default value of 0 is chosen, selecting a \textit{Rankine maximum stress} criterion\footnote{The \textit{Rankine Maximum Stress} criterion consists in bounding principal stresses, $\sigma_1$ and $\sigma_2$, between tensile strength, $f_t$, and compressive strength, $f_c$, as follows: $-f_c < \{\sigma_1, \sigma_2\} < f_t$. It is the least complex maximum stress criterion available in LS-DYNA.};
+  \item \texttt{FT}: Tensile strength, knob to fine-tune the glass phial's failure load, expressed in GPa. Common values found in literature span from 40\,MPa to 70\,MPa. 
+  \item \texttt{FC}: Compressive strength, usually one order of magnitude greater than the tensile strength in glass, here arbitrarily chosen to 1\,GPa to guarantee tensile-strength driven failure when fine-tuning the parameter FT;
+  \item \texttt{FTSCL}: Scale factor for the tensile strength (where the default = 1.0). $FT_{mod} = FTSCL \times FT$, thus, in this case, the glass' actual tensile strength needs to be scaled by the chosen factor of FTSCL = 1.2. An effective value of tensile strength $FT_{mod} > FT$ implies that the tensile strength drops to its original value of FT as soon as the first crack happens in the phial. Although it adds numerical complexity, having FTSCL > 1.0 can be helpful in modelling high-force peaks in impact events according to the LS-DYNA user manual, which suits the intended application of all the FEM models produced in this thesis;   
+  \item \texttt{SFSTI} and \texttt{SFSTR}: Scaling factors for elastic stiffness and stress after failure, respectively, to be applied at the end of the post-crack softening. It dictates how much residual stress the element can hold after it has been damaged, scaling the post-crack strength and stiffness down to SF-XXX $\times$ FT or E. In this case, SFSTI = SFSTR = 0.01 means that both stiffness and stress are reduced to 1\% of their values at failure; 
+  \item \texttt{ICRIN}: Flag for crack strain initialization. The default value of 0 indicates that initial crack strain is the strain reached at failure;
+  \item \texttt{NCYCR}: Number of cycles in which the stress is reduced to SFSTR $\times$ failure stress, in this case chosen to 50.
+  \item \texttt{NIPF}: Number of failed through-thickness integration points needed to label the element as failed, in this case chosen as 5 to consider all through-thickness integration points set in the phial's shell elements;
+  \item \texttt{EPSCR}: The effective critical strain to trigger element deletion, which can be useful to eliminate highly distorted elements. However, this value was set to the extremely high value of 0.1 to purposefully avoid premature element deletion and having to implement an internal surface generation criterion for contact modelling.
+  \item \texttt{CTRACK}: Flag for crack tracking algorithm, set to the non-default value of 1 to track cracks. 
+\end{itemize}
+
+\begin{dynacard}[label=lst:mat-glass-raw]{Glass material card}
+*MAT_GLASS
+$HMNAME MATERIAL         5glass_shell
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$      MID       RHO         E        PR                          IMOD      ILAW
+         52.6000E-06      70.0      0.23                                     0.0
+$     FMOD        !\dynahl{FT}!         FC        AT        BT        AC        BC     FTSCL
+       0.0     0.060        1.0                                               1.2
+$    SFSTI     SFSTR     ICRIN     ECRCL     NCYCR      NIPF
+      0.01      0.01       0.0                50.0       5.0
+$    EPSCR    ENGCRT    RADCRT    RATENL    RFILTF    FRACEN    CTRACK
+     0.100                                                           1
+\end{dynacard}
+
+
+\subsubsection{Boundary conditions}
+The phial simply rests on the base's surface. Its interaction with the base and the crosshead is governed by the contact card \texttt{*CONTACT\_AUTOMATIC\_SINGLE\_SURFACE\_ID}, the most general contact model in LS-DYNA, as shown in LS-DYNA input \ref{lst:contact-single-surface}. It allows all surfaces to come in contact with each other without defining single master-slave pairs. The tangential behaviour is defined by a friction coefficient of 0.3 for both static (\texttt{FS}) and dynamic (\texttt{FD}) friction. The phial is liable and only feels the reaction force from below and the force applied by the moving crosshead.
+
+\begin{dynacard}[label=lst:contact-single-surface]{Automatic single surface contact card}
+*CONTACT_AUTOMATIC_SINGLE_SURFACE_ID
+$HWCOLOR GROUPS       1      57
+$      CIDHEADING
+         1contact_group
+$     SSID               SSTYP              SBOXID    MBOXID       SPR       MPR
+         6                   2                                       1         1
+$       FS        FD        DC        VC       VDC    PENCHK        BT        DT
+       0.3       0.3
+$      SFS       SFM       SST       MST      SFST      SFMT       FSF       VSF
+
+$     SOFT    SOFSCL    LCIDAB    MAXPAR     SBOPT     DEPTH     BSORT    FRCFRQ
+\end{dynacard}
+
+A velocity-control boundary condition is applied to the crosshead in the vertical direction Y to induce a total displacement of approximately 0.2\,mm. Velocity is applied with an initial ramp that scales up to a constant negative velocity of 0.0266\,mm/ms. The choice of imposing the motion of the crosshead through a velocity boundary condition, rather than the more usual displacement boundary condition, is rooted in the idea of emulating the experiment, in which the test machine moves the crosshead at a constant, relatively slow speed of 1 to 3\,mm/min. Furthermore, velocity cannot be applied as a step as an instantaneous jump from zero to the final velocity would correspond to an infinite acceleration at the beginning of the analysis. In an explicit simulation, this impulse would be transmitted to the phial through the contact as a numerically unwelcome spike in the reaction force, followed by spurious oscillations that could potentially even trigger premature glass failure. With the initial ramp, the velocity increases linearly, so the acceleration remains finite and non-zero only during the ramp. The application velocity is low enough to avoid a fully dynamic regime, as explained in the modal analysis section, but still higher than in the actual experiment, as applying a similar loading speed would increase the runtime excessively due to the stability condition imposed on the timestep.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[c]{0.57\textwidth}
+    \renewcommand{\dynafont}{\scriptsize}
+    \begin{dynacard}[label=lst:curve-velocity]{Crosshead velocity curve}
+*DEFINE_CURVE
+$HMNAME CURVES         2curve_velocity
+$HMCURVE     2    2 curve_velocity
+$     LCID      SIDR       SFA       SFO      OFFA      OFFO
+         3                 1.0       1.0
+$                  X                   Y
+                 0.0                 0.0
+                 5.0             -0.0266
+                10.0             -0.0266
+    \end{dynacard}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.40\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png}
+    \caption{Velocity-time curve applied to the crosshead.}
+    \label{fig:velocity-curve-phial}
+  \end{minipage}
+\end{figure}
+
+
+
+
+
 
 \subsubsection{Modal analysis}
+\hl{FIX THIS STILL}
 A modal analysis was run on the single phial geometry to obtain its natural frequencies and mode shapes, i.e.\ the eigenvalues and eigenvectors of the free structure. The first 30 modes were requested. The first six are rigid-body modes, since the phial is unconstrained.
 
 % CARD FOR REQUESTING A MODAL ANALYSIS
@@ -49,6 +155,7 @@ Some of the mode shapes are shown in Figure~\ref{}. They were chosen because the
 
 
 \subsubsection{Geometric imperfections}
+\hl{FIX THIS STILL}
 The glass of the phials shows a large dispersion in its material properties, and the geometry itself is only loosely controlled because of the manufacturing process [process?]. For these reasons it was necessary to introduce imperfections into the model, using the geometry perturbation command [keyword?]. Two options were considered:
 \begin{enumerate}
   \item perturbing the nodes along a bending or torsional mode shape from the modal analysis, so as to introduce a specific defect of controlled amplitude [amplitude?] over the nominal geometry;
@@ -58,14 +165,11 @@ The second option was chosen. Through a trial-and-error process, it was found th
 
 
 \subsubsection{Requested outputs}
-To obtain results comparable with the experimental campaign, a force-displacement curve was extracted from the simulation, using the reaction force on the crosshead and the displacement of the glass node at the top of the phial dome. The objective is to reproduce a brittle failure, in which the glass behaves linearly elastically up to fracture, with no plastic deformation before it breaks.
-% NODOUT (phial node acc.), RCFORC, GLSTAT, MATSUM, d3plot HISV
+The monitored outputs are the displacement of the crosshead and the displacement of the glass node on top of the dome (monitored through the \texttt{NODOUT} card), the reaction forces on both the crosshead and the base (\texttt{RCFORC} card), added mass/energy data (\texttt{GLSTAT, MATSUM} cards), and the \texttt{MAT\_GLASS} \textit{Extra History Variable \#1}, with an index ($D \in [0, 1]$) stored in the \texttt{d3plot} contour file to visualise the damage progression and crack contour patterns across the glass phial. To obtain results comparable with the experimental campaign, a force-displacement curve was extracted from each run of the simulation, using the reaction force on the crosshead and the displacement of the glass node at the top of the phial dome (considering its displacement only until its eventual brittle failure). The objective is to reproduce the experimentally-observed brittle failure, in which the glass behaves linearly elastically up to fracture, with no plastic deformation before it breaks.
 
-% CARD FOR OUTPUT REQUESTS
 
 \subsubsection{Calibration procedure}
-% FT as the knob, experimental target, update rule, tolerance
-The material card is based on the tensile strength \texttt{FT}, which is used as a calibration knob to shift the breaking point of the phial. The objective is to reproduce in the FEM model the behaviour observed experimentally, i.e. to make the phial break in the simulation at the same load at which it breaks in the experiment. The experimental breaking force is 98.7~N [mean of how many specimens?], so several simulations were run iteratively with different values of \texttt{FT} until the simulated phial broke at 97.[x]~N. The resulting value of \texttt{FT} should therefore be read as a calibrated model parameter rather than as the actual tensile strength of the glass, since it also absorbs the effects of mesh size, imperfections and misalignment. This calibrated material model characterises the phial and is used as input to the next step of the workflow.
+As shown in the LS-DYNA input \ref{lst:mat-glass-raw}, the tensile strength \texttt{FT} is the parameter used as a calibration knob to adjust the breaking point of the phial until it matches the failure load value measured experimentally at 98.7\,N (5th percentile of the Batch-A Weibull distribution of failure loads). Therefore, several simulations were run iteratively testing different values of \texttt{FT} until the simulated phial broke within a \hl{1\%} tolerance from the experimental failure load. The resulting value of \texttt{FT} should therefore be read as a calibrated model parameter rather than as the actual tensile strength of the glass, since it also absorbs the effects of mesh size, imperfections and misalignment. This calibrated material model characterises the phial and is used as input to the next step of the workflow.
 
 
 

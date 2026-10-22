@@ -102,6 +102,8 @@ $a_\text{lim}$ & Design acceleration limit, $a_\text{allow}/\mathit{SF}$ & [\si{
 \nomrule{3}
 $D_0$ & Initial airbag diameter (characteristic dimension) & [\si{\metre}] \\
 \nomrule{3}
+$D_{0,\text{min}}$ & Minimum airbag diameter, stroke needed to stop the payload at $a_\text{lim}$ & [\si{\metre}] \\
+\nomrule{3}
 $D_t$ & Airbag diameter at time $t$ & [\si{\metre}] \\
 \nomrule{3}
 $F_\text{fail}$ & Phial failure force under axial compression & [\si{\newton}] \\
@@ -118,12 +120,23 @@ $k$ & Airbag shape coefficient (sphere: 0.5; cylinder: 1) \hl{[verify]} & [--] \
 \nomrule{3}
 $L_0$ & Initial airbag length (cylindrical airbag) & [\si{\metre}] \\
 \nomrule{3}
-% CHECK: Ch. 2 uses M, Ch. 4 uses M_p for the same quantity
-$M$, $M_\text{p}$ & Payload mass & [\si{\kilogram}] \\
+$M$ & Payload mass & [\si{\kilogram}] \\
 \nomrule{3}
-$m$ & Gas mass inside the airbag & [\si{\kilogram}] \\
+$m_\text{bag}$ & Fabric mass of the airbag & [\si{\kilogram}] \\
+\nomrule{3}
+$m_\text{gas}$ & Gas mass inside the airbag & [\si{\kilogram}] \\
+\nomrule{3}
+$m_{\text{gas},0}$ & Initial gas charge & [\si{\kilogram}] \\
+\nomrule{3}
+$m_\text{tot}$ & Airbag system mass, $m_\text{bag} + m_{\text{gas},0}$ (payload excluded) & [\si{\kilogram}] \\
 \nomrule{3}
 $\dot{m}$ & Vented gas mass flow rate & [\si{\kilogram\per\second}] \\
+\nomrule{3}
+$N$ & Membrane force per unit width, $k\,\Delta P\,R$ & [\si{\newton\per\metre}] \\
+\nomrule{3}
+$N_\text{ult}$ & Ultimate membrane force per unit width, $100\,n_\text{ply}\,N'_\text{ult}$ & [\si{\newton\per\metre}] \\
+\nomrule{3}
+$N'_\text{ult}$ & Supplier fabric strength per unit width (one ply) & [\si{\newton\per\centi\metre}] \\
 \nomrule{3}
 $\mathbf{n}$ & Unit vector along the impact (stroke) direction & [--] \\
 \nomrule{3}
@@ -146,7 +159,7 @@ $R$ & Specific gas constant & [\si{\joule\per\kilogram\per\kelvin}] \\
 \nomrule{3}
 $\mathit{SF}$ & Safety factor on the allowable acceleration & [--] \\
 \nomrule{3}
-$\mathit{SF}_\text{burst}$ & Design factor on membrane tension & [--] \\
+$\mathit{SF}_\text{burst}$ & Design factor on the allowable membrane force & [--] \\
 \nomrule{3}
 $T$ & Gas temperature & [\si{\kelvin}] \\
 \nomrule{3}
@@ -158,25 +171,34 @@ $t_0$ & Initial time (onset of impact) & [\si{\second}] \\
 \nomrule{3}
 $t_\text{fall}$ & Free-fall time & [\si{\second}] \\
 \nomrule{3}
-$u_0$ & Initial vertical impact velocity & [\si{\metre\per\second}] \\
+$t_\text{stop}$ & Time of the stopping event (burst, full stroke or rebound) & [\si{\second}] \\
+\nomrule{3}
+$u_0$ & Initial impact velocity of the 1-DOF model (Ch.~2) & [\si{\metre\per\second}] \\
+\nomrule{3}
+$\mathbf{u}_0$ & Initial impact velocity vector, $(u_{x,0}, u_{y,0})$ & [\si{\metre\per\second}] \\
 \nomrule{3}
 $u_t$ & Payload velocity at time $t$ & [\si{\metre\per\second}] \\
 \nomrule{3}
 $u_{n,0}$ & Initial impact velocity along $\mathbf{n}$ & [\si{\metre\per\second}] \\
 \nomrule{3}
+$u_{\text{reb},y}$ & Vertical rebound velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
 $u_\text{res,max}$ & Maximum allowable residual velocity & [\si{\metre\per\second}] \\
 \nomrule{3}
 $u_{x,0}$ & Initial horizontal impact velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+$u_{y,0}$ & Initial vertical impact velocity (positive downward) & [\si{\metre\per\second}] \\
 \nomrule{3}
 $V_0$ & Initial airbag volume & [\si{\metre\cubed}] \\
 \nomrule{3}
 $V_t$ & Airbag volume at time $t$ & [\si{\metre\cubed}] \\
 \nomrule{3}
-% CHECK: Ch. 3 uses V_x, V_y for velocities; Ch. 4 uses u_{x,0}, u_0, and V_t is a volume
-$V_x$, $V_y$ & Horizontal and vertical impact velocity & [\si{\metre\per\second}] \\
-\nomrule{3}
 % CHECK: Eq. (2.1) uses v; elsewhere impact velocity is u
 $v$ & Impact velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+$v_i$ & Graded constraint violation in the objective (0 = satisfied) & [--] \\
+\nomrule{3}
+$W_\text{land}$ & Weight of the residual landing speed in the objective & [\si{\kilogram}] \\
 % Add Greek symbols alphabetically here:
 \grouphead{3}{phaseB}{Greek symbols}
 $\gamma$ & Specific heat ratio & [--] \\

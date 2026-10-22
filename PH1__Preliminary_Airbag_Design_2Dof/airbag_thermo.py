@@ -1,10 +1,10 @@
 from airbag_venting import delta_m_vented
 
-def thermo_step(m_prev, V_t, gamma, P_amb, dt, A_or,
+def thermo_step(m_prev, V_t, gamma, P_amb, dt, A_vent,
                P_prev, rho_prev, T_prev,
                R_gas,
                max_inner_iters=50, verbose=False):
-    """Adiabatic compression to V_t, then venting through A_or in max_inner_iters sub-steps."""
+    """Adiabatic compression to V_t, then venting through A_vent in max_inner_iters sub-steps."""
 
     V_eff = max(V_t, 1e-12)
     rho_prev_eff = max(rho_prev, 1e-12)
@@ -28,7 +28,7 @@ def thermo_step(m_prev, V_t, gamma, P_amb, dt, A_or,
             P_bag=P,
             P_amb=P_amb,
             T_bag=T,
-            A_or=A_or,
+            A_vent=A_vent,
             R_gas=R_gas,
             gamma=gamma,
             dt=dt_inner

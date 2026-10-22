@@ -7,12 +7,12 @@ from scipy.optimize import differential_evolution
 QUICK_TEST = True   # True -> reduced sweep for test runs, False -> full sweep
 
 if QUICK_TEST:
-    W_LAND_VALUES = [10]
+    U_RES_VALUES  = [2.0]                  # [m/s] residual-speed caps swept (outer loop)
     SEEDS         = (1,)
     POPSIZE       = 2
     MAXITER       = 6
 else:
-    W_LAND_VALUES = [10, 50, 100, 200]
+    U_RES_VALUES  = [0.5, 1.0, 1.5, 2.0]   # [m/s] residual-speed caps swept (outer loop)
     SEEDS         = (1, 2, 3)
     POPSIZE       = 5
     MAXITER       = 20
@@ -21,8 +21,7 @@ else:
 # ---------- requirements ----------
 A_ALLOW   = 500.0          # [m/s^2] allowable payload acceleration along n
 SF        = 1.2            # [-]     safety factor
-A_LIM     = A_ALLOW / SF   # [m/s^2] limit on the peak bag load F_n/M
-U_RES_MAX = 2.0            # [m/s]   max residual speed along n at full stroke
+A_LIM     = A_ALLOW / SF   # [m/s^2] limit on the peak bag load Fn/M
 PEN       = 1.0e4          # penalty weight, must dominate mass
 
 # burst knockdowns, applied to the fabric's per-width ultimate strength
@@ -39,10 +38,10 @@ all_winners = []
 
 
 # ---------- impact scenario (fixed) ----------
-M_payload = 0.5          # kg
-u0        = 17.2         # m/s   vertical impact velocity
-ux0       = 5.0          # m/s   horizontal impact velocity
-scenario  = (M_payload, u0, ux0)
+M_payload = 1.0          # kg
+uy0       = 25        # m/s   vertical impact velocity
+ux0       = 7.5          # m/s   horizontal impact velocity
+scenario  = (M_payload, uy0, ux0)
 
 # ---------- environment ----------
 P_amb = 101325.0         # Pa
@@ -53,16 +52,16 @@ T0 = 288.0               # K, fixed
 
 # ---------- fabrics ----------
 # Supplier data, as airbag fabric is actually sold:
-#   T_ult_Ncm    [N/cm]   tensile strength per unit width (1 N/cm = 100 N/m)
+#   N_ult_Ncm    [N/cm]   tensile strength per unit width, i.e. ultimate membrane force (1 N/cm = 100 N/m)
 #   areal_weight [kg/m^2] areal weight (datasheets quote g/m^2, so 0.42 = 420 g/m^2)
 #   t_ply        [m]      thickness of ONE ply, for the stack thickness and packing only
 # Strength is per unit width, so thickness buys strength only through the ply count:
 # n plies carry n times the load and weigh n times as much.
 #
 materials = {
-    "Nylon 6,6, silicone-coated": dict(T_ult_Ncm=600.0, areal_weight=0.180, t_ply=0.30e-3),
-    "Polyester (PET), PU-coated": dict(T_ult_Ncm=550.0, areal_weight=0.190, t_ply=0.28e-3),
-    "Aramid (Kevlar), coated": dict(T_ult_Ncm=1000.0, areal_weight=0.260, t_ply=0.35e-3),
+    "Nylon 6,6, silicone-coated": dict(N_ult_Ncm=600.0, areal_weight=0.180, t_ply=0.30e-3),
+    "Polyester (PET), PU-coated": dict(N_ult_Ncm=550.0, areal_weight=0.190, t_ply=0.28e-3),
+    "Aramid (Kevlar), coated": dict(N_ult_Ncm=1000.0, areal_weight=0.260, t_ply=0.35e-3),
 }
 
 # ---------- gases: (R_gas, gamma) ----------
@@ -88,17 +87,17 @@ PHI_RANGE    = (0.0, 0.10)     # [-]  breathing-fabric open-area fraction
 
 def impact_axis(scenario):
     """Impact angle theta [rad] and impact speed along n [m/s]."""
-    _, u0_s, ux0_s = scenario
-    return np.arctan2(ux0_s, u0_s), np.hypot(u0_s, ux0_s)
+    _, uy0_s, ux0_s = scenario
+    return np.arctan2(ux0_s, uy0_s), np.hypot(uy0_s, ux0_s)
 
 
 def min_stroke(scenario, env):
     """Stroke needed to stop the payload at a constant load A_LIM: lower bound on D0."""
-    theta, u_n0 = impact_axis(scenario)
+    theta, un0 = impact_axis(scenario)
     decel = A_LIM - env[1] * np.cos(theta)
     if decel <= 0.0:
         raise ValueError(f"A_LIM = {A_LIM:.1f} m/s^2 cannot even hold the payload against gravity")
-    return u_n0**2 / (2.0 * decel)
+    return un0**2 / (2.0 * decel)
 
 
 def unpack_design(x, shape):
@@ -131,31 +130,52 @@ def make_integrality(shape):
             else [False, True, False, False])
 
 
-def evaluate_design(r, D0, scenario):
-    """Graded violations (0 = satisfied) and feasibility, shared by objective and summary."""
-    u0_s = scenario[1]
-    _, u_n0 = impact_axis(scenario)
-    v = {
+def outcome_label(r):
+    """Which stopping event ended the run. Exactly one applies."""
+    if r["burst"]:
+        return "burst"
+    if r["bottomed"]:
+        return "bottomed"
+    if r["rebounded"]:
+        return "rebounded"
+    return "settled"
+
+
+def landing_speed(r):
+    """Speed along n for a successful outcome [m/s]:
+    bottomed -> speed when the full stroke is reached; settled -> |speed| at t_max;
+    burst / rebounded -> nan (no landing)."""
+    if r["bottomed"]:
+        return r["u_residual_n"]
+    if r["settled"]:
+        return abs(r["u_final_n"])
+    return float("nan")
+
+
+def evaluate_design(r, D0, scenario, u_res_max):
+    """Graded violations (0 = satisfied) and feasibility, shared by objective and summary.
+    Success = bottomed or settled, with peak load <= A_LIM and landing speed <= u_res_max."""
+    uy0_s = scenario[1]
+    _, un0 = impact_axis(scenario)
+    landed = r["bottomed"] or r["settled"]
+    u_land = landing_speed(r)
+    viol = {
         "acc":   max(0.0, r["a_peak_n"] - A_LIM) / A_LIM,
         "burst": max(0.0, r["P_peak"] - r["P_burst"]) / r["P_burst"],
-        "reb":   abs(r["u_rebound"]) / u0_s if r["rebounded"] else 0.0,   # vertical rebound
-        "nobot": ((D0 - r["h_max"]) / D0
-                  if not (r["bottomed"] or r["burst"] or r["rebounded"]) else 0.0),
-        "ures":  (max(0.0, r["u_residual_n"] - U_RES_MAX) / u_n0
-                  if r["bottomed"] else 0.0),
+        "reb":   abs(r["u_rebound_y"]) / uy0_s if r["rebounded"] else 0.0,   # vertical rebound
+        "ures":  (max(0.0, u_land - u_res_max) / un0 if landed else 0.0),
     }
-    feasible = (r["bottomed"] and not r["burst"] and not r["rebounded"]
-                and r["a_peak_n"] <= A_LIM and r["u_residual_n"] <= U_RES_MAX)
-    return v, feasible
+    feasible = landed and r["a_peak_n"] <= A_LIM and u_land <= u_res_max
+    return viol, feasible
 
 
-def airbag_objective(x, shape, mat, gas, scenario, env, W_land):
+def airbag_objective(x, shape, mat, gas, scenario, env, u_res_max):
     d = unpack_design(x, shape)
 
     try:
         r = simulate_airbag(
             **d,
-            M_payload=scenario[0], u0=scenario[1], ux0=scenario[2],
+            M_payload=scenario[0], uy0=scenario[1], ux0=scenario[2],
             **mat,
             R_gas=gas[0], gamma=gas[1],
             P_amb=env[0], g=env[1],
@@ -170,27 +190,27 @@ def airbag_objective(x, shape, mat, gas, scenario, env, W_land):
     if not np.isfinite(m):
         return 1.0e12
 
-    v, feasible = evaluate_design(r, d["D0"], scenario)
+    viol, feasible = evaluate_design(r, d["D0"], scenario, u_res_max)
     if not feasible:
         # no mass reward: an infeasible light bag must never beat a feasible one
-        return 1.0e6 + PEN * sum(v.values())
+        return 1.0e6 + PEN * sum(viol.values())
 
-    # W_land = 100: 1 kg of bag is worth the residual speed going from u_n0 to zero
-    _, u_n0 = impact_axis(scenario)
-    return m + W_land * (r["u_residual_n"] / u_n0)
+    # feasible: score is the physical mass (fabric + initial gas) [kg];
+    # the residual speed enters only as the constraint u_residual_n <= u_res_max
+    return m
 
 
-def print_design_summary(shape_name, mat_name, gas_name, x, shape, r):
+def print_design_summary(shape_name, mat_name, gas_name, x, shape, r, u_res_max):
     d = unpack_design(x, shape)
-    theta, u_n0 = impact_axis(scenario)
-    v, feasible = evaluate_design(r, d["D0"], scenario)
+    theta, un0 = impact_axis(scenario)
+    viol, feasible = evaluate_design(r, d["D0"], scenario, u_res_max)
     is_cyl = shape == SHAPE_CODE["cylinder"]
 
     print("\n" + "="*50)
     print(f"OPTIMIZED DESIGN — {shape_name} / {mat_name} / {gas_name}")
     print("="*50)
-    print(f"  Impact           : u0 = {u0:.2f} m/s, ux0 = {ux0:.2f} m/s")
-    print(f"                     -> {u_n0:.2f} m/s along n, theta = {np.degrees(theta):.1f} deg")
+    print(f"  Impact           : uy0 = {uy0:.2f} m/s, ux0 = {ux0:.2f} m/s")
+    print(f"                     -> {un0:.2f} m/s along n, theta = {np.degrees(theta):.1f} deg")
     print(f"  Shape            : {shape_name} (code={shape})")
     print(f"  D0 (diameter)    : {d['D0']:.4f} m")
     if is_cyl:
@@ -199,8 +219,8 @@ def print_design_summary(shape_name, mat_name, gas_name, x, shape, r):
         print(f"  L0               : n/a (sphere)")
     print(f"  fabric plies     : {r['n_ply']} x {1e3*r['d_fabric']/r['n_ply']:.3f} mm "
           f"= {r['d_fabric']*1e3:.4f} mm stack")
-    print(f"  T_allow          : {r['T_allow']/100.0:.1f} N/cm of the "
-          f"{r['n_ply']*materials[mat_name]['T_ult_Ncm']:.1f} N/cm ultimate "
+    print(f"  N_allow          : {r['N_allow']/100.0:.1f} N/cm of the "
+          f"{r['n_ply']*materials[mat_name]['N_ult_Ncm']:.1f} N/cm ultimate "
           f"(eta_seam={ETA_SEAM}, SF_burst={SF_BURST})")
     print(f"  P0 (inflation)   : {d['P0']:.1f} Pa  ({d['P0']/1e5:.3f} bar)")
     print(f"  T0 (fixed)       : {d['T0']:.1f} K")
@@ -213,32 +233,36 @@ def print_design_summary(shape_name, mat_name, gas_name, x, shape, r):
     print("-"*50)
     print(f"  m_total          : {r['m_total']:.4f} kg")
     print(f"  m_bag / m_gas0   : {r['m_bag']:.4f} kg / {r['m_gas0']:.4f} kg")
-    print(f"  a_peak_n (F_n/M) : {r['a_peak_n']:.2f} m/s^2 = {r['a_peak_n']/g:.2f} g "
+    print(f"  a_peak_n (Fn/M)  : {r['a_peak_n']:.2f} m/s^2 = {r['a_peak_n']/g:.2f} g "
           f"(limit {A_LIM:.1f} = {A_ALLOW:.0f}/{SF})")
     print(f"  u_residual n/x/y : {r['u_residual_n']:.3f} / {r['u_residual_x']:.3f} / "
-          f"{r['u_residual']:.3f} m/s  (cap along n {U_RES_MAX}, u_n0={u_n0:.2f})")
+          f"{r['u_residual_y']:.3f} m/s  (cap along n {u_res_max}, un0={un0:.2f})")
     print(f"  x travel         : {r['x_final']:.3f} m")
     print(f"  P_peak / P_burst : {r['P_peak']:.1f} / {r['P_burst']:.1f} Pa  "
           f"(unfactored burst {r['P_burst_ult']:.1f} Pa)")
     print(f"  rebounded        : {r['rebounded']}")
     print(f"  bottomed         : {r['bottomed']}")
+    print(f"  settled          : {r['settled']}")
+    print(f"  outcome          : {outcome_label(r)}")
+    print(f"  landing speed n  : {landing_speed(r):.3f} m/s  (cap {u_res_max}; "
+          f"u_final_n at end of run = {r['u_final_n']:.3f} m/s)")
     print(f"  survived         : {r['survived']}")
-    print(f"  violations       : " + ", ".join(f"{k}={val:.3g}" for k, val in v.items()))
+    print(f"  violations       : " + ", ".join(f"{k}={val:.3g}" for k, val in viol.items()))
     print(f"  FEASIBLE         : {feasible}")
     print("="*50 + "\n")
 
 
 if __name__ == "__main__":
-    theta, u_n0 = impact_axis(scenario)
+    theta, un0 = impact_axis(scenario)
     print(f"QUICK_TEST = {QUICK_TEST} | A_LIM = {A_ALLOW:.0f}/{SF} = {A_LIM:.1f} m/s^2 | "
-          f"U_RES_MAX = {U_RES_MAX} m/s | u_n0 = {u_n0:.2f} m/s, theta = {np.degrees(theta):.1f} deg")
+          f"u_res_max sweep = {U_RES_VALUES} m/s | un0 = {un0:.2f} m/s, theta = {np.degrees(theta):.1f} deg")
     print(f"bounds: D0 in [{min_stroke(scenario, env):.3f}, {D0_MAX}] m | L0/D0 in {ASPECT_RANGE} | "
           f"n_ply in {NPLY_RANGE} | P0 in [P_amb, {P0_MAX:.0f}] Pa | phi_vent in {PHI_RANGE}")
     print(f"burst knockdown: eta_seam = {ETA_SEAM} / SF_burst = {SF_BURST} "
           f"-> {100*ETA_SEAM/SF_BURST:.0f} % of the fabric's ultimate N/cm")
 
-    for W_land in W_LAND_VALUES:
-        print(f"\n{'='*60}\nW_land = {W_land}\n{'='*60}")
+    for u_res_max in U_RES_VALUES:
+        print(f"\n{'='*60}\nu_res_max = {u_res_max} m/s\n{'='*60}")
         results = []
         for shape_name, shape in SHAPE_CODE.items():
             for mat_name in MATERIAL_NAMES:
@@ -249,7 +273,7 @@ if __name__ == "__main__":
                     for seed in SEEDS:
                         # population = POPSIZE x n_variables (Sobol rounds up to a power of 2)
                         res = differential_evolution(airbag_objective, make_bounds(shape, scenario, env),
-                                                    args=(shape, mat, gas, scenario, env, W_land),
+                                                    args=(shape, mat, gas, scenario, env, u_res_max),
                                                     integrality=make_integrality(shape),
                                                     init='sobol', popsize=POPSIZE, maxiter=MAXITER, tol=1e-4,
                                                     polish=False, updating='deferred', workers=-1, rng=seed)
@@ -263,16 +287,20 @@ if __name__ == "__main__":
         shape = SHAPE_CODE[shape_name]
         d = unpack_design(res.x, shape)
         print(repr(d))
-        r = simulate_airbag(**d, M_payload=M_payload, u0=u0, ux0=ux0,
+        r = simulate_airbag(**d, M_payload=M_payload, uy0=uy0, ux0=ux0,
                             **materials[mat_name],
                             R_gas=gases[gas_name][0], gamma=gases[gas_name][1],
                             P_amb=P_amb, g=g, eta_seam=ETA_SEAM, sf_burst=SF_BURST,
                             verbose=False, make_plots=False, a_allow=A_LIM)
 
-        print_design_summary(shape_name, mat_name, gas_name, res.x, shape, r)
-        all_winners.append((W_land, shape_name, mat_name, gas_name, r['m_total'], r['u_residual_n'], r['a_peak_n']))
+        print_design_summary(shape_name, mat_name, gas_name, res.x, shape, r, u_res_max)
+        _, feas_w = evaluate_design(r, d["D0"], scenario, u_res_max)
+        all_winners.append((u_res_max, shape_name, mat_name, gas_name, outcome_label(r),
+                            r['m_total'], landing_speed(r), r['a_peak_n'], feas_w))
 
     print(f"\n{'='*70}\nSUMMARY\n{'='*70}")
-    print(f"{'W_land':<8}{'shape':<10}{'mat':<6}{'gas':<5}{'m_total':<10}{'u_res_n':<10}{'a_peak_n(g)'}")
-    for w, sn, mn, gn, m, uv, av in all_winners:
-        print(f"{w:<8}{sn:<10}{mn:<6}{gn:<5}{m:<10.4f}{uv:<10.3f}{av/9.81:.1f}")
+    print(f"{'u_res_max':<10}{'shape':<10}{'mat':<6}{'gas':<9}{'outcome':<11}"
+          f"{'m_total':<10}{'u_land':<10}{'a_peak_n(g)':<13}{'feasible'}")
+    for w, sn, mn, gn, oc, m, uv, av, fe in all_winners:
+        print(f"{w:<10.2f}{sn:<10}{mn:<6}{gn:<9}{oc:<11}"
+              f"{m:<10.4f}{uv:<10.3f}{av/9.81:<13.1f}{fe}")
