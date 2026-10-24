@@ -1,7 +1,7 @@
 % LTeX: language=en-GB
 % !TEX root = ../../report.tex
 \section{Step 2 - Axial compression test (FEM)}\label{section:step2-fem-compression}
-The quantity of interest for the calibration of the glass phial's mechanical behaviour is the \textit{tensile strength} \texttt{FT} of the glass material card in LS-DYNA (\texttt{*MAT\_GLASS}, corresponding to the material model \texttt{*MAT\_280}), which governs the failure load observed in the FEM model. \texttt{FT} is tuned iteratively until the failure force predicted by the FEM matches the value of 98.7\,N measured experimentally. The calibrated model is then used to characterise the behaviour of the same glass phials in a separate FEM model, aimed at predicting the maximum impact acceleration that the phials can withstand. This value is one of the key design parameters for sizing the airbag protection device. 
+The quantity of interest for the calibration of the glass phial's mechanical behaviour is the \textit{tensile strength} \texttt{FT} of the glass material card in LS-DYNA (\kw{MAT\_GLASS}, corresponding to the material model \kw{MAT\_280}), which governs the failure load observed in the present FEM model. As the model was designed to simulate as closely as possible the loading condition to which the phials were subjected in Step 1 of the workflow, the parameter \texttt{FT} is tuned iteratively until the failure force predicted by the FEM matches the value of 98.7\,N measured experimentally. The calibrated model is then used to characterise the behaviour of the same glass phials in a separate FEM model in Step 3, aimed at predicting the maximum impact acceleration that the phials can withstand. This value is one of the key design parameters for sizing the airbag protection device. 
 
 The model is built using \textit{explicit} time integration. The unit system used in the present model is as follows:
 \begin{table}[htbp]
@@ -31,7 +31,14 @@ The current modelling choices are the result of several model iterations, carrie
 \subsubsection{Model setup and glass material modelling}
 % geometry (full model), components, mesh, contact, boundary conditions
 
-The model is composed of three parts, as shown in Fig.~\ref{fig:fem-model-setup}: the \textit{base}, the \textit{crosshead} and the \textit{glass phial}. The numerical setup aims to imitate the experimental test, where the glass phial is compressed in the axial direction, i.e. the vertical (Y) direction. The absence of the PETG holder in the present numerical model is a decision rooted in the risk of inaccurate or excessively complex modelling, as it was 3D printed with a reticular filling that would require a destructive intervention to be observed. The consequences of omitting the PETG adaptor in the FEM model are explored and accounted for in the results presented later.
+The model is composed of three parts, as shown in Fig.~\ref{fig:fem-model-setup}: the \textit{base}, the \textit{crosshead} and the \textit{glass phial}. The numerical setup aims to imitate the experimental test, where the glass phial is compressed in the axial direction, i.e. the vertical (Y) direction. Two considerations need to be made regarding the construction of the model:
+
+\begin{enumerate}
+  \item The glass phials virtual twin was reproduced on the CAD software SolidWorks by taking manual (destructive) measurements on the specimens offered by the Molinette Hospital. As the phials' geometry contains curvatures, fillets, domes, and bulges, using a simple Vernier calliper certainly lowers the fidelity of the virtual representation and induces challenges in the evaluation of the numerical results;
+  \item The absence of the PETG holder in the present numerical model is a decision rooted in the risk of inaccurate or excessively complex modelling, as it was 3D printed with a reticular filling that would require a destructive intervention to be observed. The consequences of omitting the PETG adaptor in the FEM model are another aspect that is explored and accounted for in the results presented later.
+\end{enumerate}
+
+
 
 \begin{figure}[h!]
     \centering
@@ -44,7 +51,7 @@ The model is composed of three parts, as shown in Fig.~\ref{fig:fem-model-setup}
 
 Within the FEM model, the crosshead and the base belong to the same super-part, named \textit{machine}, and they are meshed identically. Both are made of solid hexa elements with an average side length of 0.2\,mm, extruded to a thickness of 1\,mm in the vertical direction. In plan, they measure 18 x 18\,mm (base) and 14 x 14\,mm (crosshead). Both have enough surface area to cover the base and the dome of the glass phial, so that the breaking pressure and the reaction force from the base are applied correctly.
 
-The two parts are modelled with a material that treats them as infinitely rigid bodies (\texttt{*MAT\_RIGID}, material model \texttt{*MAT\_020}), with only one free degree of freedom, in this case the displacement in the Y-direction. The base is then constrained in Y by a boundary condition that imposes a displacement of 0\,mm, while the crosshead moves downwards and applies pressure on the phial in a quasi-static regime. The numerical workaround of leaving the Y direction free and then imposing a zero-displacement boundary condition on the base makes it possible to measure the reaction force exerted on it in the direction of the degree of freedom that was chosen as liable. With a fully constrained rigid body, this measurement would not be so straightforward, needing a slightly different procedure. The material card applied to the machine's parts can be found in LS-DYNA input \ref{lst:mat-rigid}.
+The two parts are modelled with a material that treats them as infinitely rigid bodies (\kw{MAT\_RIGID}, material model \kw{MAT\_020}), with only one free degree of freedom, in this case the displacement in the Y-direction. The base is then constrained in Y by a boundary condition that imposes a displacement of 0\,mm, while the crosshead moves downwards and applies pressure on the phial in a quasi-static regime. The numerical workaround of leaving the Y direction free and then imposing a zero-displacement boundary condition on the base makes it possible to measure the reaction force exerted on it in the direction of the degree of freedom that was chosen as liable. With a fully constrained rigid body, this measurement would not be so straightforward, needing a slightly different procedure. The material card applied to the machine's parts can be found in LS-DYNA input \ref{lst:mat-rigid}.
 
 
 \begin{dynacard}[label=lst:mat-rigid]{Rigid material card for the base and crosshead}
@@ -58,7 +65,7 @@ $      CMO      CON1      CON2
 \end{dynacard}
 
 
-The glass phial is meshed with shell elements of thickness 0.4\,mm, with 5 integration points along the thickness. The structured mesh has a regular size of 0.1\,mm and is mostly composed of quads, with trias where needed to follow the shape, so that it keeps the curvatures of the dome and the fillets of the rounded-corner geometry. The material used for the glass phial is shown in LS-DYNA input \ref{lst:mat-glass-raw}, which highlights the \textit{tensile strength} \texttt{FT} as the parameter to fine-tune the numerical prediction of the phial's failure load. The card has several parameters of interest that govern the post-fracture behaviour, which is not of interest for the present analysis as the objective is to identify the material's point of brittle failure, aligned with the broader aim to avoid medicinal dispersion during an impact-failure event. However, an informed attempt to model glass behaviour with an acceptable degree of fidelity in both the pre- and post-fracture regimes was made by setting material parameters based on a separate literature search across worked examples of \texttt{*MAT\_GLASS} implementations \cite{DCFEA2025} and the LS-DYNA user manual \cite[p.~1989-2001]{LSDYNA_KW_II}:
+The glass phial is meshed with shell elements with \texttt{ELFORM = 2}\footnote{Reduced-integration elements with one in-plane integration point and through-thickness points chosen manually, with the default of two. No hourglass control implemented.} of thickness 0.4\,mm, with 5 integration points along the thickness. The structured mesh has a regular size of 0.1\,mm and is mostly composed of quads, with trias where needed to follow the shape, so that it keeps the curvatures of the dome and the fillets of the rounded-corner geometry. The material used for the glass phial is shown in LS-DYNA input \ref{lst:mat-glass-raw}, which highlights the \textit{tensile strength} \texttt{FT} as the parameter to fine-tune the numerical prediction of the phial's failure load. The card has several parameters of interest that govern the post-fracture behaviour, which is not of interest for the present analysis as the objective is to identify the material's point of brittle failure, aligned with the broader aim to avoid medicinal dispersion during an impact-failure event. However, an informed attempt to model glass behaviour with an acceptable degree of fidelity in both the pre- and post-fracture regimes was made by setting material parameters based on a separate literature search across worked examples of \kw{MAT\_GLASS} implementations \cite{DCFEA2025} and the LS-DYNA user manual \cite[p.~1989-2001]{LSDYNA_KW_II}:
 
 \begin{itemize}
   \item \texttt{RHO}: Density, 2.6E-06 kg/mm$^3$ (2600 kg/m$^3$);
@@ -93,7 +100,7 @@ $    EPSCR    ENGCRT    RADCRT    RATENL    RFILTF    FRACEN    CTRACK
 
 
 \subsubsection{Boundary conditions}
-The phial simply rests on the base's surface. Its interaction with the base and the crosshead is governed by the contact card \texttt{*CONTACT\_AUTOMATIC\_SINGLE\_SURFACE\_ID}, the most general contact model in LS-DYNA, as shown in LS-DYNA input \ref{lst:contact-single-surface}. It allows all surfaces to come in contact with each other without defining single master-slave pairs. The tangential behaviour is defined by a friction coefficient of 0.3 for both static (\texttt{FS}) and dynamic (\texttt{FD}) friction. The phial is liable and only feels the reaction force from below and the force applied by the moving crosshead.
+The phial simply rests on the base's surface. Its interaction with the base and the crosshead is governed by the contact card \kw{CONTACT\_AUTOMATIC\_SINGLE\_SURFACE\_ID}, the most general contact model in LS-DYNA, as shown in LS-DYNA input \ref{lst:contact-single-surface}. It allows all surfaces to come in contact with each other without defining single master-slave pairs. The tangential behaviour is defined by a friction coefficient of 0.3 for both static (\texttt{FS}) and dynamic (\texttt{FD}) friction. The phial is liable and only feels the reaction force from below and the force applied by the moving crosshead.
 
 \begin{dynacard}[label=lst:contact-single-surface]{Automatic single surface contact card}
 *CONTACT_AUTOMATIC_SINGLE_SURFACE_ID
@@ -141,27 +148,60 @@ $                  X                   Y
 
 
 \subsubsection{Modal analysis}
-\hl{FIX THIS STILL}
-A modal analysis was run on the single phial geometry to obtain its natural frequencies and mode shapes, i.e.\ the eigenvalues and eigenvectors of the free structure. The first 30 modes were requested. The first six are rigid-body modes, since the phial is unconstrained.
+An implicit modal analysis (\kw{CONTROL\_IMPLICIT\_EIGENVALUE}) was run on the free glass phial to obtain its natural frequencies and mode shapes. The first 30 modes were requested in the analysis, including the first six rigid-body modes.
 
-% CARD FOR REQUESTING A MODAL ANALYSIS
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering Placeholder: Mode a}}
+    % \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/mode_a.png}
+    \caption{Mode \hl{X} (\hl{f}~kHz)}
+    \label{fig:phial-mode-a}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering Placeholder: Mode b}}
+    % \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/mode_b.png}
+    \caption{Mode \hl{X} (\hl{f}~kHz)}
+    \label{fig:phial-mode-b}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.32\textwidth}
+    \centering
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering Placeholder: Mode c}}
+    % \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/mode_c.png}
+    \caption{Mode \hl{X} (\hl{f}~kHz)}
+    \label{fig:phial-mode-c}
+  \end{subfigure}
+  \caption{Mode shapes of the free glass phial from the implicit modal analysis.}
+  \label{fig:phial-modes}
+\end{figure}
 
-The first elastic mode is a bending mode, with a frequency of about 8~kHz. Its period, $T_1 = 1/f_1 \approx 125~\mu\mathrm{s}$, is the characteristic time of the structure's dynamic response. If the load were applied over a time of the same order as $T_1$, inertia would contribute to the response and the test would fall in the dynamic regime. To keep the simulation quasi-static, the load application time must be at least ten times $T_1$, i.e.\ above about 1.25~ms.
 
-For this reason the crosshead is driven by a velocity curve that ramps up over 10~ms to a constant value of [velocity?] and then holds it. The ramp time is therefore about 80 times the period of the first elastic mode, well inside the quasi-static range.
+The first elastic mode (Mode 7) is of particular relevance for the present analysis. It is a bending mode, with a natural frequency of about 8.179~\,kHz, and its period $T_1$ is the characteristic time of the structure's dynamic response:
 
-Some of the mode shapes are shown in Figure~\ref{}. They were chosen because their bending deformation is relevant to the phial's failure. These shapes were then used to introduce geometric imperfections into the model, as presented in the next section.
+\begin{equation}
+T_1 = 1/f_1 \approx 122~\mu\mathrm{s}
+\end{equation}
 
-
+If the load were applied over a time of the same order as $T_1$, the structure's inertia would contribute to the response and the test would fall in the dynamic regime. Therefore, to keep the simulation quasi-static, the load application time must be at least ten times $T_1$, i.e.\ above about 1.22\,ms. For this reason, the crosshead was driven by a velocity curve that ramps up over 5\,ms to a constant value and then holds it for the remaining 5\,ms of the simulation. The ramp time is therefore about 40 times the period of the first elastic mode, well inside the quasi-static range. 
 
 \subsubsection{Geometric imperfections}
-\hl{FIX THIS STILL}
-The glass of the phials shows a large dispersion in its material properties, and the geometry itself is only loosely controlled because of the manufacturing process [process?]. For these reasons it was necessary to introduce imperfections into the model, using the geometry perturbation command [keyword?]. Two options were considered:
+The phials tested experimentally showed a large dispersion in their strength properties, as well as in their breaking modes. This phenomenon is usually ascribed to the loosely controlled manufacturing process (mentioned in Section \ref{section:step1-test}) which naturally introduces geometric imperfections. These imperfections are not influential in the context of the medical applications for which the phials were designed, but are certainly exposed in destructive testing such as what was adopted in Step 1. For these reasons, it was necessary to introduce initial defects into the FEM model by perturbing the phial's geometry. Two options were considered:
 \begin{enumerate}
-  \item perturbing the nodes along a bending or torsional mode shape from the modal analysis, so as to introduce a specific defect of controlled amplitude [amplitude?] over the nominal geometry;
-  \item leaving the geometry unchanged and rotating the phial by $1^\circ$ about its centroid [about which axis?], which introduces a misalignment between the phial axis and the loading direction.
+  \item Perturbing the nodes along a primarily bending (see Mode 18 in Fig.\ref{fig:phial-modes}) mode shape from the modal analysis, as to introduce a specific defect of controlled amplitude (measured in mm) over the nominal geometry;
+  \item Leaving the geometry unchanged and rotating the phial by $1^\circ$ about its centroid in the XY-plane, which introduces a misalignment between the phial axis and the loading direction (as shown in Fig.\,\ref{fig:phial-misalignment})
 \end{enumerate}
-The second option was chosen. Through a trial-and-error process, it was found that this misalignment triggers an additional, hybrid breaking mode, which had also been observed experimentally. The results presented later therefore suggest a correlation between initial deviations from the nominal configuration and the different breaking modes observed in the tests.
+
+\begin{figure}[htbp]
+  \centering
+  \fbox{\parbox[c][5cm][c]{0.5\linewidth}{\centering Placeholder: Rotated phial ($1^\circ$ misalignment)}}
+  % \includegraphics[width=0.5\linewidth]{figures/chap4/step2-fem-phial/misalignment.png}
+  \caption{Phial rotated by $1^\circ$ about its centroid in the XY-plane, introducing a misalignment between the phial axis and the loading direction.}
+  \label{fig:phial-misalignment}
+\end{figure}
+
+After a series of iterations verifying the numerically observed breaking mode, the second option was chosen as it was found that this misalignment triggers an additional, hybrid breaking mode, which had also been observed experimentally. The results presented later therefore confirm a correlation between initial deviations from the nominal geometry and the different breaking modes observed in the tests.
 
 
 \subsubsection{Requested outputs}
@@ -177,6 +217,7 @@ As shown in the LS-DYNA input \ref{lst:mat-glass-raw}, the tensile strength \tex
 \subsection{Results}
 \subsubsection{Quasi-static verification}   % energy ratio -> confirms the loading choice
 \subsubsection{Stiffness verification}
+* geometry challenge here. Campaign on different thicknesses
 \subsubsection{Imperfection selection}      % effect of candidate perturbations -> chosen one
 \subsubsection{\texttt{FT} calibration}              % F_fail vs FT, final value
 \subsubsection{Comparison with experiments} % F-d curve, stiffness, fracture pattern

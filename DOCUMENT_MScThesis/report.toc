@@ -66,77 +66,77 @@
 \contentsline {section}{\numberline {4.3}Step 2 - Axial compression test (FEM)}{33}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Implementation}{33}{subsection.4.3.1}%
 \contentsline {subsubsection}{Model setup and glass material modelling}{33}{subsection.4.3.1}%
-\contentsline {subsubsection}{Boundary conditions}{35}{lstnumber.-2.11}%
+\contentsline {subsubsection}{Boundary conditions}{36}{lstnumber.-2.11}%
 \contentsline {subsubsection}{Modal analysis}{36}{figure.caption.27}%
-\contentsline {subsubsection}{Geometric imperfections}{37}{figure.caption.27}%
-\contentsline {subsubsection}{Requested outputs}{37}{Item.27}%
-\contentsline {subsubsection}{Calibration procedure}{37}{Item.27}%
-\contentsline {subsection}{\numberline {4.3.2}Results}{38}{subsection.4.3.2}%
-\contentsline {subsubsection}{Quasi-static verification}{38}{subsection.4.3.2}%
-\contentsline {subsubsection}{Stiffness verification}{38}{subsection.4.3.2}%
-\contentsline {subsubsection}{Imperfection selection}{38}{subsection.4.3.2}%
-\contentsline {subsubsection}{\texttt {FT} calibration}{38}{subsection.4.3.2}%
-\contentsline {subsubsection}{Comparison with experiments}{38}{subsection.4.3.2}%
-\contentsline {subsubsection}{Step 2 deliverable: calibrated glass material card}{38}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Step 3 - Sled test (FEM)}{38}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Implementation}{38}{subsection.4.4.1}%
-\contentsline {subsubsection}{Model setup}{38}{subsection.4.4.1}%
-\contentsline {subsubsection}{Loading}{38}{subsection.4.4.1}%
-\contentsline {subsubsection}{Mass scaling}{39}{equation.4.3}%
-\contentsline {subsubsection}{Requested outputs and failure detection}{39}{equation.4.3}%
-\contentsline {subsection}{\numberline {4.4.2}Results}{40}{subsection.4.4.2}%
-\contentsline {subsubsection}{Model verification}{40}{subsection.4.4.2}%
-\contentsline {subsubsection}{Acceleration sweep}{40}{subsection.4.4.2}%
-\contentsline {subsubsection}{Failure location and mode}{40}{subsection.4.4.2}%
-\contentsline {subsubsection}{Mass-scaling effect}{40}{subsection.4.4.2}%
-\contentsline {subsubsection}{From sled to impact allowable}{40}{subsection.4.4.2}%
-\contentsline {subsubsection}{Step 3 deliverable: allowable payload acceleration}{40}{subsection.4.4.2}%
-\contentsline {section}{\numberline {4.5}Step 4 - Design variables optimisation}{40}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Implementation}{40}{subsection.4.5.1}%
-\contentsline {subsubsection}{Problem formulation}{40}{subsection.4.5.1}%
-\contentsline {subsubsection}{Physical model (\texttt {simulate\_airbag} oracle)}{41}{Item.30}%
-\contentsline {subsubsection}{Optimisation algorithm (wrapper)}{43}{tcb@cnt@algobox.4.2}%
-\contentsline {subsection}{\numberline {4.5.2}Results}{46}{subsection.4.5.2}%
-\contentsline {subsubsection}{Reference optimum}{46}{subsection.4.5.2}%
-\contentsline {subsubsection}{Convergence of the optimiser}{46}{subsection.4.5.2}%
-\contentsline {subsubsection}{Effect of the 2D impact}{46}{subsection.4.5.2}%
-\contentsline {subsubsection}{Effect of transpiration and seam efficiency}{46}{subsection.4.5.2}%
-\contentsline {subsubsection}{Sensitivity to the inherited inputs}{46}{subsection.4.5.2}%
-\contentsline {subsubsection}{Step 4 deliverable: airbag sizing parameters}{46}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Summary of results}{46}{section.4.6}%
-\contentsline {section}{\numberline {4.7}System design hypothesis}{46}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusions}{47}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General summary}{47}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Recommendations for future work}{47}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Project Management}{48}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Project organisation and stakeholders}{48}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Context}{48}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Supervisory team}{48}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Monitoring and communication}{49}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Stakeholder priorities}{49}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Resources by party}{49}{subsection.6.1.5}%
-\contentsline {section}{\numberline {6.2}Planning: baseline versus execution}{49}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Baseline}{49}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Scope evolution and execution}{49}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Final scope definition}{50}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Critical events and their management}{50}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Scope narrowing: from airbag design to workflow and characterisation}{50}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Loss of computational resources}{50}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Split toolchain between workstations}{51}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Technical decisions under conflicting advice}{51}{subsection.6.3.4}%
-\contentsline {paragraph}{Modelling approach for the phial.}{51}{subsection.6.3.4}%
-\contentsline {paragraph}{Fidelity of the sled-test model.}{52}{subsection.6.3.4}%
-\contentsline {section}{\numberline {6.4}Self-assessment}{52}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{52}{section.6.5}%
-\contentsline {chapter}{References}{53}{chapter*.31}%
-\contentsline {chapter}{\numberline {A}Extended Market Analysis}{59}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Value-chain actors}{59}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{61}{appendix.A.2}%
-\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{63}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Safety precautions}{63}{appendix.B.1}%
-\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{63}{appendix.B.2}%
-\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{64}{appendix.C}%
-\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{65}{appendix*.33}%
+\contentsline {subsubsection}{Geometric imperfections}{38}{equation.4.3}%
+\contentsline {subsubsection}{Requested outputs}{38}{figure.caption.29}%
+\contentsline {subsubsection}{Calibration procedure}{39}{figure.caption.29}%
+\contentsline {subsection}{\numberline {4.3.2}Results}{39}{subsection.4.3.2}%
+\contentsline {subsubsection}{Quasi-static verification}{39}{subsection.4.3.2}%
+\contentsline {subsubsection}{Stiffness verification}{39}{subsection.4.3.2}%
+\contentsline {subsubsection}{Imperfection selection}{39}{subsection.4.3.2}%
+\contentsline {subsubsection}{\texttt {FT} calibration}{39}{subsection.4.3.2}%
+\contentsline {subsubsection}{Comparison with experiments}{39}{subsection.4.3.2}%
+\contentsline {subsubsection}{Step 2 deliverable: calibrated glass material card}{39}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Step 3 - Sled test (FEM)}{39}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Implementation}{40}{subsection.4.4.1}%
+\contentsline {subsubsection}{Model setup}{40}{subsection.4.4.1}%
+\contentsline {subsubsection}{Loading}{42}{figure.caption.32}%
+\contentsline {subsubsection}{Mass scaling}{43}{equation.4.4}%
+\contentsline {subsubsection}{Requested outputs and failure detection}{43}{equation.4.4}%
+\contentsline {subsection}{\numberline {4.4.2}Results}{44}{subsection.4.4.2}%
+\contentsline {subsubsection}{Model verification}{44}{subsection.4.4.2}%
+\contentsline {subsubsection}{Acceleration sweep}{44}{subsection.4.4.2}%
+\contentsline {subsubsection}{Failure location and mode}{44}{subsection.4.4.2}%
+\contentsline {subsubsection}{Mass-scaling effect}{44}{subsection.4.4.2}%
+\contentsline {subsubsection}{From sled to impact allowable}{44}{subsection.4.4.2}%
+\contentsline {subsubsection}{Step 3 deliverable: allowable payload acceleration}{44}{subsection.4.4.2}%
+\contentsline {section}{\numberline {4.5}Step 4 - Design variables optimisation}{44}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Implementation}{44}{subsection.4.5.1}%
+\contentsline {subsubsection}{Problem formulation}{44}{subsection.4.5.1}%
+\contentsline {subsubsection}{Physical model (\texttt {simulate\_airbag} oracle)}{44}{Item.34}%
+\contentsline {subsubsection}{Optimisation algorithm (wrapper)}{47}{tcb@cnt@algobox.4.2}%
+\contentsline {subsection}{\numberline {4.5.2}Results}{50}{subsection.4.5.2}%
+\contentsline {subsubsection}{Reference optimum}{50}{subsection.4.5.2}%
+\contentsline {subsubsection}{Convergence of the optimiser}{50}{subsection.4.5.2}%
+\contentsline {subsubsection}{Effect of the 2D impact}{50}{subsection.4.5.2}%
+\contentsline {subsubsection}{Effect of transpiration and seam efficiency}{50}{subsection.4.5.2}%
+\contentsline {subsubsection}{Sensitivity to the inherited inputs}{50}{subsection.4.5.2}%
+\contentsline {subsubsection}{Step 4 deliverable: airbag sizing parameters}{50}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Summary of results}{50}{section.4.6}%
+\contentsline {section}{\numberline {4.7}System design hypothesis}{50}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusions}{51}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General summary}{51}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Recommendations for future work}{51}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Project Management}{52}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Project organisation and stakeholders}{52}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Context}{52}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Supervisory team}{52}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Monitoring and communication}{53}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Stakeholder priorities}{53}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Resources by party}{53}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}Planning: baseline versus execution}{53}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Baseline}{53}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Scope evolution and execution}{53}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Final scope definition}{54}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Critical events and their management}{54}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Scope narrowing: from airbag design to workflow and characterisation}{54}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Loss of computational resources}{54}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Split toolchain between workstations}{55}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Technical decisions under conflicting advice}{55}{subsection.6.3.4}%
+\contentsline {paragraph}{Modelling approach for the phial.}{55}{subsection.6.3.4}%
+\contentsline {paragraph}{Fidelity of the sled-test model.}{56}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Self-assessment}{56}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{56}{section.6.5}%
+\contentsline {chapter}{References}{57}{chapter*.36}%
+\contentsline {chapter}{\numberline {A}Extended Market Analysis}{63}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Value-chain actors}{63}{appendix.A.1}%
+\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{65}{appendix.A.2}%
+\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{67}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Safety precautions}{67}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{67}{appendix.B.2}%
+\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{68}{appendix.C}%
+\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{69}{appendix*.38}%
 \babel@toc {italian}{}\relax 
 \babel@toc {british}{}\relax 
 \contentsfinish 

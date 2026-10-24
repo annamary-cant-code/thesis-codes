@@ -1,9 +1,32 @@
 % LTeX: language=en-GB
 % !TEX root = ../../report.tex
+
 \section{Step 3 - Sled test (FEM)}\label{section:step3-sledTest}
-% objective: maximum constant acceleration the packaged phial withstands
-% input: calibrated MAT_280 card from Step 2 (unchanged, same 0.1 mm mesh)
-% output: acceleration allowable -> (x2, impact scaling) -> airbag sizing
+The scope of this third step within the workflow is to subject the payload bay, i.e. the container of the medical payload analysed until now, to the type of acceleration it would possibly undergo in an impact event. Specifically, the idea is to imitate a \textit{sled test}, which is common practice in the automotive industry: an ATD\footnote{\textit{Anthropomorphic Test Devices}.} crash dummy is strapped onto a sled (a trolley sliding on almost frictionless rails) that is subjected to a prescribed acceleration pulse, and the response of the dummies, governed predominantly by their own inertia and the forces exerted by the restraint system, is checked against damage thresholds \hl{cite that paper with the sled test and dummy damage indices!!!!} 
+
+The model built in this Step 3 aims to simulate a similar phenomenon: here, an acceleration boundary condition is imposed on the external shell of the medical payload container, leaving its contents to be governed by their inertial response and by the contact forces exchanged between each other. The model aims to verify whether the imposed acceleration impulse damages the medical payload inside, i.e. the glass phials. The outcome is, therefore, binary: either the phials are damaged, or they are not. The information related to crack initiation and material failure is monitored through the same LS-DYNA variable activated in Step 2 to evaluate phial failure load under axial compression. The apparition of damage implies that the acceleration pulse to which the container was subjected was too high for the phials to resist and the \textit{allowable} (i.e. maximum withstandable) peak acceleration must correspond to a lower value. The test is in itself can be reduced to a threshold problem, where exceeding a certain peak acceleration immediately induces damage (with due considerations on tolerance). Finding the acceleration allowable $a_{allow}$ is an iterative process and results in obtaining the last input necessary for the airbag design optimisation code of the workflow's Step 4.
+
+Just like the FEM model for the axial compression test, the present model is built using \textit{explicit} time integration with an engineering unit system consistent with the one adopted in Step 2, reported here again for clarity:
+\begin{table}[htbp]
+  \centering
+  \caption{Engineering Units}
+  \label{tab:units-Step3}
+  \begin{thesistable}{
+    width = 0.6\linewidth,
+    colspec = {X[1,l] X[1,l]},
+  }
+    Quantity measured & Units \\
+    Time              & ms \\
+    Distance          & mm \\
+    Mass              & kg \\
+    Stress / Pressure & GPa (kN/mm$^2$) \\
+    Force             & kN \\
+    Energy / Work     & J (kN$\cdot$mm) \\
+    Velocity          & mm/ms \\
+    Acceleration      & mm/ms$^2$ \\
+    Density           & kg/mm$^3$ \\
+  \end{thesistable}
+\end{table}
 
 \subsection{Implementation}
 
@@ -13,17 +36,127 @@
 % mesh: phial include identical to Step 2 (FRACEN not set -> mesh must match)
 % contact: CONTACT_AUTOMATIC_GENERAL
 % full container vs reduced slice: slice rejected (no valid symmetry, parts slipping)
-Since the geometry of the payload bay was never defined [patented? designed?] by the research group, the shape assumed here is taken from a previous thesis~\cite{[key?]} (2001). The model is composed of four parts: the outer shell of the payload bay, the inner sponge, the mask holding the phials, and the glass phials, which represent the medical payload carried in typical missions. The setup is meant to represent a typical carry-on configuration [check wording].
 
-The sponge represents a protective layer such as bubble wrap, of the kind an operator would use to attenuate impacts. Its presence strongly affects the results, since it is part of the attenuation mechanism protecting the phials. Some simulations were also run without the sponge, and in that case the allowable acceleration drops from [value?] to [value?].
+As illustrated in Section\,\ref{sec:reference-mission}, the payload container considered in this model is inspired by the designed proposed by Sivieri (2021) \cite{Sivieri2021}. The payload assembly presented here is composed of four parts, as shown in Fig.\,\ref{fig:payload-assembly}: the \textit{payload bay} (the outer shell of the receptacle), the \textit{sponge} (an internal buffer between the medical payload and the receptacle, conceptually representing a protective layer such as bubble wrap, of the kind an operator would use to attenuate in-flight vibrations), the medicinal \textit{mask} (a plastic tray commonly found in pharmaceutical packaging to hold the phials in place during transport), and the glass phials (as modelled in previous Step 2), overall representing a realistic carry-on configuration for typical mission scenarios.
 
-Apart from the glass of the phials, none of the materials has a failure criterion implemented. The aim of the analysis is to preserve the phials, not to study the failure of the whole payload, so the payload bay, the sponge and the mask are assumed to remain intact. The model therefore uses three non-glass materials, described below.
+\begin{figure}[h!]
+    \centering
+    % TODO: replace the placeholder box with the actual figure once available
+    % \includegraphics[width=0.8\textwidth]{figures/chap4/step3-sled/payload_assembly.png}
+    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: payload assembly FEM model}}
+    \caption{FEM model of the payload assembly, composed of the \textit{payload bay}, the \textit{sponge}, the \textit{mask} and the \textit{glass phials}.}
+    \label{fig:payload-assembly}
+\end{figure}
 
-The outer shell of the payload bay is meshed with shell elements of 5~mm size and 2~mm thickness, with the material card in Table~\ref{tab:bay_card}. The mask holding the glass phials is meshed with shell elements of [thickness?]~mm thickness, with the material card in Table~\ref{tab:mask_card}. The sponge is meshed with [element type and size?]. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on [source?] and is shown in Figure~\ref{fig:sponge_curve}, with the material card in Table~\ref{tab:sponge_card}.
+Two considerations should be made regarding the modelling choices:
+\begin{enumerate}
+    \item The presence of the sponge layer strongly affects the value of $a_{allow}$ as it heavily contributes to the attenuation mechanism protecting the phials. Therefore, to capture an accurate response, it is key to study the phials' behaviour in relation to their interaction with the assembly they belong to. The consequences of using a sponge in this context are explored in the following paragraphs;
+    \item Apart from the phials' glass, \hl{NON VERO none of the other materials has a failure criterion implemented, wrongly assuming that they remain intact during an impact event. This non-realistic choice was made to purposefully focus on the phials' behaviour as their material's behaviour at failure is the only one that can be modelled accurately as supported by concrete experimental data.} The other materials' data on mechanical properties is extracted from an ad-hoc literature review.
+\end{enumerate}
 
-The parts interact through \texttt{CONTACT\_AUTOMATIC\_GENERAL} in LS-DYNA, which again treats every part as potentially in contact with every other part. In addition, an interior contact was defined for the sponge to prevent element inversion under large compression.
+The outer shell of the payload bay is meshed with shell elements of average length of 6\,mm size and 5\,mm thickness, default {ELFORM = 2} with two integration points through the thickness. Its material is injection-moulded ABS, modelled with \kw{MAT\_PIECEWISE\_LINEAR\_PLASTICITY} (material model \kw{MAT\_024}), as shown in LS-DYNA input\,\ref{lst:mat-bay}.
 
-A reduced model [half? quarter?] of the system was initially developed, but the full model was adopted instead because of the asymmetry of the system [which asymmetry? phial layout? loading?].
+\begin{dynacard}[label=lst:mat-bay]{ABS material card for the payload bay}
+*MAT_PIECEWISE_LINEAR_PLASTICITY
+$HMNAME MATERIAL         2ABS_inject-mould
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$      MID       RHO         E        PR      SIGY      ETAN      FAIL      TDEL
+         2 1.050E-06      2.10      0.38     0.040     0.150     0.025
+$        C         P      LCSS      LCSR        VP       LCF
+
+$     EPS1      EPS2      EPS3      EPS4      EPS5      EPS6      EPS7      EPS8
+
+$      ES1       ES2       ES3       ES4       ES5       ES6       ES7       ES8
+
+\end{dynacard}
+
+\noindent where the parameters set in the material card, taken from \hl{PUT A SOURCE HERE} are:
+
+\begin{itemize}
+  \item \texttt{RHO}: Density, 1.05E-06 kg/mm$^3$ (1050 kg/m$^3$);
+  \item \texttt{E}: Young's modulus, 2.10\,GPa;
+  \item \texttt{PR}: Poisson's ratio, 0.38;
+  \item \texttt{SIGY}: Yield stress, 0.040\,GPa (40\,MPa);
+  \item \texttt{ETAN}: Tangent modulus, 0.150\,GPa (150\,MPa), defining the slope of the hardening branch after yield. As no stress-strain curve is given (\texttt{LCSS} left blank), the material follows a bilinear elastic-plastic law;
+  \item \texttt{FAIL}: Effective plastic strain at failure, 0.025, beyond which the element is deleted.
+\end{itemize}
+
+
+The mask holding the glass phials is meshed with shell elements of 0.5\,mm thickness, with the material card in LS-DYNA input\,\ref{lst:mat-mask}. The mask material is polypropylene (PP), modelled as linear elastic with \kw{MAT\_ELASTIC} (material model \kw{MAT\_001}), as shown in LS-DYNA input\,\ref{lst:mat-mask}. No failure criterion is defined, so the mask cannot fail.
+
+\begin{dynacard}[label=lst:mat-mask]{PP material card for the mask}
+*MAT_ELASTIC
+$HMNAME MATERIAL         3polypropylene_PP
+$HWCOLOR MATERIAL         3      25
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$      MID       RHO         E        PR        DA        DB         K
+         3 9.1000E-7     1.350       0.4
+\end{dynacard}
+
+\noindent where the parameters set in the material card, taken from \hl{PUT A SOURCE HERE} are:
+
+\begin{itemize}
+  \item \texttt{RHO}: Density, 9.10E-07 kg/mm $^3$ (910 kg/m$^3$);
+  \item \texttt{E}: Young's modulus, 1.35\,GPa;
+  \item \texttt{PR}: Poisson's ratio, 0.40.
+\end{itemize}
+
+The sponge is meshed with [element type and size?]. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on \hl{FIND SOURCE HERE} and is shown in Figure\,\ref{fig:sponge_curve}, with the material card in LS-DYNA input\,\ref{lst:mat-sponge}.
+
+The sponge material is a polyurethane foam, modelled with \kw{MAT\_LOW\_DENSITY\_FOAM} (material model \kw{MAT\_057}), as shown in LS-DYNA input\,\ref{lst:mat-sponge}.
+
+\begin{dynacard}[label=lst:mat-sponge]{Polyurethane foam material card for the sponge}
+*MAT_LOW_DENSITY_FOAM
+$HMNAME MATERIAL         1polyurethane_foam
+$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
+$      MID       RHO         E      LCID        TC        HU      BETA      DAMP
+         1 2.500E-08       5.0         1                 1.0                0.05
+$    SHAPE      FAIL    BVFLAG        ED     BETA1      KCON       REF
+
+\end{dynacard}
+
+\noindent where the parameters set in the material card, taken from \hl{PUT A SOURCE HERE} are:
+
+\begin{itemize}
+  \item \texttt{RHO}: Density, 2.50E-08 kg/mm$^3$ (25 kg/m$^3$);
+  \item \texttt{E}: Young's modulus \hl{recheck the manual} used in tension, 5.0\,GPa;
+  \item \texttt{LCID}: ID of the load curve defining the nominal stress versus strain in compression, i.e. curve 1, given in LS-DYNA input\,\ref{lst:curve-sponge} and plotted in Fig.\,\ref{fig:sponge_curve};
+  \item \texttt{HU}: Hysteretic unloading factor, 1.0. With this value there is no hysteretic unloading: the foam unloads along the loading curve and no energy is dissipated through hysteresis;
+  \item \texttt{DAMP}: Viscous coefficient, 0.05, which models damping effects (recommended range 0.05-0.50 according to the LS-DYNA user manual \hl{FIND EXACT PAGES}).
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[c]{0.52\textwidth}
+    \renewcommand{\dynafont}{\scriptsize}
+    \begin{dynacard}[label=lst:curve-sponge]{Sponge loading curve}
+*DEFINE_CURVE_TITLE
+$HMCURVE     1    2 polyurethane_curve
+$NAME
+polyurethane_curve
+$     LCID      SIDR       SFA       SFO      OFFA      OFFO
+         1                 1.0       1.0
+$                  X                   Y
+                 0.0                 0.0
+                0.05             3.0E-06
+                 0.1             5.0E-06
+                 0.2             6.0E-06
+                 0.4             7.0E-06
+                 0.6             9.0E-06
+                 0.7             1.5E-05
+                 0.8             4.0E-05
+                 0.9             1.5E-04
+    \end{dynacard}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.45\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/chap4/step3-fem-sled/Polyurethane-curve.png}
+    \caption{Nominal stress-strain loading curve of the polyurethane sponge.}
+    \label{fig:sponge_curve}
+  \end{minipage}
+\end{figure}
+
+The parts interact through \kw{CONTACT\_AUTOMATIC\_GENERAL} in LS-DYNA, which again treats every part as potentially in contact with every other part without master-slave couples hierarchy. In addition, an interior contact option was activated through the \kw{CONTACT\_INTERIOR} keyword to prevent negative volume formation during large compression events.
 
 
 
@@ -31,7 +164,11 @@ A reduced model [half? quarter?] of the system was initially developed, but the 
 % characteristic time scale calculated based on the integral of acceleration being the dissipated velocity
 % *BOUNDARY_PRESCRIBED_MOTION_RIGID on the bay, acceleration curve (shape, rise, plateau)
 % amplitude search: increase a until failure (analogue of FT calibration procedure)
-The input of the model is an acceleration time history, prescribed through \texttt{*BOUNDARY\_PRESCRIBED\_MOTION\_RIGID} on two rigid rings attached to the payload bay [how are they connected? shared nodes? constrained nodes?], while the rest of the bay remains deformable. The rings represent the straps that hold the payload, in the same way as the restraints on a test sled. The curve has a trapezoidal shape: an initial ramp of duration $t_r$, a plateau at constant acceleration $a$ of duration $t_p$, and a descending ramp of duration $t_r$. The ramps avoid discontinuities in the acceleration, which would excite spurious high-frequency oscillations, so that the velocity and displacement histories remain smooth. The acceleration is therefore applied at the attachment points, and reaches the phials only after being transmitted through the deformable bay, the sponge and the mask.
+
+family of curves of which i choose the duration and . Time given by an estimation given in comparable duration in impact events in the automotive industry.
+
+
+The input of the model is an acceleration time history, prescribed through \kw{BOUNDARY\_PRESCRIBED\_MOTION\_RIGID} on two rigid rings attached to the payload bay [how are they connected? shared nodes? constrained nodes?], while the rest of the bay remains deformable. The rings represent the straps that hold the payload, in the same way as the restraints on a test sled. The curve has a trapezoidal shape: an initial ramp of duration $t_r$, a plateau at constant acceleration $a$ of duration $t_p$, and a descending ramp of duration $t_r$. The ramps avoid discontinuities in the acceleration, which would excite spurious high-frequency oscillations, so that the velocity and displacement histories remain smooth. The acceleration is therefore applied at the attachment points, and reaches the phials only after being transmitted through the deformable bay, the sponge and the mask.
 
 The impact is characterised by an initial velocity $\mathbf{u}_0 = (u_{x,0}, u_{y,0})$, which includes both horizontal and vertical components [how are the $x$, $y$, $z$ components handled?]. Over the deceleration this velocity must be brought completely to zero, so the integral of the acceleration curve must equal the velocity dissipated by the system:
 \begin{equation}
@@ -51,7 +188,7 @@ Acceleration applied in the x, y, and z direction, and sweeping to detect the mo
 % effect on phial inertial load; correction or sensitivity check
 \begin{itemize}
     \item \textbf{Why it's needed.} The 0.1~mm phial shells set the stable timestep ($\Delta t \approx l_e/c \approx 1.9\times10^{-5}$~ms). Multiply that by the event duration to show the cycle count is impractical without scaling, even on DelftBlue.
-    \item \textbf{How it's applied.} \texttt{*CONTROL\_TIMESTEP}, \texttt{DT2MS}: give the target $\Delta t$, and say whether scaling applies only to elements below the target (negative \texttt{DT2MS}).
+    \item \textbf{How it's applied.} \kw{CONTROL\_TIMESTEP}, \texttt{DT2MS}: give the target $\Delta t$, and say whether scaling applies only to elements below the target (negative \texttt{DT2MS}).
     \item \textbf{Where the mass lands.} Almost entirely on the phial, since it has the smallest elements. Report it as numbers: phial 3~g $\rightarrow$ 170~g ($\times 57$), and the added mass as a \% of the total model.
     \item \textbf{Physical consequence.} At a given bay acceleration, the phial's inertial load scales with its mass. The phial--sponge frequency drops by $\sqrt{57} \approx 7.5\times$.
     \item \textbf{How the bias is handled.} Either a native-mass reference run, or the analytical SDOF correction with its validity condition stated (deep isolation, $r \gg 1$, including the native case).

@@ -38,9 +38,13 @@
 \definecolor{dynaKw}{RGB}{0,0,200}
 \definecolor{dynaCmt}{RGB}{0,128,0}
 \definecolor{dynaGutter}{RGB}{232,232,232}
+% Inconsolata centres * on the math axis; raise it to cap height as in the LS-DYNA manual
+% Usage in text: \kw{MAT\_GLASS} prints *MAT_GLASS in typewriter with the raised asterisk
+\newcommand{\dynaast}{\raisebox{0.5ex}{*}}
+\newcommand{\kw}[1]{\texttt{\dynaast#1}}
 \lstdefinelanguage{lsdyna}{
-  morecomment=[l]{\$},                         % $ comment lines
-  moredelim=[l][\color{dynaKw}\bfseries]{*},   % *KEYWORD lines
+  morecomment=[l]{\$},                                    % $ comment lines
+  moredelim=[il][\color{dynaKw}\bfseries\dynaast]{*},     % *KEYWORD lines (* hidden, reprinted raised)
   moredelim=[is][\color{red}\bfseries]{@}{@},  % highlighted field
 }
 \newcommand{\dynahl}[1]{\textcolor{red}{\bfseries #1}}  % highlight used via !...! escapes in dynacard

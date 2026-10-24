@@ -21,7 +21,11 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces \texthl {Load-displacement curve of the PETG adaptor, trimmed and shifted to the origin. The adaptor stiffness, $K_{PETG} = 2037$\,N/mm, is obtained by a linear fit within the load band of Mode A failures (20-316\,N).}}}{32}{figure.caption.23}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces \texthl {Failure load distributions of Batch A and Batch B. Top: fitted two-parameter Weibull probability density functions, with the 1st and 5th percentiles marked. Bottom: individual failure loads, grouped by batch and displacement rate.}}}{32}{figure.caption.23}%
 \contentsline {figure}{\numberline {4.11}{\ignorespaces FEM model of the axial compression test, composed of the \textit {base}, the \textit {crosshead} and the \textit {glass phial}.}}{34}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Velocity-time curve applied to the crosshead.}}{36}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Velocity-time curve applied to the crosshead.}}{37}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Mode shapes of the free glass phial from the implicit modal analysis.}}{37}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Phial rotated by $1^\circ $ about its centroid in the XY-plane, introducing a misalignment between the phial axis and the loading direction.}}{38}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces FEM model of the payload assembly, composed of the \textit {payload bay}, the \textit {sponge}, the \textit {mask} and the \textit {glass phials}.}}{40}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Nominal stress-strain loading curve of the polyurethane sponge.}}{42}{figure.caption.32}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
