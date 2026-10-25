@@ -783,6 +783,9 @@ OUTPUT report.toc
 INPUT .\report.lof
 INPUT .\report.lof
 INPUT report.lof
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
 OUTPUT report.lof
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\vf\public\newpx\zplmi.vf
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\NewPXMI_gnu.tfm
@@ -824,6 +827,8 @@ INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zplsy.
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zplsy.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zplexx.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zplexx.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
@@ -841,9 +846,6 @@ INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Re
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-ot1.tfm
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\vf\google\roboto\RobotoSlab-Bold-tlf-t1.vf
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\google\roboto\RobotoSlab-Bold-tlf-t1--base.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-ec.enc
@@ -870,8 +872,6 @@ INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\google\roboto\Robot
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Regular-tlf-t1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\google\roboto\RobotoSlab-Light-tlf-t1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\google\roboto\RobotoSlab-Bold-tlf-t1.tfm
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Bold-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-ot1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Regular-tlf-t1.tfm
@@ -1139,6 +1139,13 @@ INPUT .\figures\chap4\step3-fem-sled\Polyurethane-curve.png
 INPUT .\figures\chap4\step3-fem-sled\Polyurethane-curve.png
 INPUT .\figures\chap4\step3-fem-sled\Polyurethane-curve.png
 INPUT .\figures\chap4\step3-fem-sled\Polyurethane-curve.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
+INPUT .\figures\chap4\step3-fem-sled\accel_curve_family_g.png
 INPUT .\mainmatter\chap4\step4_Optimisation.tex
 INPUT .\mainmatter\chap4\step4_Optimisation.tex
 INPUT .\mainmatter\chap4\step4_Optimisation.tex

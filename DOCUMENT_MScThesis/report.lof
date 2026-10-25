@@ -26,6 +26,8 @@
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Phial rotated by $1^\circ $ about its centroid in the XY-plane, introducing a misalignment between the phial axis and the loading direction.}}{38}{figure.caption.29}%
 \contentsline {figure}{\numberline {4.15}{\ignorespaces FEM model of the payload assembly, composed of the \textit {payload bay}, the \textit {sponge}, the \textit {mask} and the \textit {glass phials}.}}{40}{figure.caption.31}%
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Nominal stress-strain loading curve of the polyurethane sponge.}}{42}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Rigid rings on the payload bay mesh}}{42}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Family of trapezoidal acceleration pulses with equal area $\lVert \mathbf {u}_0 \rVert $: a higher plateau amplitude $a$ corresponds to a shorter plateau duration $t_p$.}}{43}{figure.caption.34}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

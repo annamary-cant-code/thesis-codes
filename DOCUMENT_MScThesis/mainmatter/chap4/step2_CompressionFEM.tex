@@ -9,19 +9,11 @@ The model is built using \textit{explicit} time integration. The unit system use
   \caption{Engineering Units}
   \label{tab:units}
   \begin{thesistable}{
-    width = 0.6\linewidth,
-    colspec = {X[1,l] X[1,l]},
+    colspec = {*{9}{X[c,m]}},
+    colsep = 3pt,
   }
-    Quantity measured & Units \\
-    Time              & ms \\
-    Distance          & mm \\
-    Mass              & kg \\
-    Stress / Pressure & GPa (kN/mm$^2$) \\
-    Force             & kN \\
-    Energy / Work     & J (kN$\cdot$mm) \\
-    Velocity          & mm/ms \\
-    Acceleration      & mm/ms$^2$ \\
-    Density           & kg/mm$^3$ \\
+    Time & Distance & Mass & {Stress /\\Pressure} & Force & {Energy /\\Work}   & Velocity & Acceleration & Density \\
+    ms   & mm       & kg   & {GPa\\(kN/mm$^2$)}   & kN    & {J\\(kN$\cdot$mm)} & mm/ms    & mm/ms$^2$         & kg/mm$^3$ \\
   \end{thesistable}
 \end{table}
 
@@ -77,7 +69,7 @@ The glass phial is meshed with shell elements with \texttt{ELFORM = 2}\footnote{
   \item \texttt{FC}: Compressive strength, usually one order of magnitude greater than the tensile strength in glass, here arbitrarily chosen to 1\,GPa to guarantee tensile-strength driven failure when fine-tuning the parameter FT;
   \item \texttt{FTSCL}: Scale factor for the tensile strength (where the default = 1.0). $FT_{mod} = FTSCL \times FT$, thus, in this case, the glass' actual tensile strength needs to be scaled by the chosen factor of FTSCL = 1.2. An effective value of tensile strength $FT_{mod} > FT$ implies that the tensile strength drops to its original value of FT as soon as the first crack happens in the phial. Although it adds numerical complexity, having FTSCL > 1.0 can be helpful in modelling high-force peaks in impact events according to the LS-DYNA user manual, which suits the intended application of all the FEM models produced in this thesis;   
   \item \texttt{SFSTI} and \texttt{SFSTR}: Scaling factors for elastic stiffness and stress after failure, respectively, to be applied at the end of the post-crack softening. It dictates how much residual stress the element can hold after it has been damaged, scaling the post-crack strength and stiffness down to SF-XXX $\times$ FT or E. In this case, SFSTI = SFSTR = 0.01 means that both stiffness and stress are reduced to 1\% of their values at failure; 
-  \item \texttt{ICRIN}: Flag for crack strain initialization. The default value of 0 indicates that initial crack strain is the strain reached at failure;
+  \item \texttt{ICRIN}: Flag for crack strain initialisation. The default value of 0 indicates that initial crack strain is the strain reached at failure;
   \item \texttt{NCYCR}: Number of cycles in which the stress is reduced to SFSTR $\times$ failure stress, in this case chosen to 50.
   \item \texttt{NIPF}: Number of failed through-thickness integration points needed to label the element as failed, in this case chosen as 5 to consider all through-thickness integration points set in the phial's shell elements;
   \item \texttt{EPSCR}: The effective critical strain to trigger element deletion, which can be useful to eliminate highly distorted elements. However, this value was set to the extremely high value of 0.1 to purposefully avoid premature element deletion and having to implement an internal surface generation criterion for contact modelling.
@@ -118,7 +110,7 @@ $     SOFT    SOFSCL    LCIDAB    MAXPAR     SBOPT     DEPTH     BSORT    FRCFRQ
 
 A velocity-control boundary condition is applied to the crosshead in the vertical direction Y to induce a total displacement of approximately 0.2\,mm. Velocity is applied with an initial ramp that scales up to a constant negative velocity of 0.0266\,mm/ms. The choice of imposing the motion of the crosshead through a velocity boundary condition, rather than the more usual displacement boundary condition, is rooted in the idea of emulating the experiment, in which the test machine moves the crosshead at a constant, relatively slow speed of 1 to 3\,mm/min. Furthermore, velocity cannot be applied as a step as an instantaneous jump from zero to the final velocity would correspond to an infinite acceleration at the beginning of the analysis. In an explicit simulation, this impulse would be transmitted to the phial through the contact as a numerically unwelcome spike in the reaction force, followed by spurious oscillations that could potentially even trigger premature glass failure. With the initial ramp, the velocity increases linearly, so the acceleration remains finite and non-zero only during the ramp. The application velocity is low enough to avoid a fully dynamic regime, as explained in the modal analysis section, but still higher than in the actual experiment, as applying a similar loading speed would increase the runtime excessively due to the stability condition imposed on the timestep.
 
-\begin{figure}[htbp]
+\begin{figure}[!htb]
   \centering
   \begin{minipage}[c]{0.57\textwidth}
     \renewcommand{\dynafont}{\scriptsize}
@@ -150,7 +142,7 @@ $                  X                   Y
 \subsubsection{Modal analysis}
 An implicit modal analysis (\kw{CONTROL\_IMPLICIT\_EIGENVALUE}) was run on the free glass phial to obtain its natural frequencies and mode shapes. The first 30 modes were requested in the analysis, including the first six rigid-body modes.
 
-\begin{figure}[htbp]
+\begin{figure}[!htb]
   \centering
   \begin{subfigure}[b]{0.32\textwidth}
     \centering

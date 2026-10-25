@@ -104,7 +104,7 @@ where the discharge coefficient $C_\text{D}(\lambda)$ is a 6th-order polynomial 
 
 \Block{Time integration}
 \While{$t < t_\text{max}$}
-  \Block{1) Adaptive time step}
+  \Block{1) Adaptive timestep}
   \If{$a_n > 0.03\,a_\text{allow}$}
     \State $\Delta t \gets 10^{-5}$ s
   \ElsIf{$a_n < 0.01\,a_\text{allow}$}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  23 OCT 2026 17:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  25 OCT 2026 22:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1824,12 +1824,19 @@ l.1 \chapter
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
-(Font)              scaled to size 10.0pt on input line 139.
+(Font)              scaled to size 10.0pt on input line 137.
 )
 \tf@toc=\write6
 \openout6 = `report.toc'.
 
- [4] (report.lof)
+ [4] (report.lof
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 10.0pt on input line 30.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 7.3pt on input line 30.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 5.5pt on input line 30.
+)
 \tf@lof=\write7
 \openout7 = `report.lof'.
 
@@ -1863,25 +1870,23 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
 (Font)              scaled to size 8.0pt on input line 14.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 8.0pt on input line 93.
+(Font)              scaled to size 8.0pt on input line 95.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 6.2pt on input line 93.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 6.2pt on input line 95.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
+(Font)              scaled to size 8.0pt on input line 95.
+LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
 (Font)              scaled to size 6.2pt on input line 95.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 95.
+(Font)              scaled to size 6.2pt on input line 97.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 5.5pt on input line 97.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
-(Font)              scaled to size 8.0pt on input line 101.
+(Font)              scaled to size 8.0pt on input line 103.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
-(Font)              scaled to size 6.2pt on input line 101.
+(Font)              scaled to size 6.2pt on input line 103.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
-(Font)              scaled to size 5.5pt on input line 101.
-LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
-(Font)              scaled to size 8.0pt on input line 141.
-LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
-(Font)              scaled to size 6.2pt on input line 141.
-LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
-(Font)              scaled to size 5.5pt on input line 141.
+(Font)              scaled to size 5.5pt on input line 103.
  [7
 
 {C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ec.enc}] [8]) [9] (mainmatter/1_introduction.tex
@@ -1896,10 +1901,6 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 19.
 LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/n' aliased to
 (Font)              `T1/RobotoSlab-TLF/bold/n' on input line 19.
-LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
-(Font)              scaled to size 10.0pt on input line 20.
-LaTeX Font Info:    Font shape `OT1/minzpl/b/n' will be
-(Font)              scaled to size 7.3pt on input line 20.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
 (Font)              scaled to size 10.0pt on input line 20.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/it' will be
@@ -1928,16 +1929,16 @@ LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/it' aliased to
 (Font)              `T1/RobotoSlab-TLF/bold/n' on input line 104.
 
 LaTeX Font Warning: Font shape `T1/RobotoSlab-TLF/light/it' undefined
-(Font)              using `T1/RobotoSlab-TLF/light/n' instead on input line 109.
+(Font)              using `T1/RobotoSlab-TLF/light/n' instead on input line 107.
 
 [7] [8]
-<figures/chap2/Zhou-et-al_2019_diagram.pdf, id=748, 752.8125pt x 316.3017pt>
+<figures/chap2/Zhou-et-al_2019_diagram.pdf, id=752, 752.8125pt x 316.3017pt>
 File: figures/chap2/Zhou-et-al_2019_diagram.pdf Graphic file (type pdf)
 <use figures/chap2/Zhou-et-al_2019_diagram.pdf>
 Package pdftex.def Info: figures/chap2/Zhou-et-al_2019_diagram.pdf  used on input line 129.
 (pdftex.def)             Requested size: 448.1309pt x 188.29112pt.
  [9 <./figures/chap2/Zhou-et-al_2019_diagram.pdf>]
-<figures/chap2/Zhou-et-al_2019_flowChart.pdf, id=774, 598.15468pt x 276.07141pt>
+<figures/chap2/Zhou-et-al_2019_flowChart.pdf, id=779, 598.15468pt x 276.07141pt>
 File: figures/chap2/Zhou-et-al_2019_flowChart.pdf Graphic file (type pdf)
 <use figures/chap2/Zhou-et-al_2019_flowChart.pdf>
 Package pdftex.def Info: figures/chap2/Zhou-et-al_2019_flowChart.pdf  used on input line 150.
@@ -1961,13 +1962,13 @@ Chapter 3.
 ]
 
 pdfTeX warning: pdflatex (file ./figures/chap3/trajectory-map-satellite.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/chap3/trajectory-map-satellite.pdf, id=1040, 614.295pt x 794.97pt>
+<figures/chap3/trajectory-map-satellite.pdf, id=1045, 614.295pt x 794.97pt>
 File: figures/chap3/trajectory-map-satellite.pdf Graphic file (type pdf)
 <use figures/chap3/trajectory-map-satellite.pdf>
 Package pdftex.def Info: figures/chap3/trajectory-map-satellite.pdf  used on input line 25.
 (pdftex.def)             Requested size: 257.1253pt x 365.05708pt.
 [16 <./figures/chap3/trajectory-map-satellite.pdf>]
-<figures/chap3/payload_container_full.png, id=1269, 264.23718pt x 149.8097pt>
+<figures/chap3/payload_container_full.png, id=1274, 264.23718pt x 149.8097pt>
 File: figures/chap3/payload_container_full.png Graphic file (type png)
 <use figures/chap3/payload_container_full.png>
 Package pdftex.def Info: figures/chap3/payload_container_full.png  used on input line 46.
@@ -1976,7 +1977,7 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 47.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 7.0pt on input line 47.
-<figures/chap3/payload_container_section.png, id=1270, 258.21469pt x 210.7875pt>
+<figures/chap3/payload_container_section.png, id=1275, 258.21469pt x 210.7875pt>
 File: figures/chap3/payload_container_section.png Graphic file (type png)
 <use figures/chap3/payload_container_section.png>
 Package pdftex.def Info: figures/chap3/payload_container_section.png  used on input line 52.
@@ -1988,12 +1989,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 8.0pt on input line 65.
 [17]
-<figures/chap3/akineton_fiale.jpg, id=1278, 447.92343pt x 602.25pt>
+<figures/chap3/akineton_fiale.jpg, id=1283, 447.92343pt x 602.25pt>
 File: figures/chap3/akineton_fiale.jpg Graphic file (type jpg)
 <use figures/chap3/akineton_fiale.jpg>
 Package pdftex.def Info: figures/chap3/akineton_fiale.jpg  used on input line 71.
 (pdftex.def)             Requested size: 112.03271pt x 150.62645pt.
-<example-image-b.pdf, id=1279, 321.2pt x 240.9pt>
+<example-image-b.pdf, id=1284, 321.2pt x 240.9pt>
 File: example-image-b.pdf Graphic file (type pdf)
 <use example-image-b.pdf>
 Package pdftex.def Info: example-image-b.pdf  used on input line 77.
@@ -2003,20 +2004,20 @@ LaTeX Font Info:    Font shape `T1/RobotoSlab-TLF/b/it' aliased to
 LaTeX Font Info:    Font shape `T1/qhv/m/it' will be
 (Font)              scaled to size 11.28003pt on input line 102.
  [18 <./figures/chap3/payload_container_full.png> <./figures/chap3/payload_container_section.png> <./figures/chap3/akineton_fiale.jpg> <C:/Users/annam/AppData/Local/Programs/MiKTeX/tex/latex/mwe/example-image-b.pdf>]
-<figures/chap3/flowchart-mission-first.pdf, id=1297, 218.7372pt x 373.395pt>
+<figures/chap3/flowchart-mission-first.pdf, id=1302, 218.7372pt x 373.395pt>
 File: figures/chap3/flowchart-mission-first.pdf Graphic file (type pdf)
 <use figures/chap3/flowchart-mission-first.pdf>
 Package pdftex.def Info: figures/chap3/flowchart-mission-first.pdf  used on input line 123.
 (pdftex.def)             Requested size: 134.44063pt x 229.49696pt.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
 (Font)              scaled to size 7.0pt on input line 124.
-<figures/chap3/flowchart-safety-first.pdf, id=1298, 218.7372pt x 373.395pt>
+<figures/chap3/flowchart-safety-first.pdf, id=1303, 218.7372pt x 373.395pt>
 File: figures/chap3/flowchart-safety-first.pdf Graphic file (type pdf)
 <use figures/chap3/flowchart-safety-first.pdf>
 Package pdftex.def Info: figures/chap3/flowchart-safety-first.pdf  used on input line 130.
 (pdftex.def)             Requested size: 134.44063pt x 229.49696pt.
  [19 <./figures/chap3/flowchart-mission-first.pdf> <./figures/chap3/flowchart-safety-first.pdf>]
-<figures/chap3/inner_loop_2-rows.png, id=1351, 2007.5pt x 1505.625pt>
+<figures/chap3/inner_loop_2-rows.png, id=1356, 2007.5pt x 1505.625pt>
 File: figures/chap3/inner_loop_2-rows.png Graphic file (type png)
 <use figures/chap3/inner_loop_2-rows.png>
 Package pdftex.def Info: figures/chap3/inner_loop_2-rows.png  used on input line 145.
@@ -2026,40 +2027,40 @@ Chapter 4.
 (mainmatter/chap4/step0_MissionAnalysis.tex [22
 
 ]
-<figures/chap4/step0/TERRAIN_MAP_cropped.png, id=1378, 872.25874pt x 1170.3725pt>
+<figures/chap4/step0/TERRAIN_MAP_cropped.png, id=1383, 872.25874pt x 1170.3725pt>
 File: figures/chap4/step0/TERRAIN_MAP_cropped.png Graphic file (type png)
 <use figures/chap4/step0/TERRAIN_MAP_cropped.png>
 Package pdftex.def Info: figures/chap4/step0/TERRAIN_MAP_cropped.png  used on input line 39.
 (pdftex.def)             Requested size: 211.609pt x 283.93558pt.
  [23 <./figures/chap4/step0/TERRAIN_MAP_cropped.png>]
-<figures/chap4/step0/TERRAIN_MAP_with_trajectory_PO-e-STURA_notitle.png, id=1388, 787.94376pt x 1035.87pt>
+<figures/chap4/step0/TERRAIN_MAP_with_trajectory_PO-e-STURA_notitle.png, id=1393, 787.94376pt x 1035.87pt>
 File: figures/chap4/step0/TERRAIN_MAP_with_trajectory_PO-e-STURA_notitle.png Graphic file (type png)
 <use figures/chap4/step0/TERRAIN_MAP_with_trajectory_PO-e-STURA_notitle.png>
 Package pdftex.def Info: figures/chap4/step0/TERRAIN_MAP_with_trajectory_PO-e-STURA_notitle.png  used on input line 54.
 (pdftex.def)             Requested size: 215.1009pt x 282.77081pt.
-<figures/chap4/step0/TERRAIN_MAP_with_trajectory_STRAIGHT-LINE_notitle.png, id=1389, 787.94376pt x 1035.87pt>
+<figures/chap4/step0/TERRAIN_MAP_with_trajectory_STRAIGHT-LINE_notitle.png, id=1394, 787.94376pt x 1035.87pt>
 File: figures/chap4/step0/TERRAIN_MAP_with_trajectory_STRAIGHT-LINE_notitle.png Graphic file (type png)
 <use figures/chap4/step0/TERRAIN_MAP_with_trajectory_STRAIGHT-LINE_notitle.png>
 Package pdftex.def Info: figures/chap4/step0/TERRAIN_MAP_with_trajectory_STRAIGHT-LINE_notitle.png  used on input line 61.
 (pdftex.def)             Requested size: 215.1009pt x 282.77081pt.
  [24 <./figures/chap4/step0/TERRAIN_MAP_with_trajectory_PO-e-STURA_notitle.png> <./figures/chap4/step0/TERRAIN_MAP_with_trajectory_STRAIGHT-LINE_notitle.png>]
-<figures/chap4/step0/PO-e-STURA_impact_heatmap.png, id=1401, 867.24pt x 650.43pt>
+<figures/chap4/step0/PO-e-STURA_impact_heatmap.png, id=1406, 867.24pt x 650.43pt>
 File: figures/chap4/step0/PO-e-STURA_impact_heatmap.png Graphic file (type png)
 <use figures/chap4/step0/PO-e-STURA_impact_heatmap.png>
 Package pdftex.def Info: figures/chap4/step0/PO-e-STURA_impact_heatmap.png  used on input line 121.
 (pdftex.def)             Requested size: 215.1009pt x 226.74297pt.
-<figures/chap4/step0/STRAIGHT-LINE_impact_heatmap.png, id=1403, 867.24pt x 650.43pt>
+<figures/chap4/step0/STRAIGHT-LINE_impact_heatmap.png, id=1408, 867.24pt x 650.43pt>
 File: figures/chap4/step0/STRAIGHT-LINE_impact_heatmap.png Graphic file (type png)
 <use figures/chap4/step0/STRAIGHT-LINE_impact_heatmap.png>
 Package pdftex.def Info: figures/chap4/step0/STRAIGHT-LINE_impact_heatmap.png  used on input line 128.
 (pdftex.def)             Requested size: 215.1009pt x 226.74297pt.
  [25]) (mainmatter/chap4/step1_CompressionTest.tex [26 <./figures/chap4/step0/PO-e-STURA_impact_heatmap.png> <./figures/chap4/step0/STRAIGHT-LINE_impact_heatmap.png>]
-<figures/chap4/step1-exp/5ml_phial_final.png, id=1428, 2208.25pt x 3533.2pt>
+<figures/chap4/step1-exp/5ml_phial_final.png, id=1433, 2208.25pt x 3533.2pt>
 File: figures/chap4/step1-exp/5ml_phial_final.png Graphic file (type png)
 <use figures/chap4/step1-exp/5ml_phial_final.png>
 Package pdftex.def Info: figures/chap4/step1-exp/5ml_phial_final.png  used on input line 15.
 (pdftex.def)             Requested size: 106.6788pt x 170.71652pt.
-<figures/chap4/step1-exp/exp_setup_final.png, id=1431, 4015.0pt x 2838.605pt>
+<figures/chap4/step1-exp/exp_setup_final.png, id=1436, 4015.0pt x 2838.605pt>
 File: figures/chap4/step1-exp/exp_setup_final.png Graphic file (type png)
 <use figures/chap4/step1-exp/exp_setup_final.png>
 Package pdftex.def Info: figures/chap4/step1-exp/exp_setup_final.png  used on input line 28.
@@ -2069,18 +2070,18 @@ Package pdftex.def Info: figures/chap4/step1-exp/exp_setup_final.png  used on in
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [27 <./figures/chap4/step1-exp/5ml_phial_final.png>] [28 <./figures/chap4/step1-exp/exp_setup_final.png>]
-<figures/chap4/step1-exp/breaking_modes_schematics.png, id=1446, 2838.605pt x 2007.5pt>
+<figures/chap4/step1-exp/breaking_modes_schematics.png, id=1451, 2838.605pt x 2007.5pt>
 File: figures/chap4/step1-exp/breaking_modes_schematics.png Graphic file (type png)
 <use figures/chap4/step1-exp/breaking_modes_schematics.png>
 Package pdftex.def Info: figures/chap4/step1-exp/breaking_modes_schematics.png  used on input line 52.
 (pdftex.def)             Requested size: 403.31508pt x 285.21404pt.
  [29 <./figures/chap4/step1-exp/breaking_modes_schematics.png>]
-<figures/chap4/step1-exp/breaking_mode_pie.png, id=1454, 1825.5402pt x 728.4816pt>
+<figures/chap4/step1-exp/breaking_mode_pie.png, id=1459, 1825.5402pt x 728.4816pt>
 File: figures/chap4/step1-exp/breaking_mode_pie.png Graphic file (type png)
 <use figures/chap4/step1-exp/breaking_mode_pie.png>
 Package pdftex.def Info: figures/chap4/step1-exp/breaking_mode_pie.png  used on input line 63.
 (pdftex.def)             Requested size: 448.11086pt x 178.81857pt.
-<figures/chap4/step1-exp/stiffness_overlay_experimental_only.png, id=1458, 794.97pt x 433.62pt>
+<figures/chap4/step1-exp/stiffness_overlay_experimental_only.png, id=1463, 794.97pt x 433.62pt>
 File: figures/chap4/step1-exp/stiffness_overlay_experimental_only.png Graphic file (type png)
 <use figures/chap4/step1-exp/stiffness_overlay_experimental_only.png>
 Package pdftex.def Info: figures/chap4/step1-exp/stiffness_overlay_experimental_only.png  used on input line 79.
@@ -2090,12 +2091,12 @@ Package pdftex.def Info: figures/chap4/step1-exp/stiffness_overlay_experimental_
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [30 <./figures/chap4/step1-exp/breaking_mode_pie.png>]
-<figures/chap4/step1-exp/petg_raw_curve_analysis.png, id=1467, 578.16pt x 397.485pt>
+<figures/chap4/step1-exp/petg_raw_curve_analysis.png, id=1472, 578.16pt x 397.485pt>
 File: figures/chap4/step1-exp/petg_raw_curve_analysis.png Graphic file (type png)
 <use figures/chap4/step1-exp/petg_raw_curve_analysis.png>
 Package pdftex.def Info: figures/chap4/step1-exp/petg_raw_curve_analysis.png  used on input line 90.
 (pdftex.def)             Requested size: 336.09818pt x 231.06305pt.
-<figures/chap4/step1-exp/weibull_combined.png, id=1468, 650.43pt x 433.62pt>
+<figures/chap4/step1-exp/weibull_combined.png, id=1473, 650.43pt x 433.62pt>
 File: figures/chap4/step1-exp/weibull_combined.png Graphic file (type png)
 <use figures/chap4/step1-exp/weibull_combined.png>
 Package pdftex.def Info: figures/chap4/step1-exp/weibull_combined.png  used on input line 95.
@@ -2105,9 +2106,9 @@ Package pdftex.def Info: figures/chap4/step1-exp/weibull_combined.png  used on i
 \openout9 = `report.listing'.
 
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 9.0pt on input line 65.
+(Font)              scaled to size 9.0pt on input line 57.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 9.0pt on input line 65.
+(Font)              scaled to size 9.0pt on input line 57.
  (report.listing
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 1.
@@ -2123,58 +2124,59 @@ LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
 \openout9 = `report.listing'.
 
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 7.0pt on input line 135.
+(Font)              scaled to size 7.0pt on input line 127.
  (report.listing
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
 (Font)              scaled to size 7.0pt on input line 1.
 )
-<figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png, id=1525, 1525.7pt x 1090.0725pt>
+<figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png, id=1530, 1525.7pt x 1090.0725pt>
 File: figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png Graphic file (type png)
 <use figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png>
-Package pdftex.def Info: figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png  used on input line 139.
+Package pdftex.def Info: figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png  used on input line 131.
 (pdftex.def)             Requested size: 179.24962pt x 128.05858pt.
- [36] [37 <./figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png>] [38]
+ [36] [37 <./figures/chap4/step2-fem-phial/Velocity-time_curve_phial.png>]
 
 LaTeX Font Warning: Font shape `T1/zi4/b/it' undefined
-(Font)              using `T1/zi4/b/n' instead on input line 222.
+(Font)              using `T1/zi4/b/n' instead on input line 214.
 
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 11.0pt on input line 222.
+(Font)              scaled to size 11.0pt on input line 214.
 \openout9 = `report.listing'.
 
-(report.listing)) (mainmatter/chap4/step3_SledTestFEM.tex [39] [40]
+(report.listing) [38]) (mainmatter/chap4/step3_SledTestFEM.tex [39]
+\openout9 = `report.listing'.
+
+ (report.listing) [40]
+\openout9 = `report.listing'.
+
+ (report.listing)
 \openout9 = `report.listing'.
 
  (report.listing)
 \openout9 = `report.listing'.
 
  (report.listing)
-\openout9 = `report.listing'.
-
- (report.listing) [41]
-\openout9 = `report.listing'.
-
- (report.listing)
-<figures/chap4/step3-fem-sled/Polyurethane-curve.png, id=1644, 1525.7pt x 1090.0725pt>
+<figures/chap4/step3-fem-sled/Polyurethane-curve.png, id=1636, 1525.7pt x 1090.0725pt>
 File: figures/chap4/step3-fem-sled/Polyurethane-curve.png Graphic file (type png)
 <use figures/chap4/step3-fem-sled/Polyurethane-curve.png>
-Package pdftex.def Info: figures/chap4/step3-fem-sled/Polyurethane-curve.png  used on input line 153.
+Package pdftex.def Info: figures/chap4/step3-fem-sled/Polyurethane-curve.png  used on input line 145.
 (pdftex.def)             Requested size: 201.65753pt x 144.0763pt.
+ [41] [42 <./figures/chap4/step3-fem-sled/Polyurethane-curve.png>]
+<figures/chap4/step3-fem-sled/accel_curve_family_g.png, id=1685, 578.16pt x 339.1872pt>
+File: figures/chap4/step3-fem-sled/accel_curve_family_g.png Graphic file (type png)
+<use figures/chap4/step3-fem-sled/accel_curve_family_g.png>
+Package pdftex.def Info: figures/chap4/step3-fem-sled/accel_curve_family_g.png  used on input line 178.
+(pdftex.def)             Requested size: 358.50609pt x 210.31976pt.
+ [43 <./figures/chap4/step3-fem-sled/accel_curve_family_g.png>]) (mainmatter/chap4/step4_Optimisation.tex [44]
 
-Overfull \hbox (25.97054pt too wide) in paragraph at lines 171--172
-[]\T1/zpltlf/m/n/10 (-20) The in-put of the model is an ac-cel-er-a-tion time his-tory, pre-scribed through []\T1/zi4/m/n/10 BOUNDARY_PRESCRIBED_MOTION_RIGID
- []
-
-[42 <./figures/chap4/step3-fem-sled/Polyurethane-curve.png>]) (mainmatter/chap4/step4_Optimisation.tex [43]
-
-LaTeX Warning: Citation '[key?]' on page 44 undefined on input line 19.
+LaTeX Warning: Citation '[key?]' on page 45 undefined on input line 19.
 
 
-LaTeX Warning: Citation '[key?]' on page 44 undefined on input line 28.
+LaTeX Warning: Citation '[key?]' on page 45 undefined on input line 28.
 
 LaTeX Font Info:    Font shape `T1/zi4/b/it' will be
 (Font)              scaled to size 11.0pt on input line 41.
-[44]
+[45]
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
 (Font)              scaled to size 9.0pt on input line 80.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
@@ -2186,34 +2188,34 @@ LaTeX Font Info:    Font shape `T1/zpltlf/m/sc' will be
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/zpltlf/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
- [45{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [46] [47] [48]
+ [46{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [47] [48] [49]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
 (Font)              scaled to size 6.2pt on input line 389.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [49]) (mainmatter/5_Conclusions.tex [50]
+) [50]) (mainmatter/5_Conclusions.tex [51]
 Chapter 5.
-) (mainmatter/6_ProjectManagement.tex [51
+) (mainmatter/6_ProjectManagement.tex [52
 
 ]
 Chapter 6.
-[52
+[53
 
-] [53] [54] [55]) [56] [57
+] [54] [55] [56]) [57] [58
 
-] [58] [59] [60] [61] (appendix/appendix-a.tex [62]
+] [59] [60] [61] [62] (appendix/appendix-a.tex [63]
 Appendix A.
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 6.2pt on input line 12.
-[63
+[64
 
-] [64] [65
+] [65] [66
 
-] [66]) (appendix/appendix-b.tex
+] [67]) (appendix/appendix-b.tex
 Appendix B.
-) (appendix/appendix-c.tex [67
+) (appendix/appendix-c.tex [68
 
 
 ]
@@ -2228,9 +2230,9 @@ Overfull \hbox (3.30653pt too wide) in paragraph at lines 53--53
 []\T1/zpltlf/m/n/8 (-20) Abaqus/Standard 
  []
 
-) [68
+) [69
 
-] (backmatter/ringraziamenti.tex) [69
+] (backmatter/ringraziamenti.tex) [70
 
 
 ] (report.aux)
@@ -2243,23 +2245,23 @@ L3 programming layer <2020/03/25>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: A3A32A9737C0084B91BD10EE674ACD61;14455.
+(rerunfilecheck)             Checksum: 436448E40EC1DA80003C825BBE145EB2;14455.
 Package logreq Info: Writing requests to 'report.run.xml'.
 \openout1 = `report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 59565 strings out of 467501
- 1255727 string characters out of 5408550
- 2508942 words of memory out of 5000000
- 87002 multiletter control sequences out of 15000+600000
- 883203 words of font info for 407 fonts, out of 8000000 for 9000
+ 59689 strings out of 467501
+ 1258659 string characters out of 5408550
+ 2509397 words of memory out of 5000000
+ 87127 multiletter control sequences out of 15000+600000
+ 883059 words of font info for 404 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 107i,12n,160p,2226b,2832s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,12n,160p,2235b,2832s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on report.pdf (80 pages, 19311766 bytes).
+Output written on report.pdf (81 pages, 19435710 bytes).
 PDF statistics:
- 2281 PDF objects out of 2487 (max. 8388607)
- 459 named destinations out of 1000 (max. 500000)
- 101780 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 2299 PDF objects out of 2487 (max. 8388607)
+ 464 named destinations out of 1000 (max. 500000)
+ 101785 words of extra memory for PDF output out of 106986 (max. 10000000)
 
