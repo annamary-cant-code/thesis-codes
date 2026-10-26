@@ -1,0 +1,93 @@
+% Pseudocode of the optimisation wrapper and its helper functions
+% Input in mainmatter/chap4/step4_Optimisation.tex
+
+\begin{algobox}[label=alg:de_wrapper]{Optimisation wrapper (\texttt{differential\_evolution\_wrapper})}
+\begin{algorithmic}[1]
+\Require impact $M$, $u_{x,0}$, $u_{y,0}$; environment $P_\text{amb}$, $g$, $T_0$
+\Cont requirements $a_\text{allow}$, $\mathit{SF}$; penalty weight $\mathit{PEN}$; burst knockdowns $\eta_\text{seam}$, $\mathit{SF}_\text{burst}$
+\Cont catalogues: shapes $\{\text{cyl.},\text{sph.}\}$, fabrics $\mathcal{F}$, gases $\mathcal{G}$ (\cref{tab:airbag-design-variables-selected})
+\Cont residual-speed caps $\mathcal{U}$, random seeds $\mathcal{S}$, DE settings (\textit{popsize}, \textit{maxiter}, \textit{tol})
+\Ensure for each $u_\text{res,max} \in \mathcal{U}$: best shape, fabric, gas and design $\mathbf{x}^*$, with its results $\mathbf{r}^*$
+\Cont summary table of outcome, $m_\text{tot}$, $u_\text{land}$, $a_{n,\text{peak}}$ and feasibility over $\mathcal{U}$
+
+\Block{Pre-processing (done once)}
+\State $a_\text{lim} \gets a_\text{allow}/\mathit{SF}$ \Comment{limit on the peak bag load $F_n/M$}
+\State $\theta \gets \operatorname{atan2}(u_{x,0},\,u_{y,0})$ \Comment{impact axis $\mathbf{n}$}
+\State $u_{n,0} \gets \sqrt{u_{x,0}^2 + u_{y,0}^2}$
+\If{$a_\text{lim} \le g\cos\theta$}
+  \State \textbf{error}: $a_\text{lim}$ cannot hold the payload against gravity
+\EndIf
+\State $D_{0,\text{min}} \gets$ \cref{eq:min_stroke} \Comment{stroke at constant load $a_\text{lim}$}
+
+\Block{Sweep over residual-speed cap, shape, fabric and gas}
+\For{\textbf{each} $u_\text{res,max} \in \mathcal{U}$}
+  \State $\mathcal{R} \gets \emptyset$
+  \For{\textbf{each} shape $\in \{\text{cyl.}, \text{sph.}\}$, fabric $\in \mathcal{F}$, gas $\in \mathcal{G}$}
+    \State $(\mathbf{b}, \mathbf{I}) \gets \Call{Bounds}{\text{shape}}$ \Comment{\cref{alg:de_helpers}}
+    \State $\mathit{best} \gets$ none
+    \For{\textbf{each} seed $\in \mathcal{S}$} \Comment{restarts; Sobol init., no polishing}
+      \State $\mathit{res} \gets \Call{DifferentialEvolution}{\textsc{Objective}, \mathbf{b}, \mathbf{I}, \text{seed}}$ \Comment{SciPy; $\mathit{tol} = 10^{-4}$, deferred updating, parallel workers}
+      \If{$\mathit{best}$ is none \textbf{or} $f(\mathit{res}) < f(\mathit{best})$}
+        \State $\mathit{best} \gets \mathit{res}$
+      \EndIf
+    \EndFor
+    \State $\mathcal{R} \gets \mathcal{R} \cup \{(\text{shape}, \text{fabric}, \text{gas}, \mathit{best})\}$
+  \EndFor
+  \State $(\text{shape}^*, \text{fabric}^*, \text{gas}^*, \mathbf{x}^*) \gets \arg\min_{\mathcal{R}} f$ \Comment{best combination}
+  \State $\mathbf{r}^* \gets \Call{SimulateAirbag}{\mathbf{x}^*;\ \text{shape}^*, \text{fabric}^*, \text{gas}^*}$ \Comment{full fidelity, $n_\text{inner} = 50$}
+  \State report the design summary of $\mathbf{r}^*$, with violations and feasibility
+\EndFor
+\State report the summary table over $\mathcal{U}$
+\end{algorithmic}
+\end{algobox}
+
+\begin{algobox}[label=alg:de_helpers]{Helper functions of the optimisation wrapper}
+\begin{algorithmic}[1]
+\Function{Bounds}{shape} \Comment{bounds $\mathbf{b}$ and integrality mask $\mathbf{I}$}
+  \If{cylinder}
+    \State design vector $\mathbf{x} = (D_0,\ L_0/D_0,\ n_\text{ply},\ P_0,\ \varphi_\text{vent})$
+  \Else
+    \State design vector $\mathbf{x} = (D_0,\ n_\text{ply},\ P_0,\ \varphi_\text{vent})$ \Comment{sphere: no $L_0$}
+  \EndIf
+  \State $\mathbf{b} \gets$ ranges of \cref{tab:airbag-design-variables-selected}, with $D_0 \in [D_{0,\text{min}},\ 1.5]$ m
+  \State $\mathbf{I} \gets$ true for $n_\text{ply}$, false otherwise \Comment{$n_\text{ply}$ is an integer}
+  \State \Return $\mathbf{b}, \mathbf{I}$
+\EndFunction
+
+\Statex
+\Function{Objective}{$\mathbf{x}$; shape, fabric, gas, $u_\text{res,max}$}
+  \State $L_0 \gets (L_0/D_0)\,D_0$ if cylinder, $L_0 \gets D_0$ if sphere \Comment{$L_0$ unused by the sphere}
+  \State $n_\text{ply} \gets \operatorname{round}(n_\text{ply})$
+  \State $d_\text{or} \gets 0$ \Comment{venting by breathing fabric only}
+  \State $\mathbf{r} \gets \Call{SimulateAirbag}{\mathbf{x};\ \text{fabric}, \text{gas}, a_\text{allow}{=}a_\text{lim}}$ \Comment{\cref{alg:simulate_airbag_v2}, $n_\text{inner} = 20$}
+  \If{the simulation crashes \textbf{or} $m_\text{tot}$ is not finite}
+    \State \Return $10^{12}$
+  \EndIf
+  \State $(\mathbf{v}, \mathit{feasible}) \gets \Call{Evaluate}{\mathbf{r}}$
+  \State \Return $f(\mathbf{x})$ from \cref{eq:objective} \Comment{no mass reward if infeasible}
+\EndFunction
+
+\Statex
+\Function{Evaluate}{$\mathbf{r}$} \Comment{graded violations, $0$ = satisfied}
+  \State $\mathit{landed} \gets \textit{bottomed} \lor \textit{settled}$ \Comment{settled: no flag set by $t_\text{max}$}
+  \State $u_\text{land} \gets \Call{LandingSpeed}{\mathbf{r}}$
+  \State $v_\text{acc} \gets \max(0,\ a_{n,\text{peak}} - a_\text{lim})/a_\text{lim}$
+  \State $v_\text{burst} \gets \max(0,\ P_\text{peak} - P_\text{burst})/P_\text{burst}$
+  \State $v_\text{reb} \gets |u_{\text{reb},y}|/u_{y,0}$ if \textit{rebounded}, else $0$
+  \State $v_\text{ures} \gets \max(0,\ u_\text{land} - u_\text{res,max})/u_{n,0}$ if $\mathit{landed}$, else $0$
+  \State $\mathit{feasible} \gets \mathit{landed} \land (a_{n,\text{peak}} \le a_\text{lim}) \land (u_\text{land} \le u_\text{res,max})$
+  \State \Return $\mathbf{v}, \mathit{feasible}$
+\EndFunction
+
+\Statex
+\Function{LandingSpeed}{$\mathbf{r}$} \Comment{speed along $\mathbf{n}$ at landing}
+  \If{\textit{bottomed}}
+    \State \Return $u_{\text{res},n}$ \Comment{speed when the full stroke is reached}
+  \ElsIf{\textit{settled}}
+    \State \Return $|u_{\text{final},n}|$ \Comment{speed at $t_\text{max}$}
+  \Else
+    \State \Return NaN \Comment{burst or rebounded: no landing}
+  \EndIf
+\EndFunction
+\end{algorithmic}
+\end{algobox}

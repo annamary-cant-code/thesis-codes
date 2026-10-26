@@ -2655,6 +2655,107 @@
       \verb https://lsdyna.ansys.com/manuals-download/
       \endverb
     \endentry
+    \entry{Sinclair2015}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=0d1c1f52e88597155f92b68b3e499757}{%
+           family={Sinclair},
+           familyi={S\bibinitperiod},
+           given={G.\bibnamedelimi B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=b9478957dab3d01db55d196889b3059d}{%
+           family={Helms},
+           familyi={H\bibinitperiod},
+           given={J.\bibnamedelimi E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{fullhash}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{fullhashraw}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{bibnamehash}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{authorbibnamehash}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{authornamehash}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{authorfullhash}{a09ea2ab73139c736180424c9587a2f4}
+      \strng{authorfullhashraw}{a09ea2ab73139c736180424c9587a2f4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. J. Pressure Vessels Piping}
+      \field{month}{4}
+      \field{title}{A review of simple formulae for elastic hoop stresses in cylindrical and spherical pressure vessels: What can be used when}
+      \field{volume}{128}
+      \field{year}{2015}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1016/j.ijpvp.2015.01.006
+      \endverb
+    \endentry
+    \entry{Storn1997}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=87ff7bd4305b95a067c44bc7243d8128}{%
+           family={Storn},
+           familyi={S\bibinitperiod},
+           given={Rainer},
+           giveni={R\bibinitperiod}}}%
+        {{hash=96e607982973d9cb076455039a368fa5}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={Kenneth},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{fullhash}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{fullhashraw}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{bibnamehash}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{authorbibnamehash}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{authornamehash}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{authorfullhash}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \strng{authorfullhashraw}{5dfb836e07d40eb2d1cef5fbe8334415}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{J. Global Optim.}
+      \field{month}{12}
+      \field{number}{4}
+      \field{title}{Differential evolution---a simple and efficient heuristic for global optimization over continuous spaces}
+      \field{volume}{11}
+      \field{year}{1997}
+      \field{pages}{341\bibrangedash 359}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1023/A:1008202821328
+      \endverb
+    \endentry
+    \entry{SciPyDE_docs}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=f583477a5315771b390ad3374b7604db}{%
+           family={{The SciPy Community}},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{f583477a5315771b390ad3374b7604db}
+      \strng{fullhash}{f583477a5315771b390ad3374b7604db}
+      \strng{fullhashraw}{f583477a5315771b390ad3374b7604db}
+      \strng{bibnamehash}{f583477a5315771b390ad3374b7604db}
+      \strng{authorbibnamehash}{f583477a5315771b390ad3374b7604db}
+      \strng{authornamehash}{f583477a5315771b390ad3374b7604db}
+      \strng{authorfullhash}{f583477a5315771b390ad3374b7604db}
+      \strng{authorfullhashraw}{f583477a5315771b390ad3374b7604db}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Online documentation}
+      \field{note}{Accessed: Oct. 26, 2026}
+      \field{title}{{scipy.optimize.differential\_evolution}, {SciPy} v1.18.0 manual}
+      \verb{urlraw}
+      \verb https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
+      \endverb
+      \verb{url}
+      \verb https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
+      \endverb
+    \endentry
     \entry{disalute_aetos}{misc}{}{}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -3034,7 +3135,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{[key?]}
 \endrefsection
 \endinput
 

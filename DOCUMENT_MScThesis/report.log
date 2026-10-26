@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  25 OCT 2026 22:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.24)  26 OCT 2026 16:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1508,7 +1508,7 @@ Package: ninecolors 2022-02-13 v2022D Select colors with proper color contrast
 \l__tblr_tikz_node_box=\box131
 )
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 159.
+(Font)              scaled to size 10.0pt on input line 160.
 
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
@@ -1519,50 +1519,50 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 159.
-LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 159.
+LaTeX Font Info:    Checking defaults for OML/npxmi/m/it on input line 160.
+LaTeX Font Info:    Trying to load font information for OML+npxmi on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\omlnpxmi.fd
 File: omlnpxmi.fd 2013/03/21 Fontinst v1.933 font definitions for OML/npxmi.
 )
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 159.
-LaTeX Font Info:    Trying to load font information for U+npxexa on input line 159.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for U/npxexa/m/n on input line 160.
+LaTeX Font Info:    Trying to load font information for U+npxexa on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxexa.fd
 File: unpxexa.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxexa.
 )
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 159.
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 159.
-LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 159.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 160.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for LMS/npxsy/m/n on input line 160.
+LaTeX Font Info:    Trying to load font information for LMS+npxsy on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmsnpxsy.fd
 File: lmsnpxsy.fd 2016/07/04 Fontinst v1.933 font definitions for LMS/npxsy.
 )
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 159.
-LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 159.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Font Info:    Checking defaults for LMX/npxexx/m/n on input line 160.
+LaTeX Font Info:    Trying to load font information for LMX+npxexx on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\lmxnpxexx.fd
 File: lmxnpxexx.fd 2016/07/04 Fontinst v1.933 font definitions for LMX/npxexx.
 )
-LaTeX Font Info:    ... okay on input line 159.
-LaTeX Info: Command `\dddot' is already robust on input line 159.
-LaTeX Info: Command `\ddddot' is already robust on input line 159.
+LaTeX Font Info:    ... okay on input line 160.
+LaTeX Info: Command `\dddot' is already robust on input line 160.
+LaTeX Info: Command `\ddddot' is already robust on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 159.
+Package translations Info: no dictionary file `translations-basic-dictionary-italian.trsl' found. on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count611
@@ -1586,18 +1586,18 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 159.
+Package hyperref Info: Link coloring OFF on input line 160.
  (report.out) (report.out)
 \@outlinefile=\write5
 \openout5 = `report.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 159.
-Package microtype Info: Applying patch `item' on input line 159.
-Package microtype Info: Applying patch `toc' on input line 159.
-Package microtype Info: Applying patch `eqnum' on input line 159.
-Package microtype Info: Applying patch `footnote' on input line 159.
-Package microtype Info: Applying patch `verbatim' on input line 159.
-LaTeX Info: Redefining \microtypesetup on input line 159.
+LaTeX Info: Redefining \microtypecontext on input line 160.
+Package microtype Info: Applying patch `item' on input line 160.
+Package microtype Info: Applying patch `toc' on input line 160.
+Package microtype Info: Applying patch `eqnum' on input line 160.
+Package microtype Info: Applying patch `footnote' on input line 160.
+Package microtype Info: Applying patch `verbatim' on input line 160.
+LaTeX Info: Redefining \microtypesetup on input line 160.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1648,8 +1648,8 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 \c@mv@tabular=\count617
 \c@mv@boldtabular=\count618
 \c@lstlisting=\count619
-LaTeX Info: Redefining \it@ocap on input line 159.
-LaTeX Info: Redefining \it@ccap on input line 159.
+LaTeX Info: Redefining \it@ocap on input line 160.
+LaTeX Info: Redefining \it@ccap on input line 160.
 Package biblatex Info: Trying to load language 'british'...
 Package biblatex Info: ... file 'british.lbx' found.
 (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\british.lbx
@@ -1671,17 +1671,9 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'report.bbl' found.
- (report.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                [key?]
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
-Package biblatex Info: Reference section=0 on input line 159.
-Package biblatex Info: Reference segment=0 on input line 159.
+ (report.bbl)
+Package biblatex Info: Reference section=0 on input line 160.
+Package biblatex Info: Reference segment=0 on input line 160.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks67
@@ -1696,9 +1688,9 @@ File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
 <figures/cover_and_logos/cover.jpg, id=330, 690.55315pt x 1035.70886pt>
 File: figures/cover_and_logos/cover.jpg Graphic file (type jpg)
 <use figures/cover_and_logos/cover.jpg>
-Package pdftex.def Info: figures/cover_and_logos/cover.jpg  used on input line 174.
+Package pdftex.def Info: figures/cover_and_logos/cover.jpg  used on input line 175.
 (pdftex.def)             Requested size: 597.50787pt x 896.22354pt.
-LaTeX Font Info:    Trying to load font information for T1+RobotoSlab-TLF on input line 174.
+LaTeX Font Info:    Trying to load font information for T1+RobotoSlab-TLF on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/roboto\t1robotoslab-tlf.fd
 File: T1RobotoSlab-TLF.fd 2019/12/11 (autoinst) Font definitions for T1/RobotoSlab-TLF.
 )
@@ -1709,58 +1701,58 @@ Package microtype Info: Loading generic protrusion settings for font family
 <figures/cover_and_logos/logo-white.pdf, id=331, 114.08723pt x 45.99081pt>
 File: figures/cover_and_logos/logo-white.pdf Graphic file (type pdf)
 <use figures/cover_and_logos/logo-white.pdf>
-Package pdftex.def Info: figures/cover_and_logos/logo-white.pdf  used on input line 174.
+Package pdftex.def Info: figures/cover_and_logos/logo-white.pdf  used on input line 175.
 (pdftex.def)             Requested size: 105.87718pt x 42.67912pt.
 <figures/cover_and_logos/PoliTO_CMYK_bianco-logo.png, id=332, 711.6186pt x 313.17pt>
 File: figures/cover_and_logos/PoliTO_CMYK_bianco-logo.png Graphic file (type png)
 <use figures/cover_and_logos/PoliTO_CMYK_bianco-logo.png>
-Package pdftex.def Info: figures/cover_and_logos/PoliTO_CMYK_bianco-logo.png  used on input line 174.
+Package pdftex.def Info: figures/cover_and_logos/PoliTO_CMYK_bianco-logo.png  used on input line 175.
 (pdftex.def)             Requested size: 109.90883pt x 48.36967pt.
 <figures/cover_and_logos/logo_AOU_white.png, id=334, 1128.215pt x 570.13pt>
 File: figures/cover_and_logos/logo_AOU_white.png Graphic file (type png)
 <use figures/cover_and_logos/logo_AOU_white.png>
-Package pdftex.def Info: figures/cover_and_logos/logo_AOU_white.png  used on input line 174.
+Package pdftex.def Info: figures/cover_and_logos/logo_AOU_white.png  used on input line 175.
 (pdftex.def)             Requested size: 106.97495pt x 54.06023pt.
 <figures/cover_and_logos/FEV_logo_white.png, id=335, 985.6825pt x 361.35pt>
 File: figures/cover_and_logos/FEV_logo_white.png Graphic file (type png)
 <use figures/cover_and_logos/FEV_logo_white.png>
-Package pdftex.def Info: figures/cover_and_logos/FEV_logo_white.png  used on input line 174.
+Package pdftex.def Info: figures/cover_and_logos/FEV_logo_white.png  used on input line 175.
 (pdftex.def)             Requested size: 85.36865pt x 31.29802pt.
-LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 174.
+LaTeX Font Info:    Trying to load font information for OT1+minzpl on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\ot1minzpl.fd
 File: ot1minzpl.fd 2021/05/25 v1.0 font definition file for OT1/minzpl/TLF
 )
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 10.0pt on input line 174.
+(Font)              scaled to size 10.0pt on input line 175.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `minzpl' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 7.3pt on input line 174.
+(Font)              scaled to size 7.3pt on input line 175.
 LaTeX Font Info:    Font shape `OT1/minzpl/m/n' will be
-(Font)              scaled to size 5.5pt on input line 174.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 174.
+(Font)              scaled to size 5.5pt on input line 175.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 174.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+npxmia on input line 174.
+LaTeX Font Info:    Trying to load font information for U+npxmia on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsym on input line 174.
+LaTeX Font Info:    Trying to load font information for U+npxsym on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsym.fd
 File: unpxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 174.
+LaTeX Font Info:    Trying to load font information for U+npxsyc on input line 175.
  (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/newpx\unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 ) [1
@@ -1824,7 +1816,7 @@ l.1 \chapter
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/b/it' will be
-(Font)              scaled to size 10.0pt on input line 137.
+(Font)              scaled to size 10.0pt on input line 133.
 )
 \tf@toc=\write6
 \openout6 = `report.toc'.
@@ -2168,54 +2160,70 @@ File: figures/chap4/step3-fem-sled/accel_curve_family_g.png Graphic file (type p
 Package pdftex.def Info: figures/chap4/step3-fem-sled/accel_curve_family_g.png  used on input line 178.
 (pdftex.def)             Requested size: 358.50609pt x 210.31976pt.
  [43 <./figures/chap4/step3-fem-sled/accel_curve_family_g.png>]) (mainmatter/chap4/step4_Optimisation.tex [44]
-
-LaTeX Warning: Citation '[key?]' on page 45 undefined on input line 19.
-
-
-LaTeX Warning: Citation '[key?]' on page 45 undefined on input line 28.
-
+LaTeX Font Info:    Trying to load font information for OT1+pzc on input line 25.
+ (C:\Users\annam\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pzc.fd
+File: ot1pzc.fd 2020/03/25 font definitions for OT1/pzc.
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `pzc' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/zi4/b/it' will be
-(Font)              scaled to size 11.0pt on input line 41.
-[45]
+(Font)              scaled to size 11.0pt on input line 29.
+ [45{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}] [46] (mainmatter/chap4/step4_pseudocode/oracle.tex
 LaTeX Font Info:    Font shape `T1/zi4/b/n' will be
-(Font)              scaled to size 9.0pt on input line 80.
+(Font)              scaled to size 9.0pt on input line 4.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 9.40002pt on input line 87.
+(Font)              scaled to size 9.40002pt on input line 11.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 8.46002pt on input line 87.
+(Font)              scaled to size 8.46002pt on input line 11.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 98.
+(Font)              scaled to size 10.0pt on input line 22.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/zpltlf/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
- [46{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [47] [48] [49]
+ [47{C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}] [48])
+Overfull \hbox (64.91508pt too wide) in paragraph at lines 96--97
+\T1/zpltlf/m/n/10 (-20) based al-gorithm ini-tially pro-posed by [[]74[]]. The im-ple-ment-a-tion used is \T1/zi4/m/n/10 scipy.optimize.differential_evolution\T1/zpltlf/m/n/10 (-20) ,
+ []
+
+[49] (mainmatter/chap4/step4_pseudocode/wrapper.tex [50]
+
+LaTeX Warning: Reference `alg:simulate_airbag_v2' on page 1 undefined on input line 62.
+
+)
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
-(Font)              scaled to size 6.2pt on input line 389.
+(Font)              scaled to size 6.2pt on input line 189.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [50]) (mainmatter/5_Conclusions.tex [51]
+) [51]) (mainmatter/5_Conclusions.tex [52]
 Chapter 5.
-) (mainmatter/6_ProjectManagement.tex [52
+) (mainmatter/6_ProjectManagement.tex [53
 
 ]
 Chapter 6.
-[53
+[54
 
-] [54] [55] [56]) [57] [58
+] [55] [56] [57]) [58]
+Overfull \hbox (0.67903pt too wide) in paragraph at lines 208--208
+[]\T1/zpltlf/m/n/10 (-20) F. Cavallo, ``Innovative ways of distribution for life-saving medicines during emergency situations,''
+ []
 
-] [59] [60] [61] [62] (appendix/appendix-a.tex [63]
+[59
+
+] [60] [61] [62] [63] [64] (appendix/appendix-a.tex [65]
 Appendix A.
 LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
 (Font)              scaled to size 6.2pt on input line 12.
-[64
+[66
 
-] [65] [66
+] [67] [68
 
-] [67]) (appendix/appendix-b.tex
+] [69]) (appendix/appendix-b.tex
 Appendix B.
-) (appendix/appendix-c.tex [68
+) (appendix/appendix-c.tex [70
 
 
 ]
@@ -2230,9 +2238,9 @@ Overfull \hbox (3.30653pt too wide) in paragraph at lines 53--53
 []\T1/zpltlf/m/n/8 (-20) Abaqus/Standard 
  []
 
-) [69
+) [71
 
-] (backmatter/ringraziamenti.tex) [70
+] (backmatter/ringraziamenti.tex) [72
 
 
 ] (report.aux)
@@ -2244,6 +2252,9 @@ L3 programming layer <2020/03/25>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 436448E40EC1DA80003C825BBE145EB2;14455.
 Package logreq Info: Writing requests to 'report.run.xml'.
@@ -2251,17 +2262,17 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 59689 strings out of 467501
- 1258659 string characters out of 5408550
- 2509397 words of memory out of 5000000
- 87127 multiletter control sequences out of 15000+600000
- 883059 words of font info for 404 fonts, out of 8000000 for 9000
+ 59768 strings out of 467501
+ 1260882 string characters out of 5408550
+ 2509571 words of memory out of 5000000
+ 87176 multiletter control sequences out of 15000+600000
+ 887929 words of font info for 415 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  107i,12n,160p,2235b,2832s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
-Output written on report.pdf (81 pages, 19435710 bytes).
+<C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/NewPXMI_gnu.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Bold.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Light.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/google/roboto/RobotoSlab-Thin.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxmiaX.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/pxsys.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvri.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsym.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/urw/zapfchan/uzcmi8a.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplb.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplbi.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplr.pfb><C:/Users/annam/AppData/Local/Programs/MiKTeX/fonts/type1/public/newpx/zplri.pfb>
+Output written on report.pdf (83 pages, 19456781 bytes).
 PDF statistics:
- 2299 PDF objects out of 2487 (max. 8388607)
- 464 named destinations out of 1000 (max. 500000)
- 101785 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 2336 PDF objects out of 2487 (max. 8388607)
+ 474 named destinations out of 1000 (max. 500000)
+ 104857 words of extra memory for PDF output out of 106986 (max. 10000000)
 

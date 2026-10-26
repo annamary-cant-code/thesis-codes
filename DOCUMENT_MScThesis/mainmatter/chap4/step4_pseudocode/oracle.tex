@@ -1,0 +1,126 @@
+% Pseudocode of the oracle: simulate_airbag and its helper functions
+% Input in mainmatter/chap4/step4_Optimisation.tex
+
+\begin{algobox}[label=alg:simulate_airbag]{Core airbag impact simulation (\texttt{simulate\_airbag})}
+\begin{algorithmic}[1]
+\Require design $\mathbf{x}$: shape, $D_0$, $L_0$, $P_0$, $n_\text{ply}$, $\varphi_\text{vent}$, fabric, gas (\cref{tab:airbag-design-variables-selected})
+\Cont impact $M$, $u_{x,0}$, $u_{y,0}$ ($y$ positive downward); environment; safety factors; orifice $d_\text{or}$; solver settings $t_\text{max}$, $n_\text{inner}$
+\Ensure mass $m_\text{tot}$; peak accelerations; flags \textit{burst}, \textit{bottomed}, \textit{rebounded}, \textit{settled}, \textit{survived}
+\Cont residual and rebound velocities; final velocity $u_{\text{final},n}$; $P_\text{peak}$, $h_\text{max}$, $x_\text{final}$
+
+\Block{Pre-processing (done once)}
+\State $A_\text{or} \gets \pi d_\text{or}^2/4$
+\State $R_0 \gets D_0/2$
+\State $P_\text{burst} \gets$ \cref{eq:burst_pressure} \Comment{hoop burst limit}
+\State $S \gets \pi D_0 L_0 + \pi D_0^2/2$ (cyl.) or $\pi D_0^2$ (sph.) \Comment{fabric surface}
+\State $m_\text{bag} \gets n_\text{ply}\,w\,S$
+\State $\theta \gets \operatorname{atan2}(u_{x,0},\,u_{y,0})$ \Comment{impact axis $\mathbf{n}$, kept fixed}
+
+\Block{Initial state}
+\State $t, h, y_\text{pen}, x, a_n \gets 0$
+\State $(u_x, u_y) \gets (u_{x,0}, u_{y,0})$
+\State $(A_t, V) \gets \Call{Geometry}{0}$
+\State $m_{\text{gas},0} \gets P_0 V/(R T_0)$ \Comment{initial gas charge, ideal gas}
+\State $m_\text{gas} \gets m_{\text{gas},0}$
+\State $m_\text{tot} \gets m_\text{bag} + m_{\text{gas},0}$ \Comment{objective: fabric + initial gas}
+\State $(P, T) \gets (P_0, T_0)$
+\State $\rho \gets m_\text{gas}/V$
+
+\Block{Time integration}
+\While{$t < t_\text{max}$}
+  \Block{1) Adaptive timestep}
+  \If{$a_n > 0.03\,a_\text{allow}$}
+    \State $\Delta t \gets 10^{-5}$ s
+  \ElsIf{$a_n < 0.01\,a_\text{allow}$}
+    \State $\Delta t \gets 2\cdot 10^{-4}$ s
+  \EndIf \Comment{in between: keep $\Delta t$}
+
+  \Block{2) Dynamics (2-DOF, semi-implicit Euler)}
+  \State $F_n \gets \max\big((P - P_\text{amb})\,A_t,\ 0\big)$ \Comment{contact pressure = gauge pressure}
+  \State $a_x \gets -F_n\sin\theta/M$
+  \State $a_y \gets -F_n\cos\theta/M + g$
+  \State $a_n \gets F_n/M$
+  \State $u_x \gets u_x + a_x\Delta t$
+  \State $u_y \gets u_y + a_y\Delta t$
+  \State $u_n \gets u_x\sin\theta + u_y\cos\theta$
+  \State $h \gets \operatorname{clip}(h + u_n\Delta t,\ 0,\ D_0)$ \Comment{stroke along $\mathbf{n}$}
+  \State $y_\text{pen} \gets y_\text{pen} + u_y\Delta t$ \Comment{vertical penetration}
+  \State $x \gets x + u_x\Delta t$
+
+  \Block{3) Deformed geometry and vent area}
+  \State $(A_t, V) \gets \Call{Geometry}{h}$ \Comment{\cref{alg:airbag_helpers}}
+  \State $A_\text{vent} \gets A_\text{or} + \varphi_\text{vent}\,\max(S - A_t,\ 0)$ \Comment{ground patch does not vent}
+
+  \Block{4) Gas state: adiabatic compression, then venting}
+  \State $\rho' \gets m_\text{gas}/V$
+  \State $P \gets P\,(\rho'/\rho)^{\gamma}$ \Comment{adiabatic compression}
+  \State $T \gets T\,(\rho'/\rho)^{\gamma-1}$
+  \State $\rho \gets \rho'$
+  \For{$j = 1$ \textbf{to} $n_\text{inner}$} \Comment{sub-step $\delta t = \Delta t/n_\text{inner}$}
+    \State \textbf{if} $P \le P_\text{amb}$ \textbf{then break}
+    \State $\delta m \gets \min\big(\Call{OrificeFlow}{P, P_\text{amb}, T, A_\text{vent}}\,\delta t,\ m_\text{gas}\big)$
+    \State $m_\text{gas} \gets m_\text{gas} - \delta m$
+    \State $\rho' \gets m_\text{gas}/V$
+    \State $P \gets m_\text{gas} R T/V$
+    \State $T \gets T\,(\rho'/\rho)^{\gamma-1}$
+    \State $\rho \gets \rho'$
+  \EndFor
+  \State $P \gets \max(P,\ P_\text{amb})$
+  \State store $t+\Delta t$, $h$, $y_\text{pen}$, $x$, $\mathbf{u}$, $\mathbf{a}$, $P$, $V$, $m_\text{gas}$ in history
+
+  \Block{5) Stopping criteria (first one triggered wins)}
+  \If{$P > P_\text{burst}$} \Comment{membrane tension exceeds seam allowable}
+    \State \textit{burst} $\gets$ true
+    \State $t_\text{stop} \gets t + \Delta t$
+    \State \textbf{break}
+  \ElsIf{$h \ge D_0$} \Comment{full stroke used}
+    \State \textit{bottomed} $\gets$ true
+    \State $(u_{\text{res},n}, u_{\text{res},x}, u_{\text{res},y}) \gets (u_n, u_x, u_y)$
+    \State $t_\text{stop} \gets t + \Delta t$
+    \State \textbf{break}
+  \ElsIf{$y_\text{pen} \le 0$} \Comment{payload back above contact height}
+    \State \textit{rebounded} $\gets$ true
+    \State $u_{\text{reb},y} \gets u_y$
+    \State $t_\text{stop} \gets t + \Delta t$
+    \State \textbf{break}
+  \EndIf
+  \State $t \gets t + \Delta t$
+\EndWhile \Comment{$t \ge t_\text{max}$: no flag set}
+
+\Block{Post-processing}
+\State $a_{n,\text{peak}} \gets \max a_n$ \Comment{maxima over the stored history}
+\State $a_{y,\text{peak}} \gets \max|a_y|$
+\State $a_\text{res,peak} \gets \max\sqrt{a_x^2 + a_y^2}$
+\State $P_\text{peak} \gets \max P$
+\State $h_\text{max} \gets \max h$
+\State $x_\text{final} \gets x$
+\State \textit{survived} $\gets \lnot(\textit{burst} \lor \textit{rebounded})$
+\State \Return outputs
+\end{algorithmic}
+\end{algobox}
+
+\begin{algobox}[label=alg:airbag_helpers]{Helper functions of \texttt{simulate\_airbag} -- DRAFT v2}
+\begin{algorithmic}[1]
+\Function{Geometry}{$h$} \Comment{contact area and volume at stroke $h$}
+  \If{cylinder}
+    \State $(A_t, V) \gets$ \cref{eq:geometry_cyl} \Comment{stadium section, inextensible perimeter}
+  \Else
+    \State $(A_t, V) \gets$ \cref{eq:geometry_sph} \Comment{sphere truncated by a cap of height $h$}
+  \EndIf
+  \State \Return $A_t, V$
+\EndFunction
+
+\Statex
+\Function{OrificeFlow}{$P_\text{up}, P_\text{down}, T, A$} \Comment{vented mass flow rate}
+  \State \textbf{if} $P_\text{up} \le P_\text{down}$ \textbf{then return} $0$
+  \State $\lambda \gets P_\text{down}/P_\text{up}$
+  \State $C_\text{D} \gets C_\text{D}(\lambda)$ \Comment{6th-order polynomial fit}
+  \If{$\lambda \ge 0.528$}
+    \State $\dot m \gets$ \cref{eq:orifice_subsonic} \Comment{subsonic}
+  \Else
+    \State $\dot m \gets$ \cref{eq:orifice_choked} \Comment{choked}
+  \EndIf
+  \State \Return $\dot m$
+\EndFunction
+\end{algorithmic}
+\end{algobox}
