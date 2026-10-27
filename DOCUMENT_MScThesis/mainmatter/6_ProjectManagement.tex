@@ -129,13 +129,13 @@ The impact that this limitation had on the project was that data could only flow
  
 \subsection{Technical decisions under conflicting advice}
 \label{subsec:pm-technical}
-On two occasions, the decisions of the student conflicted with the advice given by one of the supervisors. 
+On two occasions, the decisions of the student conflicted with the advice given by one of the supervisors:
 
-\paragraph{Modelling approach for the phial.}
-The first example concerned the modelling approach for the phial. The industrial supervisor suggested a solid-element model with a material card developed for concrete and ceramics. With this approach, however, there were persistent contact issues, the material behaviour was not adequate to the type of failure observed in the lab, and the reaction force measured on the compressing plates was zero or strongly oscillating, pointing to contact sensitivities and to a material model not formulated for glass. Therefore, the student decided to switch to shell elements and, after an independent and focused literature review, to adopt a glass-specific material model, \kw{MAT\_GLASS} (MAT\_280). This made it possible, for the first time, to obtain reaction forces that were measurable and comparable with the experimental data.
+\begin{enumerate}
+    \item \textbf{Modelling approach for the phial.} The first example concerned the modelling approach for the phial. The industrial supervisor suggested a solid-element model with a material card developed for concrete and ceramics. With this approach, however, there were persistent contact issues, the material behaviour was not adequate to the type of failure observed in the lab, and the reaction force measured on the compressing plates was zero or strongly oscillating, pointing to contact sensitivities and to a material model not formulated for glass. Therefore, the student decided to switch to shell elements and, after an independent and focused literature review, to adopt a glass-specific material model, \kw{MAT\_GLASS} (MAT\_280). This made it possible, for the first time, to obtain reaction forces that were measurable and comparable with the experimental data.
+    \item \textbf{Fidelity of the sled-test model.} The second occasion concerns the advice given by the TU Delft supervisor regarding the use of a reduced, rather than a full-scale, sled test FEM model because of the higher computational cost needed, as well as for the risk of not finishing on time. However, the student realised that the reduced model's results could not be considered physically valid, nor presented as such with critical judgement. The decision was therefore to build the full sled test model, keeping the reduced model as a fallback plan and taking full responsibility for any delay. As an outcome, the full model was built successfully and no changes to the thesis timeline were needed.
+\end{enumerate}
 
-\paragraph{Fidelity of the sled-test model.}
-The second occasion concerns the advice given by the TU Delft supervisor regarding the use of a reduced, rather than a full-scale, sled test FEM model because of the higher computational cost needed, as well as for the risk of not finishing on time. However, the student realised that the reduced model's results could not be considered physically valid, nor presented as such with critical judgement. The decision was therefore to build the full sled test model, keeping the reduced model as a fallback plan and taking full responsibility for any delay. As an outcome, the full model was built successfully and no changes to the thesis timeline were needed.
 
 % ---------------------------------------------------------------------
 \section{Self-assessment}

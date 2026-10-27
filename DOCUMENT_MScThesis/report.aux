@@ -832,9 +832,10 @@
 \newlabel{section:optimisation-code@cref}{{[section][5][4]4.5}{[1][44][]44}{}{}{}}
 \abx@aux@cite{0}{Zhou2019}
 \abx@aux@segm{0}{0}{Zhou2019}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Implementation}{45}{subsection.4.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Problem formulation}{45}{subsection.4.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\texttt  {simulate\_airbag} oracle}{45}{subsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Implementation choices}{45}{subsection.4.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}\texttt  {simulate\_airbag} oracle}{45}{subsection.4.5.2}\protected@file@percent }
+\newlabel{sec:simulate-airbag-oracle}{{4.5.2}{45}{\texttt {simulate\_airbag} oracle}{subsection.4.5.2}{}}
+\newlabel{sec:simulate-airbag-oracle@cref}{{[subsection][2][4,5]4.5.2}{[1][45][]45}{}{}{}}
 \newlabel{eq:geometry_cyl}{{4.6}{45}{\texttt {simulate\_airbag} oracle}{equation.4.6}{}}
 \newlabel{eq:geometry_cyl@cref}{{[equation][6][4]4.6}{[1][45][]45}{}{}{}}
 \newlabel{eq:geometry_sph}{{4.7}{45}{\texttt {simulate\_airbag} oracle}{equation.4.7}{}}
@@ -857,83 +858,106 @@
 \abx@aux@segm{0}{0}{SciPyDE_docs}
 \newlabel{alg:airbag_helpers}{{4.2}{49}{\texttt {simulate\_airbag} oracle}{tcb@cnt@algobox.4.2}{}}
 \newlabel{alg:airbag_helpers@cref}{{[algobox][2][4]4.2}{[1][49][]49}{}{}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Optimisation algorithm (wrapper)}{49}{tcb@cnt@algobox.4.2}\protected@file@percent }
-\newlabel{eq:de_mutation}{{4.12}{50}{Optimisation algorithm (wrapper)}{equation.4.12}{}}
-\newlabel{eq:de_mutation@cref}{{[equation][12][4]4.12}{[1][49][]50}{}{}{}}
-\newlabel{eq:min_stroke}{{4.13}{50}{Optimisation algorithm (wrapper)}{equation.4.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}\texttt  {differential\_evolution} optimisation algorithm}{49}{subsection.4.5.3}\protected@file@percent }
+\newlabel{sec:optimisation-algorithm-wrapper}{{4.5.3}{49}{\texttt {differential\_evolution} optimisation algorithm}{subsection.4.5.3}{}}
+\newlabel{sec:optimisation-algorithm-wrapper@cref}{{[subsection][3][4,5]4.5.3}{[1][49][]49}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Algorithm choice and design vector}{49}{subsection.4.5.3}\protected@file@percent }
+\newlabel{eq:design-variables}{{4.12}{49}{Algorithm choice and design vector}{equation.4.12}{}}
+\newlabel{eq:design-variables@cref}{{[equation][12][4]4.12}{[1][49][]49}{}{}{}}
+\newlabel{eq:min_stroke}{{4.13}{50}{Algorithm choice and design vector}{equation.4.13}{}}
 \newlabel{eq:min_stroke@cref}{{[equation][13][4]4.13}{[1][50][]50}{}{}{}}
-\newlabel{eq:objective}{{4.14}{50}{Optimisation algorithm (wrapper)}{equation.4.14}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Design feasibility and score}{50}{equation.4.13}\protected@file@percent }
+\newlabel{eq:objective}{{4.14}{50}{Design feasibility and score}{equation.4.14}{}}
 \newlabel{eq:objective@cref}{{[equation][14][4]4.14}{[1][50][]50}{}{}{}}
-\newlabel{alg:de_wrapper}{{4.3}{50}{Optimisation algorithm (wrapper)}{tcb@cnt@algobox.4.3}{}}
-\newlabel{alg:de_wrapper@cref}{{[algobox][3][4]4.3}{[1][50][]50}{}{}{}}
-\newlabel{alg:de_helpers}{{4.4}{51}{Optimisation algorithm (wrapper)}{tcb@cnt@algobox.4.4}{}}
-\newlabel{alg:de_helpers@cref}{{[algobox][4][4]4.4}{[1][51][]51}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Results}{51}{subsection.4.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Reference optimum}{51}{subsection.4.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Step 4 deliverable: airbag sizing parameters}{51}{subsection.4.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Summary of results}{51}{section.4.6}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}}{52}{table.caption.35}\protected@file@percent }
-\newlabel{tab:airbag-design-variables-selected}{{4.5}{52}{Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right)}{table.caption.35}{}}
-\newlabel{tab:airbag-design-variables-selected@cref}{{[table][5][4]4.5}{[1][51][]52}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.7}System design hypothesis}{52}{section.4.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions}{53}{chapter.5}\protected@file@percent }
+\newlabel{eq:violations}{{4.15}{50}{Design feasibility and score}{equation.4.15}{}}
+\newlabel{eq:violations@cref}{{[equation][15][4]4.15}{[1][50][]50}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Steps of one Differential Evolution run}{50}{equation.4.15}\protected@file@percent }
+\newlabel{eq:de_popsize}{{4.16}{50}{Steps of one Differential Evolution run}{equation.4.16}{}}
+\newlabel{eq:de_popsize@cref}{{[equation][16][4]4.16}{[1][50][]50}{}{}{}}
+\newlabel{eq:de_mutation}{{4.17}{51}{Steps of one Differential Evolution run}{equation.4.17}{}}
+\newlabel{eq:de_mutation@cref}{{[equation][17][4]4.17}{[1][51][]51}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces \texthl  {One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}}{51}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:de_generation}{{4.19}{51}{\hl {One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}{figure.caption.35}{}}
+\newlabel{fig:de_generation@cref}{{[figure][19][4]4.19}{[1][51][]51}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Complete calculation procedure}{51}{figure.caption.35}\protected@file@percent }
+\newlabel{sec:de_procedure}{{4.5.3}{51}{Complete calculation procedure}{figure.caption.35}{}}
+\newlabel{sec:de_procedure@cref}{{[subsection][3][4,5]4.5.3}{[1][51][]51}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces \texthl  {Overall optimisation procedure: nested loops over the landing-speed cap, the categorical variables and the random seed, and selection of the winning design.}}}{52}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:de_procedure}{{4.20}{52}{\hl {Overall optimisation procedure: nested loops over the landing-speed cap, the categorical variables and the random seed, and selection of the winning design.}}{figure.caption.36}{}}
+\newlabel{fig:de_procedure@cref}{{[figure][20][4]4.20}{[1][52][]52}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Limitations of Differential Evolution}{52}{figure.caption.36}\protected@file@percent }
+\newlabel{sec:de_limitations}{{4.5.3}{52}{Limitations of Differential Evolution}{figure.caption.36}{}}
+\newlabel{sec:de_limitations@cref}{{[subsection][3][4,5]4.5.3}{[1][52][]52}{}{}{}}
+\newlabel{alg:de_wrapper}{{4.3}{52}{Limitations of Differential Evolution}{tcb@cnt@algobox.4.3}{}}
+\newlabel{alg:de_wrapper@cref}{{[algobox][3][4]4.3}{[1][52][]52}{}{}{}}
+\newlabel{alg:de_helpers}{{4.4}{53}{Limitations of Differential Evolution}{tcb@cnt@algobox.4.4}{}}
+\newlabel{alg:de_helpers@cref}{{[algobox][4][4]4.4}{[1][53][]53}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}}{54}{table.caption.37}\protected@file@percent }
+\newlabel{tab:airbag-design-variables-selected}{{4.5}{54}{Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right)}{table.caption.37}{}}
+\newlabel{tab:airbag-design-variables-selected@cref}{{[table][5][4]4.5}{[1][54][]54}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.4}Results}{54}{subsection.4.5.4}\protected@file@percent }
+\newlabel{sec:step4-optimisation-wrapper_results}{{4.5.4}{54}{Results}{subsection.4.5.4}{}}
+\newlabel{sec:step4-optimisation-wrapper_results@cref}{{[subsection][4][4,5]4.5.4}{[1][54][]54}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Reference optimum}{54}{subsection.4.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Step 4 deliverable: airbag sizing parameters}{54}{subsection.4.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Summary of results}{54}{section.4.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}System design hypothesis}{54}{section.4.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusions}{55}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:conclusions}{{5}{53}{Conclusions}{chapter.5}{}}
-\newlabel{chapter:conclusions@cref}{{[chapter][5][]5}{[1][53][]53}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}General summary}{53}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Recommendations for future work}{53}{section.5.2}\protected@file@percent }
+\newlabel{chapter:conclusions}{{5}{55}{Conclusions}{chapter.5}{}}
+\newlabel{chapter:conclusions@cref}{{[chapter][5][]5}{[1][55][]55}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}General summary}{55}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Recommendations for future work}{55}{section.5.2}\protected@file@percent }
 \abx@aux@cite{0}{Angelini2023}
 \abx@aux@segm{0}{0}{Angelini2023}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Project Management}{54}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Project Management}{56}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:projectManagement}{{6}{54}{Project Management}{chapter.6}{}}
-\newlabel{chapter:projectManagement@cref}{{[chapter][6][]6}{[1][54][]54}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Project organisation and stakeholders}{54}{section.6.1}\protected@file@percent }
-\newlabel{sec:pm-organisation}{{6.1}{54}{Project organisation and stakeholders}{section.6.1}{}}
-\newlabel{sec:pm-organisation@cref}{{[section][1][6]6.1}{[1][54][]54}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Context}{54}{subsection.6.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Supervisory team}{54}{subsection.6.1.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Supervisory team, roles, and communication channels.}}{54}{table.caption.36}\protected@file@percent }
-\newlabel{tab:pm-supervisors}{{6.1}{54}{Supervisory team, roles, and communication channels}{table.caption.36}{}}
-\newlabel{tab:pm-supervisors@cref}{{[table][1][6]6.1}{[1][54][]54}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Monitoring and communication}{55}{subsection.6.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.4}Stakeholder priorities}{55}{subsection.6.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.5}Resources by party}{55}{subsection.6.1.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Planning: baseline versus execution}{55}{section.6.2}\protected@file@percent }
-\newlabel{sec:pm-planning}{{6.2}{55}{Planning: baseline versus execution}{section.6.2}{}}
-\newlabel{sec:pm-planning@cref}{{[section][2][6]6.2}{[1][55][]55}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Baseline}{55}{subsection.6.2.1}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline planning from the research proposal.}}{55}{table.caption.37}\protected@file@percent }
-\newlabel{tab:pm-baseline}{{6.2}{55}{Baseline planning from the research proposal}{table.caption.37}{}}
-\newlabel{tab:pm-baseline@cref}{{[table][2][6]6.2}{[1][55][]55}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Scope evolution and execution}{55}{subsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Final scope definition}{56}{subsection.6.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Critical events and their management}{56}{section.6.3}\protected@file@percent }
-\newlabel{sec:pm-events}{{6.3}{56}{Critical events and their management}{section.6.3}{}}
-\newlabel{sec:pm-events@cref}{{[section][3][6]6.3}{[1][56][]56}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Scope narrowing: from airbag design to workflow and characterisation}{56}{subsection.6.3.1}\protected@file@percent }
-\newlabel{subsec:pm-scope}{{6.3.1}{56}{Scope narrowing: from airbag design to workflow and characterisation}{subsection.6.3.1}{}}
-\newlabel{subsec:pm-scope@cref}{{[subsection][1][6,3]6.3.1}{[1][56][]56}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Loss of computational resources}{56}{subsection.6.3.2}\protected@file@percent }
-\newlabel{subsec:pm-hpc}{{6.3.2}{56}{Loss of computational resources}{subsection.6.3.2}{}}
-\newlabel{subsec:pm-hpc@cref}{{[subsection][2][6,3]6.3.2}{[1][56][]56}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Split toolchain between workstations}{57}{subsection.6.3.3}\protected@file@percent }
-\newlabel{subsec:pm-toolchain}{{6.3.3}{57}{Split toolchain between workstations}{subsection.6.3.3}{}}
-\newlabel{subsec:pm-toolchain@cref}{{[subsection][3][6,3]6.3.3}{[1][57][]57}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Technical decisions under conflicting advice}{57}{subsection.6.3.4}\protected@file@percent }
-\newlabel{subsec:pm-technical}{{6.3.4}{57}{Technical decisions under conflicting advice}{subsection.6.3.4}{}}
-\newlabel{subsec:pm-technical@cref}{{[subsection][4][6,3]6.3.4}{[1][57][]57}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Modelling approach for the phial.}{57}{subsection.6.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Fidelity of the sled-test model.}{58}{subsection.6.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.4}Self-assessment}{58}{section.6.4}\protected@file@percent }
-\newlabel{sec:pm-self}{{6.4}{58}{Self-assessment}{section.6.4}{}}
-\newlabel{sec:pm-self@cref}{{[section][4][6]6.4}{[1][58][]58}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{58}{section.6.5}\protected@file@percent }
-\newlabel{sec:pm-lessons}{{6.5}{58}{Lessons learned and recommendations}{section.6.5}{}}
-\newlabel{sec:pm-lessons@cref}{{[section][5][6]6.5}{[1][58][]58}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{References}{59}{chapter*.38}\protected@file@percent }
+\newlabel{chapter:projectManagement}{{6}{56}{Project Management}{chapter.6}{}}
+\newlabel{chapter:projectManagement@cref}{{[chapter][6][]6}{[1][56][]56}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Project organisation and stakeholders}{56}{section.6.1}\protected@file@percent }
+\newlabel{sec:pm-organisation}{{6.1}{56}{Project organisation and stakeholders}{section.6.1}{}}
+\newlabel{sec:pm-organisation@cref}{{[section][1][6]6.1}{[1][56][]56}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Context}{56}{subsection.6.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Supervisory team}{56}{subsection.6.1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Supervisory team, roles, and communication channels.}}{56}{table.caption.38}\protected@file@percent }
+\newlabel{tab:pm-supervisors}{{6.1}{56}{Supervisory team, roles, and communication channels}{table.caption.38}{}}
+\newlabel{tab:pm-supervisors@cref}{{[table][1][6]6.1}{[1][56][]56}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Monitoring and communication}{57}{subsection.6.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.4}Stakeholder priorities}{57}{subsection.6.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.5}Resources by party}{57}{subsection.6.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Planning: baseline versus execution}{57}{section.6.2}\protected@file@percent }
+\newlabel{sec:pm-planning}{{6.2}{57}{Planning: baseline versus execution}{section.6.2}{}}
+\newlabel{sec:pm-planning@cref}{{[section][2][6]6.2}{[1][57][]57}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Baseline}{57}{subsection.6.2.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline planning from the research proposal.}}{57}{table.caption.39}\protected@file@percent }
+\newlabel{tab:pm-baseline}{{6.2}{57}{Baseline planning from the research proposal}{table.caption.39}{}}
+\newlabel{tab:pm-baseline@cref}{{[table][2][6]6.2}{[1][57][]57}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Scope evolution and execution}{57}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Final scope definition}{58}{subsection.6.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Critical events and their management}{58}{section.6.3}\protected@file@percent }
+\newlabel{sec:pm-events}{{6.3}{58}{Critical events and their management}{section.6.3}{}}
+\newlabel{sec:pm-events@cref}{{[section][3][6]6.3}{[1][58][]58}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Scope narrowing: from airbag design to workflow and characterisation}{58}{subsection.6.3.1}\protected@file@percent }
+\newlabel{subsec:pm-scope}{{6.3.1}{58}{Scope narrowing: from airbag design to workflow and characterisation}{subsection.6.3.1}{}}
+\newlabel{subsec:pm-scope@cref}{{[subsection][1][6,3]6.3.1}{[1][58][]58}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Loss of computational resources}{58}{subsection.6.3.2}\protected@file@percent }
+\newlabel{subsec:pm-hpc}{{6.3.2}{58}{Loss of computational resources}{subsection.6.3.2}{}}
+\newlabel{subsec:pm-hpc@cref}{{[subsection][2][6,3]6.3.2}{[1][58][]58}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.3}Split toolchain between workstations}{59}{subsection.6.3.3}\protected@file@percent }
+\newlabel{subsec:pm-toolchain}{{6.3.3}{59}{Split toolchain between workstations}{subsection.6.3.3}{}}
+\newlabel{subsec:pm-toolchain@cref}{{[subsection][3][6,3]6.3.3}{[1][59][]59}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.4}Technical decisions under conflicting advice}{59}{subsection.6.3.4}\protected@file@percent }
+\newlabel{subsec:pm-technical}{{6.3.4}{59}{Technical decisions under conflicting advice}{subsection.6.3.4}{}}
+\newlabel{subsec:pm-technical@cref}{{[subsection][4][6,3]6.3.4}{[1][59][]59}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Self-assessment}{60}{section.6.4}\protected@file@percent }
+\newlabel{sec:pm-self}{{6.4}{60}{Self-assessment}{section.6.4}{}}
+\newlabel{sec:pm-self@cref}{{[section][4][6]6.4}{[1][60][]60}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{60}{section.6.5}\protected@file@percent }
+\newlabel{sec:pm-lessons}{{6.5}{60}{Lessons learned and recommendations}{section.6.5}{}}
+\newlabel{sec:pm-lessons@cref}{{[section][5][6]6.5}{[1][60][]60}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{References}{61}{chapter*.40}\protected@file@percent }
 \abx@aux@cite{0}{skyeu_web}
 \abx@aux@segm{0}{0}{skyeu_web}
 \abx@aux@cite{0}{disalute_aetos}
@@ -1076,17 +1100,17 @@
     {1}{85.14597pt}\LT@entry 
     {1}{120.99725pt}\LT@entry 
     {1}{241.98767pt}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Extended Market Analysis}{66}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Extended Market Analysis}{68}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appendix:market-analysis-extensive}{{A}{66}{Extended Market Analysis}{appendix.A}{}}
-\newlabel{appendix:market-analysis-extensive@cref}{{[chapter][1][]A}{[1][66][]66}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Value-chain actors}{66}{appendix.A.1}\protected@file@percent }
-\newlabel{appendix:value-chain-actors}{{A.1}{66}{Value-chain actors}{appendix.A.1}{}}
-\newlabel{appendix:value-chain-actors@cref}{{[section][1][1]A.1}{[1][66][]66}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Actors involved in drone delivery of medical goods in Italy}}{66}{table.A.1}\protected@file@percent }
-\newlabel{tab:actors}{{A.1}{66}{Actors involved in drone delivery of medical goods in Italy}{table.A.1}{}}
-\newlabel{tab:actors@cref}{{[table][1][1]A.1}{[1][66][]66}{}{}{}}
+\newlabel{appendix:market-analysis-extensive}{{A}{68}{Extended Market Analysis}{appendix.A}{}}
+\newlabel{appendix:market-analysis-extensive@cref}{{[chapter][1][]A}{[1][68][]68}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Value-chain actors}{68}{appendix.A.1}\protected@file@percent }
+\newlabel{appendix:value-chain-actors}{{A.1}{68}{Value-chain actors}{appendix.A.1}{}}
+\newlabel{appendix:value-chain-actors@cref}{{[section][1][1]A.1}{[1][68][]68}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces Actors involved in drone delivery of medical goods in Italy}}{68}{table.A.1}\protected@file@percent }
+\newlabel{tab:actors}{{A.1}{68}{Actors involved in drone delivery of medical goods in Italy}{table.A.1}{}}
+\newlabel{tab:actors@cref}{{[table][1][1]A.1}{[1][68][]68}{}{}{}}
 \abx@aux@cite{0}{Cavallo2020}
 \abx@aux@segm{0}{0}{Cavallo2020}
 \abx@aux@cite{0}{Bertelli2021}
@@ -1150,30 +1174,30 @@
     {1}{123.71442pt}\LT@entry 
     {1}{102.0827pt}\LT@entry 
     {1}{49.3496pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{68}{appendix.A.2}\protected@file@percent }
-\newlabel{appendix:medical-drone-trials}{{A.2}{68}{Trials and planned initiatives}{appendix.A.2}{}}
-\newlabel{appendix:medical-drone-trials@cref}{{[section][2][1]A.2}{[1][68][]68}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces Drone delivery of medical goods in Italy: trials and planned initiatives}}{68}{table.A.2}\protected@file@percent }
-\newlabel{tab:medical-drone-trials}{{A.2}{68}{Drone delivery of medical goods in Italy: trials and planned initiatives}{table.A.2}{}}
-\newlabel{tab:medical-drone-trials@cref}{{[table][2][1]A.2}{[1][68][]68}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{70}{appendix.B}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{70}{appendix.A.2}\protected@file@percent }
+\newlabel{appendix:medical-drone-trials}{{A.2}{70}{Trials and planned initiatives}{appendix.A.2}{}}
+\newlabel{appendix:medical-drone-trials@cref}{{[section][2][1]A.2}{[1][70][]70}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A.2}{\ignorespaces Drone delivery of medical goods in Italy: trials and planned initiatives}}{70}{table.A.2}\protected@file@percent }
+\newlabel{tab:medical-drone-trials}{{A.2}{70}{Drone delivery of medical goods in Italy: trials and planned initiatives}{table.A.2}{}}
+\newlabel{tab:medical-drone-trials@cref}{{[table][2][1]A.2}{[1][70][]70}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{72}{appendix.B}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appendix:exp-campaign}{{B}{70}{Safety Measures for the Experimental Campaign}{appendix.B}{}}
-\newlabel{appendix:exp-campaign@cref}{{[chapter][2][]B}{[1][70][]70}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Safety precautions}{70}{appendix.B.1}\protected@file@percent }
-\newlabel{sec:safety-analysis}{{B.1}{70}{Safety precautions}{appendix.B.1}{}}
-\newlabel{sec:safety-analysis@cref}{{[section][1][2]B.1}{[1][70][]70}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{70}{appendix.B.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{71}{appendix.C}\protected@file@percent }
+\newlabel{appendix:exp-campaign}{{B}{72}{Safety Measures for the Experimental Campaign}{appendix.B}{}}
+\newlabel{appendix:exp-campaign@cref}{{[chapter][2][]B}{[1][72][]72}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Safety precautions}{72}{appendix.B.1}\protected@file@percent }
+\newlabel{sec:safety-analysis}{{B.1}{72}{Safety precautions}{appendix.B.1}{}}
+\newlabel{sec:safety-analysis@cref}{{[section][1][2]B.1}{[1][72][]72}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{72}{appendix.B.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{73}{appendix.C}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{appendix:FEMiterations}{{C}{71}{Development Iterations of the Glass Phial FE Model}{appendix.C}{}}
-\newlabel{appendix:FEMiterations@cref}{{[chapter][3][]C}{[1][71][]71}{}{}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Sequence of FEM modelling iterations for the axial compression test.}}{71}{table.caption.39}\protected@file@percent }
-\newlabel{tab:FEMiterations}{{C.1}{71}{Sequence of FEM modelling iterations for the axial compression test}{table.caption.39}{}}
-\newlabel{tab:FEMiterations@cref}{{[table][1][3]C.1}{[1][71][]71}{}{}{}}
-\@writefile{toc}{\contentsline {chapter}{Acknowledgements - \textit  {Ringraziamenti}}{72}{appendix*.40}\protected@file@percent }
+\newlabel{appendix:FEMiterations}{{C}{73}{Development Iterations of the Glass Phial FE Model}{appendix.C}{}}
+\newlabel{appendix:FEMiterations@cref}{{[chapter][3][]C}{[1][73][]73}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces Sequence of FEM modelling iterations for the axial compression test.}}{73}{table.caption.41}\protected@file@percent }
+\newlabel{tab:FEMiterations}{{C.1}{73}{Sequence of FEM modelling iterations for the axial compression test}{table.caption.41}{}}
+\newlabel{tab:FEMiterations@cref}{{[table][1][3]C.1}{[1][73][]73}{}{}{}}
+\@writefile{toc}{\contentsline {chapter}{Acknowledgements - \textit  {Ringraziamenti}}{74}{appendix*.42}\protected@file@percent }
 \babel@aux{italian}{}
 \babel@aux{british}{}
 \ttl@finishall
@@ -1280,4 +1304,4 @@
 \abx@aux@defaultrefcontext{0}{supplychain_torino}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{socialfarma_aetos}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{nordest24_sandbox}{none/global//global/global/global}
-\gdef \@abspage@last{83}
+\gdef \@abspage@last{85}

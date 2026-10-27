@@ -28,6 +28,8 @@
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Nominal stress-strain loading curve of the polyurethane sponge.}}{42}{figure.caption.32}%
 \contentsline {figure}{\numberline {4.17}{\ignorespaces Rigid rings on the payload bay mesh}}{42}{figure.caption.33}%
 \contentsline {figure}{\numberline {4.18}{\ignorespaces Family of trapezoidal acceleration pulses with equal area $\lVert \mathbf {u}_0 \rVert $: a higher plateau amplitude $a$ corresponds to a shorter plateau duration $t_p$.}}{43}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces \texthl {One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}}{51}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces \texthl {Overall optimisation procedure: nested loops over the landing-speed cap, the categorical variables and the random seed, and selection of the winning design.}}}{52}{figure.caption.36}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1157,6 +1157,7 @@ INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1pzc.fd
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\inconsolata\t1-zi4b-4.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\zapfchan\pzcmi7t.vf
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi8r.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\base\8r.enc
@@ -1178,13 +1179,15 @@ INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Re
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-t1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-t1.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\newtx\ntx-ec-tlf-pc.enc
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\inconsolata\t1-zi4r-4.tfm
+INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\inconsolata\t1-zi4r-4.tfm
 INPUT .\mainmatter\chap4\step4_pseudocode\wrapper.tex
 INPUT .\mainmatter\chap4\step4_pseudocode\wrapper.tex
 INPUT .\mainmatter\chap4\step4_pseudocode\wrapper.tex
 INPUT .\mainmatter\chap4\step4_pseudocode\wrapper.tex
 INPUT mainmatter\chap4\step4_pseudocode\wrapper.tex
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
-INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\zapfchan\pzcmi7t.tfm
 INPUT C:\Users\annam\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newpx\zpl-Italic-tlf-t1.tfm
 INPUT .\mainmatter\5_Conclusions.tex
 INPUT .\mainmatter\5_Conclusions.tex

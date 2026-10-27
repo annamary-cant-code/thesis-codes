@@ -4,20 +4,13 @@
 The methodology applied in this section represents the last step of the workflow developed for the preliminary sizing of an airbag device. It gathers the results obtained in the previous steps and feeds them to a Python code organised in two layers: an inner core, the \textit{oracle}, which models the physics of impact events involving airbag devices, and an outer \textit{optimisation wrapper}, which finds suitable low-mass candidates capable of protecting the payload under the given impact conditions. The inherited inputs are:
 \begin{enumerate}
   \item \textbf{Payload mass}: $1$\,kg (initially used in Step 0, Preliminary mission analysis in Section \ref{section:step0-mission-analysis}, and numerically estimated in Step 3, Sled test (FEM) in Section \ref{section:step3-sledTest})
-  \item \textbf{Impact velocity}: $V_x = 25$\,m/s, $V_y = 7.5$\,m/s (from Step 0)
+  \item \textbf{Impact velocity}: $u_{x,0} = 7.5$\,m/s, $u_{y,0} = 25$\,m/s (from Step 0)
   \item \textbf{Allowable peak acceleration}: $a_{allow} = $\,m/s$^2$ \hl{decide on input here!!!} (from Step 3)
 \end{enumerate}
 
 The outputs of this section, i.e. the candidate design parameters produced by the code, can be turned into specific design recommendations for practical implementation and prototyping of the airbag device, which constitute the final deliverable of the present MSc Thesis project.
 
-\subsection{Implementation}
-\subsubsection{Problem formulation}
-% design variables + bounds (e.g. airbag dimensions/volume, vent area, inflation pressure)
-% objective (e.g. airbag mass)
-% constraints: peak payload acceleration <= allowable; no bottoming-out;
-%   fabric/seam stress <= seam efficiency x fabric strength
-% fixed parameters and their source (Step 0, Step 3, datasheets)
-
+\subsection{Implementation choices}
 The airbag design variables optimised by the code used in Step 4 are shown in the right-most column of Table \ref{tab:airbag-design-variables-selected}, which also highlights the \textit{bounds} within which the search for the optimum candidate was conducted (dictated either by manufacturer information or by geometrical constraints). The design variables can be subdivided into three categories: \textit{continuous} (usually pointing to geometric features), \textit{discrete, integers} (in this case, the number of airbag fabric plies), and \textit{discrete, categorical} (such as fabric type, shape, and gas type, to which the concept of searchable bounds cannot be applied). 
 
 In their most basic configuration, optimisation codes consist in two elements:
@@ -26,7 +19,7 @@ In their most basic configuration, optimisation codes consist in two elements:
   \item \textbf{Optimisation wrapper} $\mathcal{O}$: Operates as an algorithmic controller over the oracle. Through an iterative oracle interrogation process ($\mathbf{x}_{k+1} = \mathcal{O}(\mathbf{x}_k, \mathbf{y}_k)$), it navigates the design space to drive the system toward an optimal response defined by a user-specific objective function $\mathcal{J}(\mathbf{y})$ and constraint set $\mathcal{C}$.
 \end{itemize}
 
-\subsubsection{\texttt{simulate\_airbag} oracle}
+\subsection{\texttt{simulate\_airbag} oracle}\label{sec:simulate-airbag-oracle}
 In the case of the present thesis work, the oracle is based on the airbag simulation function proposed by Zhou et al. (2019) \cite{Zhou2019} as introduced in Section \ref{section:airbag-industry-perspective}. The underlying calculation loop shown in Fig.\,\ref{fig:zhou-airbag-flowchart} remains virtually the same, but is enriched with some additional considerations to allow for a more complete simulation (and subsequent evaluation) of the airbag impact phenomenon:
 
 \begin{itemize}
@@ -85,46 +78,151 @@ Overall, the \texttt{simulate\_airbag} oracle has significant limitations: assum
 
 
 
-\subsubsection{Optimisation algorithm (wrapper)}
-% differential evolution: why gradient-free (discontinuous constraints, bottoming-out)
-% settings: population, generations, tolerance, seed
-% constraint handling (penalty / feasibility rule)
 
-\hl{REWRITE ENTIRELY}
-
-\begin{itemize}
-  \item The optimisation algorithm chosen for the wrapper is \textit{differential evolution} (DE), a simple population-based algorithm initially proposed by \cite{Storn1997}. The implementation used is \texttt{scipy.optimize.differential\_evolution}, from the open-source Python library SciPy \cite{SciPyDE_docs}.
-  \item It's gradient-free. Why gradient-free? treats the simulation as a black box, design in, score out. Binary constraints rule out gradient method immediately, and also i'm not expecting a smooth penalty function, small changes in input = big differences in behaviour. I can only use a method based on comparisons. 
-  \item Main functioning: DE explores the space of the discrete and continuous variables and, after a certain number of iterations, finds a candidate that could be the global minimum, although this is not guaranteed. The parameters that can be set are the number of seeds, the population size and the maximum number of iterations. diagram to show pop\_size, seeds, permutations, etc. 
-  \item Each seed corresponds to an independent DE run, starting from its own initial population of candidates, drawn randomly within the bounds of the variables. With three seeds and a population of seven candidates, for example, there are three independent batches of seven candidates. 
-  \item For every combination of the enumerated variables, one run of the differential evolution (DE) wrapper is performed. n combinations (from multiplication) of outer loop variables -> seeds generated for numerical values -> de runs
-  \item single de run, generation of new candidates: The challenger starts from the best candidate of the current generation, perturbed by the difference between two other randomly chosen candidates, scaled by a mutation factor $F$ drawn randomly between 0.5 and 1 [check]:
-  \begin{equation}
-    \mathbf{v} = \mathbf{x}_{\mathrm{best}} + F\,\left(\mathbf{x}_{r_1} - \mathbf{x}_{r_2}\right) .
-    \label{eq:de_mutation}
-  \end{equation} 
-  \item 
-\end{itemize}
+% Preamble requirements:
+%   \usepackage{amsmath}
+%   \usepackage{cleveref}
+%   \usepackage{tikz}
+%   \usetikzlibrary{positioning,arrows.meta,fit,backgrounds,shapes.geometric}
+% GAP comments mark places where information is still missing.
 
 
+\subsection{\texttt{differential\_evolution} optimisation algorithm}\label{sec:optimisation-algorithm-wrapper}
+\subsubsection{Algorithm choice and design vector}
+The optimisation algorithm used in the wrapper is differential evolution (DE), a population-based algorithm proposed by Storn and Price \cite{Storn1997}. The implementation is \texttt{scipy.optimize.differential\_evolution} from the open-source Python library SciPy \cite{SciPyDE_docs}. This algorithm was purposefully chosen a more robust, although computationally heavier, method based on simple comparisons among candidate designs. Given categorical variables as inputs and binary checks in the oracle core as described earlier, where a small change in design variables can radically change the oracle's response, an alternative gradient-based method would have required gradient estimation through finite differences, at the cost of one extra simulation per variable, the unpredictability of the resulting gradient estimate, and the risk of stopping the search at local minimums.
 
-% Some of the variables of $\mathbf{v}$ are then exchanged with those of the candidate it challenges (crossover), and the resulting challenger is compared only with that candidate, keeping the better of the two. In this way, not every candidate is compared with every other: each generation requires as many comparisons as there are candidates, i.e. seven per seed in this example, instead of $7^2$. The random difference in Eq.~\eqref{eq:de_mutation} keeps variation in the population, so it does not converge too early to the winning design. At the end of the iterations, each seed gives a winning design, and the final design is the best among them.
+As the problem's variables fall into three categories (continuous, discrete integers, and discrete categorical), the discrete categorical variables (two shapes, three fabrics, and five gas options) do not partake directly in the DE runs. Considering also the landing speed caps entering through the constraint $u_\text{land} \le u_\text{res,max}$, which yields the minimum achievable mass as a function of the allowed landing speed, a separate optimisation is run for each of the $2 \times 3 \times 5 \times 4 = 120$ combinations. Therefore, the design vector on which the DE wrapper acts is as follows:
 
-%The method is incredibly simple, but also heavy and slow, since every combination of enumerated variables requires its own set of runs, and each run requires a number of oracle evaluations proportional to the population size times the number of iterations. To reduce the risk of early convergence, the population size should be increased, since it controls how much of the design space is explored, while the maximum number of iterations only allows convergence to be reached in due time. The number of seeds, instead, gives a check on the result: if independent seeds converge to the same design, this is evidence that the solution is not a local minimum.
-
-The lower bound of the airbag diameter is the stroke needed to stop the payload along $\mathbf{n}$ at the constant load $a_\text{lim}$, net of gravity:
-\begin{equation}\label{eq:min_stroke}
-  D_{0,\text{min}} = \frac{u_{n,0}^2}{2\,(a_\text{lim} - g\cos\theta)},
+\begin{equation}\label{eq:design-variables}
+  \mathbf{x} =
+  \begin{cases}
+    [D_0,\, L_0/D_0,\, n_\text{ply},\, P_0,\, \phi_\text{vent}] & \text{cylinder} \\
+    [D_0,\, n_\text{ply},\, P_0,\, \phi_\text{vent}] & \text{sphere}
+  \end{cases}
 \end{equation}
-which exists only if $a_\text{lim} > g\cos\theta$. Each design $\mathbf{x}$ is then scored by
+
+The variables contributing to the simulation are orifice diameter, set to $d_\text{or} = 0$ so that all venting takes place through the fabric while keeping the possibility to implement relief valves in future simulations, and the initial gas temperature, fixed at $T_0 = 288$\,K. These two variables are kept constant as opting for delegating all venting to porous fabric is common practice in airbag design within the automotive industry, while 288\,K is a realistic average operational temperature for missions within the city of Turin not considering the heating processes linked to gas generation mechanisms \hl{cite urban records here}. 
+
+The bounds of the numerical variables are listed in Table\,\ref{tab:airbag-design-variables-selected}. The lower bound of the airbag diameter is the stroke needed to stop the payload along $\mathbf{n}$ at the constant load $a_\text{lim}$, net of gravity (inspired by the airbag working principle in Section \ref{section:airbag-design-guidelines}, Eq\,\ref{eq:basic-stroke-calc}):
+\begin{equation}\label{eq:min_stroke}
+  D_{0,\text{min}} = \frac{u_{n0}^2}{2\,(a_\text{lim} - g\cos\theta)},
+\end{equation}
+which exists only if $a_\text{lim} > g\cos\theta$. This bound does not exclude any feasible design because lower strokes would result in peak accelerations above $a_\text{lim}$, while accelerations below $a_\text{lim}$ require longer strokes.
+
+
+\subsubsection{Design feasibility and score}
+Each simulation ends when either one of the termination criteria described in Section \ref{sec:simulate-airbag-oracle} is met. A design is feasible if the payload lands, by reaching the full stroke or by settling, with a peak load $a_{\text{peak},n} = \max(F_n/M) \le a_\text{lim}$ and a landing speed $u_\text{land} \le u_\text{res,max}$. Each design $\mathbf{x}$ is then scored by:
+
 \begin{equation}\label{eq:objective}
   f(\mathbf{x}) =
   \begin{cases}
     m_\text{tot} & \text{if feasible,}\\[2ex]
-    10^6 + \mathit{PEN}\sum_i v_i & \text{otherwise,}
+    10^6 + \mathit{PEN}\sum_i v_i & \text{if infeasible,}\\[2ex]
+    10^{12} & \text{if the simulation fails or } m_\text{tot} \text{ is not finite.}
   \end{cases}
 \end{equation}
-where $v_i$ are the graded constraint violations computed in \cref{alg:de_helpers}, while the residual landing speed enters only through the constraint $u_\text{land} \le u_\text{res,max}$. Infeasible designs get no mass reward, so a light infeasible airbag can never beat a feasible one.
+
+where $m_\text{tot}$ is the mass of the fabric plus the initial gas mass needed for the airbag's inflation, $\mathit{PEN} = 10^4$, and $v_i$ are the graded constraint violations computed in \cref{alg:de_helpers}:
+
+\begin{equation}\label{eq:violations}
+  \left\{
+  \begin{aligned}
+    v_\text{acc}   &= \frac{\max(0,\ a_{\text{peak},n} - a_\text{lim})}{a_\text{lim}}, \\[1ex]
+    v_\text{burst} &= \frac{\max(0,\ P_\text{peak} - P_\text{burst})}{P_\text{burst}}, \\[1ex]
+    v_\text{reb}   &= \frac{|u_{\text{reb},y}|}{u_{y,0}}, &&\qquad \text{if rebounded,} \\[1ex]
+    v_\text{ures}  &= \frac{\max(0,\ u_\text{land} - u_\text{res,max})}{u_{n0}}, &&\qquad \text{if landed.}
+  \end{aligned}
+  \right.
+\end{equation}
+
+If requirements are met, each violation is zero. Alternatively, the offset $10^6$ is far larger than the mass of any airbag in the design space, so every infeasible design scores worse than every feasible one. Among infeasible designs, the score varies with the total violation, which steers the search towards the feasible region while no feasible design has been found. A design whose simulation fails, or returns a non-finite mass, scores $10^{12}$.
+
+
+\subsubsection{Steps of one Differential Evolution run}
+The steps of one DE run\footnote{ SciPy internally scales each variable to the interval $[0, 1]$ between its bounds, so that a step moves every variable by a comparable fraction of its range.} are shown in Fig.\,\ref{fig:de_generation} and consist in the following:
+
+\begin{enumerate}
+  \item \textbf{Initial population:} The run starts from a population of $N$ designs placed in the design space with a Sobol sequence, which spreads the points evenly within the bounds instead of drawing them randomly. The population size $N$ is not set directly: SciPy multiplies the \texttt{POPSIZE} setting by the number of numerical design variables $n_\text{var}$ (see Eq.\eqref{eq:design-variables}), and the Sobol initialisation rounds the result up to the next power of two:
+  \begin{equation}
+    N = 2^{\lceil \log_2(\texttt{POPSIZE}\cdot n_\text{var}) \rceil}
+    \label{eq:de_popsize}
+  \end{equation}
+  For example, with $\texttt{POPSIZE} = 5$ this gives $5 \times 5 = 25 \rightarrow 32$ designs for the cylinder and $5 \times 4 = 20 \rightarrow 32$ for the sphere. Each design of the population can be thought of as occupying a seat, and the number of seats stays the same for the whole run;
+  
+  \item \textbf{Within one generation:} 
+  \begin{enumerate}
+
+    \item \textit{Challenger:} In every generation, each design $\mathbf{x}_i$ of the population receives one challenger. With SciPy's default method (\texttt{best1bin}), the challenger is built from the best design of the current population and the difference between two other designs chosen at random:
+    \begin{equation}
+      \mathbf{v} = \mathbf{x}_{\mathrm{best}} + F\,\left(\mathbf{x}_{r_1} - \mathbf{x}_{r_2}\right) ,
+      \label{eq:de_mutation}
+    \end{equation}
+    where $r_1 \neq r_2 \neq i$ are indices of two population members chosen at random, and the mutation factor $F$ is drawn between 0.5 and 1 at every generation. Because the step is built from a difference between members, its size follows the spread of the population. Steps are large while the designs are spread over the design space and become small as the population clusters;
+
+    \item \textit{Crossover:} The point $\mathbf{v}$ is then mixed with the design it will challenge. \hl{HIGHLY UNCLEAR, I need to study this again} 
+    %Each variable $j$ of the trial design $\mathbf{u}$ is taken from $\mathbf{v}$ with probability $CR = 0.7$ and kept from $\mathbf{x}_i$ otherwise, and one variable $j_\text{rand}$, chosen at random, is always taken from $\mathbf{v}$ so that the trial differs from $\mathbf{x}_i$. The trial is then simulated and compared only with $\mathbf{x}_i$:
+    %\begin{equation}
+    %  u_j =
+    %  \begin{cases}
+    %    v_j     & \text{if } r_j \le CR \text{ or } j = j_\mathrm{rand},\\
+    %    x_{i,j} & \text{otherwise,}
+    %  \end{cases}
+    %  \qquad
+    %  \mathbf{x}_i \leftarrow
+    %  \begin{cases}
+    %    \mathbf{u} & \text{if } f(\mathbf{u}) \le f(\mathbf{x}_i),\\
+    %    \mathbf{x}_i & \text{otherwise,}
+    %  \end{cases}
+    %  \label{eq:de_crossover_selection}
+    %\end{equation}
+    %where $r_j$ is a random number between 0 and 1 drawn for each variable. A value of $\mathbf{u}$ that falls outside its bounds is %replaced by a random value inside them, and $n_\text{ply}$ is rounded to an integer through the \texttt{integrality} option. With %crossover the trial changes only some of the variables at a time and keeps the others from the design it challenges.
+  \end{enumerate}
+
+  Each trial competes only with the design in its own seat, so a generation requires $N$ simulations and $N$ comparisons rather than a comparison of every design with every other. Since a design leaves its seat only for a trial that scores at least as well, the best design found so far is never lost.
+  
+  \item \textbf{Stopping mechanism:} A run stops after $G$ generations set by the parameter \texttt{maxiter}, or earlier if the standard deviation of the scores in the population falls below $10^{-4}$ times the magnitude of their mean (\texttt{tol}). In this sense convergence means that the population has clustered, while it does not reliably indicate that the global minimum has been found. With feasible scores of the order of the airbag mass, this tolerance requires a very small spread, and most runs are expected to stop at \texttt{maxiter}, with cost of a run being at most $N(G+1)$ simulations counting the initial population.
+\end{enumerate}
+
+
+\begin{figure}[htbp]
+  \centering
+  % \input{fig_de_generation.tex}
+  % TODO: replace the placeholder box with the actual figure once available
+  \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: one generation of a DE run}}
+  \caption{\hl{One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}
+  \label{fig:de_generation}
+\end{figure}
+
+
+
+\subsubsection{Complete calculation procedure}\label{sec:de_procedure}
+The complete DE calculation procedure is shown in \cref{fig:de_procedure}. Overall, the parameters directly affecting the simulation are:
+
+\begin{itemize}
+  \item \texttt{POPSIZE} (sets $N$ through \cref{eq:de_popsize}) The population size controls how widely a run searches and how quickly it clusters. A larger population is less likely to cluster around a wrong region, but it also clusters more slowly and therefore needs more generations;
+  \item \texttt{MAXITER} (= $(G+1)$) The maximum number of generations sets how long a run can refine its result, but extra generations cannot move a population that has already clustered in the wrong local minimum;
+  \item \texttt{SEEDS} Each combination of categorical variables is optimised in \#\texttt{SEEDS} independent runs whose populations never interact, and the lowest score is kept. The same seed always reproduces the same result.
+\end{itemize}
+
+For each landing-speed cap, shape, fabric and gas, $n_\text{seed}$ (= \texttt{SEEDS}) DE runs are performed and the lowest score is kept. The design with the lowest score over the $n_\text{shape} \times n_\text{mat} \times n_\text{gas}$ combinations is the winner for that specific landing-speed cap. \hl{The winner is then re-simulated with 50 venting sub-iterations, and its masses, peak load, landing speed, pressures, violations and feasibility are reported.} The full sweep consists of $n_\text{ures} \times n_\text{shape} \times n_\text{mat} \times n_\text{gas} \times n_\text{seed}$ DE runs, or up to $n_\text{ures} \times n_\text{shape} \times n_\text{mat} \times n_\text{gas} \times n_\text{seed} \times N(G+1)$ simulations.
+
+\begin{figure}[htbp]
+  \centering
+  % \input{fig_de_procedure.tex}
+  % TODO: replace the placeholder box with the actual figure once available
+  \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: complete DE calculation procedure}}
+  \caption{\hl{Overall optimisation procedure: nested loops over the landing-speed cap, the categorical variables and the random seed, and selection of the winning design.}}
+  \label{fig:de_procedure}
+\end{figure}
+
+
+\subsubsection{Limitations of Differential Evolution}\label{sec:de_limitations}
+Although robust for problem formulation adopted, the Differential Evolution algorithm has some limitations, which are important to consider when interpreting the results of Section \ref{sec:step4-optimisation-wrapper_results}. The most fundamental one is that DE does not guarantee the global minimum (since all the runs could cluster around the same local minimum), only relying on the agreement between different seeds as an indication that the result does not depend on the random initial population. Furthermore, because the optimiser reduces the mass until a constraint stops it, the winner usually lies close to a design limit.
+
+
+\hl{MISSING CONCEPTS!!!!
+To reduce this cost, the venting model uses 20 sub-iterations per time step during the search instead of 50, which roughly halves the time of a simulation. ++++++++++ adaptive timestep}
+
 
 \input{mainmatter/chap4/step4_pseudocode/wrapper}
 
@@ -155,12 +253,12 @@ Fixed inputs and boundary conditions & & Optimisable design variables & \\
 % ------------------------------------------------------------------------------------------------
 Impact scenario & & Continuous (searched by the optimiser) & \\
 $M$ & \qty{1.0}{\kilogram}, payload mass
-  & $D_0$ & \qtyrange{0.84}{1.5}{\metre}, diameter \\
-$u_{y,0}$ & \qty{25.0}{\metre\per\second}, vertical impact speed
+  & $D_0$ & $D_{0,\text{min}}$ (\cref{eq:min_stroke}) to \qty{1.5}{\metre}, diameter \\
+$u_{y0}$ & \qty{25.0}{\metre\per\second}, vertical impact speed
   & $L_0/D_0$ & \numrange{0.5}{4.0}, aspect ratio (cylinder only) \\
-$u_{x,0}$ & \qty{7.5}{\metre\per\second}, horizontal impact speed
+$u_{x0}$ & \qty{7.5}{\metre\per\second}, horizontal impact speed
   & $P_0$ & $P_\text{amb}$ to \qty{1.4e5}{\pascal}, inflation pressure \\
-$u_{n,0}$ & $\approx$\,\qty{26.1}{\metre\per\second} along $\mathbf{n}$, at $\theta \approx \ang{16.7}$ (derived)
+$u_{n0}$ & $\approx$\,\qty{26.1}{\metre\per\second} along $\mathbf{n}$, at $\theta \approx \ang{16.7}$ (derived)
   & $\varphi_\text{vent}$ & \numrange{0}{0.10}, vent open-area fraction \\
 % ------------------------------------------------------------------------------------------------
 Environment & & Discrete - integer (searched by the optimiser) & \\
@@ -191,7 +289,7 @@ $\mathit{PEN}$ & $10^4$, penalty weight on constraint violations
 
 
 
-\subsection{Results}
+\subsection{Results}\label{sec:step4-optimisation-wrapper_results}
 \subsubsection{Reference optimum}         % design variables, objective, which constraints are active
 
 

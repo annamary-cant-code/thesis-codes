@@ -90,47 +90,49 @@
 \contentsline {subsubsection}{Failure location and mode}{44}{subsection.4.4.2}%
 \contentsline {subsubsection}{Step 3 deliverable: allowable payload acceleration}{44}{subsection.4.4.2}%
 \contentsline {section}{\numberline {4.5}Step 4 - Design variables optimisation}{44}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Implementation}{45}{subsection.4.5.1}%
-\contentsline {subsubsection}{Problem formulation}{45}{subsection.4.5.1}%
-\contentsline {subsubsection}{\texttt {simulate\_airbag} oracle}{45}{subsection.4.5.1}%
-\contentsline {subsubsection}{Optimisation algorithm (wrapper)}{49}{tcb@cnt@algobox.4.2}%
-\contentsline {subsection}{\numberline {4.5.2}Results}{51}{subsection.4.5.2}%
-\contentsline {subsubsection}{Reference optimum}{51}{subsection.4.5.2}%
-\contentsline {subsubsection}{Step 4 deliverable: airbag sizing parameters}{51}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Summary of results}{51}{section.4.6}%
-\contentsline {section}{\numberline {4.7}System design hypothesis}{52}{section.4.7}%
-\contentsline {chapter}{\numberline {5}Conclusions}{53}{chapter.5}%
-\contentsline {section}{\numberline {5.1}General summary}{53}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Recommendations for future work}{53}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Project Management}{54}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Project organisation and stakeholders}{54}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Context}{54}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Supervisory team}{54}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Monitoring and communication}{55}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Stakeholder priorities}{55}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Resources by party}{55}{subsection.6.1.5}%
-\contentsline {section}{\numberline {6.2}Planning: baseline versus execution}{55}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Baseline}{55}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Scope evolution and execution}{55}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Final scope definition}{56}{subsection.6.2.3}%
-\contentsline {section}{\numberline {6.3}Critical events and their management}{56}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Scope narrowing: from airbag design to workflow and characterisation}{56}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Loss of computational resources}{56}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Split toolchain between workstations}{57}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Technical decisions under conflicting advice}{57}{subsection.6.3.4}%
-\contentsline {paragraph}{Modelling approach for the phial.}{57}{subsection.6.3.4}%
-\contentsline {paragraph}{Fidelity of the sled-test model.}{58}{subsection.6.3.4}%
-\contentsline {section}{\numberline {6.4}Self-assessment}{58}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{58}{section.6.5}%
-\contentsline {chapter}{References}{59}{chapter*.38}%
-\contentsline {chapter}{\numberline {A}Extended Market Analysis}{66}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Value-chain actors}{66}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{68}{appendix.A.2}%
-\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{70}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Safety precautions}{70}{appendix.B.1}%
-\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{70}{appendix.B.2}%
-\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{71}{appendix.C}%
-\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{72}{appendix*.40}%
+\contentsline {subsection}{\numberline {4.5.1}Implementation choices}{45}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}\texttt {simulate\_airbag} oracle}{45}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}\texttt {differential\_evolution} optimisation algorithm}{49}{subsection.4.5.3}%
+\contentsline {subsubsection}{Algorithm choice and design vector}{49}{subsection.4.5.3}%
+\contentsline {subsubsection}{Design feasibility and score}{50}{equation.4.13}%
+\contentsline {subsubsection}{Steps of one Differential Evolution run}{50}{equation.4.15}%
+\contentsline {subsubsection}{Complete calculation procedure}{51}{figure.caption.35}%
+\contentsline {subsubsection}{Limitations of Differential Evolution}{52}{figure.caption.36}%
+\contentsline {subsection}{\numberline {4.5.4}Results}{54}{subsection.4.5.4}%
+\contentsline {subsubsection}{Reference optimum}{54}{subsection.4.5.4}%
+\contentsline {subsubsection}{Step 4 deliverable: airbag sizing parameters}{54}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Summary of results}{54}{section.4.6}%
+\contentsline {section}{\numberline {4.7}System design hypothesis}{54}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Conclusions}{55}{chapter.5}%
+\contentsline {section}{\numberline {5.1}General summary}{55}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Recommendations for future work}{55}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Project Management}{56}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Project organisation and stakeholders}{56}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Context}{56}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Supervisory team}{56}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Monitoring and communication}{57}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Stakeholder priorities}{57}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Resources by party}{57}{subsection.6.1.5}%
+\contentsline {section}{\numberline {6.2}Planning: baseline versus execution}{57}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Baseline}{57}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Scope evolution and execution}{57}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Final scope definition}{58}{subsection.6.2.3}%
+\contentsline {section}{\numberline {6.3}Critical events and their management}{58}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Scope narrowing: from airbag design to workflow and characterisation}{58}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Loss of computational resources}{58}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Split toolchain between workstations}{59}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Technical decisions under conflicting advice}{59}{subsection.6.3.4}%
+\contentsline {section}{\numberline {6.4}Self-assessment}{60}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{60}{section.6.5}%
+\contentsline {chapter}{References}{61}{chapter*.40}%
+\contentsline {chapter}{\numberline {A}Extended Market Analysis}{68}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Value-chain actors}{68}{appendix.A.1}%
+\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{70}{appendix.A.2}%
+\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{72}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Safety precautions}{72}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{72}{appendix.B.2}%
+\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{73}{appendix.C}%
+\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{74}{appendix*.42}%
 \babel@toc {italian}{}\relax 
 \babel@toc {british}{}\relax 
 \contentsfinish 
