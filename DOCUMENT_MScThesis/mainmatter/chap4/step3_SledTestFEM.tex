@@ -23,13 +23,7 @@ Just like the FEM model for the axial compression test, the present model is bui
 \subsection{Implementation}
 
 \subsubsection{Model setup}
-% components: bay, sponge, mask, phial
-% materials: phial = Step 2 card reused as-is; sponge MAT_LOW_DENSITY_FOAM; bay, mask
-% mesh: phial include identical to Step 2 (FRACEN not set -> mesh must match)
-% contact: CONTACT_AUTOMATIC_GENERAL
-% full container vs reduced slice: slice rejected (no valid symmetry, parts slipping)
-
-As illustrated in Section\,\ref{sec:reference-mission}, the payload container considered in this model is inspired by the designed proposed by Sivieri (2021) \cite{Sivieri2021}. The payload assembly presented here is composed of four parts, as shown in Fig.\,\ref{fig:payload-assembly}: the \textit{payload bay} (the outer shell of the receptacle), the \textit{sponge} (an internal buffer between the medical payload and the receptacle, conceptually representing a protective layer such as bubble wrap, of the kind an operator would use to attenuate in-flight vibrations), the medicinal \textit{mask} (a plastic tray commonly found in pharmaceutical packaging to hold the phials in place during transport), and the glass phials (as modelled in previous Step 2, and only including one in the model setup for exemplification), overall representing a realistic carry-on configuration for typical mission scenarios.
+As illustrated in \cref{sec:reference-mission}, the payload container considered in this model is inspired by the designed proposed by Sivieri (2021) \cite{Sivieri2021}. The payload assembly presented here is composed of four parts, as shown in \cref{fig:payload-assembly}: the \textit{payload bay} (the outer shell of the receptacle), the \textit{sponge} (an internal buffer between the medical payload and the receptacle, conceptually representing a protective layer such as bubble wrap, of the kind an operator would use to attenuate in-flight vibrations), the medicinal \textit{mask} (a plastic tray commonly found in pharmaceutical packaging to hold the phials in place during transport), and the glass phials (as modelled in previous Step 2, and only including one in the model setup for exemplification), overall representing a realistic carry-on configuration for typical mission scenarios.
 
 \begin{figure}[h!]
     \centering
@@ -46,7 +40,7 @@ Two considerations should be made regarding the modelling choices:
     \item Apart from the phials' glass, only the payload bay's material has a failure criterion implemented, wrongly assuming that the sponge and the mask remain intact during an impact event. This non-realistic choice was made to purposefully focus on the accurate modelling of the phials' behaviour, supported by concrete experimental data. The other materials' data on mechanical properties is extracted from an ad-hoc literature review.
 \end{enumerate}
 
-The outer shell of the payload bay is meshed with shell elements of average length of 6\,mm size and 5\,mm thickness, default {ELFORM = 2} with two integration points through the thickness. Its material is injection-moulded ABS, modelled with \kw{MAT\_PIECEWISE\_LINEAR\_PLASTICITY} (material model \kw{MAT\_024}), as shown in LS-DYNA input\,\ref{lst:mat-bay}.
+The outer shell of the payload bay is meshed with shell elements of average length of 6\,mm size and 5\,mm thickness, default {ELFORM = 2} with two integration points through the thickness. Its material is injection-moulded ABS, modelled with \kw{MAT\_PIECEWISE\_LINEAR\_PLASTICITY} (material model \kw{MAT\_024}), as shown in \cref{lst:mat-bay}.
 
 \begin{dynacard}[label=lst:mat-bay]{ABS material card for the payload bay}
 *MAT_PIECEWISE_LINEAR_PLASTICITY
@@ -74,7 +68,7 @@ $      ES1       ES2       ES3       ES4       ES5       ES6       ES7       ES8
 \end{itemize}
 
 
-The mask holding the glass phials is meshed with shell elements of 0.5\,mm thickness, with the material card in LS-DYNA input\,\ref{lst:mat-mask}. The mask material is polypropylene (PP), modelled as linear elastic with \kw{MAT\_ELASTIC} (material model \kw{MAT\_001}), as shown in LS-DYNA input\,\ref{lst:mat-mask}. No failure criterion is defined, so the mask cannot fail.
+The mask holding the glass phials is meshed with shell elements of 0.5\,mm thickness, with the material card in \cref{lst:mat-mask}. The mask material is polypropylene (PP), modelled as linear elastic with \kw{MAT\_ELASTIC} (material model \kw{MAT\_001}), as shown in \cref{lst:mat-mask}. No failure criterion is defined, so the mask cannot fail.
 
 \begin{dynacard}[label=lst:mat-mask]{PP material card for the mask}
 *MAT_ELASTIC
@@ -93,9 +87,9 @@ $      MID       RHO         E        PR        DA        DB         K
   \item \texttt{PR}: Poisson's ratio, 0.40.
 \end{itemize}
 
-The sponge is meshed with [element type and size?]. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on \hl{FIND SOURCE HERE} and is shown in Figure\,\ref{fig:sponge_curve}, with the material card in LS-DYNA input\,\ref{lst:mat-sponge}.
+The sponge is meshed with [element type and size?]. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on \hl{FIND SOURCE HERE} and is shown in \cref{fig:sponge_curve}, with the material card in \cref{lst:mat-sponge}.
 
-The sponge material is a polyurethane foam, modelled with \kw{MAT\_LOW\_DENSITY\_FOAM} (material model \kw{MAT\_057}), as shown in LS-DYNA input\,\ref{lst:mat-sponge}.
+The sponge material is a polyurethane foam, modelled with \kw{MAT\_LOW\_DENSITY\_FOAM} (material model \kw{MAT\_057}), as shown in \cref{lst:mat-sponge}.
 
 \begin{dynacard}[label=lst:mat-sponge]{Polyurethane foam material card for the sponge}
 *MAT_LOW_DENSITY_FOAM
@@ -112,7 +106,7 @@ $    SHAPE      FAIL    BVFLAG        ED     BETA1      KCON       REF
 \begin{itemize}
   \item \texttt{RHO}: Density, 2.50E-08 kg/mm$^3$ (25 kg/m$^3$);
   \item \texttt{E}: Young's modulus \hl{recheck the manual} used in tension, 5.0\,GPa;
-  \item \texttt{LCID}: ID of the load curve defining the nominal stress versus strain in compression, i.e. curve 1, given in LS-DYNA input\,\ref{lst:curve-sponge} and plotted in Fig.\,\ref{fig:sponge_curve};
+  \item \texttt{LCID}: ID of the load curve defining the nominal stress versus strain in compression, i.e. curve 1, given in \cref{lst:curve-sponge} and plotted in \cref{fig:sponge_curve};
   \item \texttt{HU}: Hysteretic unloading factor, 1.0. With this value there is no hysteretic unloading: the foam unloads along the loading curve and no energy is dissipated through hysteresis;
   \item \texttt{DAMP}: Viscous coefficient, 0.05, which models damping effects (recommended range 0.05-0.50 according to the LS-DYNA user manual \hl{FIND EXACT PAGES}).
 \end{itemize}
@@ -153,7 +147,7 @@ The parts interact through \kw{CONTACT\_AUTOMATIC\_GENERAL} in LS-DYNA, which ag
 
 
 \subsubsection{Loading through an acceleration pulse}
-The displacement forced onto the payload bay is applied through an acceleration pulse prescribed through \kw{BOUNDARY\_PRESCRIBED\_MOTION\_RIGID} on a selection of nodes on the bay's mesh forming two rigid rings through the keyword \kw{CONSTRAINED\_NODAL\_RIGID\_BODY} (see Fig.\,\ref{fig:rigid-rings}), virtually representing the strapping mechanism that would be implemented in the corresponding laboratory sled test. The rest of the bay remains deformable. The prescribed acceleration-time curve has a trapezoidal shape: an initial ramp of duration $t_r$, a plateau at constant acceleration $a$ of duration $t_p$, and a descending ramp of duration $t_r$ again\footnote{The duration of $t_r$ with respect to the entire duration of the phenomenon is governed by the parameter \texttt{RISE\_FRACTION}~$\in (0,\,0.5)$ that is arbitrarily set to 0.2 to generate the present family of curves. A value of \texttt{RISE\_FRACTION = 0} implies a fully rectangular pulse, while \texttt{RISE\_FRACTION = 0.5} corresponds to a triangular-shaped pulse.}. The ramps avoid discontinuities in the acceleration, which would excite spurious high-frequency oscillations, so that the velocity and displacement histories remain smooth. The acceleration is therefore applied at the attachment points, with the possibility to choose the degree of freedom in which to displace the bay (namely X, Y, or Z, and sweeping to detect the most critical one), and reaches the phials only after being transmitted through the deformable bay, the sponge and the mask.
+The displacement forced onto the payload bay is applied through an acceleration pulse prescribed through \kw{BOUNDARY\_PRESCRIBED\_MOTION\_RIGID} on a selection of nodes on the bay's mesh forming two rigid rings through the keyword \kw{CONSTRAINED\_NODAL\_RIGID\_BODY} (see \cref{fig:rigid-rings}), virtually representing the strapping mechanism that would be implemented in the corresponding laboratory sled test. The rest of the bay remains deformable. The prescribed acceleration-time curve has a trapezoidal shape: an initial ramp of duration $t_r$, a plateau at constant acceleration $a$ of duration $t_p$, and a descending ramp of duration $t_r$ again\footnote{The duration of $t_r$ with respect to the entire duration of the phenomenon is governed by the parameter \texttt{RISE\_FRACTION}~$\in (0,\,0.5)$ that is arbitrarily set to 0.2 to generate the present family of curves. A value of \texttt{RISE\_FRACTION = 0} implies a fully rectangular pulse, while \texttt{RISE\_FRACTION = 0.5} corresponds to a triangular-shaped pulse.}. The ramps avoid discontinuities in the acceleration, which would excite spurious high-frequency oscillations, so that the velocity and displacement histories remain smooth. The acceleration is therefore applied at the attachment points, with the possibility to choose the degree of freedom in which to displace the bay (namely X, Y, or Z, and sweeping to detect the most critical one), and reaches the phials only after being transmitted through the deformable bay, the sponge and the mask.
 
 \begin{figure}[h!]
     \centering
@@ -171,7 +165,7 @@ The impact is characterised by an initial velocity $\mathbf{u}_0 = (u_{x0}, u_{y
   \label{eq:pulse_area}
 \end{equation}
 
-This condition allows to define a family of acceleration curves as shown in Fig.\,\ref{fig:accel-pulses}: for a given amplitude $a$, Eq.\,\eqref{eq:pulse_area} fixes the plateau duration $t_p = \lVert \mathbf{u}_0 \rVert / a - t_r$, and therefore the characteristic time scale of the event. The aim is to reproduce the pulse felt by the payload bay during an impact as closely as possible, applying an acceleration profile similar to the peak observed in such an event.
+This condition allows to define a family of acceleration curves as shown in \cref{fig:accel-pulses}: for a given amplitude $a$, \cref{eq:pulse_area} fixes the plateau duration $t_p = \lVert \mathbf{u}_0 \rVert / a - t_r$, and therefore the characteristic time scale of the event. The aim is to reproduce the pulse felt by the payload bay during an impact as closely as possible, applying an acceleration profile similar to the peak observed in such an event.
 
 \begin{figure}[h!]
     \centering
@@ -180,7 +174,7 @@ This condition allows to define a family of acceleration curves as shown in Fig.
     \label{fig:accel-pulses}
 \end{figure}
 
-The maximum acceleration (the value of the acceleration plateau) that the phials can withstand is found with a search procedure analogous to the calibration of \texttt{FT} for Step 2 of the workflow: the amplitude $a$ is varied step by step, with the duration of the simulation adjusted through Eq.\,\eqref{eq:pulse_area}, until the threshold for the initiation of phial failure is found. Since a larger amplitude also implies a shorter pulse, the resulting limit refers to this pulse shape and to the given initial velocity and is expressed in terms of the acceleration prescribed at the rings. 
+The maximum acceleration (the value of the acceleration plateau) that the phials can withstand is found with a search procedure analogous to the calibration of \texttt{FT} for Step 2 of the workflow: the amplitude $a$ is varied step by step, with the duration of the simulation adjusted through \cref{eq:pulse_area}, until the threshold for the initiation of phial failure is found. Since a larger amplitude also implies a shorter pulse, the resulting limit refers to this pulse shape and to the given initial velocity and is expressed in terms of the acceleration prescribed at the rings. 
 
 
 \subsubsection{Mass scaling}
@@ -201,7 +195,7 @@ Explicit analyses must abide to the Courant-Friedrichs-Lewy (CFL) condition, whi
 
 The element-specific combination of $L_e$ and $c$ that minimises their ratio dictates the size of the allowable timestep and, therefore, the speed at which the calculations can continue. In the case of the sled test model, the 0.1\,mm phial shells set the stable timestep ($\Delta t \approx l_e/c \approx 1.9\times10^{-5}$~ms), yielding $10^6$ to $10^7$ calculation cycles for phenomena of the duration between 10 and 100\,ms such as the simulated event, demanding significant computational capacity and runtime.
 
-As the speed of sound in elastic materials is inversely proportional to the square root of the material's density ($c = \sqrt{\frac{M}{\rho}}$, where $M$ represents the appropriate elastic modulus, such as Young's modulus $E$ or bulk/shear moduli $K$ and $G$), a common procedure adopted in FEM practice to raise the stable timestep is to locally increase material density in the critical elements by artificially adding non-physical mass, directly reducing $c$ and subsequently increasing $\Delta t_{\text{crit}}$ as per Eq.\,\eqref{eq:t-crit-expl}. In LS-DYNA, \textit{mass scaling} is activated through the keyword \kw{CONTROL\_TIMESTEP}, parameter \texttt{DT2MS}: given the target $\Delta t$, and choosing whether scaling applies only to elements below the target (negative \texttt{DT2MS}), the solver calculates the density increase and, therefore, the local non-physical mass increase to bring the stable timestep up to the hard-coded value. While mass scaling accelerates solver runtime, excessive artificial mass addition might compromise physical realism of the simulated phenomenon. While this is negligible in static or quasi-static conditions where dynamic effects do not influence numerical results, it becomes particularly relevant during dynamic impact events, where the inertial component significantly dictates stress magnitudes and transient structural responses. An ideal timestep to impose is one that minimises calculation runtimes while keeping the model's physics realistic and the numerical results reliable.
+As the speed of sound in elastic materials is inversely proportional to the square root of the material's density ($c = \sqrt{\frac{M}{\rho}}$, where $M$ represents the appropriate elastic modulus, such as Young's modulus $E$ or bulk/shear moduli $K$ and $G$), a common procedure adopted in FEM practice to raise the stable timestep is to locally increase material density in the critical elements by artificially adding non-physical mass, directly reducing $c$ and subsequently increasing $\Delta t_{\text{crit}}$ as per \cref{eq:t-crit-expl}. In LS-DYNA, \textit{mass scaling} is activated through the keyword \kw{CONTROL\_TIMESTEP}, parameter \texttt{DT2MS}: given the target $\Delta t$, and choosing whether scaling applies only to elements below the target (negative \texttt{DT2MS}), the solver calculates the density increase and, therefore, the local non-physical mass increase to bring the stable timestep up to the hard-coded value. While mass scaling accelerates solver runtime, excessive artificial mass addition might compromise physical realism of the simulated phenomenon. While this is negligible in static or quasi-static conditions where dynamic effects do not influence numerical results, it becomes particularly relevant during dynamic impact events, where the inertial component significantly dictates stress magnitudes and transient structural responses. An ideal timestep to impose is one that minimises calculation runtimes while keeping the model's physics realistic and the numerical results reliable.
 
 Due to the glass phials' fine mesh, artificial mass is added entirely on the phial. Through a process of trial-and-error, it was observed that increasing the timestep by one order of magnitude would result in a $\approx$50 to 60x local mass increase, which in turn would reduce the phial's fundamental frequency by a factor of $\sqrt{[50,\,60]} \approx [7.1,\,7.7]\times$ (considering the relation $\omega_1 = \sqrt{\frac{k}{m}}$, where \textit{k} and \textit{m} are the equivalent stiffness and mass of a mass-spring system representing the payload assembly). In transient impact dynamics, reducing the natural frequency shifts the system more out of phase with the input pulse width, artificially smoothing or delaying the peak contact forces between the phial and the sponge. To avoid incurring in this possibility, it was decided to settle for a timestep value of $2\times10^{-5}$\,ms, increasing the phial's mass only by $2.7\times10^{-4}$\,g and, thus, maintaining overall reliability.
 
@@ -213,13 +207,50 @@ The failure event must be comparable to the one produced experimentally in Step 
 
 
 \subsection{Results}
-\subsubsection{Model verification}        % energy balance, added mass, hourglass
-Phial internal-energy discontinuity (\texttt{MATSUM}), plus the jump in the phial node's acceleration (\texttt{NODOUT}).
-\subsubsection{Acceleration sweep}        % survive/fail per level -> allowable
 \subsubsection{Failure location and mode} % crack origin vs Step 2 / MTS breaking modes
 Dilemma between choosing similar failure mode and similar loading scenario, loading scenario is less conservative (higher acceleration allowable) so I went with similar failure mode although caused by different loading scenario. 
 
-\subsubsection{Step 3 deliverable: allowable payload acceleration}
+\begin{figure}[h!]
+    \centering
+    % TODO: replace the placeholder box with the actual figure once available
+    % \includegraphics[width=0.8\textwidth]{figures/chap4/step3-fem-sled/phial_damage_hisv1.png}
+    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: phial damage, \texttt{HISV\#1} contour}}
+    \caption{Glass phial damage in the sled test simulation: \texttt{MAT\_GLASS} \texttt{HISV\#1} contour plot (max-IP fringe), where \texttt{HISV\#1} $= 1$ marks crack initiation.}
+    \label{fig:step3-phial-damage-hisv1}
+\end{figure}
 
+
+
+\subsubsection{Model verification}        % energy balance, added mass, hourglass
+Phial internal-energy discontinuity (\texttt{MATSUM}), plus the jump in the phial node's acceleration (\texttt{NODOUT}).
+
+----> HOW???? rethink this
+
+\subsubsection{Acceleration sweep}        % survive/fail per level -> allowable
+* manually verified, when history variable turns into 1!!!
+* tolerance -> 5 g's
+
+
+
+\subsubsection{Step 3 deliverable: allowable payload acceleration}
+* allowable value: XXX (mabe 230 g)
+* main failure mode: dome breaking
+* impact direction : perpendicular to axial
+
+\begin{table}[h!]
+\centering
+\caption{Allowable payload acceleration obtained from the sled test simulation.}
+\label{tab:step3-summary-data}
+\begin{thesistable}{
+  colspec = {X[1.3,l] X[1,l] X[1.6,l]},
+}
+Quantity & Value & Source / note \\
+Allowable peak acceleration ($a_{allow}$) & \hl{230}\,g & Highest plateau amplitude without phial failure; bracket width equal to the sweep step of \hl{10}\,g \\
+Critical loading direction & Perpendicular to the phial axis & Most critical degree of freedom of the X/Y/Z sweep \\
+Main failure mode & Dome breaking & Comparable to Mode A of Step 1 (\cref{tab:step1-summary-data}) \\
+Velocity shed ($\lVert \mathbf{u}_0 \rVert$) & \qty{26.1}{\metre\per\second} & Resultant of $u_{x0}$ and $u_{y0}$ from Step 0 (\cref{tab:step0-summary-data}) \\
+Pulse shape & Trapezoidal & \texttt{RISE\_FRACTION} = 0.2, area constrained by \cref{eq:pulse_area} \\
+\end{thesistable}
+\end{table}
 
 

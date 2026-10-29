@@ -1,4 +1,5 @@
 % LTeX: language=en-GB
+\PassOptionsToPackage{capitalise}{cleveref} % \cref gives "Figure 3.2", not "figure 3.2"
 \documentclass{tudelft-report}
 
 \usepackage[italian,british]{babel}
@@ -23,11 +24,6 @@
 % Placeholder for content still to be written: \fillin{what goes here}
 \newcommand{\fillin}[1]{\hl{[TO FILL: #1]}}
 % \renewcommand{\hl}[1]{#1} % Uncomment to hide all highlights (final version)
-% Thesis version: \confidentialtrue = full, strictly confidential version (never disclosed)
-%                 \confidentialfalse = public version with modified data (TU Delft repository)
-% Usage: \ifconfidential <full-version content> \else <public-version content> \fi
-\newif\ifconfidential
-\confidentialtrue
 % Ragged-right column, width given as a fraction of the line width: P{0.25}
 \newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{\dimexpr#1\linewidth-2\tabcolsep\relax}}
 \usepackage[most]{tcolorbox}
@@ -50,7 +46,7 @@
 }
 \newcommand{\dynahl}[1]{\textcolor{red}{\bfseries #1}}  % highlight used via !...! escapes in dynacard
 \newcommand{\dynafont}{\footnotesize}  % card font size; \renewcommand{\dynafont}{\scriptsize} locally for narrow cards
-\newtcblisting[auto counter, number within=chapter, list inside=lol]{dynacard}[2][]{
+\newtcblisting[auto counter, number within=chapter, list inside=lol, crefname={LS-DYNA input}{LS-DYNA inputs}]{dynacard}[2][]{
   listing only, enhanced, sharp corners,
   colback=white, colframe=black!35, boxrule=0.4pt,
   left=8mm, top=1mm, bottom=1mm,
@@ -212,11 +208,13 @@ Payloads}
 %% ----------------------------------------------------------------------
 
 \appendix
+\crefalias{chapter}{appendix}      % \cref gives "Appendix B", not "Chapter B"
+\crefalias{section}{subappendix}   % and "Appendix B.1", not "Section B.1"
 
 \input{appendix/appendix-a}
 \input{appendix/appendix-b}
 \input{appendix/appendix-c}
-
+\input{appendix/appendix-d}
 
 \backmatter
 \input{backmatter/ringraziamenti}

@@ -3,7 +3,7 @@
 
 \begin{algobox}[label=alg:de_wrapper]{Optimisation wrapper (\texttt{differential\_evolution\_wrapper})}
 \begin{algorithmic}[1]
-\Require impact $M$, $u_{x,0}$, $u_{y,0}$; environment $P_\text{amb}$, $g$, $T_0$
+\Require impact $M$, $u_{x0}$, $u_{y0}$; environment $P_\text{amb}$, $g$, $T_0$
 \Cont requirements $a_\text{allow}$, $\mathit{SF}$; penalty weight $\mathit{PEN}$; burst knockdowns $\eta_\text{seam}$, $\mathit{SF}_\text{burst}$
 \Cont catalogues: shapes $\{\text{cyl.},\text{sph.}\}$, fabrics $\mathcal{F}$, gases $\mathcal{G}$ (\cref{tab:airbag-design-variables-selected})
 \Cont residual-speed caps $\mathcal{U}$, random seeds $\mathcal{S}$, DE settings (\textit{popsize}, \textit{maxiter}, \textit{tol})
@@ -12,8 +12,8 @@
 
 \Block{Pre-processing (done once)}
 \State $a_\text{lim} \gets a_\text{allow}/\mathit{SF}$ \Comment{limit on the peak bag load $F_n/M$}
-\State $\theta \gets \operatorname{atan2}(u_{x,0},\,u_{y,0})$ \Comment{impact axis $\mathbf{n}$}
-\State $u_{n,0} \gets \sqrt{u_{x,0}^2 + u_{y,0}^2}$
+\State $\theta \gets \operatorname{atan2}(u_{x0},\,u_{y0})$ \Comment{impact axis $\mathbf{n}$}
+\State $u_{n0} \gets \sqrt{u_{x0}^2 + u_{y0}^2}$
 \If{$a_\text{lim} \le g\cos\theta$}
   \State \textbf{error}: $a_\text{lim}$ cannot hold the payload against gravity
 \EndIf
@@ -59,7 +59,7 @@
   \State $L_0 \gets (L_0/D_0)\,D_0$ if cylinder, $L_0 \gets D_0$ if sphere \Comment{$L_0$ unused by the sphere}
   \State $n_\text{ply} \gets \operatorname{round}(n_\text{ply})$
   \State $d_\text{or} \gets 0$ \Comment{venting by breathing fabric only}
-  \State $\mathbf{r} \gets \Call{SimulateAirbag}{\mathbf{x};\ \text{fabric}, \text{gas}, a_\text{allow}{=}a_\text{lim}}$ \Comment{\cref{alg:simulate_airbag_v2}, $n_\text{inner} = 20$}
+  \State $\mathbf{r} \gets \Call{SimulateAirbag}{\mathbf{x};\ \text{fabric}, \text{gas}, a_\text{allow}{=}a_\text{lim}}$ \Comment{\cref{alg:simulate_airbag}, $n_\text{inner} = 20$}
   \If{the simulation crashes \textbf{or} $m_\text{tot}$ is not finite}
     \State \Return $10^{12}$
   \EndIf
@@ -73,8 +73,8 @@
   \State $u_\text{land} \gets \Call{LandingSpeed}{\mathbf{r}}$
   \State $v_\text{acc} \gets \max(0,\ a_{n,\text{peak}} - a_\text{lim})/a_\text{lim}$
   \State $v_\text{burst} \gets \max(0,\ P_\text{peak} - P_\text{burst})/P_\text{burst}$
-  \State $v_\text{reb} \gets |u_{\text{reb},y}|/u_{y,0}$ if \textit{rebounded}, else $0$
-  \State $v_\text{ures} \gets \max(0,\ u_\text{land} - u_\text{res,max})/u_{n,0}$ if $\mathit{landed}$, else $0$
+  \State $v_\text{reb} \gets |u_{\text{reb},y}|/u_{y0}$ if \textit{rebounded}, else $0$
+  \State $v_\text{ures} \gets \max(0,\ u_\text{land} - u_\text{res,max})/u_{n0}$ if $\mathit{landed}$, else $0$
   \State $\mathit{feasible} \gets \mathit{landed} \land (a_{n,\text{peak}} \le a_\text{lim}) \land (u_\text{land} \le u_\text{res,max})$
   \State \Return $\mathbf{v}, \mathit{feasible}$
 \EndFunction

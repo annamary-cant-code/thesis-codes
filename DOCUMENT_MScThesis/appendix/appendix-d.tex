@@ -1,0 +1,19 @@
+% !TEX root = ../report.tex
+\chapter{Pseudocode of the airbag sizing and optimisation tool}
+\label{appendix:pseudocode}
+
+\section{Airbag impact simulation (\texttt{simulate\_airbag})}
+\label{appendix:pseudocode-oracle}
+
+\Cref{alg:simulate_airbag} gives the core impact simulation, and \cref{alg:airbag_helpers} its geometry and orifice-flow helper functions.
+
+\input{mainmatter/chap4/step4_pseudocode/oracle}
+
+\section{Optimisation wrapper (\texttt{differential\_evolution\_wrapper})}
+\label{appendix:pseudocode-wrapper}
+
+\Cref{alg:de_wrapper} gives the sweep over residual-speed caps, shapes, fabrics and gases, and \cref{alg:de_helpers} the bounds, objective and constraint-evaluation functions.
+
+\input{mainmatter/chap4/step4_pseudocode/wrapper}
+
+

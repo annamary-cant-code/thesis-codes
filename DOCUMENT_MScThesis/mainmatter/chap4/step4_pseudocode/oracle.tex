@@ -4,7 +4,7 @@
 \begin{algobox}[label=alg:simulate_airbag]{Core airbag impact simulation (\texttt{simulate\_airbag})}
 \begin{algorithmic}[1]
 \Require design $\mathbf{x}$: shape, $D_0$, $L_0$, $P_0$, $n_\text{ply}$, $\varphi_\text{vent}$, fabric, gas (\cref{tab:airbag-design-variables-selected})
-\Cont impact $M$, $u_{x,0}$, $u_{y,0}$ ($y$ positive downward); environment; safety factors; orifice $d_\text{or}$; solver settings $t_\text{max}$, $n_\text{inner}$
+\Cont impact $M$, $u_{x0}$, $u_{y0}$ ($y$ positive downward); environment; safety factors; orifice $d_\text{or}$; solver settings $t_\text{max}$, $n_\text{inner}$
 \Ensure mass $m_\text{tot}$; peak accelerations; flags \textit{burst}, \textit{bottomed}, \textit{rebounded}, \textit{settled}, \textit{survived}
 \Cont residual and rebound velocities; final velocity $u_{\text{final},n}$; $P_\text{peak}$, $h_\text{max}$, $x_\text{final}$
 
@@ -14,11 +14,11 @@
 \State $P_\text{burst} \gets$ \cref{eq:burst_pressure} \Comment{hoop burst limit}
 \State $S \gets \pi D_0 L_0 + \pi D_0^2/2$ (cyl.) or $\pi D_0^2$ (sph.) \Comment{fabric surface}
 \State $m_\text{bag} \gets n_\text{ply}\,w\,S$
-\State $\theta \gets \operatorname{atan2}(u_{x,0},\,u_{y,0})$ \Comment{impact axis $\mathbf{n}$, kept fixed}
+\State $\theta \gets \operatorname{atan2}(u_{x0},\,u_{y0})$ \Comment{impact axis $\mathbf{n}$, kept fixed}
 
 \Block{Initial state}
 \State $t, h, y_\text{pen}, x, a_n \gets 0$
-\State $(u_x, u_y) \gets (u_{x,0}, u_{y,0})$
+\State $(u_x, u_y) \gets (u_{x0}, u_{y0})$
 \State $(A_t, V) \gets \Call{Geometry}{0}$
 \State $m_{\text{gas},0} \gets P_0 V/(R T_0)$ \Comment{initial gas charge, ideal gas}
 \State $m_\text{gas} \gets m_{\text{gas},0}$
@@ -99,7 +99,7 @@
 \end{algorithmic}
 \end{algobox}
 
-\begin{algobox}[label=alg:airbag_helpers]{Helper functions of \texttt{simulate\_airbag} -- DRAFT v2}
+\begin{algobox}[label=alg:airbag_helpers]{Helper functions of \texttt{simulate\_airbag}}
 \begin{algorithmic}[1]
 \Function{Geometry}{$h$} \Comment{contact area and volume at stroke $h$}
   \If{cylinder}

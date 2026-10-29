@@ -4,11 +4,11 @@
 
 
 \section{Problem statement}
-To properly outline and, more importantly, test the workflow proposed as a main objective of this thesis, it is necessary to identify the specific context in which this project is embedded, as it originates from prior research work conducted within the specific framework of Turin. The design inputs presented below were gathered from analysing the results presented by the group (\cite{Cavallo2020}, \cite{Bertelli2021}, \cite{Sivieri2021}, \cite{Fiorentino2021}, and \cite{Angelini2023}) and categorising them into mission aspects on which to root the proposal of Section \ref{section:proposed-approach}.
+To properly outline and, more importantly, test the workflow proposed as a main objective of this thesis, it is necessary to identify the specific context in which this project is embedded, as it originates from prior research work conducted within the specific framework of Turin. The design inputs presented below were gathered from analysing the results presented by the group (\cite{Cavallo2020}, \cite{Bertelli2021}, \cite{Sivieri2021}, \cite{Fiorentino2021}, and \cite{Angelini2023}) and categorising them into mission aspects on which to root the proposal of \cref{section:proposed-approach}.
 
 \subsection{Reference mission and design inputs}\label{sec:reference-mission}
 \subsubsection{Route and flight profile}
-The reference mission is based on a hospital-to-hospital route as initially suggested by Cavallo (2020) \cite{Cavallo2020}, connecting two hospitals across the city of Turin as shown in Fig. \ref{fig:trajectory-map}, representing a city map with route schematics. In particular, the starting point is the Molinette Hospital in the southern region of the city, and the destination is the San Giovanni Bosco hospital in the northern sector. As they are located far apart, these two hospitals require medical deliveries to traverse a broad part of the city's territory. The hospitals are connected through two possible routes:
+The reference mission is based on a hospital-to-hospital route as initially suggested by Cavallo (2020) \cite{Cavallo2020}, connecting two hospitals across the city of Turin as shown in \cref{fig:trajectory-map}, representing a city map with route schematics. In particular, the starting point is the Molinette Hospital in the southern region of the city, and the destination is the San Giovanni Bosco hospital in the northern sector. As they are located far apart, these two hospitals require medical deliveries to traverse a broad part of the city's territory. The hospitals are connected through two possible routes:
 \begin{itemize}
     \item \textbf{Route A}: Initially hypothesised by Cavallo and confirmed by Bertelli (2021) \cite{Bertelli2021}, it takes advantage of the above-water air corridor over the river Po and its tributary Stura, mostly skirting the city and flying over city ground only in the relatively short segments connecting the hospitals to the rivers. Among the two routes, it is the safest (and, thus, most certifiable according to Cavallo) as it reduces the probability of ground impact in case of drone failure due to the UAV's permanence in the above-water air corridor. This route was selected as viable within the Concept of Operations (ConOps) that informed the preliminary drafting of the SORA. Approximate length: 11\,km. Approximate duration time: 15\,min, comparable to ambulance-based delivery times.
     \item \textbf{Route B}: A crude alternative to Cavallo and Bertelli's Route A, connecting the two hospitals in a straight line over the city. Angelini (2023) \cite{Angelini2023} deemed this route infeasible based on their comparative safety analysis of delivery means, primarily due to the lack of proper risk mitigation measures concerning in-flight failures. However, as the approach proposed in this thesis aims at partially mitigating these risks, it was chosen to consider this route (at least for preliminary evaluation).
@@ -37,7 +37,7 @@ The chosen failure scenario implies an in-flight malfunction or fatal failure of
 
 
 \subsubsection{Payload container}
-The design of the payload container to be carried by the UAV platform in delivery missions was proposed, but never fully prototyped, by Sivieri (2021) \cite{Sivieri2021}. Its geometry is shown in Fig. \ref{fig:payload_container} as modelled for the scope of the present thesis: the central body is a cylinder capped with two hemispherical domes. In Sivieri's original design, this container had to be constructed via stratifying four layers, from inside out: first layer of 3d-printed PET-G with thickness 2\,mm, second layer of manually applied thermal insulation of unknown effective thickness, third layer of 3D-printed PET-G and 2\,mm thickness, and a final layer of manually-applied thermo-reflective paint. This sandwich-type structure was designed specifically for evaluating the thermal and vibration loads of a reference mission similar to the one presented earlier, and thus avoiding making considerations on transportability, attachment mechanisms, and other application-specific parameters. From a structural perspective, the first and third layer of Sivieri's design were connected by four radial ribs, but this detail was deliberately omitted in the exemplification of the payload container for modelling simplicity and redundancy, as explained later in Section \ref{section:step3-sledTest}. 
+The design of the payload container to be carried by the UAV platform in delivery missions was proposed, but never fully prototyped, by Sivieri (2021) \cite{Sivieri2021}. Its geometry is shown in \cref{fig:payload_container} as modelled for the scope of the present thesis: the central body is a cylinder capped with two hemispherical domes. In Sivieri's original design, this container had to be constructed via stratifying four layers, from inside out: first layer of 3d-printed PET-G with thickness 2\,mm, second layer of manually applied thermal insulation of unknown effective thickness, third layer of 3D-printed PET-G and 2\,mm thickness, and a final layer of manually-applied thermo-reflective paint. This sandwich-type structure was designed specifically for evaluating the thermal and vibration loads of a reference mission similar to the one presented earlier, and thus avoiding making considerations on transportability, attachment mechanisms, and other application-specific parameters. From a structural perspective, the first and third layer of Sivieri's design were connected by four radial ribs, but this detail was deliberately omitted in the exemplification of the payload container for modelling simplicity and redundancy, as explained later in \cref{section:step3-sledTest}. 
 
 \begin{figure}[h!]
     \centering
@@ -62,7 +62,7 @@ Due to the artisanal nature of this design, linked to the difficulty in modellin
 
 
 \subsubsection{Payload}
-Considering the wide variety of medical goods potentially suitable for UAV-based air transport, it was necessary to identify a payload representative of standard shipments, excluding human organs and specialised equipment (e.g. defibrillators) to focus specifically on pharmaceuticals. Therefore, glass phials of the medicinal product \textit{Akineton Fiale}, containing \textit{biperidene lactate} at a concentration of 5\,mg/ml in injectable solution and shown in Fig.\ref{fig:akineton}\footnote{Source of photo: \url{https://www.guttafarm.net/akineton-cena}.}, were chosen. The product is commercially supplied in boxes of five phials, each individually packaged in a plastic blister tray.
+Considering the wide variety of medical goods potentially suitable for UAV-based air transport, it was necessary to identify a payload representative of standard shipments, excluding human organs and specialised equipment (e.g. defibrillators) to focus specifically on pharmaceuticals. Therefore, glass phials of the medicinal product \textit{Akineton Fiale}, containing \textit{biperidene lactate} at a concentration of 5\,mg/ml in injectable solution and shown in \cref{fig:akineton}\footnote{Source of photo: \url{https://www.guttafarm.net/akineton-cena}.}, were chosen. The product is commercially supplied in boxes of five phials, each individually packaged in a plastic blister tray.
 
 \begin{figure}[h!]
     \centering
@@ -97,7 +97,7 @@ These failure scenario data must be fed into the design loop(s) proposed below t
 \section{Proposed approach}\label{section:proposed-approach}
 \subsection{Outer design loop: formalising the \textit{Safety-First} principle}\label{section:outer-design-loop}
 
-In response to the gap identified in Section \ref{section:payload-first-approach}, the first contribution of this thesis is to propose an alternative design approach adopting (and later testing) the following guidelines:
+In response to the gap identified in \cref{section:payload-first-approach}, the first contribution of this thesis is to propose an alternative design approach adopting (and later testing) the following guidelines:
 
 \begin{objectivebox}[colframe=green!45!black, colback=green!60!black!8]{\textit{Safety-First} Design Principle}
 \begin{enumerate}
@@ -113,19 +113,19 @@ In response to the gap identified in Section \ref{section:payload-first-approach
 \end{enumerate}
 \end{objectivebox}
 
-A direct consequence of applying the Safety-First design principle in UAV-based operations' design is changing the sequence of design events, as exemplified in the simple flowcharts of Fig. \ref{fig:flowcharts-mission-vs-safety}, where Fig. \ref{fig:flowchart-mission-first} and Fig. \ref{fig:flowchart-safety-first} compare scenarios in which the mission loop can be interchanged with the safety loop to achieve design convergence. 
+A direct consequence of applying the Safety-First design principle in UAV-based operations' design is changing the sequence of design events, as exemplified in the simple flowcharts of \cref{fig:flowcharts-mission-vs-safety}, where \cref{fig:flowchart-mission-first,fig:flowchart-safety-first} compare scenarios in which the mission loop can be interchanged with the safety loop to achieve design convergence. 
 
 
 \begin{figure}[!htb]
     \centering
-    \begin{subfigure}[t]{0.3\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chap3/flowchart-mission-first.pdf}
         \caption{\textit{Mission-First} approach}
         \label{fig:flowchart-mission-first}
     \end{subfigure}
     \hspace{0.08\textwidth}
-    \begin{subfigure}[t]{0.3\textwidth}
+    \begin{subfigure}[t]{0.4\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chap3/flowchart-safety-first.pdf}
         \caption{\textit{Safety-First} approach}
@@ -138,7 +138,7 @@ A direct consequence of applying the Safety-First design principle in UAV-based 
 
 
 \subsection{Inner design loop: a payload-protection subsystem design workflow}\label{section:inner-design-loop}
-This section aims to expand the \textit{Safety loop} concept presented in Section \ref{section:outer-design-loop} by informing it with the design guidelines distilled in Section \ref{section:airbag-design-guidelines}. The proposed workflow can be seen in Fig. \ref{fig:inner-design-loop}, and is divided into seven steps that bridge the gap between payload allowables' evaluation and safety device (airbag) prototyping. The loop is also split into two main branches, highlighting the boundary between the present MSc Thesis' deliverable and steps left to future developers. The first branch (steps 0-4) is partially payload-specific, meaning that some of the considerations made throughout these steps depend on the specific medical payload considered, while also generalisable to a broader spectrum of medical payload receptacles; the second branch (steps 5-7) are exclusively geometry-specific, implying that they require information on receptacle design, UAV-container hooking mechanism, and general information on system bulk, making them unattainable for the DIMEAS feasibility studies group, as they currently lack access to a functional medical payload container beyond their initial artisanal prototype by \cite{Sivieri2021}. Completing the workflow should lead directly to the \text{Mission loop} as shown earlier in Section \ref{section:outer-design-loop}.
+This section aims to expand the \textit{Safety loop} concept presented in \cref{section:outer-design-loop} by informing it with the design guidelines distilled in \cref{section:airbag-design-guidelines}. The proposed workflow can be seen in \cref{fig:inner-design-loop}, and is divided into seven steps that bridge the gap between payload allowables' evaluation and safety device (airbag) prototyping. The loop is also split into two main branches, highlighting the boundary between the present MSc Thesis' deliverable and steps left to future developers. The first branch (steps 0-4) is partially payload-specific, meaning that some of the considerations made throughout these steps depend on the specific medical payload considered, while also generalisable to a broader spectrum of medical payload receptacles; the second branch (steps 5-7) are exclusively geometry-specific, implying that they require information on receptacle design, UAV-container hooking mechanism, and general information on system bulk, making them unattainable for the DIMEAS feasibility studies group, as they currently lack access to a functional medical payload container beyond their initial artisanal prototype by \cite{Sivieri2021}. Completing the workflow should lead directly to the \text{Mission loop} as shown earlier in \cref{section:outer-design-loop}.
 
 \begin{figure}[!htb]
     \centering
@@ -149,10 +149,10 @@ This section aims to expand the \textit{Safety loop} concept presented in Sectio
 
 
 \subsubsection{Step 0 - Preliminary mission analysis}
-This step covers the preliminary analysis of the payload's impact conditions. It evaluates the drop scenario, incorporates statistical analysis of wind direction and cruising conditions, and computes the trajectory and landing location of the payload. Serving as a general free-fall analysis, this phase yields key design inputs: the free-fall time ($t_{\text{fall}}$) and the horizontal and vertical impact velocities ($u_{x,0}$, $u_{y,0}$ respectively).
+This step covers the preliminary analysis of the payload's impact conditions. It evaluates the drop scenario, incorporates statistical analysis of wind direction and cruising conditions, and computes the trajectory and landing location of the payload. Serving as a general free-fall analysis, this phase yields key design inputs: the free-fall time ($t_{\text{fall}}$) and the horizontal and vertical impact velocities ($u_{x0}$, $u_{y0}$ respectively).
 
 \subsubsection{Step 1 - Axial compression test (experimental)}
-This step covers the experimental characterisation of the glass phials' (the selected medical payload) breaking point through laboratory testing. The goal is to conduct a test campaign to characterise the phial's mechanical behaviour, specifically providing key data, such as the failure force ($F_{\text{fail}}$, better defined in Section \ref{section:step1-test}), which feeds into the next phase to accurately calibrate the Finite Element Method (FEM) model.
+This step covers the experimental characterisation of the glass phials' (the selected medical payload) breaking point through laboratory testing. The goal is to conduct a test campaign to characterise the phial's mechanical behaviour, specifically providing key data, such as the failure force ($F_{\text{fail}}$, better defined in \cref{section:step1-test}), which feeds into the next phase to accurately calibrate the Finite Element Method (FEM) model.
 
 \subsubsection{Step 2 - Axial compression test (FEM)}
 This step focuses on matching the experimental behaviour observed in Step 1 with a Finite Element Method (FEM) model to accurately reproduce the material's mechanical response. Specifically, both experimentally and in the FEM model, the phials are subjected to axial compression loads, resembling the stress type to which they would be subjected to during an impact event. To replicate the laboratory results and build a calibrated material card that captures the phial's failure behaviour, the simulation mirrors the physical testing setup as closely as possible. This yields a generally realistic phial model, complete with its brittle failure threshold ($FT_{\text{fail}}$), that can be integrated into the full sled-test impact simulation in Step 3.
@@ -165,6 +165,6 @@ This fourth and final step of the thesis deliverable translates the established 
 
 
 \subsubsection{Steps 5-7: Design of inflated configuration, folding method optimisation, impact and deployment testing}
-Steps 5 and 6 shift the focus to geometry-specific development. Step 5 details the fully inflated configuration tailored directly to the geometry of the payload and UAV, matching the gas generator mechanism to the drone layout and impact timelines. Step 6 then builds upon this complete configuration by incorporating real-world manufacturing constraints, such as folding patterns, seaming details, and stowage volume, to optimise the deployment mechanism. While inherently interconnected, Step 6 specifically targets deployment time optimisation, as defined in Table \ref{tab:variable_inventory}.
+Steps 5 and 6 shift the focus to geometry-specific development. Step 5 details the fully inflated configuration tailored directly to the geometry of the payload and UAV, matching the gas generator mechanism to the drone layout and impact timelines. Step 6 then builds upon this complete configuration by incorporating real-world manufacturing constraints, such as folding patterns, seaming details, and stowage volume, to optimise the deployment mechanism. While inherently interconnected, Step 6 specifically targets deployment time optimisation, as defined in \cref{tab:variable_inventory}.
 
 Once a preliminary design and folding mechanism are established, the prototype undergoes a two-part experimental validation campaign: Step 7A (deployment testing) and Step 7B (impact testing). This phase validates the FEM models of steps 5 and 6 by subjecting physical prototypes to real-world impact conditions, operating in an iterative feedback loop between simulation and testing until design convergence is achieved.

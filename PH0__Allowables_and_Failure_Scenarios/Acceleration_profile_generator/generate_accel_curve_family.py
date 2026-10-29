@@ -81,7 +81,7 @@ INPUT_UNITS = "g"
 
 # Family of peak accelerations to generate curves for, in INPUT_UNITS.
 # See "NOTE ON PICKING a_peak" above: these set the pulse durations.
-PEAK_ACCELERATIONS = [20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 260, 270, 280, 290, 300, 400, 500, 600]
+PEAK_ACCELERATIONS = [20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 210, 220, 225, 230, 240, 250, 260, 270, 280, 290, 300, 400, 500, 600]
 
 # Fraction of total curve duration used for rise (and, symmetrically, fall)
 # Must be in (0, 0.5). 0.5 => pure triangle, no plateau.
@@ -251,14 +251,15 @@ def plot_family(curves, scale, unit, ylabel, title, outpath):
     plt.ylabel(ylabel)
     plt.title(title, fontsize=10)
     plt.grid(True, alpha=0.4)
-    plt.legend(fontsize=8)
+    plt.legend(fontsize=8, loc="center left", bbox_to_anchor=(1.02, 0.5),
+               borderaxespad=0.0)
     if PLOT_FULL_WINDOW:
         plt.xlim(0.0, PHENOMENON_DURATION_MS)
     else:
         plt.xlim(left=0.0)
     plt.ylim(bottom=0.0)
     plt.tight_layout()
-    plt.savefig(outpath, dpi=DPI)
+    plt.savefig(outpath, dpi=DPI, bbox_inches="tight")
     plt.close()
     return outpath
 
@@ -269,7 +270,7 @@ def make_plots(curves, output_dir):
         scale=1.0,
         unit="mm/ms$^2$",
         ylabel="Acceleration (mm/ms$^2$)",
-        title=r"Equal-$\Delta v$ acceleration pulse family -- solver units (mm, ms, kg)",
+        title=r"Equal-$\Delta v$ acceleration pulse family - solver units (mm, ms, kg)",
         outpath=os.path.join(output_dir, PLOT_MM_MS2),
     )
     g_path = plot_family(
@@ -277,7 +278,7 @@ def make_plots(curves, output_dir):
         scale=G_IN_MM_PER_MS2,
         unit="g",
         ylabel="Acceleration (g)",
-        title=r"Equal-$\Delta v$ acceleration pulse family -- in g",
+        title=r"Equal-$\Delta v$ acceleration pulse family - in g",
         outpath=os.path.join(output_dir, PLOT_G),
     )
     return mm_path, g_path
