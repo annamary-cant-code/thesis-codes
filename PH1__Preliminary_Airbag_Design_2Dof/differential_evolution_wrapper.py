@@ -1,25 +1,28 @@
+import argparse
+import csv
+import os
+import time
+
 import numpy as np
 from airbag_simulation_function import simulate_airbag
-from scipy.optimize import differential_evolution
+from scipy.optimize import OptimizeResult, differential_evolution
 
 
 # ---------- run size ----------
-QUICK_TEST = True   # True -> reduced sweep for test runs, False -> full sweep
+# python differential_evolution_wrapper.py [quick|long]
+RUN_SIZES = {
+    # material only changes mass and burst pressure, not the dynamics -> one is enough for a quick test
+    "quick": dict(U_RES_VALUES=[2.0], SEEDS=(1,), POPSIZE=2, MAXITER=6, N_MATERIALS=1),
+    "long":  dict(U_RES_VALUES=[0.5, 1.0, 1.5, 2.0], SEEDS=(1, 2, 3, 4, 5), POPSIZE=12, MAXITER=200, N_MATERIALS=3),
+}
 
-if QUICK_TEST:
-    U_RES_VALUES  = [2.0]                  # [m/s] residual-speed caps swept (outer loop)
-    SEEDS         = (1,)
-    POPSIZE       = 2
-    MAXITER       = 6
-else:
-    U_RES_VALUES  = [0.5, 1.0, 1.5, 2.0]   # [m/s] residual-speed caps swept (outer loop)
-    SEEDS         = (1, 2, 3)
-    POPSIZE       = 5
-    MAXITER       = 20
+# one row per finished DE run; rows already in the file are not run again
+CSV_KEY_FIELDS = ["u_res_max", "shape", "material", "gas", "seed", "popsize", "maxiter"]
+CSV_FIELDS = CSV_KEY_FIELDS + ["f", "nit", "nfev", "seconds", "D0", "L0", "n_ply", "P0", "phi_vent", "x"]
 
 
 # ---------- requirements ----------
-A_ALLOW   = 500.0          # [m/s^2] allowable payload acceleration along n
+A_ALLOW   = 2206.5         # [m/s^2] allowable payload acceleration along n (225 g)
 SF        = 1.2            # [-]     safety factor
 A_LIM     = A_ALLOW / SF   # [m/s^2] limit on the peak bag load Fn/M
 PEN       = 1.0e4          # penalty weight, must dominate mass
@@ -45,7 +48,7 @@ scenario  = (M_payload, uy0, ux0)
 
 # ---------- environment ----------
 P_amb = 101325.0         # Pa
-g     = 9.81             # m/s^2
+g     = 9.80665          # m/s^2
 env   = (P_amb, g)
 
 T0 = 288.0               # K, fixed
@@ -73,8 +76,6 @@ gases = {                # R [J/kg·K]
     "dry air": (287.0, 1.400),
 }
 
-# material only changes mass and burst pressure, not the dynamics -> one is enough for a quick test
-MATERIAL_NAMES = list(materials.keys())[:1] if QUICK_TEST else list(materials.keys())
 GAS_NAMES = list(gases.keys())
 
 # ---------- design-space bounds ----------
@@ -252,9 +253,51 @@ def print_design_summary(shape_name, mat_name, gas_name, x, shape, r, u_res_max)
     print("="*50 + "\n")
 
 
+def load_finished_runs(path):
+    """DE runs saved by an earlier, possibly interrupted, launch: {key: result}."""
+    if not os.path.exists(path):
+        return {}
+    with open(path, newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    # a row with the wrong number of columns was cut short by a crash: that run is simply redone
+    return {tuple(row[k] for k in CSV_KEY_FIELDS): OptimizeResult(fun=float(row["f"]),
+                                                                  x=np.array(row["x"].split(), dtype=float))
+            for row in rows if None not in row and None not in row.values()}
+
+
+def save_run(path, row):
+    """Append one finished DE run. The file stays closed in between, so it can be read during a run."""
+    is_new = not os.path.exists(path)
+    while True:
+        try:
+            with open(path, "a", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
+                if is_new:
+                    writer.writeheader()
+                writer.writerow(row)
+            return
+        except PermissionError:   # e.g. the file is open in Excel, which locks it on Windows
+            print(f"  cannot write {path}: close it, retrying in 30 s", flush=True)
+            time.sleep(30)
+
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("run_size", nargs="?", default="quick", choices=RUN_SIZES)
+    run_size = parser.parse_args().run_size
+    U_RES_VALUES = RUN_SIZES[run_size]["U_RES_VALUES"]
+    SEEDS        = RUN_SIZES[run_size]["SEEDS"]
+    POPSIZE      = RUN_SIZES[run_size]["POPSIZE"]
+    MAXITER      = RUN_SIZES[run_size]["MAXITER"]
+    MATERIAL_NAMES = list(materials.keys())[:RUN_SIZES[run_size]["N_MATERIALS"]]
+
+    results_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"de_results_{run_size}.csv")
+    finished = load_finished_runs(results_path)
+
     theta, un0 = impact_axis(scenario)
-    print(f"QUICK_TEST = {QUICK_TEST} | A_LIM = {A_ALLOW:.0f}/{SF} = {A_LIM:.1f} m/s^2 | "
+    print(f"run size = {run_size} | seeds = {SEEDS} | POPSIZE = {POPSIZE} | MAXITER = {MAXITER}")
+    print(f"results file = {results_path} ({len(finished)} DE runs already saved)")
+    print(f"A_LIM = {A_ALLOW:.1f}/{SF} = {A_LIM:.1f} m/s^2 | "
           f"u_res_max sweep = {U_RES_VALUES} m/s | un0 = {un0:.2f} m/s, theta = {np.degrees(theta):.1f} deg")
     print(f"bounds: D0 in [{min_stroke(scenario, env):.3f}, {D0_MAX}] m | L0/D0 in {ASPECT_RANGE} | "
           f"n_ply in {NPLY_RANGE} | P0 in [P_amb, {P0_MAX:.0f}] Pa | phi_vent in {PHI_RANGE}")
@@ -271,12 +314,23 @@ if __name__ == "__main__":
                     gas = gases[gas_name]
                     best = None
                     for seed in SEEDS:
-                        # population = POPSIZE x n_variables (Sobol rounds up to a power of 2)
-                        res = differential_evolution(airbag_objective, make_bounds(shape, scenario, env),
-                                                    args=(shape, mat, gas, scenario, env, u_res_max),
-                                                    integrality=make_integrality(shape),
-                                                    init='sobol', popsize=POPSIZE, maxiter=MAXITER, tol=1e-4,
-                                                    polish=False, updating='deferred', workers=-1, rng=seed)
+                        key = tuple(str(v) for v in (u_res_max, shape_name, mat_name, gas_name, seed, POPSIZE, MAXITER))
+                        res = finished.get(key)
+                        if res is None:
+                            t_start = time.perf_counter()
+                            # population = POPSIZE x n_variables (Sobol rounds up to a power of 2)
+                            res = differential_evolution(airbag_objective, make_bounds(shape, scenario, env),
+                                                        args=(shape, mat, gas, scenario, env, u_res_max),
+                                                        integrality=make_integrality(shape),
+                                                        init='sobol', popsize=POPSIZE, maxiter=MAXITER, tol=1e-4,
+                                                        polish=False, updating='deferred', workers=-1, rng=seed)
+                            d_run = unpack_design(res.x, shape)
+                            save_run(results_path, dict(zip(CSV_KEY_FIELDS, key), f=repr(float(res.fun)),
+                                                        nit=res.nit, nfev=res.nfev,
+                                                        seconds=round(time.perf_counter() - t_start, 1),
+                                                        D0=d_run["D0"], L0=d_run["L0"], n_ply=d_run["n_ply"],
+                                                        P0=d_run["P0"], phi_vent=d_run["phi_vent"],
+                                                        x=" ".join(repr(float(v)) for v in res.x)))
                         if best is None or res.fun < best.fun:
                             best = res
                     results.append((shape_name, mat_name, gas_name, best))
@@ -303,4 +357,4 @@ if __name__ == "__main__":
           f"{'m_total':<10}{'u_land':<10}{'a_peak_n(g)':<13}{'feasible'}")
     for w, sn, mn, gn, oc, m, uv, av, fe in all_winners:
         print(f"{w:<10.2f}{sn:<10}{mn:<6}{gn:<9}{oc:<11}"
-              f"{m:<10.4f}{uv:<10.3f}{av/9.81:<13.1f}{fe}")
+              f"{m:<10.4f}{uv:<10.3f}{av/g:<13.1f}{fe}")

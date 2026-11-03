@@ -1,0 +1,20 @@
+#!/bin/bash
+#PBS -S /bin/bash
+#PBS -N airbag_DE
+#PBS -q asm-large
+#PBS -l nodes=1:ppn=32:typeo
+#PBS -l mem=16gb
+#PBS -l walltime=20:00:00
+#PBS -j oe
+
+cd $PBS_O_WORKDIR
+source $HOME/venv_airbag/bin/activate
+
+# one thread per worker: parallelism comes from the DE processes
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+
+RUN_SIZE=${RUN_SIZE:-long}
+LOG=airbag_DE_${RUN_SIZE}.LOG
+echo "=== job $PBS_JOBID on $(hostname), ppn=$PBS_NUM_PPN, $(date) ===" >> $LOG
+python -u differential_evolution_wrapper.py $RUN_SIZE >> $LOG 2>&1
+echo "=== exit code $?, $(date) ===" >> $LOG

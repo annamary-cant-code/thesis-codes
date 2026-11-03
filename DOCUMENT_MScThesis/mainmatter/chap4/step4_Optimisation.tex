@@ -5,7 +5,7 @@ The methodology applied in this section represents the last step of the workflow
 \begin{enumerate}
   \item \textbf{Payload mass}: $1$\,kg (initially used in Step 0, Preliminary mission analysis in \cref{section:step0-mission-analysis}, and numerically estimated in Step 3, Sled test (FEM) in \cref{section:step3-sledTest})
   \item \textbf{Impact velocity}: $u_{x0} = 7.5$\,m/s, $u_{y0} = 25$\,m/s (from Step 0)
-  \item \textbf{Allowable peak acceleration}: $a_{allow} = $\,m/s$^2$ \hl{decide on input here!!!} (from Step 3)
+  \item \textbf{Allowable peak acceleration}: $a_{allow} = 225$\,$g$
 \end{enumerate}
 
 The outputs of this section, i.e. the candidate design parameters produced by the code, can be turned into specific design recommendations for practical implementation and prototyping of the airbag device, which constitute the final deliverable of the present MSc Thesis project.
@@ -13,7 +13,7 @@ The outputs of this section, i.e. the candidate design parameters produced by th
 \subsection{Implementation choices}
 The airbag design variables optimised by the code used in Step 4 are shown in the right-most column of \cref{tab:airbag-design-variables-selected}, which also highlights the \textit{bounds} within which the search for the optimum candidate was conducted (dictated either by manufacturer information or by geometrical constraints). The design variables can be subdivided into three categories: \textit{continuous} (usually pointing to geometric features), \textit{discrete, integers} (in this case, the number of airbag fabric plies), and \textit{discrete, categorical} (such as fabric type, shape, and gas type, to which the concept of searchable bounds cannot be applied). 
 
-\begin{table}[!tbp]
+\begin{table}[!htb]
 \centering
 \caption{Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}
 \label{tab:airbag-design-variables-selected}
@@ -24,16 +24,16 @@ The airbag design variables optimised by the code used in Step 4 are shown in th
   cell{1}{3} = {c=2}{c, bg=phaseB},
   vline{3} = {wd=\gap, fg=white},
   % ---- category bands, left half
-  cell{2,7,11}{1} = {c=2}{bg=tintA, fg=phaseA, font=\tblfont\sffamily\bfseries},
-  hline{7,11} = {1-2}{0.6pt, fg=grouprulecol},
+  cell{2,7,12}{1} = {c=2}{bg=tintA, fg=phaseA, font=\tblfont\sffamily\bfseries},
+  hline{7,12} = {1-2}{0.6pt, fg=grouprulecol},
   % ---- category bands, right half
   cell{2,7,9}{3} = {c=2}{bg=tintB, fg=phaseB, font=\tblfont\sffamily\bfseries},
   hline{7,9} = {3-4}{0.6pt, fg=phaseB!45},
   % ---- derived quantities (not inputs), greyed out
-  cell{6,14}{1-2} = {fg=navy!60, font=\tblfont\itshape},
+  cell{6,15}{1-2} = {fg=navy!60, font=\tblfont\itshape},
   % ---- categorical variables: one row per option
   cell{11}{3} = {r=3}{l},
-  cell{14}{3} = {r=5}{l},
+  cell{14}{3} = {r=6}{l},
 }
 Fixed inputs and boundary conditions & & Optimisable design variables & \\
 % ------------------------------------------------------------------------------------------------
@@ -47,29 +47,31 @@ $u_{x0}$ & \qty{7.5}{\metre\per\second}, horizontal impact speed
 $u_{n0}$ & $\approx$\,\qty{26.1}{\metre\per\second} along $\mathbf{n}$, at $\theta \approx \ang{16.7}$ (derived)
   & $\varphi_\text{vent}$ & \numrange{0}{0.10}, vent open-area fraction \\
 % ------------------------------------------------------------------------------------------------
-Environment & & Discrete - integer (searched by the optimiser) & \\
+Environment and fixed parameters & & Discrete - integer (searched by the optimiser) & \\
 $P_\text{amb}$ & \qty{101325}{\pascal}, ambient pressure
   & $n_\text{ply}$ & $\{1,\dots,4\}$, number of fabric plies \\
-$g$ & \qty{9.81}{\metre\per\second\squared}
+$g$ & \qty{9.80665}{\metre\per\second\squared}
   & Discrete - categorical (enumerated) & \\
-$T_0$ & \qty{288}{\kelvin}, initial gas temperature
+$T_0$ & \qty{288}{\kelvin}, average gas temperature
   & Shape & sphere ($k = 0.5$), cylinder ($k = 1$) \\
+$d_\text{or}$ & \qty{0}{\metre}, orifice diameter (fabric venting only)
+  & Fabric & Nylon 6,6, silicone-coated: \qty{600}{\newton\per\centi\metre}, \qty{180}{\gram\per\metre\squared} \\
 % ------------------------------------------------------------------------------------------------
-Requirements and safety factors & & Fabric & Nylon 6,6, silicone-coated: \qty{600}{\newton\per\centi\metre}, \qty{180}{\gram\per\metre\squared} \\
-$a_\text{allow}$ & \qty{500}{\metre\per\second\squared}, allowable payload acceleration
-  & & PET, PU-coated: \qty{550}{\newton\per\centi\metre}, \qty{190}{\gram\per\metre\squared} \\
-$\mathit{SF}$ & 1.2, safety factor on $a_\text{allow}$
+Requirements and safety factors & & & PET, PU-coated: \qty{550}{\newton\per\centi\metre}, \qty{190}{\gram\per\metre\squared} \\
+$a_\text{allow}$ & \qty{2206.50}{\metre\per\second\squared} (225\,$g$), allowable payload acceleration
   & & Aramid, coated: \qty{1000}{\newton\per\centi\metre}, \qty{260}{\gram\per\metre\squared} \\
-$a_\text{lim}$ & $a_\text{allow}/\mathit{SF} \approx \qty{417}{\metre\per\second\squared}$ (derived)
+$\mathit{SF}$ & 1.2, safety factor on $a_\text{allow}$
   & Gas & N\textsubscript{2}: $R = \qty{296.8}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.400$ \\
-$u_\text{res,max}$ & \qtylist{0.5;1.0;1.5;2.0}{\metre\per\second}, residual speed cap (swept)
+$a_\text{lim}$ & $a_\text{allow}/\mathit{SF} \approx \qty{1839}{\metre\per\second\squared}$ (derived)
   & & He: $R = \qty{2076.9}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.667$ \\
-$\eta_\text{seam}$ & 0.70, seam efficiency on fabric strength
+$u_\text{res,max}$ & \qtylist{0.5;1.0;1.5;2.0}{\metre\per\second}, residual speed cap (swept)
   & & Ar: $R = \qty{208.1}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.667$ \\
-$\mathit{SF}_\text{burst}$ & 1.50, design factor on membrane tension
+$\eta_\text{seam}$ & 0.70, seam efficiency on fabric strength
   & & CO\textsubscript{2}: $R = \qty{188.9}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.289$ \\
-$\mathit{PEN}$ & $10^4$, penalty weight on constraint violations
+$\mathit{SF}_\text{burst}$ & 1.50, design factor on membrane tension
   & & Dry air: $R = \qty{287.0}{\joule\per\kilogram\per\kelvin}$, $\gamma = 1.400$ \\
+$\mathit{PEN}$ & $10^4$, penalty weight on constraint violations
+  & & \\
 \end{thesistable}
 \end{table}
 
@@ -97,9 +99,9 @@ In the case of the present thesis work, the oracle is based on the airbag simula
   \end{equation}
   which allows the code to sweep candidates across two typical airbag geometries;
 
-  \item \textbf{Increased complexity in venting mechanism}: While Zhou et al. (2019) models venting as relegated only to an orifice/valve present on the surface of the airbag, a more realistic venting mechanism would include the contribution of fabric porosity. In most applications across both the automotive and the space industries, weaving patterns of airbag fabrics are engineered to control the venting rate during impact events. To include a similar venting contribution to the model, the variable $\phi_{vent}$ (\textit{vent open-area fraction}) was introduced to indicate the fraction of fabric area treated as open pores. Hence, the total venting area (evolving throughout the simulation) is modelled as:
+  \item \textbf{Increased complexity in venting mechanism}: While Zhou et al. (2019) models venting as relegated only to an orifice/valve present on the surface of the airbag, a more realistic venting mechanism would include the contribution of fabric porosity. In most applications across both the automotive and the space industries, weaving patterns of airbag fabrics are engineered to control the venting rate during impact events. To include a similar venting contribution to the model, the variable $\varphi_\text{vent}$ (\textit{vent open-area fraction}) was introduced to indicate the fraction of fabric area treated as open pores. Hence, the total venting area (evolving throughout the simulation) is modelled as:
   \begin{equation}\label{eq:vent_area}
-  A_{vent} = A_{or} + \phi_{vent}\,(S_{surface} - A_t)
+  A_{vent} = A_{or} + \varphi_\text{vent}\,(S_{surface} - A_t)
   \end{equation}
   where $A_{or} = \frac{\pi}{4}\,d_{or}^2$ is the area of the discrete venting orifice of diameter $d_{or}$, $S_{surface}$ is the undeformed fabric surface area, and $A_t$ is the contact patch pressed against the ground, whose pores are considered as non-venting and which grows as the airbag is crushed. Keeping the venting calculations true to Zhou et al. (2019) modelling choices, the vented mass flow through the updated definition of the total venting area $A_{vent}$, with pressure ratio $\lambda = P_\text{down}/P_\text{up}$, is subsonic for $\lambda \ge 0.528$,
   \begin{equation}\label{eq:orifice_subsonic}
@@ -159,8 +161,8 @@ As the problem's variables fall into three categories (continuous, discrete inte
 \begin{equation}\label{eq:design-variables}
   \mathbf{x} =
   \begin{cases}
-    [D_0,\, L_0/D_0,\, n_\text{ply},\, P_0,\, \phi_\text{vent}] & \text{cylinder} \\
-    [D_0,\, n_\text{ply},\, P_0,\, \phi_\text{vent}] & \text{sphere}
+    [D_0,\, L_0/D_0,\, n_\text{ply},\, P_0,\, \varphi_\text{vent}] & \text{cylinder} \\
+    [D_0,\, n_\text{ply},\, P_0,\, \varphi_\text{vent}] & \text{sphere}
   \end{cases}
 \end{equation}
 
@@ -204,6 +206,15 @@ If requirements are met, each violation is zero. Alternatively, the offset $10^6
 \subsubsection{Steps of one Differential Evolution run}
 The steps of one DE run\footnote{ SciPy internally scales each variable to the interval $[0, 1]$ between its bounds, so that a step moves every variable by a comparable fraction of its range.} are shown in \cref{fig:de_generation} and consist in the following:
 
+\begin{figure}[htbp]
+  \centering
+  % \input{fig_de_generation.tex}
+  % TODO: replace the placeholder box with the actual figure once available
+  \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: one generation of a DE run}}
+  \caption{\hl{One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}
+  \label{fig:de_generation}
+\end{figure}
+
 \begin{enumerate}
   \item \textbf{Initial population:} The run starts from a population of $N$ designs placed in the design space with a Sobol sequence, which spreads the points evenly within the bounds instead of drawing them randomly. The population size $N$ is not set directly: SciPy multiplies the \texttt{POPSIZE} setting by the number of numerical design variables $n_\text{var}$ (see \cref{eq:design-variables}), and the Sobol initialisation rounds the result up to the next power of two:
   \begin{equation}
@@ -246,16 +257,6 @@ The steps of one DE run\footnote{ SciPy internally scales each variable to the i
 \end{enumerate}
 
 
-\begin{figure}[htbp]
-  \centering
-  % \input{fig_de_generation.tex}
-  % TODO: replace the placeholder box with the actual figure once available
-  \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: one generation of a DE run}}
-  \caption{\hl{One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}
-  \label{fig:de_generation}
-\end{figure}
-
-
 
 \subsubsection{Complete calculation procedure}\label{sec:de_procedure}
 The complete DE calculation procedure is shown in \cref{fig:de_procedure}. Overall, the parameters directly affecting the simulation are:
@@ -290,6 +291,7 @@ Although robust for problem formulation adopted, the Differential Evolution algo
 
 
 
+\clearpage % keep the DE figures before the Step 4 results, and the headings with the results matrix
 \subsection{Results}\label{sec:step4-optimisation-wrapper_results}
 \subsubsection{Reference optimum}         % design variables, objective, which constraints are active
 
@@ -304,8 +306,30 @@ Although robust for problem formulation adopted, the Differential Evolution algo
   \label{fig:step4-results-matrix}
 \end{figure}
 
+\clearpage % keep the results matrix inside "Reference optimum", and this heading with its table
 \subsubsection{Step 4 deliverable: airbag sizing parameters}
 % closing paragraph bridges to the design recommendations section (payload-specific)
+
+\begin{table}[h!]
+\centering
+\caption{Airbag sizing parameters obtained from the optimisation.}
+\label{tab:step4-summary-data}
+\begin{thesistable}{
+  colspec = {X[1.3,l] X[1,l] X[1.6,l]},
+}
+Quantity & Value & Source / note \\
+Diameter ($D_0$) & \hl{X.XX}\,\unit{\metre} & Continuous, bounds in \cref{tab:airbag-design-variables-selected} \\
+Aspect ratio ($L_0/D_0$) & \hl{X.XX} & Continuous, cylinder only \\
+Inflation pressure ($P_0$) & \hl{X.XX}\,\unit{\pascal} & Continuous, bounds in \cref{tab:airbag-design-variables-selected} \\
+Vent open-area fraction ($\varphi_\text{vent}$) & \hl{X.XXX} & Continuous, bounds in \cref{tab:airbag-design-variables-selected} \\
+Number of fabric plies ($n_\text{ply}$) & \hl{X} & Discrete, integer \\
+Shape & \hl{TBD} & Discrete, categorical \\
+Fabric & \hl{TBD} & Discrete, categorical \\
+Gas & \hl{TBD} & Discrete, categorical \\
+\end{thesistable}
+\end{table}
+
+\FloatBarrier % keep the Step 4 figures and table inside Section 4.5
 
 
 

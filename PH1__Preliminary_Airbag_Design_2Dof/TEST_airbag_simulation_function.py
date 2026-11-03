@@ -2,7 +2,7 @@ import contextlib
 import os
 
 from airbag_simulation_function import simulate_airbag
-from differential_evolution_wrapper import (A_ALLOW, SF, A_LIM, U_RES_MAX,
+from differential_evolution_wrapper import (A_ALLOW, SF, A_LIM,
                                             ETA_SEAM, SF_BURST, evaluate_design)
 from airbag_postprocessing import run_postprocessing
 
@@ -23,14 +23,15 @@ OUTPUT_DIR              = os.path.join(os.path.dirname(os.path.abspath(__file__)
 # -----------------------------------------------------------------------------
 
 # Environment
-g = 9.81
+g = 9.80665
 P_amb = 101325
 
 # Payload
-M_payload = 0.5
-uy0 = 17.2                # [m/s] vertical impact velocity
-ux0 = 5                   # [m/s] horizontal impact velocity
+M_payload = 1.0
+uy0 = 25.0                # [m/s] vertical impact velocity
+ux0 = 7.5                 # [m/s] horizontal impact velocity
 scenario = (M_payload, uy0, ux0)
+U_RES_MAX = 2.0           # [m/s] residual-speed cap used for the feasibility check
 
 # Geometry
 shape = 1                 # 1 = cylinder, 2 = sphere
@@ -77,8 +78,8 @@ print(f"done — check {LOG_PATH}")
 print(f"{'Fabric mass':<14}: {res['m_bag']:.5f} kg")
 print(f"{'Gas mass':<14}: {res['m_gas0']:.5f} kg")
 print(f"{'Total mass':<14}: {res['m_total']:.5f} kg")
-print(f"Peak accel y: {res['a_peak_y']:.5f} m/s^2  ({res['a_peak_y']/9.81:.2f} g)  [vertical]")
-print(f"Peak load n : {res['a_peak_n']:.5f} m/s^2  ({res['a_peak_n']/9.81:.2f} g)  [Fn/M, sizing quantity, "
+print(f"Peak accel y: {res['a_peak_y']:.5f} m/s^2  ({res['a_peak_y']/g:.2f} g)  [vertical]")
+print(f"Peak load n : {res['a_peak_n']:.5f} m/s^2  ({res['a_peak_n']/g:.2f} g)  [Fn/M, sizing quantity, "
       f"limit {A_LIM:.1f} = {A_ALLOW:.0f}/{SF}]")
 print(f"{'u_residual_y':<14}: {res['u_residual_y']:.5f} m/s  [vertical]")
 print(f"{'u_residual_n':<14}: {res['u_residual_n']:.5f} m/s  [along n]")
@@ -90,9 +91,9 @@ print(f"Bottomed    : {res['bottomed']}")
 print(f"Burst    : {res['burst']}")
 print(f"Survived    : {res['survived']}  [burst/rebound only, not the optimizer's criteria]")
 
-violations, feasible = evaluate_design(res, D0, scenario)
+violations, feasible = evaluate_design(res, D0, scenario, U_RES_MAX)
 print(f"FEASIBLE     : {feasible}  [optimizer criteria: a_peak_n<=A_LIM, "
-      f"u_residual_n<=U_RES_MAX={U_RES_MAX}, bottomed, no burst/rebound]")
+      f"landing speed<=U_RES_MAX={U_RES_MAX}, bottomed or settled]")
 print(f"  violations : " + ", ".join(f"{k}={val:.3g}" for k, val in violations.items()))
 
 if POSTPROCESS:

@@ -155,7 +155,7 @@ The reference system is downward-positive, in accordance with the direction of g
 Except for the initial conditions and the payload's mass, these quantities are updated iteratively at each timestep to produce characteristic outputs for airbag-governed impact events such as \textit{airbag volume}, \textit{internal pressure}, \textit{internal gas mass}, \textit{payload acceleration}, \textit{payload speed}, and \textit{payload displacement}. The logic of this calculation loop is schematised in \cref{fig:zhou-airbag-flowchart}, which is an adaptation of the original diagram presented in the paper. The calculation loop is divided into four blocks, run sequentially at each timestep:
 
 \begin{enumerate}
-  \item \textbf{System dynamics step}: The resultant acceleration $a$ acting on the payload is calculated based on the reaction force from the ground calculated in the previous timestep, and then integrated using the \textit{\hl{central difference scheme NEEDS MORE DETAIL?}} to obtain payload velocity $u_t$ and displacement (or stroke) $h$.
+  \item \textbf{System dynamics step}: The resultant acceleration $a$ acting on the payload is calculated based on the reaction force from the ground calculated in the previous timestep, and then integrated using the \textit{central difference scheme} to obtain payload velocity $u_t$ and displacement (or stroke) $h$.
   \item \textbf{Airbag deformation step}: The airbag volume $V_t$ and footprint area $A_t$ on the ground surface are updated according to the kinematic information from the previous timestep. In this step, the hypothesis linking the stroke to the footprint area is enforced based on geometric assumptions, as mentioned earlier.
   \item \textbf{Gas thermodynamics step}: The state variables of the gas are updated assuming adiabatic compression, as it is safe to assume that little to no heat is exchanged during the rapid compression process.
   \item \textbf{Orifice flow step}: This critical step accounts for energy dissipation during the impact event. By modelling the outward airflow as flow through a one-way valve, treated as an orifice embedded in an impermeable fabric, typical nozzle fluid dynamics equations are applied to calculate the $\Delta m$ vented at each timestep. In the case of this specific paper, mass is vented only if the internal pressure $P_{bag}$ exceeds threshold pressure $P_{open}$, greater than atmospheric pressure $P_{amb}$. Within a single timestep, venting takes place as long as the exhaust condition withstands, updating gas density $\rho_t$ and recalculating the gas' temperature $T$ and pressure in an internal feedback loop spanning over a manually controlled number of venting sub-steps.
@@ -319,7 +319,7 @@ Gas
 The table conveys the complexity of the design problem at hand, highlighting the large number of design variables. Multi-variable problems typically require an optimisation process where an optimal combination of variable values is achieved through guided iterations based on penalty concepts. This consideration forms the basis for the following chapters, in which the airbag design process is distilled into an ad-hoc workflow tailored for a specific payload application and impact scenario, focusing on a single design phase among the two presented. It is now possible to define the research-development objectives of the present thesis, leading to the proposed solution in \cref{chapter:methodology} and the specific implementation choices presented in \cref{chapter:results}.
 
 
-\section{Research-Development Objective}
+\section{Research-Development Objective}\label{sec:research-development-objective-with-questions}
 
 Having presented the context in which the research project is allocated and having gathered the necessary design information, it is possible to address the requirements set by the project commissioners:
 \begin{itemize}
@@ -330,7 +330,7 @@ Having presented the context in which the research project is allocated and havi
 These requirements can be summarised in the following Research-Development Objective and Research Questions:
 
 \begin{objectivebox}{Research-Development Objective}
-Develop and validate a design workflow to model and simulate an airbag-based protective system for UAV medical payloads using LS-DYNA, with the primary objective to ensure the structural integrity of pharmaceutical materials and their containment during drone failure and emergency payload release, thereby preventing environmental dispersion and supporting certification requirements.
+Develop and demonstrate a design workflow to model and simulate an airbag-based protective system for UAV medical payloads using LS-DYNA, with the primary objective to ensure the structural integrity of pharmaceutical materials and their containment during drone failure and emergency payload release, thereby preventing environmental dispersion and supporting certification requirements.
 \end{objectivebox}
 
 \begin{objectivebox}{Research Question(s)}

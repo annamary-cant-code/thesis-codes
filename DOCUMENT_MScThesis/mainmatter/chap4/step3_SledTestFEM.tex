@@ -207,8 +207,11 @@ The failure event must be comparable to the one produced experimentally in Step 
 
 
 \subsection{Results}
-\subsubsection{Failure location and mode} % crack origin vs Step 2 / MTS breaking modes
-Dilemma between choosing similar failure mode and similar loading scenario, loading scenario is less conservative (higher acceleration allowable) so I went with similar failure mode although caused by different loading scenario. 
+\subsubsection{Failure location and mode}
+Among the three possible directions in which the payload could be accelerated in a preliminary sweep, direction $Y$, perpendicular to the phial axis, was chosen. Although this is not coherent with the loading mode of Steps 1 and 2 of the workflow, i.e. the axial compression, it was selected as the case yielding the lowest allowable acceleration, and hence the most conservative of the three directions, which was established in a qualitative evaluation of observed damage after applying an acceleration pulse of identical amplitude in $X$, $Y$, and $Z$. Therefore, the dilemma was whether to accelerate the payload in the same direction as the compression, keeping the model consistent with the calibration step and its loading case, or to choose a different direction, corresponding to a more critical, and thus more conservative, case.
+
+In a complete airbag design workflow, this choice would follow from a complete material characterisation and from a full sweep to identify the most critical loading direction, i.e. the one in which failure is anticipated first. However, just as a complete material characterisation is not available, the full sweep could not be carried out because of the computational effort required. For the purpose of exemplification, the most critical direction was therefore adopted, as it would be within an ideal workflow, under the assumption of a material characterisation valid for any loading direction.
+
 
 \begin{figure}[h!]
     \centering
@@ -220,22 +223,12 @@ Dilemma between choosing similar failure mode and similar loading scenario, load
 \end{figure}
 
 
-
-\subsubsection{Model verification}        % energy balance, added mass, hourglass
-Phial internal-energy discontinuity (\texttt{MATSUM}), plus the jump in the phial node's acceleration (\texttt{NODOUT}).
-
-----> HOW???? rethink this
-
 \subsubsection{Acceleration sweep}        % survive/fail per level -> allowable
-* manually verified, when history variable turns into 1!!!
-* tolerance -> 5 g's
-
+The acceleration pulses used for the simulations are shown in \cref{fig:accel-pulses}. The peak acceleration was swept with steps progressively refined from 100\,$g$ to 5\,$g$. Through manual iterations, no damage was observed at a peak acceleration of 225~$g$, while damage occurred at 230~$g$. The allowable peak acceleration therefore lies between 225~$g$ and 230~$g$. Consistently with the 5~$g$ resolution adopted for the sweep, the value of 225\,$g$, i.e. the highest acceleration level without damage, is used as the allowable for the purpose of testing the airbag design workflow presented in this thesis.
 
 
 \subsubsection{Step 3 deliverable: allowable payload acceleration}
-* allowable value: XXX (mabe 230 g)
-* main failure mode: dome breaking
-* impact direction : perpendicular to axial
+The results of the acceleration sweep conducted in this step of the workflow are summarised in \cref{tab:step3-summary-data} and are adopted as the input for the final step of the airbag design workflow developed in this thesis.
 
 \begin{table}[h!]
 \centering
@@ -245,12 +238,14 @@ Phial internal-energy discontinuity (\texttt{MATSUM}), plus the jump in the phia
   colspec = {X[1.3,l] X[1,l] X[1.6,l]},
 }
 Quantity & Value & Source / note \\
-Allowable peak acceleration ($a_{allow}$) & \hl{230}\,g & Highest plateau amplitude without phial failure; bracket width equal to the sweep step of \hl{10}\,g \\
-Critical loading direction & Perpendicular to the phial axis & Most critical degree of freedom of the X/Y/Z sweep \\
+Allowable peak acceleration ($a_{allow}$) & 225\,$g$ & Highest plateau without failure, 5\,$g$ sweep step \\
+Critical loading direction & Perpendicular to the phial axis & Most critical of the X/Y/Z sweep \\
 Main failure mode & Dome breaking & Comparable to Mode A of Step 1 (\cref{tab:step1-summary-data}) \\
 Velocity shed ($\lVert \mathbf{u}_0 \rVert$) & \qty{26.1}{\metre\per\second} & Resultant of $u_{x0}$ and $u_{y0}$ from Step 0 (\cref{tab:step0-summary-data}) \\
-Pulse shape & Trapezoidal & \texttt{RISE\_FRACTION} = 0.2, area constrained by \cref{eq:pulse_area} \\
+Pulse shape & Trapezoidal & \texttt{RISE\_FRACTION} = 0.2, area from \cref{eq:pulse_area} \\
 \end{thesistable}
 \end{table}
+
+\FloatBarrier % keep the Step 3 figures and table inside Section 4.4
 
 
