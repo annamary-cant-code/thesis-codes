@@ -27,10 +27,8 @@ As illustrated in \cref{sec:reference-mission}, the payload container considered
 
 \begin{figure}[h!]
     \centering
-    % TODO: replace the placeholder box with the actual figure once available
-    % \includegraphics[width=0.8\textwidth]{figures/chap4/step3-sled/payload_assembly.png}
-    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: payload assembly FEM model}}
-    \caption{FEM model of the payload assembly, composed of the \textit{payload bay}, the \textit{sponge}, the \textit{mask} and the \textit{glass phials}.}
+    \includegraphics[width=\textwidth]{figures/chap4/step3-fem-sled/Fig_B_packaging.png}
+    \caption{FEM model of the payload assembly, viewed along the Y axis: the \textit{payload bay} shell contains the \textit{sponge}, the \textit{mask} and a single \textit{glass phial}, shown for exemplification.}
     \label{fig:payload-assembly}
 \end{figure}
 
@@ -151,10 +149,8 @@ The displacement forced onto the payload bay is applied through an acceleration 
 
 \begin{figure}[h!]
     \centering
-    % TODO: replace the placeholder box with the actual figure once available
-    % \includegraphics[width=0.8\textwidth]{figures/chap4/step3-fem-sled/rigid_rings.png}
-    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: rigid rings on the payload bay mesh}}
-    \caption[Rigid rings on the payload bay mesh]{Nodes of the payload bay mesh constrained through \kw{CONSTRAINED\_NODAL\_RIGID\_BODY} into two rigid rings, onto which the acceleration pulse is prescribed.}
+    \includegraphics[width=\textwidth]{figures/chap4/step3-fem-sled/Fig_C_payload_bay.png}
+    \caption[Rigid rings on the payload bay mesh]{Two rings of dependent nodes on the payload bay mesh, tied to a central node through \kw{CONSTRAINED\_NODAL\_RIGID\_BODY}. The acceleration pulse is prescribed on the central node.}
     \label{fig:rigid-rings}
 \end{figure}
 

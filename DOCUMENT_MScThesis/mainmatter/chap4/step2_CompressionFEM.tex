@@ -34,10 +34,8 @@ The model is composed of three parts, as shown in \cref{fig:fem-model-setup}: th
 
 \begin{figure}[h!]
     \centering
-    % TODO: replace the placeholder box with the actual figure once available
-    % \includegraphics[width=0.8\textwidth]{figures/chap4/step2-fem/fem_model_setup.png}
-    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: FEM model setup}}
-    \caption{FEM model of the axial compression test, composed of the \textit{base}, the \textit{crosshead} and the \textit{glass phial}.}
+    \includegraphics[width=\textwidth]{figures/chap4/step2-fem-phial/Fig_A_vertical_compression.png}
+    \caption{FEM model of the axial compression test in isometric (left) and front (right) view: the \textit{glass phial} is compressed between the fixed rigid \textit{base} and the rigid \textit{crosshead} moving in the $-$Y direction.}
     \label{fig:fem-model-setup}
 \end{figure}
 
@@ -148,23 +146,20 @@ An implicit modal analysis (\kw{CONTROL\_IMPLICIT\_EIGENVALUE}) was run on the f
   \centering
   \begin{subfigure}[b]{0.32\textwidth}
     \centering
-    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering Placeholder: Mode a}}
-    % \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/mode_a.png}
-    \caption{Mode \hl{X} (\hl{f}~kHz)}
+    \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Mode_07.png}
+    \caption{Mode 7 (8.179~kHz)}
     \label{fig:phial-mode-a}
   \end{subfigure}\hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \centering
-    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering Placeholder: Mode b}}
-    % \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/mode_b.png}
-    \caption{Mode \hl{X} (\hl{f}~kHz)}
+    \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Mode_18.png}
+    \caption{Mode 18 (26.202~kHz)}
     \label{fig:phial-mode-b}
   \end{subfigure}\hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \centering
-    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering Placeholder: Mode c}}
-    % \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/mode_c.png}
-    \caption{Mode \hl{X} (\hl{f}~kHz)}
+    \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Mode_27.png}
+    \caption{Mode 27 (32.890~kHz)}
     \label{fig:phial-mode-c}
   \end{subfigure}
   \caption{Mode shapes of the free glass phial from the implicit modal analysis.}
@@ -184,14 +179,13 @@ If the load were applied over a time of the same order as $T_1$, the structure's
 The phials tested experimentally showed a large dispersion in their strength properties, as well as in their breaking modes. This phenomenon is usually ascribed to the loosely controlled manufacturing process (mentioned in \cref{section:step1-test}) which naturally introduces geometric imperfections. These imperfections are not influential in the context of the medical applications for which the phials were designed, but are certainly exposed in destructive testing such as what was adopted in Step 1. For these reasons, it was necessary to introduce initial defects into the FEM model by perturbing the phial's geometry. Two options were considered:
 \begin{enumerate}
   \item Perturbing the nodes along a primarily bending (see Mode 18 in \cref{fig:phial-modes}) mode shape from the modal analysis, as to introduce a specific defect of controlled amplitude (measured in mm) over the nominal geometry;
-  \item Leaving the geometry unchanged and rotating the phial by $1^\circ$ about its centroid in the XY-plane, which introduces a misalignment between the phial axis and the loading direction (as shown in \cref{fig:phial-misalignment})
+  \item Leaving the geometry unchanged and rotating the phial by $1^\circ$ about its centroid in the YZ-plane, which introduces a misalignment between the phial axis and the loading direction (as shown in \cref{fig:phial-misalignment})
 \end{enumerate}
 
 \begin{figure}[htbp]
   \centering
-  \fbox{\parbox[c][5cm][c]{0.5\linewidth}{\centering Placeholder: Rotated phial ($1^\circ$ misalignment)}}
-  % \includegraphics[width=0.5\linewidth]{figures/chap4/step2-fem-phial/misalignment.png}
-  \caption{Phial rotated by $1^\circ$ about its centroid in the XY-plane, introducing a misalignment between the phial axis and the loading direction.}
+  \includegraphics[width=0.5\linewidth]{figures/chap4/step2-fem-phial/Fig_D_tilted_phial.png}
+  \caption{Phial rotated by $1^\circ$ about its centroid in the YZ-plane, introducing a misalignment between the phial axis and the loading direction.}
   \label{fig:phial-misalignment}
 \end{figure}
 
@@ -212,23 +206,20 @@ As shown in \cref{fig:step2-broken-dome}, some preliminary results of the FEM an
 
 \begin{figure}[htbp]
   \centering
-  % TODO: replace the placeholder boxes with the actual figures once available
-  \begin{subfigure}[b]{0.48\textwidth}
+  \begin{subfigure}[b]{0.29\textwidth}
     \centering
-    \fbox{\parbox[c][6cm][c]{0.9\linewidth}{\centering Placeholder: phial breaking in mode A}}
-    % \includegraphics[width=\textwidth]{figures/chap4/step2-fem-phial/broken_modeA.png}
-    \caption{\hl{Mode A (dome).}}
+    \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/breaking-mode-A-crop.png}
+    \caption{Mode A (dome).}
     \label{fig:step2-broken-modeA}
   \end{subfigure}
-  \hfill
-  \begin{subfigure}[b]{0.48\textwidth}
+  \hspace{1cm}
+  \begin{subfigure}[b]{0.29\textwidth}
     \centering
-    \fbox{\parbox[c][6cm][c]{0.9\linewidth}{\centering Placeholder: phial breaking in mode AD}}
-    % \includegraphics[width=\textwidth]{figures/chap4/step2-fem-phial/broken_modeAD.png}
-    \caption{\hl{Mode AD (dome and base).}}
+    \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/breaking-mode-AD-crop.png}
+    \caption{Mode AD (dome and base).}
     \label{fig:step2-broken-modeAD}
   \end{subfigure}
-  \caption{\hl{Broken phial at failure in the FEM model: (a) mode A; (b) mode AD.}}
+  \caption{Broken phial at failure in the FEM model: (a) mode A; (b) mode AD.}
   \label{fig:step2-broken-dome}
 \end{figure}
 

@@ -206,12 +206,10 @@ If requirements are met, each violation is zero. Alternatively, the offset $10^6
 \subsubsection{Steps of one Differential Evolution run}
 The steps of one DE run\footnote{ SciPy internally scales each variable to the interval $[0, 1]$ between its bounds, so that a step moves every variable by a comparable fraction of its range.} are shown in \cref{fig:de_generation} and consist in the following:
 
-\begin{figure}[htbp]
+\begin{figure}[!htb]
   \centering
-  % \input{fig_de_generation.tex}
-  % TODO: replace the placeholder box with the actual figure once available
-  \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: one generation of a DE run}}
-  \caption{\hl{One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}
+  \includegraphics[width=0.7\textwidth]{figures/chap4/step4-optimisation/de_diagram.pdf}
+  \caption{One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}
   \label{fig:de_generation}
 \end{figure}
 
