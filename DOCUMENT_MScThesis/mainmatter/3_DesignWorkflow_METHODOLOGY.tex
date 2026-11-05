@@ -12,13 +12,20 @@ The reference mission is based on a hospital-to-hospital route as initially sugg
 \begin{itemize}
     \item \textbf{Route A}: Initially hypothesised by Cavallo and confirmed by Bertelli (2021) \cite{Bertelli2021}, it takes advantage of the above-water air corridor over the river Po and its tributary Stura, mostly skirting the city and flying over city ground only in the relatively short segments connecting the hospitals to the rivers. Among the two routes, it is the safest (and, thus, most certifiable according to Cavallo) as it reduces the probability of ground impact in case of drone failure due to the UAV's permanence in the above-water air corridor. This route was selected as viable within the Concept of Operations (ConOps) that informed the preliminary drafting of the SORA. Approximate length: 11\,km. Approximate duration time: 15\,min, comparable to ambulance-based delivery times.
     \item \textbf{Route B}: A crude alternative to Cavallo and Bertelli's Route A, connecting the two hospitals in a straight line over the city. Angelini (2023) \cite{Angelini2023} deemed this route infeasible based on their comparative safety analysis of delivery means, primarily due to the lack of proper risk mitigation measures concerning in-flight failures. However, as the approach proposed in this thesis aims at partially mitigating these risks, it was chosen to consider this route (at least for preliminary evaluation).
-    \item \textbf{Alternative routes \textit{(omitted from analysis)}}: Fiorentino (2021) \cite{Fiorentino2021} and Angelini (2024)'s \cite{Angelini2023} work is rooted in minimum risk-based route selection considering territories that extend beyond city borders, specifically including the entire province\footnote{In Italy, local government is organised across three administrative levels: regions, provinces, and municipalities. Here, assessing the Province of Turin corresponds to evaluating the territorial sub-region of Piedmont administered by the provincial capital of Turin.} in case of Angelini's study. Either using the RRT* algorithm in Fiorentino's case or the Dijkstra and A* algorithms in Angelini's case, these two studies share a common approach of considering multiple layers (\hl{such as population density, shelters, and critical infrastructure CHECK}) to calculate the probabilistic minimum-risk paths for different means of transportation (eVTOL, UAV, etc.), without predefined start and end points, thereby determining the optimal drone hub location across the province. \hl{valid for FIORENTINO TOO???} The results of these works were omitted from the definition of the reference mission for two main reasons. First, they do not specifically target hospital-to-hospital operations; their scope focuses on optimising general logistics rather than facilitating inter-hospital transport, contrarily to one of the primary objectives of the present thesis. Second, their findings indicate that drone operations, when evaluated against the merit indices adopted in their analyses, are deemed unviable due to safety constraints. In contrast, the objective of this research is precisely to identify a mission scenario that is unfeasible under current conditions and implement risk-mitigation strategies to ultimately enable drone transit.
+    \item \textbf{Alternative routes \textit{(omitted from analysis)}}: Fiorentino (2021) \cite{Fiorentino2021} and Angelini (2024)'s \cite{Angelini2023} work is rooted in minimum risk-based route selection considering territories that extend beyond city borders, specifically including the entire province\footnote{In Italy, local government is organised across three administrative levels: regions, provinces, and municipalities. Here, assessing the Province of Turin corresponds to evaluating the territorial sub-region of Piedmont administered by the provincial capital of Turin.} in case of Angelini's study. Either using the RRT* algorithm in Fiorentino's case or the Dijkstra and A* algorithms in Angelini's case, these two studies share a common approach of considering multiple layers (such as population density, shelters, and critical infrastructure) to calculate the probabilistic minimum-risk paths for different means of transportation (eVTOL, UAV, etc.), either with predefined start and end points within the city of Turin and path calculation with constraints on mission time, or without predefined start and end points thereby determining the optimal drone hub location across the entire province. The results of these works were omitted from the definition of the reference mission for three main reasons:
+    \begin{itemize}
+        \item Angelini's work does not specifically target hospital-to-hospital operations, focusing on optimising general logistics rather than facilitating inter-hospital transport, contrarily to one of the primary objectives of the present thesis;
+        \item The inter-hospital trajectories proposed by Fiorentino offer little advantage in terms of time with respect to the over-the-river trajectory proposed by Bertelli. Depending on the UAV platform considered in the specific analysis, these trajectories either move inside the city territory, similarly to Route B, or extend far outside it, passing over the fields around the city, which minimises the risk but without any time constraint. Both remain valid alternatives, and the in-city variant is conceptually comparable to Route B, which is already analysed in this work. For a preliminary analysis, however, the over-the-river trajectory represents the safer option within reasonable flight times, and it is therefore adopted here, while the route over the fields may be worth considering for less time-critical missions;
+        \item Angelini's findings indicate that drone operations, when evaluated against the merit indices adopted in their analyses, are deemed unviable due to safety constraints. In contrast, the objective of this research is precisely to identify a mission scenario that is unfeasible under current conditions and implement risk-mitigation strategies to ultimately enable drone transit.
+    \end{itemize}
 \end{itemize}
 
 
 In either Route A or B, as specified in Bertelli's ConOps, the cruising height is about 75\,m, at 17\,m/s cruising velocity (approximately 70\% of the maximum cruising speed allowed by the UAV platform of 25\,m/s, unsustainable for the entire duration of the mission at the time of evaluation), with possible speed variations according to mission urgency if specified in the ConOps. 
 
 Accounting for the presence of wind in the operating environment, wind speed in Turin averages about 1.8\,m/s (6.5\,km/h) \cite{ComuneTorinoWind-AVG}, with a peak of about 28.6\,m/s (103\,km/h) in 2013 \cite{ComuneTorinoWind-MAX}.
+
+Ambient conditions are taken from the International Standard Atmosphere (ISA) at sea level, i.e. a reference temperature $T_\text{amb} = 288.15$\,K (15\,°C) and pressure $P_\text{amb} = 101325$\,Pa, consistent with the city's mean annual temperature of about 15\,°C over the 2017-2019 period \cite{ComuneTorinoTemp}. Given Turin's elevation (about 240\,m) and the 75\,m cruising height, the deviation from these values is negligible for the purposes of the preliminary design.
 
 \begin{figure}[h!]
     \centering
@@ -41,19 +48,20 @@ The design of the payload container to be carried by the UAV platform in deliver
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}[b]{0.3\textwidth}
+    \begin{subfigure}[b]{0.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chap3/payload_container_full.png}
-        \caption{Full view of the closed container.}
+        \includegraphics[width=\textwidth]{figures/chap3/payload_container_full_edit2.png}
+        \caption{Closed container.}
         \label{fig:payload_container_full}
     \end{subfigure}
-    \begin{subfigure}[b]{0.3\textwidth}
+    \hspace{1cm}
+    \begin{subfigure}[b]{0.4\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{figures/chap3/payload_container_section.png}
-        \caption{Sectioned view showing the outer shell, the foam filling, and the housed payload.}
+        \includegraphics[width=\textwidth]{figures/chap3/payload_container_section_edit2.png}
+        \caption{Sectioned view.}
         \label{fig:payload_container_section}
     \end{subfigure}
-    \caption[Payload container geometry]{\hl{IT's REALLY UGLY}Payload container geometry: cylindrical central body capped with two hemispherical domes.}
+    \caption[Payload container geometry]{Payload container geometry: cylindrical central body capped with two hemispherical domes. The sectioned view shows the outer shell, the foam filling, and the housed payload.}
     \label{fig:payload_container}
 \end{figure}
 
@@ -69,16 +77,17 @@ Considering the wide variety of medical goods potentially suitable for UAV-based
     \begin{subfigure}[b]{0.25\textwidth}
         \centering
         \includegraphics[width=\textwidth]{figures/chap3/akineton_fiale.jpg}
-        \caption{Akineton Fiale, 5\,mg/ml injectable solution, as supplied in its original packaging.}
+        \caption{Original packaging.}
         \label{fig:akineton_box}
     \end{subfigure}
-    \begin{subfigure}[b]{0.37\textwidth}
+    \hspace{1cm}
+    \begin{subfigure}[b]{0.25\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{example-image-b}
-        \caption{\hl{Single Akineton phial.}}
+        \includegraphics[height=1.34\linewidth]{figures/chap3/akineton_fiale_singola.jpg}
+        \caption{Single Akineton phial.}
         \label{fig:akineton_phial}
     \end{subfigure}
-    \caption{Akineton Fiale packaging and single phial.}
+    \caption{Akineton Fiale, 5\,mg/ml injectable solution: original packaging and single phial.}
     \label{fig:akineton}
 \end{figure}
 
@@ -113,7 +122,7 @@ In response to the gap identified in \cref{section:payload-first-approach}, the 
 \end{enumerate}
 \end{objectivebox}
 
-A direct consequence of applying the Safety-First design principle in UAV-based operations' design is changing the sequence of design events, as exemplified in the simple flowcharts of \cref{fig:flowcharts-mission-vs-safety}, where \cref{fig:flowchart-mission-first,fig:flowchart-safety-first} compare scenarios in which the mission loop can be interchanged with the safety loop to achieve design convergence. 
+A direct consequence of applying the \textit{safety-first} design principle in UAV-based operations' design is changing the sequence of design events, as exemplified in the simple flowcharts of \cref{fig:flowcharts-mission-vs-safety}, where \cref{fig:flowchart-mission-first,fig:flowchart-safety-first} compare scenarios in which the mission loop can be interchanged with the safety loop to achieve design convergence. 
 
 
 \begin{figure}[!htb]
@@ -131,14 +140,14 @@ A direct consequence of applying the Safety-First design principle in UAV-based 
         \caption{\textit{Safety-First} approach}
         \label{fig:flowchart-safety-first}
     \end{subfigure}
-    \caption{Sequence of design events in the two approaches: \textit{mission-first} and \textit{safety-first} loops.}
+    \caption{Sequence of design events in the two approaches: \textit{Mission-First} and \textit{Safety-First} loops.}
     \label{fig:flowcharts-mission-vs-safety}
 \end{figure}
 
 
 
 \subsection{Inner design loop: a payload-protection subsystem design workflow}\label{section:inner-design-loop}
-This section aims to expand the \textit{Safety loop} concept presented in \cref{section:outer-design-loop} by informing it with the design guidelines distilled in \cref{section:airbag-design-guidelines}. The proposed workflow can be seen in \cref{fig:inner-design-loop}, and is divided into seven steps that bridge the gap between payload allowables' evaluation and safety device (airbag) prototyping. The loop is also split into two main branches, highlighting the boundary between the present MSc Thesis' deliverable and steps left to future developers. The first branch (steps 0-4) is partially payload-specific, meaning that some of the considerations made throughout these steps depend on the specific medical payload considered, while also generalisable to a broader spectrum of medical payload receptacles; the second branch (steps 5-7) are exclusively geometry-specific, implying that they require information on receptacle design, UAV-container hooking mechanism, and general information on system bulk, making them unattainable for the DIMEAS feasibility studies group, as they currently lack access to a functional medical payload container beyond their initial artisanal prototype by \cite{Sivieri2021}. Completing the workflow should lead directly to the \text{Mission loop} as shown earlier in \cref{section:outer-design-loop}.
+This section aims to expand the \textit{Safety loop} concept presented in \cref{section:outer-design-loop} by informing it with the design guidelines distilled in \cref{section:airbag-design-guidelines}. The proposed workflow can be seen in \cref{fig:inner-design-loop}, and is divided into seven steps that bridge the gap between payload allowables' evaluation and safety device (airbag) prototyping. The loop is also split into two main branches, highlighting the boundary between the present MSc Thesis' deliverable and steps left to future developers. The first branch (steps 0-4) is partially payload-specific, meaning that some of the considerations made throughout these steps depend on the specific medical payload considered, while also generalisable to a broader spectrum of medical payload receptacles; the second branch (steps 5-7) are exclusively geometry-specific, implying that they require information on receptacle design, UAV-container hooking mechanism, and general information on system bulk, making them unattainable for the DIMEAS feasibility studies group, as they currently lack access to a functional medical payload container beyond their initial artisanal prototype by \cite{Sivieri2021}. Completing the workflow should lead directly to the \textit{Mission loop} as shown earlier in \cref{section:outer-design-loop}.
 
 \begin{figure}[!htb]
     \centering

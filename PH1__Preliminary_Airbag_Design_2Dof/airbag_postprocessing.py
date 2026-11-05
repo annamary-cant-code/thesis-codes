@@ -220,7 +220,9 @@ def _decorate_matrix(axes, specs, D0, a_lim, label_fs=9, title_fs=10):
 def run_postprocessing(inputs, res, feasible, show_popups=True, save_plot_matrix=True,
                        plot_matrix_formats=("png", "pdf"), make_animation=True,
                        save_animation=False, make_combined_animation=False,
-                       save_combined_animation=False, output_dir=None):
+                       save_combined_animation=False, output_dir=None,
+                       basename="airbag_plot_matrix",
+                       suptitle="Airbag Simulation (2-DOF oblique)"):
     """Plot matrix and animations for one simulate_airbag run.
     inputs: the kwargs passed to simulate_airbag (without make_plots/verbose)."""
     out_dir = output_dir or os.path.dirname(os.path.abspath(__file__))
@@ -272,10 +274,10 @@ def run_postprocessing(inputs, res, feasible, show_popups=True, save_plot_matrix
         for ax, (data, _, _) in zip(axs_m.flat, specs):
             ax.plot(t_hist, data)
         _decorate_matrix(list(axs_m.flat), specs, D0, a_lim)
-        fig_m.suptitle("Airbag Simulation (2-DOF oblique)", fontsize=13)
+        fig_m.suptitle(suptitle, fontsize=13)
         if save_plot_matrix:
             for ext in plot_matrix_formats:
-                out = os.path.join(out_dir, f"airbag_plot_matrix.{ext}")
+                out = os.path.join(out_dir, f"{basename}.{ext}")
                 fig_m.savefig(out, dpi=PLOT_MATRIX_DPI, bbox_inches="tight")
                 print(f"Saved plot matrix -> {out}")
         if not show_popups:

@@ -137,6 +137,14 @@ FORCE_SCALE = 1000.0   # kN -> N
 # runs shed 40-60%, the events before them under 10%, so anything in between
 # separates them.
 COLLAPSE_FRAC = 0.20
+
+# FT values [MPa] left out of every figure and summary, even though their
+# exports are still in the data folder.
+EXCLUDED_FTS = {61.0}
+
+# Figure size [in] of each per-mode overlay: wide and flat, so the mode figures
+# stack one above the other on a page.
+FIG_SIZE = (10, 4.5)
 # ============================================================================
 
 # "<MODE>_<3 digits>[-<decimals>]", e.g. "A_045", "A_090-5" or "AD_060".
@@ -386,7 +394,7 @@ def build_ft_colors(all_fts):
 def plot_mode(mode, curves, target_load, ft_colors, args, out_path):
     """Build and save one mode's figure. curves is a list of
     (tag, ft, disp, force). Returns the list of (ft, fail_load) for it."""
-    fig, ax = plt.subplots(figsize=(9, 6))
+    fig, ax = plt.subplots(figsize=FIG_SIZE)
 
     summary = []
     x_ends = []
@@ -426,7 +434,10 @@ def plot_mode(mode, curves, target_load, ft_colors, args, out_path):
         ax.axhline(target_load, color="red", lw=2,
                    label=f"Target failure load = {target_load:g} N")
     ax.scatter([], [], marker="o", facecolors="none", edgecolors="0.25", s=20,
-               label="Breaking load")
+               label="Failure load")
+
+    ax.grid(True, color="0.85", lw=0.6)
+    ax.set_axisbelow(True)
 
     # axes follow this mode's own trimmed curves, so its loading branch and its
     # drop fill the plot whatever load the mode fails at. The top follows the
@@ -546,6 +557,9 @@ def main():
     by_mode = defaultdict(list)
     for tag, disp_path, force_path in pairs:
         mode, ft = parse_tag(tag)
+        if any(np.isclose(ft, excluded) for excluded in EXCLUDED_FTS):
+            print(f"  EXCLUDED '{tag}': FT = {ft:g} MPa is in EXCLUDED_FTS.")
+            continue
         disp, force = build_combined_fem_curve(tag, disp_path, force_path)
         by_mode[mode].append((tag, ft, disp, force))
 

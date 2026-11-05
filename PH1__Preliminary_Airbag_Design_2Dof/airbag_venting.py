@@ -1,4 +1,7 @@
-import numpy as np
+import math
+
+# scalar-only module: math.sqrt / min / max instead of numpy, which costs ~1 us of overhead
+# per call on a single float (called ~60k times per simulation); results are bit-identical
 
 
 def Cd_from_lambda(lmbd):
@@ -19,26 +22,26 @@ def orifice_mdot(P_up, P_down, T_up, A_vent, R_gas, gamma):
 
     lmbd = P_down / P_up
 
-    lmbd_clip = float(np.clip(lmbd, 0.0, 1.0))
+    lmbd_clip = min(max(lmbd, 0.0), 1.0)
     C_D = Cd_from_lambda(lmbd_clip)
     C_D = max(C_D, 0.0)
 
-    common_term = np.sqrt(1.0 / (R_gas * T_up))
+    common_term = math.sqrt(1.0 / (R_gas * T_up))
 
     if lmbd >= 0.528:  # subsonic
 
         pr = P_up / P_down
         expo = (gamma - 1.0) / gamma
 
-        term1 = np.sqrt((2.0 * gamma) / (gamma - 1.0) * (pr ** expo))
+        term1 = math.sqrt((2.0 * gamma) / (gamma - 1.0) * (pr ** expo))
         term2_inside = (pr ** expo) - 1.0
-        term2 = np.sqrt(max(term2_inside, 0.0))
+        term2 = math.sqrt(max(term2_inside, 0.0))
 
         mdot = C_D * A_vent * P_down * common_term * term1 * term2
         return float(max(mdot, 0.0))
 
     else:  # choked
-        choke_factor = np.sqrt(gamma * (2.0 / (gamma + 1.0)) ** ((gamma + 1.0) / (gamma - 1.0)))
+        choke_factor = math.sqrt(gamma * (2.0 / (gamma + 1.0)) ** ((gamma + 1.0) / (gamma - 1.0)))
         mdot = C_D * A_vent * P_up * common_term * choke_factor
         return float(max(mdot, 0.0))
 

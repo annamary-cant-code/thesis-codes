@@ -35,8 +35,8 @@ progress just mean adding two files. A "<tag>_disp" file without a matching
 "<tag>_force" (or vice versa) is skipped with a printed warning rather than
 silently ignored.
 
-THIRD PLOT: ONE MODE, THREE CURVES
-----------------------------------
+THIRD PLOT: ONE EXPERIMENTAL MODE VS. SELECTED FEM RUNS
+-------------------------------------------------------
 The first two plots are everything against everything. The third is one
 deliberately narrow comparison instead:
 
@@ -44,12 +44,13 @@ deliberately narrow comparison instead:
      (MODE_FILTER_CODE, read from phial_failure_summary.xlsx) -- comparing a
      dome simulation against phials that failed at the base is comparing two
      different things;
-  2. that one FEM mode (MODE_A_FEM_TAG), raw -- the bare phial;
-  3. the same FEM curve corrected for the PET-G adaptor the phials were
+  2. the FEM runs listed in MODE_FILTER_FEM (mode A and mode AD), raw -- the
+     bare phial;
+  3. the same FEM curves corrected for the PET-G adaptor the phials were
      actually tested through, borrowed from PETG_ESTIMATOR_SCRIPT.
 
 Nothing else: no other FEM modes and no fitted lines, since anything extra
-just obscures the three-way comparison. Gradients go in the legend instead.
+just obscures the comparison. Gradients go in the legend instead.
 
 Because a phial's mode can be a combination ("AD" = dome + base),
 MODE_FILTER_SCOPE chooses whether pure modes, combinations, or both are kept;
@@ -95,21 +96,27 @@ MODE_FILTER_CODE = "A"
 #               solid and combinations dashed, so the two stay separable
 MODE_FILTER_SCOPE = "both"
 
-# The FEM run the third plot compares against -- the ONLY FEM curve it draws,
-# since overlaying the other modes there defeats the point of filtering the
-# experiment down to one mode. Must be one of the "<tag>" names in
-# FEM_CURVES_DIR.
-MODE_A_FEM_TAG = "modeA"
+# The FEM runs the third plot compares against -- the ONLY FEM curves it
+# draws. Keyed by their "<tag>" name in FEM_CURVES_DIR; each gives the mode
+# label shown in the legend, its colour (one per mode, shared by its phial-only
+# and PET-G corrected curves) and its line style -- solid for a pure mode,
+# dashed for a hybrid, the same convention as the experimental curves. Kept
+# clear of the experimental orange/cyan.
+MODE_FILTER_FEM = {
+    "modeA":         {"label": "A",  "color": "#c62828", "linestyle": "-"},   # deep red
+    "ModeAD_tilt01": {"label": "AD", "color": "#1a3a8f", "linestyle": "--"},  # navy -- dark enough to stay clear of batch B's cyan
+}
+# Within one mode, the phial-only and PET-G corrected curves share colour and
+# line style, so they are told apart by line width.
+FEM_RAW_LINEWIDTH = 1.3
+FEM_NORMALISED_LINEWIDTH = 2.6
 
-# The third plot also draws that same FEM curve corrected for the compliance
+# The third plot also draws each FEM curve corrected for the compliance
 # of the PET-G adaptor the phials were tested through (springs in series).
 # The correction lives in this script, which is imported by path for it.
 # If it or its PET-G raw data is missing, the corrected curve is skipped with
 # a warning and the rest of the plot is still drawn.
 PETG_ESTIMATOR_SCRIPT = "FEM-AN__EXP_PETG_stiffness_estimator.py"
-
-COLOR_FEM_PURE = "#2ca02c"        # green
-COLOR_FEM_NORMALISED = "#d62728"  # red
 
 # Folder to drop paired "<tag>_disp" / "<tag>_force" FEM history exports
 # into -- every pair found here becomes one overlaid curve, automatically.
@@ -417,14 +424,15 @@ def build_normalised_fem_curve(est, xs, ys):
     return disp_norm
 
 
-def plot_mode_filtered(groups, fem_mode_a, disp_norm, code, scope):
-    """Third plot: the phials that broke in the chosen mode, against that ONE
-    FEM mode -- raw, and corrected for the PET-G adaptor's compliance.
+def plot_mode_filtered(groups, fem_runs, code, scope):
+    """Third plot: the phials that broke in the chosen mode, against the FEM
+    runs in MODE_FILTER_FEM -- each raw, and corrected for the PET-G adaptor's
+    compliance. fem_runs is a list of (xs, ys, disp_norm, label, color, linestyle);
+    disp_norm is None when the correction couldn't be built.
 
-    Deliberately narrow: no other FEM modes and no fitted lines, since the
-    question here is just how the one simulated mode compares with the phials
-    that actually failed that way. Gradients go in the legend instead of being
-    drawn. Its own figure, so the first two plots are untouched.
+    Deliberately narrow: no other FEM modes and no fitted lines. Gradients go
+    in the legend instead of being drawn. Its own figure, so the first two
+    plots are untouched.
 
     When both kinds are shown, pure modes are solid and combinations dashed --
     batch stays the colour, so the two distinctions don't fight each other.
@@ -443,17 +451,20 @@ def plot_mode_filtered(groups, fem_mode_a, disp_norm, code, scope):
             plt.plot([], [], color=BATCH_COLORS.get(batch, "gray"), linewidth=2,
                      linestyle=linestyles[kind], label=f"Batch {batch}, {descr} (n={count})")
 
-    xs, ys, mode_label = fem_mode_a
-    k_raw = np.polyfit(xs, ys, 1)[0]
-    plt.plot(xs, ys, color=COLOR_FEM_PURE, linewidth=2,
-             label=f"FEM — Mode {mode_label}, phial only (K={k_raw:.0f} N/mm)")
-
-    if disp_norm is not None:
+    # raw curves first, then the corrected ones, so the legend reads as two blocks
+    for xs, ys, _disp_norm, mode_label, color, ls in fem_runs:
+        k_raw = np.polyfit(xs, ys, 1)[0]
+        plt.plot(xs, ys, color=color, linewidth=FEM_RAW_LINEWIDTH, linestyle=ls,
+                 label=f"FEM — Mode {mode_label}, phial only (K={k_raw:.0f} N/mm)")
+    for xs, ys, disp_norm, mode_label, color, ls in fem_runs:
+        if disp_norm is None:
+            continue
+        k_raw = np.polyfit(xs, ys, 1)[0]
         k_norm = np.polyfit(disp_norm, ys, 1)[0]
-        plt.plot(disp_norm, ys, color=COLOR_FEM_NORMALISED, linewidth=2,
-                 label=f"FEM — Mode {mode_label} + PET-G in series (K={k_norm:.0f} N/mm)")
+        plt.plot(disp_norm, ys, color=color, linewidth=FEM_NORMALISED_LINEWIDTH, linestyle=ls,
+                 label=f"FEM — Mode {mode_label} + PETG in series (K={k_norm:.0f} N/mm)")
         print(f"  FEM Mode {mode_label}: K = {k_raw:.0f} N/mm raw, "
-              f"{k_norm:.0f} N/mm corrected for the PET-G adaptor.")
+              f"{k_norm:.0f} N/mm corrected for the PETG adaptor.")
 
     total = sum(len(g) for g in groups.values())
     # The note completes "phials that broke in ...", so the adjectives have to
@@ -465,7 +476,8 @@ def plot_mode_filtered(groups, fem_mode_a, disp_norm, code, scope):
     plt.ylabel("Load (N)")
     # Two lines: the legend sits outside the axes, so the axes are narrow and a
     # one-line title of this length overruns the left edge of the figure.
-    plt.title(f"FEM Mode {mode_label}, raw vs. PET-G corrected\n"
+    fem_labels = " and ".join(run[3] for run in fem_runs)
+    plt.title(f"FEM Mode{'s' if len(fem_runs) > 1 else ''} {fem_labels}, raw vs. PETG corrected\n"
               f"phials that broke in {scope_note} (n={total})")
     plt.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), borderaxespad=0.0)
     plt.grid(True, alpha=0.3)
@@ -546,15 +558,26 @@ def main():
                 print(f"  {kind:<9} {len(group)} of {len(curves)} curves")
             if not sum(len(g) for g in groups.values()):
                 print("  No curves matched -- plot skipped.")
-            elif MODE_A_FEM_TAG not in fem_built:
-                print(f"  FEM curve '{MODE_A_FEM_TAG}' not among {sorted(fem_built)} "
-                      f"-- plot skipped. Check MODE_A_FEM_TAG.")
             else:
-                est = load_petg_estimator()
-                xs, ys, mode_label = fem_built[MODE_A_FEM_TAG]
-                disp_norm = build_normalised_fem_curve(est, xs, ys) if est else None
-                plot_mode_filtered(groups, fem_built[MODE_A_FEM_TAG], disp_norm,
-                                   MODE_FILTER_CODE, MODE_FILTER_SCOPE)
+                for tag in MODE_FILTER_FEM:
+                    if tag not in fem_built:
+                        print(f"  FEM curve '{tag}' not among {sorted(fem_built)} -- left out "
+                              f"of the plot. Check MODE_FILTER_FEM.")
+                est = None
+                fem_runs = []
+                for tag, cfg in MODE_FILTER_FEM.items():
+                    if tag not in fem_built:
+                        continue
+                    if est is None:
+                        est = load_petg_estimator() or False
+                    xs, ys, _ = fem_built[tag]
+                    disp_norm = build_normalised_fem_curve(est, xs, ys) if est else None
+                    fem_runs.append((xs, ys, disp_norm, cfg["label"], cfg["color"],
+                                     cfg.get("linestyle", "-")))
+                if fem_runs:
+                    plot_mode_filtered(groups, fem_runs, MODE_FILTER_CODE, MODE_FILTER_SCOPE)
+                else:
+                    print("  None of the MODE_FILTER_FEM curves were found -- plot skipped.")
 
 
 if __name__ == "__main__":

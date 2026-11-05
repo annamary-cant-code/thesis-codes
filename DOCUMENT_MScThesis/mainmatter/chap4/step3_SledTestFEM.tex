@@ -2,7 +2,7 @@
 % !TEX root = ../../report.tex
 
 \section{Step 3 - Sled test (FEM)}\label{section:step3-sledTest}
-The scope of this third step within the workflow is to subject the payload bay, i.e. the container of the medical payload analysed until now, to the type of acceleration it would possibly undergo in an impact event. Specifically, the idea is to imitate a \textit{sled test}, which is common practice in the automotive industry: an ATD\footnote{\textit{Anthropomorphic Test Devices}.} crash dummy is strapped onto a sled (a trolley sliding on almost frictionless rails) that is subjected to a prescribed acceleration pulse, and the response of the dummies, governed predominantly by their own inertia and the forces exerted by the restraint system, is checked against damage thresholds \hl{cite that paper with the sled test and dummy damage indices!!!!} 
+The scope of this third step within the workflow is to subject the payload bay, i.e. the container of the medical payload analysed until now, to the type of acceleration it would possibly undergo in an impact event. Specifically, the idea is to imitate a \textit{sled test}, which is common practice in the automotive industry: an ATD\footnote{\textit{Anthropomorphic Test Devices}.} crash dummy is strapped onto a sled (a trolley sliding on almost frictionless rails) that is subjected to a prescribed acceleration pulse, and the response of the dummies, governed predominantly by their own inertia and the forces exerted by the restraint system, is checked against damage thresholds \cite{Park2017}. 
 
 The model built in this Step 3 aims to simulate a similar phenomenon: here, an acceleration boundary condition is imposed on the external shell of the medical payload container, leaving its contents to be governed by their inertial response and by the contact forces exchanged between each other. The model aims to verify whether the imposed acceleration impulse damages the medical payload inside, i.e. the glass phials. The outcome is, therefore, binary: either the phials are damaged, or they are not. The information related to crack initiation and material failure is monitored through the same LS-DYNA variable activated in Step 2 to evaluate phial failure load under axial compression. The apparition of damage implies that the acceleration pulse to which the container was subjected was too high for the phials to resist and the \textit{allowable} (i.e. maximum withstandable) peak acceleration must correspond to a lower value. The test is in itself can be reduced to a threshold problem, where exceeding a certain peak acceleration immediately induces damage (with due considerations on tolerance). Finding the acceleration allowable $a_{allow}$ is an iterative process and results in obtaining the last input necessary for the airbag design optimisation code of the workflow's Step 4.
 
@@ -54,15 +54,15 @@ $      ES1       ES2       ES3       ES4       ES5       ES6       ES7       ES8
 
 \end{dynacard}
 
-\noindent where the parameters set in the material card, taken from \hl{PUT A SOURCE HERE} are:
+\noindent where the parameters set in the material card, with \texttt{E} and \texttt{PR} consistent with \cite{Le2026}, are:
 
 \begin{itemize}
-  \item \texttt{RHO}: Density, 1.05E-06 kg/mm$^3$ (1050 kg/m$^3$);
+  \item \texttt{RHO}: Density, 1.05E-06 kg/mm$^3$ (1050 kg/m$^3$, close to the 1040 kg/m$^3$ reported in \cite{Le2026});
   \item \texttt{E}: Young's modulus, 2.10\,GPa;
   \item \texttt{PR}: Poisson's ratio, 0.38;
-  \item \texttt{SIGY}: Yield stress, 0.040\,GPa (40\,MPa);
-  \item \texttt{ETAN}: Tangent modulus, 0.150\,GPa (150\,MPa), defining the slope of the hardening branch after yield. As no stress-strain curve is given (\texttt{LCSS} left blank), the material follows a bilinear elastic-plastic law;
-  \item \texttt{FAIL}: Effective plastic strain at failure, 0.025, beyond which the element is deleted.
+  \item \texttt{SIGY}: Yield stress, 0.040\,GPa (40\,MPa), assumed slightly below the tensile strength of 45\,MPa reported in \cite{Le2026};
+  \item \texttt{ETAN}: Tangent modulus, 0.150\,GPa (150\,MPa), assumed as a typical value for ABS, defining the slope of the hardening branch after yield. As no stress-strain curve is given (\texttt{LCSS} left blank), the material follows a bilinear elastic-plastic law;
+  \item \texttt{FAIL}: Effective plastic strain at failure, 0.025, assumed as a typical value for ABS, beyond which the element is deleted.
 \end{itemize}
 
 
@@ -77,15 +77,15 @@ $      MID       RHO         E        PR        DA        DB         K
          3 9.1000E-7     1.350       0.4
 \end{dynacard}
 
-\noindent where the parameters set in the material card, taken from \hl{PUT THE SOURCE HERE} are:
+\noindent where the parameters set in the material card, chosen consistently with the tensile tests on injection-moulded PP reported in \cite{Takayama2025}, are:
 
 \begin{itemize}
-  \item \texttt{RHO}: Density, 9.10E-07 kg/mm $^3$ (910 kg/m$^3$);
-  \item \texttt{E}: Young's modulus, 1.35\,GPa;
-  \item \texttt{PR}: Poisson's ratio, 0.40.
+  \item \texttt{RHO}: Density, 9.10E-07 kg/mm $^3$ (910 kg/m$^3$), typical value for PP;
+  \item \texttt{E}: Young's modulus, 1.35\,GPa (1.375--1.491\,GPa in \cite{Takayama2025});
+  \item \texttt{PR}: Poisson's ratio, 0.40 (0.411--0.420 in \cite{Takayama2025}).
 \end{itemize}
 
-The sponge is meshed with [element type and size?]. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on \hl{FIND SOURCE HERE} and is shown in \cref{fig:sponge_curve}, with the material card in \cref{lst:mat-sponge}.
+The sponge is meshed with constant-stress, 8-node hexa elements with single-point integration (\texttt{ELFORM = 1}) and average side length of 6\,mm. Its loading curve was built to describe the typical behaviour of a porous foam: an initial soft branch, followed by hardening as the porosity closes and the material densifies. The curve is based on \cite{Croop2009} and is shown in \cref{fig:sponge_curve}, with the material card in \cref{lst:mat-sponge}.
 
 The sponge material is a polyurethane foam, modelled with \kw{MAT\_LOW\_DENSITY\_FOAM} (material model \kw{MAT\_057}), as shown in \cref{lst:mat-sponge}.
 
@@ -99,14 +99,14 @@ $    SHAPE      FAIL    BVFLAG        ED     BETA1      KCON       REF
 
 \end{dynacard}
 
-\noindent where the parameters set in the material card, taken from \hl{PUT A SOURCE HERE} are:
+\noindent where the parameters set in the material card are:
 
 \begin{itemize}
-  \item \texttt{RHO}: Density, 2.50E-08 kg/mm$^3$ (25 kg/m$^3$);
-  \item \texttt{E}: Young's modulus \hl{recheck the manual} used in tension, 5.0\,GPa;
+  \item \texttt{RHO}: Density, 2.50E-08\,kg/mm$^3$ (25\,kg/m$^3$), close to the 27\,kg/m$^3$ open-cell polyurethane foam tested in \cite{Croop2009};
+  \item \texttt{E}: Young's modulus used in tension, 5.0\,GPa;
   \item \texttt{LCID}: ID of the load curve defining the nominal stress versus strain in compression, i.e. curve 1, given in \cref{lst:curve-sponge} and plotted in \cref{fig:sponge_curve};
   \item \texttt{HU}: Hysteretic unloading factor, 1.0. With this value there is no hysteretic unloading: the foam unloads along the loading curve and no energy is dissipated through hysteresis;
-  \item \texttt{DAMP}: Viscous coefficient, 0.05, which models damping effects (recommended range 0.05-0.50 according to the LS-DYNA user manual \hl{FIND EXACT PAGES}).
+  \item \texttt{DAMP}: Viscous coefficient, 0.05, which models damping effects (recommended range 0.05-0.50 according to the LS-DYNA user manual \cite[p.~453]{LSDYNA_KW_II}).
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -204,22 +204,49 @@ The failure event must be comparable to the one produced experimentally in Step 
 
 \subsection{Results}
 \subsubsection{Failure location and mode}
-Among the three possible directions in which the payload could be accelerated in a preliminary sweep, direction $Y$, perpendicular to the phial axis, was chosen. Although this is not coherent with the loading mode of Steps 1 and 2 of the workflow, i.e. the axial compression, it was selected as the case yielding the lowest allowable acceleration, and hence the most conservative of the three directions, which was established in a qualitative evaluation of observed damage after applying an acceleration pulse of identical amplitude in $X$, $Y$, and $Z$. Therefore, the dilemma was whether to accelerate the payload in the same direction as the compression, keeping the model consistent with the calibration step and its loading case, or to choose a different direction, corresponding to a more critical, and thus more conservative, case.
 
-In a complete airbag design workflow, this choice would follow from a complete material characterisation and from a full sweep to identify the most critical loading direction, i.e. the one in which failure is anticipated first. However, just as a complete material characterisation is not available, the full sweep could not be carried out because of the computational effort required. For the purpose of exemplification, the most critical direction was therefore adopted, as it would be within an ideal workflow, under the assumption of a material characterisation valid for any loading direction.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.45\textwidth]{figures/chap4/step3-fem-sled/payload_reference_frames.png}
+  \caption{Global ($X$, $Y$, $Z$, black) and local ($X$, $Y'$, $Z'$, red dashed) reference systems of the payload. The local axes $Y'$ and $Z'$ are obtained by rotating $Y$ and $Z$ by 35° about the $X$ axis, which is common to both systems.}
+  \label{fig:step3-local-vs-global-csys}
+\end{figure}
+
+
+
+The payload was accelerated along the axes of a local reference system, in which $Y$ and $Z$ are rotated by 35° with respect to the global ones, as shown in \cref{fig:step3-local-vs-global-csys}. Rotated directions were preferred to pure ones to exemplify impacts in which two main directions are coupled, e.g. the global $Y$ and $Z$. Among the three possible directions in which the payload could be accelerated in a preliminary sweep, direction $Y'$ was chosen. Although this is not coherent with the loading mode of Steps 1 and 2 of the workflow, i.e. the axial compression, it was selected as the case yielding the lowest allowable acceleration, and hence the most conservative of the three directions, which was established in a qualitative evaluation of observed damage after applying an acceleration pulse of identical amplitude (600\,$g$) in $X$, $Y'$, and $Z'$ (\cref{fig:step3-phial-damage-hisv1}). In particular, the $Z'$ case does not fail at 600\,$g$, while the damage obtained along $X$ is not comparable with the other two. Therefore, the dilemma was whether to accelerate the payload in the same direction as the compression, keeping the model consistent with the calibration step and its loading case, or to choose a different direction, corresponding to a more critical, and thus more conservative, case.
+
+In a complete airbag design workflow, this choice would naturally follow from a complete material characterisation and from a full sweep to identify the most critical loading direction, i.e. the one in which failure is anticipated first. However, just as a complete material characterisation is not available, the full sweep could not be carried out because of the computational effort required. For the purpose of exemplification, the most critical direction was therefore adopted, as it would be within an ideal workflow, under the assumption of a material characterisation valid for any loading direction. The resulting failure mode partially resembles the one observed experimentally in Step 1, as it involves the dome but also engages part of the phial body.
 
 
 \begin{figure}[h!]
     \centering
-    % TODO: replace the placeholder box with the actual figure once available
-    % \includegraphics[width=0.8\textwidth]{figures/chap4/step3-fem-sled/phial_damage_hisv1.png}
-    \fbox{\parbox[c][6cm][c]{0.8\textwidth}{\centering Figure placeholder: phial damage, \texttt{HISV\#1} contour}}
-    \caption{Glass phial damage in the sled test simulation: \texttt{MAT\_GLASS} \texttt{HISV\#1} contour plot (max-IP fringe), where \texttt{HISV\#1} $= 1$ marks crack initiation.}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chap4/step3-fem-sled/sled_X.png}
+        \caption{$X$ direction.}
+        \label{fig:step3-phial-damage-hisv1-X}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chap4/step3-fem-sled/sled_Y.png}
+        \caption{$Y'$ direction.}
+        \label{fig:step3-phial-damage-hisv1-Yp}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chap4/step3-fem-sled/sled_Z.png}
+        \caption{$Z'$ direction.}
+        \label{fig:step3-phial-damage-hisv1-Zp}
+    \end{subfigure}
+    \caption{Glass phial damage in the sled test simulation for loading in the $X$, $Y'$ and $Z'$ directions: \texttt{MAT\_GLASS} \texttt{HISV\#1} contour plot (max-IP fringe), where \texttt{HISV\#1} $= 1$ marks crack initiation. All three cases were run with the trapezoidal pulse of Figure~\ref{fig:accel-pulses} at a peak of 600~$g$. The reference frame shown in each image is the global coordinate system, not the local one.}
     \label{fig:step3-phial-damage-hisv1}
 \end{figure}
 
 
-\subsubsection{Acceleration sweep}        % survive/fail per level -> allowable
+\subsubsection{Acceleration sweep}
 The acceleration pulses used for the simulations are shown in \cref{fig:accel-pulses}. The peak acceleration was swept with steps progressively refined from 100\,$g$ to 5\,$g$. Through manual iterations, no damage was observed at a peak acceleration of 225~$g$, while damage occurred at 230~$g$. The allowable peak acceleration therefore lies between 225~$g$ and 230~$g$. Consistently with the 5~$g$ resolution adopted for the sweep, the value of 225\,$g$, i.e. the highest acceleration level without damage, is used as the allowable for the purpose of testing the airbag design workflow presented in this thesis.
 
 
@@ -235,8 +262,8 @@ The results of the acceleration sweep conducted in this step of the workflow are
 }
 Quantity & Value & Source / note \\
 Allowable peak acceleration ($a_{allow}$) & 225\,$g$ & Highest plateau without failure, 5\,$g$ sweep step \\
-Critical loading direction & Perpendicular to the phial axis & Most critical of the X/Y/Z sweep \\
-Main failure mode & Dome breaking & Comparable to Mode A of Step 1 (\cref{tab:step1-summary-data}) \\
+Critical loading direction & $Y'$ (local frame, \cref{fig:step3-local-vs-global-csys}) & Most damage among $X$, $Y'$, $Z'$ at equal 600\,$g$ pulse (\cref{fig:step3-phial-damage-hisv1}) \\
+Main failure mode & Dome breaking, extending into the phial body & Partially comparable to Mode A of Step 1 (\cref{tab:step1-summary-data}) \\
 Velocity shed ($\lVert \mathbf{u}_0 \rVert$) & \qty{26.1}{\metre\per\second} & Resultant of $u_{x0}$ and $u_{y0}$ from Step 0 (\cref{tab:step0-summary-data}) \\
 Pulse shape & Trapezoidal & \texttt{RISE\_FRACTION} = 0.2, area from \cref{eq:pulse_area} \\
 \end{thesistable}

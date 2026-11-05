@@ -3,9 +3,18 @@
 \label{chapter:conclusions}
 
 \section{General summary}
+
+
+
+
+
+
+
+
+
 \begin{itemize}
-    \item \textbf{Starting problem:} no medical UAV network in Piedmont yet; prior work covered logistics, regulation and missions, but not design; mission-first development struggles to get past pilot flights and certification.
-    \item \textbf{Contribution 1, outer loop:} the safety-first principle: payload and UAV treated as separate entities, safety moved to the start of the design process.
+    \item \textbf{Starting problem:} no medical UAV network in Piedmont yet; prior work covered logistics, regulation and missions, but not design; \textit{mission-first} development struggles to get past pilot flights and certification.
+    \item \textbf{Contribution 1, outer loop:} the \textit{safety-first} principle: payload and UAV treated as separate entities, safety moved to the start of the design process.
     \item \textbf{Contribution 2, inner loop:} the airbag workflow that puts the principle into practice; steps 0-4 carried out here, steps 5-7 left for later because they depend on the container geometry.
     \item \textbf{What testing the workflow showed:} the chain works, with each step supplying the next (impact conditions, calibrated payload model, allowable acceleration, airbag sizing). This demonstrates the workflow on a representative payload; it does not qualify a device.
     \item \textbf{Back to the long-term vision:} safety-first changes the order of design, so the protection system gives the mission loop its inputs (mass, volume, inflation time) instead of being added at the end; separating payload and UAV allows a modular device and could ease certification across different drones.
@@ -21,7 +30,7 @@ In general, technical recommendations could include:
     
     \item \textbf{Introduce reliability-based design:} Implementing a reliability-based approach to derive the minimum-mass airbag that keeps a glass phial's survival probability above a target defined from previous SORA ground-risk assessment. This would mean combining the stochastic nature of glass strength with the impact-velocity distribution of the urban UAV missions to improve the airbag design and possibly further save on mass once probabilistic design is chosen over the worst-case, conservative approach used in the present demonstration of the workflow. The reliability-based approach should, however, consider the difficulties of certification and produce an informed design that still guarantees an acceptable level of safety;
     
-    \item \textbf{Proceed towards prototyping:} Use the outputs of Step 4 to exit the Safety loop and enter the Mission loop in \cref{fig:flowchart-safety-first}, carrying the project forward as is. This would mean updating the hardware and mission design, and then re-evaluating initial conditions to re-inform the "inner" design loop. Naturally, this step requires approaching UAV design and integration, possibly ad-hoc, with subsequent simulation and testing, as well as taking informed decisions on the airbag's inflation mechanism and the folding method. This step requires addressing the design of the system and its integration with the UAV, possibly through an ad-hoc solution, followed by dedicated simulation and testing, as well as informed decisions on the inflation mechanism and the folding method of the airbag;
+    \item \textbf{Proceed towards validation and prototyping:} Use the outputs of Step 4 to exit the Safety loop and enter the Mission loop in \cref{fig:flowchart-safety-first}, carrying the project forward as is. This would mean updating the hardware and mission design, and then re-evaluating initial conditions to re-inform the "inner" design loop. Once the capsule and UAV geometry are defined, the optimised airbag could be validated by manufacturing and drop-testing a prototype or, as a first step, by simulating the impact of the actual assembly. This validation was not carried out in the present work, since it is specific to a geometry that is not yet fixed. This step requires addressing the design of the system and its integration with the UAV, possibly through an ad-hoc solution, followed by dedicated simulation and testing, as well as informed decisions on the inflation mechanism and the folding method of the airbag;
     
     \item \textbf{Consider alternative failure scenarios:} Certification standards impose the installation of a parachute onto the UAV platform. The contribution of a parachute device could also be explored, to describe a less conservative, but possibly more likely, UAV failure scenario, in which the airbag and the parachute work in tandem. Along the above-the-river trajectory, the parachute would provide an initial deceleration, so that the impact becomes equivalent to a drop from a lower height, and could also offer some attitude control during the fall. At the same time, a slower descent increases the time of flight and therefore the wind drift, which widens the impact footprint and may increase the probability of falling onto urban areas, a critical aspect for certification. The combined system could also be formulated as a minimum-mass problem, in which the total mass of airbag and parachute is minimised for the combined falling mode.
 \end{enumerate}

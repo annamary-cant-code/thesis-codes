@@ -582,7 +582,7 @@
       \field{title}{Comparative Analysis of e{VTOL}, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
       \field{year}{2024}
     \endentry
-    \entry{EU2019947}{misc}{}{}
+    \entry{EU_2019_947}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=a1b813a6e85874b4c945aec2cdbea74c}{%
            family={{European Commission}},
@@ -600,15 +600,15 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Official Journal of the European Union, vol.\ L 152, pp.\ 45--71}
-      \field{month}{6}
-      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 {May} 2019 on the rules and procedures for the operation of unmanned aircraft}
+      \field{howpublished}{Official Journal of the European Union, L 152, 11 June 2019, p. 45}
+      \field{note}{Consolidated version of 1 May 2025. Accessed: Nov. 5, 2026}
+      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 May 2019 on the rules and procedures for the operation of unmanned aircraft}
       \field{year}{2019}
       \verb{urlraw}
-      \verb http://data.europa.eu/eli/reg_impl/2019/947/oj
+      \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
       \endverb
       \verb{url}
-      \verb http://data.europa.eu/eli/reg_impl/2019/947/oj
+      \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
       \endverb
     \endentry
     \entry{asl1_uelcome}{misc}{}{}
@@ -793,6 +793,70 @@
       \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
       \endverb
     \endentry
+    \entry{ICAO_TI_2025}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=a65e1805611d67a7aa59578c593ca553}{%
+           family={{International Civil Aviation Organization}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Montréal, Canada}%
+      }
+      \list{organization}{1}{%
+        {ICAO}%
+      }
+      \strng{namehash}{a65e1805611d67a7aa59578c593ca553}
+      \strng{fullhash}{a65e1805611d67a7aa59578c593ca553}
+      \strng{fullhashraw}{a65e1805611d67a7aa59578c593ca553}
+      \strng{bibnamehash}{a65e1805611d67a7aa59578c593ca553}
+      \strng{authorbibnamehash}{a65e1805611d67a7aa59578c593ca553}
+      \strng{authornamehash}{a65e1805611d67a7aa59578c593ca553}
+      \strng{authorfullhash}{a65e1805611d67a7aa59578c593ca553}
+      \strng{authorfullhashraw}{a65e1805611d67a7aa59578c593ca553}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2025-2026}
+      \field{note}{Packing Instruction 650}
+      \field{number}{Doc 9284}
+      \field{title}{Technical Instructions for the Safe Transport of Dangerous Goods by Air}
+      \field{year}{2025}
+    \endentry
+    \entry{EASA_AMC_947}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=8eeedab57655f4096ebbd8b290c722cc}{%
+           family={{European Union Aviation Safety Agency}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cologne, Germany}%
+      }
+      \list{organization}{1}{%
+        {EASA}%
+      }
+      \strng{namehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{fullhash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{fullhashraw}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{bibnamehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authorbibnamehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authornamehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authorfullhash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authorfullhashraw}{8eeedab57655f4096ebbd8b290c722cc}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Annex I to ED Decision 2022/002/R. Accessed: Nov. 5, 2026}
+      \field{title}{Acceptable Means of Compliance and Guidance Material to Regulation ({EU}) 2019/947 - Issue 1, Amendment 2}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.easa.europa.eu/en/downloads/135910/en
+      \endverb
+      \verb{url}
+      \verb https://www.easa.europa.eu/en/downloads/135910/en
+      \endverb
+    \endentry
     \entry{chhetri2026survey}{article}{}{}
       \name{author}{3}{}{%
         {{hash=9be3b9f8864019e4576a1fbbd48ddffc}{%
@@ -819,8 +883,8 @@
       \strng{authornamehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
       \strng{authorfullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
       \strng{authorfullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.RO}
@@ -863,8 +927,8 @@
       \strng{authornamehash}{620b0dae7cae025cd0c1efb07665f699}
       \strng{authorfullhash}{955db31865587691b2e2ce3b858757b0}
       \strng{authorfullhashraw}{955db31865587691b2e2ce3b858757b0}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Scientific Reports}
@@ -1373,8 +1437,8 @@
       \strng{authorfullhash}{3dcc2fb190eb78478487fef16dac124b}
       \strng{authorfullhashraw}{3dcc2fb190eb78478487fef16dac124b}
       \field{extraname}{1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 10th Int. {LS-DYNA} Users Conf.}
@@ -1409,8 +1473,8 @@
       \strng{authornamehash}{6583b56fb242402b679a495af4e99bc1}
       \strng{authorfullhash}{6583b56fb242402b679a495af4e99bc1}
       \strng{authorfullhashraw}{6583b56fb242402b679a495af4e99bc1}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. {CEAS}/{AIAA} 15th Aerodyn. Decelerator Balloon Technol. Conf.}
@@ -1583,8 +1647,8 @@
       \strng{authornamehash}{f435c89b7816ee67d0534a6141b22d62}
       \strng{authorfullhash}{a47eab370e45d7a5d4cb6eb7af19416f}
       \strng{authorfullhashraw}{a47eab370e45d7a5d4cb6eb7af19416f}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proc. Inst. Mech. Eng. D, J. Automobile Eng.}
@@ -1619,8 +1683,8 @@
       \strng{authornamehash}{305a860d3f059f7c0f9960ba59e69b0c}
       \strng{authorfullhash}{305a860d3f059f7c0f9960ba59e69b0c}
       \strng{authorfullhashraw}{305a860d3f059f7c0f9960ba59e69b0c}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Belarusian National University of Technology, Minsk, Belarus}
@@ -1839,8 +1903,8 @@
       \strng{authorfullhash}{6832ebadaacd49b5047fb04827d683b1}
       \strng{authorfullhashraw}{6832ebadaacd49b5047fb04827d683b1}
       \field{extraname}{2}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 20th {AIAA} Aerodyn. Decelerator Syst. Technol. Conf. Seminar}
@@ -1898,8 +1962,8 @@
       \strng{authornamehash}{17a88a298f6b07c485e75c482d3fd3e0}
       \strng{authorfullhash}{c58544585786ed348dac44aba19615d7}
       \strng{authorfullhashraw}{c58544585786ed348dac44aba19615d7}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. Res. J. Educ. Technol.}
@@ -1938,8 +2002,8 @@
       \strng{authornamehash}{c770bb2ca291ddebbba63ac27a47b9ab}
       \strng{authorfullhash}{61f6a222bb3c59cc923d2063780386ca}
       \strng{authorfullhashraw}{61f6a222bb3c59cc923d2063780386ca}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 6. {LS-DYNA} Anwenderforum}
@@ -1985,8 +2049,8 @@
       \strng{authornamehash}{53f0dfa83bbd5efc924549943f3198e2}
       \strng{authorfullhash}{0d86c31c9aa438e063e3e00072ed2cad}
       \strng{authorfullhashraw}{0d86c31c9aa438e063e3e00072ed2cad}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 21st Int. Tech. Conf. Enhanced Safety Veh. ({ESV})}
@@ -2027,8 +2091,8 @@
       \strng{authornamehash}{b74c3ea9c1348bce38dc3374df6f34df}
       \strng{authorfullhash}{55922b6a635b3de6a8f8189329a5be09}
       \strng{authorfullhashraw}{55922b6a635b3de6a8f8189329a5be09}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Key Eng. Mater.}
@@ -2067,8 +2131,8 @@
       \strng{authornamehash}{cb3e42ab1b9032f4bf61071ef2de43e1}
       \strng{authorfullhash}{12eb3027c5b73a7278e1440894a1053b}
       \strng{authorfullhashraw}{12eb3027c5b73a7278e1440894a1053b}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Proc. Inst. Mech. Eng. D, J. Automobile Eng.}
@@ -2205,8 +2269,8 @@
       \strng{authornamehash}{4cfaf1b8d588df7fd1b6e552d15c500b}
       \strng{authorfullhash}{4cfaf1b8d588df7fd1b6e552d15c500b}
       \strng{authorfullhashraw}{4cfaf1b8d588df7fd1b6e552d15c500b}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{J. Chem. Educ.}
@@ -2558,7 +2622,7 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
       \field{month}{12}
-      \field{note}{CSV, CC BY 4.0. Accessed: Oct. 11, 2026}
+      \field{note}{CSV, CC BY. Accessed: Oct. 11, 2026}
       \field{title}{Raffica di vento massima 2006--2018 (Maximum wind gust 2006--2018), dataset}
       \field{year}{2018}
       \verb{urlraw}
@@ -2567,6 +2631,60 @@
       \verb{url}
       \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
       \endverb
+    \endentry
+    \entry{ComuneTorinoTemp}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b3a96fa73fddedb6e3824b8489460992}{%
+           family={{Regione Piemonte}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{fullhash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{fullhashraw}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{bibnamehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authorbibnamehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authornamehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authorfullhash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authorfullhashraw}{b3a96fa73fddedb6e3824b8489460992}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
+      \field{month}{12}
+      \field{note}{CSV, CC BY. Data source: ARPA Piemonte. Accessed: Nov. 5, 2026}
+      \field{title}{Temperatura giornaliera massima e minima per mese 2017--2019 (Monthly daily maximum and minimum temperature 2017--2019), dataset}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019
+      \endverb
+      \verb{url}
+      \verb https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019
+      \endverb
+    \endentry
+    \entry{schott2026ampoules}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=30141193e9e6dc7d376cebb3583d5dc0}{%
+           family={{SCHOTT Pharma}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{fullhash}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{fullhashraw}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{bibnamehash}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{authorbibnamehash}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{authornamehash}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{authorfullhash}{30141193e9e6dc7d376cebb3583d5dc0}
+      \strng{authorfullhashraw}{30141193e9e6dc7d376cebb3583d5dc0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Product datasheet, doc.\ no.\ 40145}
+      \field{month}{2}
+      \field{note}{\url{https://media.schott.com/api/public/content/8a341c5c12fc40419fd081d6d6dc84de}, accessed 5 November 2026}
+      \field{title}{Core Ampoules -- StandardLine}
+      \field{year}{2026}
     \endentry
     \entry{datsiou2018weibull}{article}{}{}
       \name{author}{2}{}{%
@@ -2654,6 +2772,217 @@
       \verb{url}
       \verb https://lsdyna.ansys.com/manuals-download/
       \endverb
+    \endentry
+    \entry{veer2009strength}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=c343b38f8497a77a0dbc1eff21f72c93}{%
+           family={VEER},
+           familyi={V\bibinitperiod},
+           given={F.\bibnamedelimi A.},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=70065b14a76910d0f0fad60d2b2b4187}{%
+           family={LOUTER},
+           familyi={L\bibinitperiod},
+           given={P.\bibnamedelimi C.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=24a71e2c9a2024c77e4a9fb2ffd207cd}{%
+           family={BOS},
+           familyi={B\bibinitperiod},
+           given={F.\bibnamedelimi P.},
+           giveni={F\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{89d9f25e8b0aa0e5c028d3fc5edcdc18}
+      \strng{fullhash}{6e0596fb0cd03941127aee26480952a3}
+      \strng{fullhashraw}{6e0596fb0cd03941127aee26480952a3}
+      \strng{bibnamehash}{6e0596fb0cd03941127aee26480952a3}
+      \strng{authorbibnamehash}{6e0596fb0cd03941127aee26480952a3}
+      \strng{authornamehash}{89d9f25e8b0aa0e5c028d3fc5edcdc18}
+      \strng{authorfullhash}{6e0596fb0cd03941127aee26480952a3}
+      \strng{authorfullhashraw}{6e0596fb0cd03941127aee26480952a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Fatigue \& Fracture of Engineering Materials \& Structures}
+      \field{number}{1}
+      \field{title}{The strength of annealed, heat-strengthened and fully tempered float glass}
+      \field{volume}{32}
+      \field{year}{2009}
+      \field{pages}{18\bibrangedash 25}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1111/j.1460-2695.2008.01308.x
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1111/j.1460-2695.2008.01308.x
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1111/j.1460-2695.2008.01308.x
+      \endverb
+      \keyw{strength,structural design,testing,glass}
+    \endentry
+    \entry{Park2017}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=f956644c1c02ac7c6687956cf61f4c5d}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Wonsuk},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Detroit, MI, USA}%
+      }
+      \strng{namehash}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{fullhash}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{fullhashraw}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{bibnamehash}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{authorbibnamehash}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{authornamehash}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{authorfullhash}{f956644c1c02ac7c6687956cf61f4c5d}
+      \strng{authorfullhashraw}{f956644c1c02ac7c6687956cf61f4c5d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 25th Int. Tech. Conf. Enhanced Safety Veh. ({ESV})}
+      \field{month}{6}
+      \field{note}{Paper no.\ 17-0365}
+      \field{title}{A study of airbag design and optimization methodology}
+      \field{year}{2017}
+    \endentry
+    \entry{Le2026}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=a51d126b886801b003f0179187825dac}{%
+           family={Le},
+           familyi={L\bibinitperiod},
+           given={Hieu\bibnamedelima Giang},
+           giveni={H\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=00148a9db5009954c3944e828bf683ea}{%
+           family={Do},
+           familyi={D\bibinitperiod},
+           given={Thanh\bibnamedelima Trung},
+           giveni={T\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=d2cce4eaea80cf4e02b884197a6a0c2f}{%
+           family={Uyen},
+           familyi={U\bibinitperiod},
+           given={Tran\bibnamedelimb Minh\bibnamedelima The},
+           giveni={T\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=463d1fa25182e4e39dede17207e49773}{%
+           family={Thanh},
+           familyi={T\bibinitperiod},
+           given={Bui\bibnamedelima Chan},
+           giveni={B\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=f997b26dff1f5816ccc3eee445c3131b}{%
+           family={{Son Minh}},
+           familyi={S\bibinitperiod},
+           given={Pham},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{72e1a0631dcf241f742c5a81652bc068}
+      \strng{fullhash}{31d5e3ccdd4296c8d428118a31b83bad}
+      \strng{fullhashraw}{31d5e3ccdd4296c8d428118a31b83bad}
+      \strng{bibnamehash}{31d5e3ccdd4296c8d428118a31b83bad}
+      \strng{authorbibnamehash}{31d5e3ccdd4296c8d428118a31b83bad}
+      \strng{authornamehash}{72e1a0631dcf241f742c5a81652bc068}
+      \strng{authorfullhash}{31d5e3ccdd4296c8d428118a31b83bad}
+      \strng{authorfullhashraw}{31d5e3ccdd4296c8d428118a31b83bad}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS ONE}
+      \field{month}{7}
+      \field{number}{7}
+      \field{title}{Optimization of injection molding parameters for bending and tensile strength of {ABS} and {ABS}/carbon fiber composites using {Taguchi}--{Grey} correlation analysis}
+      \field{volume}{21}
+      \field{year}{2026}
+      \field{pages}{e0352647}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1371/journal.pone.0352647
+      \endverb
+    \endentry
+    \entry{Takayama2025}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c3426b77a1e485892fa6e1108f37d577}{%
+           family={Takayama},
+           familyi={T\bibinitperiod},
+           given={Tetsuo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b14bea416b43f8091b25b67b0dc71602}{%
+           family={Takahashi},
+           familyi={T\bibinitperiod},
+           given={Rikuto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=5cacd44a3d5d4be57b2026d9314a6dc9}{%
+           family={Konno},
+           familyi={K\bibinitperiod},
+           given={Nao},
+           giveni={N\bibinitperiod}}}%
+        {{hash=a21a6e3b526fcee89072abbd2d14ddf1}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Noriyuki},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{78dc7992d1aebffa688b4eaddc79d8a1}
+      \strng{fullhash}{291e593f90355c4e5d206c1e85336444}
+      \strng{fullhashraw}{291e593f90355c4e5d206c1e85336444}
+      \strng{bibnamehash}{291e593f90355c4e5d206c1e85336444}
+      \strng{authorbibnamehash}{291e593f90355c4e5d206c1e85336444}
+      \strng{authornamehash}{78dc7992d1aebffa688b4eaddc79d8a1}
+      \strng{authorfullhash}{291e593f90355c4e5d206c1e85336444}
+      \strng{authorfullhashraw}{291e593f90355c4e5d206c1e85336444}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Polymers}
+      \field{month}{7}
+      \field{number}{15}
+      \field{title}{Evaluation of polypropylene reusability using a simple mechanical model derived from injection-molded products}
+      \field{volume}{17}
+      \field{year}{2025}
+      \field{pages}{2107}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.3390/polym17152107
+      \endverb
+    \endentry
+    \entry{Croop2009}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=a155a325e767bc75fc5e551841443ce2}{%
+           family={Croop},
+           familyi={C\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=855838fed1bce275c7571c627b2bd10c}{%
+           family={Lobo},
+           familyi={L\bibinitperiod},
+           given={Hubert},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Salzburg, Austria}%
+      }
+      \strng{namehash}{174fb0049e8b42dfd107060070222355}
+      \strng{fullhash}{174fb0049e8b42dfd107060070222355}
+      \strng{fullhashraw}{174fb0049e8b42dfd107060070222355}
+      \strng{bibnamehash}{174fb0049e8b42dfd107060070222355}
+      \strng{authorbibnamehash}{174fb0049e8b42dfd107060070222355}
+      \strng{authornamehash}{174fb0049e8b42dfd107060070222355}
+      \strng{authorfullhash}{174fb0049e8b42dfd107060070222355}
+      \strng{authorfullhashraw}{174fb0049e8b42dfd107060070222355}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. 7th Eur. {LS-DYNA} Conf.}
+      \field{month}{5}
+      \field{title}{Selecting material models for the simulation of foams in {LS-DYNA}}
+      \field{year}{2009}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
     \endentry
     \entry{Sinclair2015}{article}{}{}
       \name{author}{2}{}{%
@@ -3037,8 +3366,8 @@
       \endverb
     \endentry
     \entry{quadricottero_aetos}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -3051,8 +3380,8 @@
       \endverb
     \endentry
     \entry{dronezine_uelcome}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{DronEzine}
       \field{note}{Accessed 5 October 2026}
@@ -3065,8 +3394,8 @@
       \endverb
     \endentry
     \entry{quadricottero_enac_cri}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
       \field{note}{Accessed 5 October 2026}
@@ -3079,8 +3408,8 @@
       \endverb
     \endentry
     \entry{easa_note_2022}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{European Union Aviation Safety Agency}
       \field{note}{Accessed 5 October 2026}
@@ -3093,8 +3422,8 @@
       \endverb
     \endentry
     \entry{supplychain_torino}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
       \field{note}{Accessed 5 October 2026}
@@ -3107,8 +3436,8 @@
       \endverb
     \endentry
     \entry{socialfarma_aetos}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{SocialFarma}
       \field{note}{Accessed 5 October 2026}

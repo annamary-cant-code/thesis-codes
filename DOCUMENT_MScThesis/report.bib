@@ -68,7 +68,7 @@
   month        = dec,
   year         = {2018},
   url          = {https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018},
-  note         = {CSV, CC BY 4.0. Accessed: Oct. 11, 2026}
+  note         = {CSV, CC BY. Accessed: Oct. 11, 2026}
 }
 
 @misc{ComuneTorinoWind-AVG,
@@ -79,6 +79,16 @@
   year         = {2018},
   url          = {https://aperto.comune.torino.it/dataset/velocita-media-annua-del-vento-2006-2018},
   note         = {CSV, CC BY. Accessed: Oct. 11, 2026}
+}
+
+@misc{ComuneTorinoTemp,
+  author       = {{Regione Piemonte}},
+  title        = {Temperatura giornaliera massima e minima per mese 2017--2019 (Monthly daily maximum and minimum temperature 2017--2019), dataset},
+  howpublished = {Comune di Torino, aperTO Open Data Portal},
+  month        = dec,
+  year         = {2020},
+  url          = {https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019},
+  note         = {CSV, CC BY. Data source: ARPA Piemonte. Accessed: Nov. 5, 2026}
 }
 
 
@@ -224,20 +234,41 @@
 % D. REGULATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-@misc{EU2019947,
-  author       = {{European Commission}},
-  title        = {Commission Implementing Regulation ({EU}) 2019/947 of 24 {May} 2019 on the rules and procedures for the operation of unmanned aircraft},
-  howpublished = {Official Journal of the European Union, vol.\ L 152, pp.\ 45--71},
-  month        = jun,
-  year         = {2019},
-  url          = {http://data.europa.eu/eli/reg_impl/2019/947/oj}
-}
-
 @misc{easa_note_2022,
   title        = {Explanatory Note to Decision 2022/002/{R}},
   howpublished = {European Union Aviation Safety Agency},
   url          = {https://www.easa.europa.eu/sites/default/files/dfu/explanatory_note_to_ed_decision_2022-002-r.pdf},
   note         = {Accessed 5 October 2026}
+}
+
+@manual{ICAO_TI_2025,
+  author       = {{International Civil Aviation Organization}},
+  title        = {Technical Instructions for the Safe Transport of Dangerous Goods by Air},
+  organization = {ICAO},
+  address      = {Montr{\'e}al, Canada},   % INFERRED: ICAO headquarters
+  edition      = {2025-2026},              % INFERRED: biennial cycle, not checked on the document
+  number       = {Doc 9284},
+  year         = {2025},                  % INFERRED: follows from edition
+  note         = {Packing Instruction 650}
+}
+
+@misc{EU_2019_947,
+  author       = {{European Commission}},
+  title        = {Commission Implementing Regulation ({EU}) 2019/947 of 24 May 2019 on the rules and procedures for the operation of unmanned aircraft},
+  howpublished = {Official Journal of the European Union, L 152, 11 June 2019, p. 45},
+  year         = {2019},
+  note         = {Consolidated version of 1 May 2025. Accessed: Nov. 5, 2026},
+  url          = {https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01}
+}
+
+@manual{EASA_AMC_947,
+  author       = {{European Union Aviation Safety Agency}},
+  title        = {Acceptable Means of Compliance and Guidance Material to Regulation ({EU}) 2019/947 - Issue 1, Amendment 2},
+  organization = {EASA},
+  address      = {Cologne, Germany},        % INFERRED: EASA headquarters
+  year         = {2022},                  % INFERRED: from decision number 2022/002/R
+  note         = {Annex I to ED Decision 2022/002/R. Accessed: Nov. 5, 2026},
+  url          = {https://www.easa.europa.eu/en/downloads/135910/en}
 }
 
 
@@ -648,6 +679,16 @@
   doi     = {10.1177/0954407014551186}
 }
 
+@inproceedings{Park2017,
+  author    = {Park, Wonsuk},
+  title     = {A study of airbag design and optimization methodology},
+  booktitle = {Proc. 25th Int. Tech. Conf. Enhanced Safety Veh. ({ESV})},
+  address   = {Detroit, MI, USA},
+  month     = jun,
+  year      = {2017},
+  note      = {Paper no.\ 17-0365}
+}
+
 
 % ---- F3. Numerical simulation (LS-DYNA, gas flow, fabric) ----
 
@@ -940,6 +981,11 @@
 }
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% G. FEM MODELLING OF THE GLASS PHIAL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---- G1. Glass strength and material modelling ----
 
 @article{datsiou2018weibull,
   author  = {Datsiou, K. C. and Overend, M.},
@@ -952,7 +998,81 @@
   note    = {Open access, CC BY license}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LS-DYNA MANUALS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+@misc{DCFEA2025,
+  author       = {{DCFEA\_Simulation\_Tutorial}},
+  title        = {{LS-Dyna} tutorial---Use of {Mat\_Glass} to model behavior of glasses, including a ball impact on glass},
+  howpublished = {YouTube video},
+  month        = aug,
+  year         = {2025},
+  url          = {https://www.youtube.com/watch?v=WR0_zx7L1Ew},
+  note         = {Accessed: Oct. 21, 2026}
+}
+
+@article{veer2009strength,
+author = {VEER, F. A. and LOUTER, P. C. and BOS, F. P.},
+title = {The strength of annealed, heat-strengthened and fully tempered float glass},
+journal = {Fatigue \& Fracture of Engineering Materials \& Structures},
+volume = {32},
+number = {1},
+pages = {18-25},
+keywords = {strength, structural design, testing, glass},
+doi = {10.1111/j.1460-2695.2008.01308.x},
+url = {https://doi.org/10.1111/j.1460-2695.2008.01308.x},
+year = {2009}
+}
+
+@misc{schott2026ampoules,
+  author       = {{SCHOTT Pharma}},
+  title        = {Core Ampoules -- StandardLine},
+  howpublished = {Product datasheet, doc.\ no.\ 40145},
+  year         = {2026},
+  month        = feb,
+  note         = {\url{https://media.schott.com/api/public/content/8a341c5c12fc40419fd081d6d6dc84de}, accessed 5 November 2026}
+}
+
+% ---- G2. Pressure vessel mechanics ----
+
+@article{Sinclair2015,
+  author  = {Sinclair, G. B. and Helms, J. E.},
+  title   = {A review of simple formulae for elastic hoop stresses in cylindrical and spherical pressure vessels: What can be used when},
+  journal = {Int. J. Pressure Vessels Piping},
+  volume  = {128},
+  pages   = {1--7},
+  month   = apr,
+  year    = {2015},
+  doi     = {10.1016/j.ijpvp.2015.01.006}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% H. OPTIMISATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{Storn1997,
+  author  = {Storn, Rainer and Price, Kenneth},
+  title   = {Differential evolution---a simple and efficient heuristic for global optimization over continuous spaces},
+  journal = {J. Global Optim.},
+  volume  = {11},
+  number  = {4},
+  pages   = {341--359},
+  month   = dec,
+  year    = {1997},
+  doi     = {10.1023/A:1008202821328}
+}
+
+@misc{SciPyDE_docs,
+  author       = {{The SciPy Community}},
+  title        = {{scipy.optimize.differential\_evolution}, {SciPy} v1.18.0 manual},
+  howpublished = {Online documentation},
+  url          = {https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html},
+  note         = {Accessed: Oct. 26, 2026}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% I. SOFTWARE MANUALS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 @manual{LSDYNA_KW_I,
   title        = {{LS-DYNA} Keyword User's Manual, Volume {I}},
   organization = {Livermore Software Technology (LST), an Ansys Company},
@@ -984,46 +1104,40 @@
 }
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% J. SLED-TEST FEM: COMPONENT MATERIALS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-@misc{DCFEA2025,
-  author       = {{DCFEA\_Simulation\_Tutorial}},
-  title        = {{LS-Dyna} tutorial---Use of {Mat\_Glass} to model behavior of glasses, including a ball impact on glass},
-  howpublished = {YouTube video},
-  month        = aug,
-  year         = {2025},
-  url          = {https://www.youtube.com/watch?v=WR0_zx7L1Ew},
-  note         = {Accessed: Oct. 21, 2026}
+@article{Le2026,
+  author  = {Le, Hieu Giang and Do, Thanh Trung and Uyen, Tran Minh The and Thanh, Bui Chan and {Son Minh}, Pham},
+  title   = {Optimization of injection molding parameters for bending and tensile strength of {ABS} and {ABS}/carbon fiber composites using {Taguchi}--{Grey} correlation analysis},
+  journal = {PLoS ONE},
+  volume  = {21},
+  number  = {7},
+  pages   = {e0352647},
+  month   = jul,
+  year    = {2026},
+  doi     = {10.1371/journal.pone.0352647}
 }
 
-
-@article{Sinclair2015,
-  author  = {Sinclair, G. B. and Helms, J. E.},
-  title   = {A review of simple formulae for elastic hoop stresses in cylindrical and spherical pressure vessels: What can be used when},
-  journal = {Int. J. Pressure Vessels Piping},
-  volume  = {128},
-  pages   = {1--7},
-  month   = apr,
-  year    = {2015},
-  doi     = {10.1016/j.ijpvp.2015.01.006}
+@article{Takayama2025,
+  author  = {Takayama, Tetsuo and Takahashi, Rikuto and Konno, Nao and Sato, Noriyuki},
+  title   = {Evaluation of polypropylene reusability using a simple mechanical model derived from injection-molded products},
+  journal = {Polymers},
+  volume  = {17},
+  number  = {15},
+  pages   = {2107},
+  month   = jul,
+  year    = {2025},
+  doi     = {10.3390/polym17152107}
 }
 
-@misc{SciPyDE_docs,
-  author       = {{The SciPy Community}},
-  title        = {{scipy.optimize.differential\_evolution}, {SciPy} v1.18.0 manual},
-  howpublished = {Online documentation},
-  url          = {https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html},
-  note         = {Accessed: Oct. 26, 2026}
-}
-
-@article{Storn1997,
-  author  = {Storn, Rainer and Price, Kenneth},
-  title   = {Differential evolution---a simple and efficient heuristic for global optimization over continuous spaces},
-  journal = {J. Global Optim.},
-  volume  = {11},
-  number  = {4},
-  pages   = {341--359},
-  month   = dec,
-  year    = {1997},
-  doi     = {10.1023/A:1008202821328}
+@inproceedings{Croop2009,
+  author    = {Croop, Brian and Lobo, Hubert},
+  title     = {Selecting material models for the simulation of foams in {LS-DYNA}},
+  booktitle = {Proc. 7th Eur. {LS-DYNA} Conf.},
+  address   = {Salzburg, Austria},
+  month     = may,
+  year      = {2009},
+  pages     = {1--6}
 }

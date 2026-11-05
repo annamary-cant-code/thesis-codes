@@ -106,6 +106,15 @@ EVENT_COLORS = {
     "dome": "tab:red",
 }
 
+# Where the event annotation boxes sit on the STATIC figure, relative to the
+# point they label: (dx, dy) in points, and the box's horizontal alignment.
+# Chosen to keep the boxes clear of both curves.
+ANNOT_OFFSETS = {
+    "A_dome": (-30, 22, "right"),
+    "AD_base": (10, -110, "left"),
+    "AD_dome": (20, 22, "left"),
+}
+
 # Sanity check on the detected dome event, from the experimental reading of
 # these runs: it is expected somewhere around 0.06 mm / 100 N. Only ever used
 # to print a warning if the detection lands somewhere else entirely -- no
@@ -236,16 +245,41 @@ def plot_static(ft, runs, target_load, args, out_path):
 
         color = MODE_COLORS[mode]
         base_idx = marks["base_idx"]
+        loads = f"{force[base_idx]:.1f} N"
+        if marks["has_dome"]:
+            loads += f" / {force[marks['dome_idx']]:.1f} N"
         ax.plot(d, f, color=color, lw=1.6,
-                label=f"Mode {mode} ({ft.mode_label(mode)})  ->  {force[base_idx]:.1f} N")
+                label=f"Mode {mode} ({ft.mode_label(mode)})  ->  {loads}")
         ax.scatter(disp[base_idx], force[base_idx], color=color, marker="o", s=20,
                    zorder=6, edgecolors="black", linewidths=0.6)
+        if marks["has_dome"]:
+            dome_idx = marks["dome_idx"]
+            ax.scatter(disp[dome_idx], force[dome_idx], color=color, marker="o", s=20,
+                       zorder=6, edgecolors="black", linewidths=0.6)
+
+        # event annotations, as in the interactive figure but in the curve's own
+        # colour. Mode A breaks once, at the dome; mode AD at the base, then the dome.
+        if mode == "AD":
+            events = [(base_idx, "BASE break", ANNOT_OFFSETS["AD_base"])]
+            if marks["has_dome"]:
+                events.append((marks["dome_idx"], "DOME break", ANNOT_OFFSETS["AD_dome"]))
+        else:
+            events = [(base_idx, "DOME break", ANNOT_OFFSETS["A_dome"])]
+        for idx, text, (dx, dy, ha) in events:
+            ax.annotate(f"{text}\n{force[idx]:.1f} N @ {disp[idx]:.4f} mm",
+                        xy=(disp[idx], force[idx]), xytext=(dx, dy), textcoords="offset points",
+                        fontsize=8.5, color=color, ha=ha, multialignment="left", zorder=8,
+                        bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=color, alpha=0.9),
+                        arrowprops=dict(arrowstyle="->", color=color, lw=1.1))
 
     if target_load is not None:
         ax.axhline(target_load, color="red", lw=2,
                    label=f"Target failure load = {target_load:g} N")
     ax.scatter([], [], marker="o", facecolors="none", edgecolors="0.25", s=20,
-               label="Breaking load")
+               label="Failure load")
+
+    ax.grid(True, color="0.85", lw=0.6)
+    ax.set_axisbelow(True)
 
     x_max = max(x_ends)
     y_max = max(y_peaks + ([target_load] if target_load is not None else []))

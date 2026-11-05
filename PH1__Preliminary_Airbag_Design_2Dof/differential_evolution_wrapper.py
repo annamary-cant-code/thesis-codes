@@ -2,18 +2,21 @@ import argparse
 import csv
 import os
 import time
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 import numpy as np
-from airbag_simulation_function import simulate_airbag
+from airbag_simulation_fast import simulate_airbag_fast   # numba twin, search phase only
+from airbag_simulation_function import simulate_airbag    # reference, winner re-simulation
 from scipy.optimize import OptimizeResult, differential_evolution
 
 
 # ---------- run size ----------
-# python differential_evolution_wrapper.py [quick|long]
+# python differential_evolution_wrapper.py [quick|long] [--workers N]
 RUN_SIZES = {
     # material only changes mass and burst pressure, not the dynamics -> one is enough for a quick test
     "quick": dict(U_RES_VALUES=[2.0], SEEDS=(1,), POPSIZE=2, MAXITER=6, N_MATERIALS=1),
-    "long":  dict(U_RES_VALUES=[0.5, 1.0, 1.5, 2.0], SEEDS=(1, 2, 3, 4, 5), POPSIZE=12, MAXITER=200, N_MATERIALS=3),
+    # MAXITER 150: in test runs the best f was within 0.1 % of its 200-generation value by gen ~135-145
+    "long":  dict(U_RES_VALUES=[0.5, 1.0, 1.5, 2.0], SEEDS=(1, 2, 3, 4, 5), POPSIZE=12, MAXITER=150, N_MATERIALS=3),
 }
 
 # one row per finished DE run; rows already in the file are not run again
@@ -31,9 +34,13 @@ PEN       = 1.0e4          # penalty weight, must dominate mass
 ETA_SEAM  = 0.70           # [-] seam efficiency: the seam fails before the parent fabric
 SF_BURST  = 1.50           # [-] design factor on the allowable membrane tension
 
-# venting sub-iterations during the search only (~2x faster, ~1% error on a_peak_n);
-# the winner is re-simulated at full fidelity
-MAX_INNER_ITERS_SEARCH = 20
+# venting sub-iterations during the search only; the winner is re-simulated at full fidelity
+# (simulate_airbag, 50 sub-iterations). Coarse phase (dt = 2e-4 s): 20; fine phase (dt = 1e-5 s): 5.
+# Against full fidelity: max a_peak_n error ~1.7 % (2 fine sub-iterations gave ~4 %, 20 gave ~1.2 %).
+MAX_INNER_ITERS_SEARCH      = 20
+MAX_INNER_ITERS_SEARCH_FINE = 5
+# results of a different search model go to a different CSV, so they are never mixed or reused
+SEARCH_TAG = f"numba_vent{MAX_INNER_ITERS_SEARCH}-{MAX_INNER_ITERS_SEARCH_FINE}"
 
 SHAPE_CODE = {"sphere": 2, "cylinder": 1}
 
@@ -174,7 +181,7 @@ def airbag_objective(x, shape, mat, gas, scenario, env, u_res_max):
     d = unpack_design(x, shape)
 
     try:
-        r = simulate_airbag(
+        r = simulate_airbag_fast(
             **d,
             M_payload=scenario[0], uy0=scenario[1], ux0=scenario[2],
             **mat,
@@ -182,6 +189,7 @@ def airbag_objective(x, shape, mat, gas, scenario, env, u_res_max):
             P_amb=env[0], g=env[1],
             a_allow=A_LIM, eta_seam=ETA_SEAM, sf_burst=SF_BURST,
             max_inner_iters=MAX_INNER_ITERS_SEARCH,
+            max_inner_iters_fine=MAX_INNER_ITERS_SEARCH_FINE,
         )
     except Exception as e:
         print(f"[SIM CRASH] shape={shape} x={x} → {type(e).__name__}: {e}")
@@ -281,21 +289,71 @@ def save_run(path, row):
             time.sleep(30)
 
 
+def n_available_cpus():
+    """CPUs this job may use: the scheduler's allocation on a cluster, else the whole PC.
+    os.cpu_count() alone would report the full cluster node, not the allocated share."""
+    for var in ("SLURM_CPUS_PER_TASK", "PBS_NUM_PPN", "NCPUS"):
+        if os.environ.get(var, "").isdigit():
+            return int(os.environ[var])
+    if hasattr(os, "sched_getaffinity"):                  # Linux: honours cpusets
+        return len(os.sched_getaffinity(0))
+    return os.cpu_count() or 1
+
+
+def run_key(u_res_max, shape_name, mat_name, gas_name, seed, popsize, maxiter):
+    """CSV key of one DE run, as strings (matches load_finished_runs)."""
+    return tuple(str(v) for v in (u_res_max, shape_name, mat_name, gas_name, seed, popsize, maxiter))
+
+
+def run_one_de(u_res_max, shape_name, mat_name, gas_name, seed, popsize, maxiter):
+    """One full DE run, serial inside: the parallelism is across independent DE runs.
+    updating='deferred' keeps the algorithm identical to the previous workers=-1 version,
+    so a given seed gives the same result and the rows already in the CSV stay valid."""
+    shape = SHAPE_CODE[shape_name]
+    t_start = time.perf_counter()
+    # population = POPSIZE x n_variables (Sobol rounds up to a power of 2)
+    res = differential_evolution(airbag_objective, make_bounds(shape, scenario, env),
+                                 args=(shape, materials[mat_name], gases[gas_name], scenario, env, u_res_max),
+                                 integrality=make_integrality(shape),
+                                 init='sobol', popsize=popsize, maxiter=maxiter, tol=1e-4,
+                                 polish=False, updating='deferred', workers=1, rng=seed)
+    key = run_key(u_res_max, shape_name, mat_name, gas_name, seed, popsize, maxiter)
+    d_run = unpack_design(res.x, shape)
+    row = dict(zip(CSV_KEY_FIELDS, key), f=repr(float(res.fun)),
+               nit=res.nit, nfev=res.nfev,
+               seconds=round(time.perf_counter() - t_start, 1),
+               D0=d_run["D0"], L0=d_run["L0"], n_ply=d_run["n_ply"],
+               P0=d_run["P0"], phi_vent=d_run["phi_vent"],
+               x=" ".join(repr(float(v)) for v in res.x))
+    return key, row, OptimizeResult(fun=float(res.fun), x=np.asarray(res.x, dtype=float))
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("run_size", nargs="?", default="quick", choices=RUN_SIZES)
-    run_size = parser.parse_args().run_size
+    parser.add_argument("--workers", type=int, default=None,
+                        help="parallel DE runs (default: all CPUs allocated to the job)")
+    cli = parser.parse_args()
+    run_size = cli.run_size
     U_RES_VALUES = RUN_SIZES[run_size]["U_RES_VALUES"]
     SEEDS        = RUN_SIZES[run_size]["SEEDS"]
     POPSIZE      = RUN_SIZES[run_size]["POPSIZE"]
     MAXITER      = RUN_SIZES[run_size]["MAXITER"]
     MATERIAL_NAMES = list(materials.keys())[:RUN_SIZES[run_size]["N_MATERIALS"]]
 
-    results_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"de_results_{run_size}.csv")
+    results_path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                f"de_results_{run_size}_{SEARCH_TAG}.csv")
     finished = load_finished_runs(results_path)
 
+    # compile the numba kernel once here, so the workers only load it from the cache
+    # (instead of every worker compiling it at the same time)
+    _b = make_bounds(SHAPE_CODE["sphere"], scenario, env)
+    airbag_objective(np.array([0.5 * (lo + hi) for lo, hi in _b]), SHAPE_CODE["sphere"],
+                     materials[MATERIAL_NAMES[0]], gases[GAS_NAMES[0]], scenario, env, U_RES_VALUES[0])
+
     theta, un0 = impact_axis(scenario)
-    print(f"run size = {run_size} | seeds = {SEEDS} | POPSIZE = {POPSIZE} | MAXITER = {MAXITER}")
+    print(f"run size = {run_size} | seeds = {SEEDS} | POPSIZE = {POPSIZE} | MAXITER = {MAXITER} | "
+          f"search model = {SEARCH_TAG}")
     print(f"results file = {results_path} ({len(finished)} DE runs already saved)")
     print(f"A_LIM = {A_ALLOW:.1f}/{SF} = {A_LIM:.1f} m/s^2 | "
           f"u_res_max sweep = {U_RES_VALUES} m/s | un0 = {un0:.2f} m/s, theta = {np.degrees(theta):.1f} deg")
@@ -304,38 +362,56 @@ if __name__ == "__main__":
     print(f"burst knockdown: eta_seam = {ETA_SEAM} / SF_burst = {SF_BURST} "
           f"-> {100*ETA_SEAM/SF_BURST:.0f} % of the fabric's ultimate N/cm")
 
+    # ---------- phase 1: every missing DE run, in parallel ----------
+    # The runs are independent, so they are farmed out whole to a process pool (one DE per
+    # core, no per-generation barrier). The main process alone writes the CSV, as each run
+    # finishes, so an interrupted job keeps every run that has completed.
+    combos = [(u, sn, mn, gn, seed) for u in U_RES_VALUES for sn in SHAPE_CODE
+              for mn in MATERIAL_NAMES for gn in GAS_NAMES for seed in SEEDS]
+    todo = [c for c in combos if run_key(*c, POPSIZE, MAXITER) not in finished]
+    todo.sort(key=lambda c: c[1] != "cylinder")   # slower cylinder runs first: shorter tail at the end
+    n_workers = max(1, min(cli.workers or n_available_cpus(), len(todo)))
+    print(f"{len(todo)} of {len(combos)} DE runs to do, on {n_workers} parallel workers", flush=True)
+
+    if todo:
+        t_phase = time.perf_counter()
+        with ProcessPoolExecutor(max_workers=n_workers) as pool:
+            futures = {pool.submit(run_one_de, *c, POPSIZE, MAXITER): c for c in todo}
+            for i, fut in enumerate(as_completed(futures), 1):
+                u, sn, mn, gn, seed = futures[fut]
+                try:
+                    key, row, res = fut.result()
+                except Exception as e:   # this run is simply redone at the next launch
+                    print(f"  [{i}/{len(todo)}] FAILED u_res={u} {sn}/{mn}/{gn} seed={seed}: "
+                          f"{type(e).__name__}: {e}", flush=True)
+                    continue
+                save_run(results_path, row)
+                finished[key] = res
+                print(f"  [{i}/{len(todo)}] u_res={u} {sn}/{mn}/{gn} seed={seed}: f={res.fun:.4f} "
+                      f"({row['seconds']} s, nfev={row['nfev']}) | elapsed "
+                      f"{(time.perf_counter() - t_phase)/60:.1f} min", flush=True)
+
+    # ---------- phase 2: best seed per combination, winner per u_res_max ----------
     for u_res_max in U_RES_VALUES:
         print(f"\n{'='*60}\nu_res_max = {u_res_max} m/s\n{'='*60}")
         results = []
-        for shape_name, shape in SHAPE_CODE.items():
+        for shape_name in SHAPE_CODE:
             for mat_name in MATERIAL_NAMES:
-                mat = materials[mat_name]
                 for gas_name in GAS_NAMES:
-                    gas = gases[gas_name]
-                    best = None
-                    for seed in SEEDS:
-                        key = tuple(str(v) for v in (u_res_max, shape_name, mat_name, gas_name, seed, POPSIZE, MAXITER))
-                        res = finished.get(key)
-                        if res is None:
-                            t_start = time.perf_counter()
-                            # population = POPSIZE x n_variables (Sobol rounds up to a power of 2)
-                            res = differential_evolution(airbag_objective, make_bounds(shape, scenario, env),
-                                                        args=(shape, mat, gas, scenario, env, u_res_max),
-                                                        integrality=make_integrality(shape),
-                                                        init='sobol', popsize=POPSIZE, maxiter=MAXITER, tol=1e-4,
-                                                        polish=False, updating='deferred', workers=-1, rng=seed)
-                            d_run = unpack_design(res.x, shape)
-                            save_run(results_path, dict(zip(CSV_KEY_FIELDS, key), f=repr(float(res.fun)),
-                                                        nit=res.nit, nfev=res.nfev,
-                                                        seconds=round(time.perf_counter() - t_start, 1),
-                                                        D0=d_run["D0"], L0=d_run["L0"], n_ply=d_run["n_ply"],
-                                                        P0=d_run["P0"], phi_vent=d_run["phi_vent"],
-                                                        x=" ".join(repr(float(v)) for v in res.x)))
-                        if best is None or res.fun < best.fun:
-                            best = res
+                    runs = [finished[k] for seed in SEEDS
+                            if (k := run_key(u_res_max, shape_name, mat_name, gas_name, seed, POPSIZE, MAXITER))
+                            in finished]
+                    if len(runs) < len(SEEDS):
+                        print(f"  {shape_name}/{mat_name}/{gas_name}: {len(SEEDS) - len(runs)} seed(s) missing")
+                    if not runs:
+                        continue
+                    best = min(runs, key=lambda res: res.fun)
                     results.append((shape_name, mat_name, gas_name, best))
                     print(f"  {shape_name}/{mat_name}/{gas_name}: best f={best.fun:.4f}")
 
+        if not results:
+            print("  no finished DE run for this u_res_max: relaunch to complete it")
+            continue
         winner = min(results, key=lambda t: t[3].fun)
         shape_name, mat_name, gas_name, res = winner
         shape = SHAPE_CODE[shape_name]
