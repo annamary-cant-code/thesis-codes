@@ -1,7 +1,7 @@
 % LTeX: language=en-GB
 % !TEX root = ../../report.tex
 \section{Step 2 - Axial compression test (FEM)}\label{section:step2-fem-compression}
-The quantity of interest for the calibration of the glass phial's mechanical behaviour is the \textit{tensile strength} \texttt{FT} of the glass material card in LS-DYNA (\kw{MAT\_GLASS}, corresponding to the material model \kw{MAT\_280}), which governs the failure load observed in the present FEM model. As the model was designed to simulate as closely as possible the loading condition to which the phials were subjected in Step 1 of the workflow, the parameter \texttt{FT} is tuned iteratively until the failure force predicted by the FEM matches the value of 98.7\,N measured experimentally. The calibrated model is then used to characterise the behaviour of the same glass phials in a separate FEM model in Step 3, aimed at predicting the maximum impact acceleration that the phials can withstand. This value is one of the key design parameters for sizing the airbag protection device. 
+The quantity of interest for the calibration of the glass phial's mechanical behaviour is the \textit{tensile strength} \texttt{FT} of the glass material card in LS-DYNA (\kw{MAT\_GLASS}, corresponding to the material model \kw{MAT\_280}), which governs the failure load observed in the present FE model. As the model was designed to simulate as closely as possible the loading condition to which the phials were subjected in Step 1 of the workflow, the parameter \texttt{FT} is tuned iteratively until the failure force predicted by the FEM matches the value of 98.7\,N measured experimentally. The calibrated model is then used to characterise the behaviour of the same glass phials in a separate FE model in Step 3, aimed at predicting the maximum impact acceleration that the phials can withstand. This value is one of the key design parameters for sizing the airbag protection device. 
 
 The model is built using \textit{explicit} time integration. The unit system used in the present model is as follows:
 \begin{table}[htbp]
@@ -26,8 +26,8 @@ The current modelling choices are the result of several model iterations, carrie
 The model is composed of three parts, as shown in \cref{fig:fem-model-setup}: the \textit{base}, the \textit{crosshead} and the \textit{glass phial}. The numerical setup aims to imitate the experimental test, where the glass phial is compressed in the axial direction, i.e. the vertical (Y) direction. Two considerations need to be made regarding the construction of the model:
 
 \begin{enumerate}
-  \item The glass phials virtual twin was reproduced on the CAD software SolidWorks by taking manual (destructive) measurements on the specimens offered by the Molinette Hospital. As the phials' geometry contains curvatures, fillets, domes, and bulges, using a simple Vernier calliper certainly lowers the fidelity of the virtual representation and induces challenges in the evaluation of the numerical results;
-  \item The absence of the PETG holder in the present numerical model is a decision rooted in the risk of inaccurate or excessively complex modelling, as it was 3D printed with a reticular filling that would require a destructive intervention to be observed. The consequences of omitting the PETG adaptor in the FEM model are another aspect that is explored and accounted for in the results presented later.
+  \item The glass phials virtual twin was reproduced on the computer-aided design (CAD) software SolidWorks by taking manual (destructive) measurements on the specimens offered by the Molinette Hospital. As the phials' geometry contains curvatures, fillets, domes, and bulges, using a simple Vernier calliper certainly lowers the fidelity of the virtual representation and induces challenges in the evaluation of the numerical results;
+  \item The absence of the PETG holder in the present numerical model is a decision rooted in the risk of inaccurate or excessively complex modelling, as it was 3D printed with a reticular filling that would require a destructive intervention to be observed. The consequences of omitting the PETG adaptor in the FE model are another aspect that is explored and accounted for in the results presented later.
 \end{enumerate}
 
 
@@ -35,13 +35,13 @@ The model is composed of three parts, as shown in \cref{fig:fem-model-setup}: th
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{figures/chap4/step2-fem-phial/Fig_A_vertical_compression.png}
-    \caption{FEM model of the axial compression test in isometric (left) and front (right) view: the \textit{glass phial} is compressed between the fixed rigid \textit{base} and the rigid \textit{crosshead} moving in the $-$Y direction.}
+    \caption{FE model of the axial compression test in isometric (left) and front (right) view: the \textit{glass phial} is compressed between the fixed rigid \textit{base} and the rigid \textit{crosshead} moving in the $-$Y direction.}
     \label{fig:fem-model-setup}
 \end{figure}
 
 
 
-Within the FEM model, the crosshead and the base belong to the same super-part, named \textit{machine}, and they are meshed identically. Both are made of solid hexa elements with an average side length of 0.2\,mm, extruded to a thickness of 1\,mm in the vertical direction. In plan, they measure 18 x 18\,mm (base) and 14 x 14\,mm (crosshead). Both have enough surface area to cover the base and the dome of the glass phial, so that the breaking pressure and the reaction force from the base are applied correctly.
+Within the FE model, the crosshead and the base belong to the same super-part, named \textit{machine}, and they are meshed identically. Both are made of solid hexa elements with an average side length of 0.2\,mm, extruded to a thickness of 1\,mm in the vertical direction. In plan, they measure 18 x 18\,mm (base) and 14 x 14\,mm (crosshead). Both have enough surface area to cover the base and the dome of the glass phial, so that the breaking pressure and the reaction force from the base are applied correctly.
 
 The two parts are modelled with a material that treats them as infinitely rigid bodies (\kw{MAT\_RIGID}, material model \kw{MAT\_020}), with only one free degree of freedom, in this case the displacement in the Y-direction. The base is then constrained in Y by a boundary condition that imposes a displacement of 0\,mm, while the crosshead moves downwards and applies pressure on the phial in a quasi-static regime. The numerical workaround of leaving the Y direction free and then imposing a zero-displacement boundary condition on the base makes it possible to measure the reaction force exerted on it in the direction of the degree of freedom that was chosen as liable. With a fully constrained rigid body, this measurement would not be so straightforward, needing a slightly different procedure. The material card applied to the machine's parts can be found in \cref{lst:mat-rigid}.
 
@@ -60,20 +60,20 @@ $      CMO      CON1      CON2
 The glass phial is meshed with shell elements with \texttt{ELFORM = 2}\footnote{Reduced-integration elements with one in-plane integration point and through-thickness points chosen manually, with the default of two. No hourglass control implemented.} of thickness 0.4\,mm, with 5 integration points along the thickness. The structured mesh has a regular size of 0.1\,mm and is mostly composed of quads, with trias where needed to follow the shape, so that it keeps the curvatures of the dome and the fillets of the rounded-corner geometry. The material used for the glass phial is shown in \cref{lst:mat-glass-raw}, which highlights the \textit{tensile strength} \texttt{FT} as the parameter to fine-tune the numerical prediction of the phial's failure load. The card has several parameters of interest that govern the post-fracture behaviour, which is not of interest for the present analysis as the objective is to identify the material's point of brittle failure, aligned with the broader aim to avoid medicinal dispersion during an impact-failure event. However, an informed attempt to model glass behaviour with an acceptable degree of fidelity in both the pre- and post-fracture regimes was made by setting material parameters based on a separate literature search across worked examples of \kw{MAT\_GLASS} implementations \cite{DCFEA2025} and the LS-DYNA user manual \cite[p.~1989-2001]{LSDYNA_KW_II}:
 
 \begin{itemize}
-  \item \texttt{RHO}: Density, 2.6E-06 kg/mm$^3$ (2600 kg/m$^3$);
-  \item \texttt{E}: Young's modulus, 70 GPa, a relatively well-established value for commercial soda-lime glass, adopted here as an approximation of the Type I borosilicate glass of the phials (see \cref{section:step1-test}), whose elastic properties differ only slightly. As the manufacturer of the glass phials is unknown, this value carries some uncertainty;
+  \item \texttt{RHO}: density, 2.6E-06\,kg/mm$^3$ (2600\,kg/m$^3$);
+  \item \texttt{E}: Young's modulus, 70\,GPa, a relatively well-established value for commercial soda-lime glass, adopted here as an approximation of the Type I borosilicate glass of the phials (see \cref{section:step1-test}), whose elastic properties differ only slightly. As the manufacturer of the glass phials is unknown, this value carries some uncertainty;
   \item \texttt{PR}: Poisson's ratio, 0.23, chosen within a range between 0.20 to 0.25 for soda-lime glass, with the same approximation and uncertainty as for \texttt{E};
-  \item \texttt{ILAW}: Flag to choose the degradation procedure (among two options, 0 and 1) when critical stress is reached. The default value of 0 signifies that the family of parameters relative to \texttt{NCYCR} (found in lines 8-9 of the material card) have to be defined;
-  \item \texttt{FMOD}: Flag to choose between failure criteria (among six options). The default value of 0 is chosen, selecting a \textit{Rankine maximum stress} criterion\footnote{The \textit{Rankine Maximum Stress} criterion consists in bounding principal stresses, $\sigma_1$ and $\sigma_2$, between tensile strength, $f_t$, and compressive strength, $f_c$, as follows: $-f_c < \{\sigma_1, \sigma_2\} < f_t$. It is the least complex maximum stress criterion available in LS-DYNA.};
-  \item \texttt{FT}: Tensile strength, knob to fine-tune the glass phial's failure load, expressed in GPa. Common values found in literature span from 40\,MPa to 70\,MPa. 
-  \item \texttt{FC}: Compressive strength, usually one order of magnitude greater than the tensile strength in glass, here arbitrarily chosen to 1\,GPa to guarantee tensile-strength driven failure when fine-tuning the parameter FT;
-  \item \texttt{FTSCL}: Scale factor for the tensile strength (where the default = 1.0). $FT_{mod} = FTSCL \times FT$, thus, in this case, the glass' actual tensile strength needs to be scaled by the chosen factor of FTSCL = 1.2. An effective value of tensile strength $FT_{mod} > FT$ implies that the tensile strength drops to its original value of FT as soon as the first crack happens in the phial. Although it adds numerical complexity, having FTSCL > 1.0 can be helpful in modelling high-force peaks in impact events according to the LS-DYNA user manual, which suits the intended application of all the FEM models produced in this thesis;   
-  \item \texttt{SFSTI} and \texttt{SFSTR}: Scaling factors for elastic stiffness and stress after failure, respectively, to be applied at the end of the post-crack softening. It dictates how much residual stress the element can hold after it has been damaged, scaling the post-crack strength and stiffness down to SF-XXX $\times$ FT or E. In this case, SFSTI = SFSTR = 0.01 means that both stiffness and stress are reduced to 1\% of their values at failure; 
-  \item \texttt{ICRIN}: Flag for crack strain initialisation. The default value of 0 indicates that initial crack strain is the strain reached at failure;
-  \item \texttt{NCYCR}: Number of cycles in which the stress is reduced to SFSTR $\times$ failure stress, in this case chosen to 50.
-  \item \texttt{NIPF}: Number of failed through-thickness integration points needed to label the element as failed, in this case chosen as 5 to consider all through-thickness integration points set in the phial's shell elements;
-  \item \texttt{EPSCR}: The effective critical strain to trigger element deletion, which can be useful to eliminate highly distorted elements. However, this value was set to the extremely high value of 0.1 to purposefully avoid premature element deletion and having to implement an internal surface generation criterion for contact modelling.
-  \item \texttt{CTRACK}: Flag for crack tracking algorithm, set to the non-default value of 1 to track cracks. 
+  \item \texttt{ILAW}: flag to choose the degradation procedure (among two options, 0 and 1) when critical stress is reached. The default value of 0 signifies that the family of parameters relative to \texttt{NCYCR} (found in lines 8-9 of the material card) have to be defined;
+  \item \texttt{FMOD}: flag to choose between failure criteria (among six options). The default value of 0 is chosen, selecting a \textit{Rankine maximum stress} criterion\footnote{The \textit{Rankine Maximum Stress} criterion consists in bounding principal stresses, $\sigma_1$ and $\sigma_2$, between tensile strength, $f_t$, and compressive strength, $f_c$, as follows: $-f_c < \{\sigma_1, \sigma_2\} < f_t$. It is the least complex maximum stress criterion available in LS-DYNA.};
+  \item \texttt{FT}: tensile strength, knob to fine-tune the glass phial's failure load, expressed in GPa. Common values found in literature span from 40\,MPa to 70\,MPa. 
+  \item \texttt{FC}: compressive strength, usually one order of magnitude greater than the tensile strength in glass, here arbitrarily chosen to 1\,GPa to guarantee tensile-strength driven failure when fine-tuning the parameter \texttt{FT};
+  \item \texttt{FTSCL}: scale factor for the tensile strength (where the default = 1.0). \texttt{FT}$_\text{mod}$ = \texttt{FTSCL} $\times$ \texttt{FT}, thus, in this case, the glass' actual tensile strength needs to be scaled by the chosen factor of \texttt{FTSCL} = 1.2. An effective value of tensile strength \texttt{FT}$_\text{mod} >$ \texttt{FT} implies that the tensile strength drops to its original value of \texttt{FT} as soon as the first crack happens in the phial. Although it adds numerical complexity, having \texttt{FTSCL} $>$ 1.0 can be helpful in modelling high-force peaks in impact events according to the LS-DYNA user manual, which suits the intended application of all the FE models produced in this thesis;   
+  \item \texttt{SFSTI} and \texttt{SFSTR}: scaling factors for elastic stiffness and stress after failure, respectively, to be applied at the end of the post-crack softening. It dictates how much residual stress the element can hold after it has been damaged, scaling the post-crack strength and stiffness down to \texttt{SF-XXX} $\times$ \texttt{FT} or \texttt{E}. In this case, \texttt{SFSTI} = \texttt{SFSTR} = 0.01 means that both stiffness and stress are reduced to 1\% of their values at failure; 
+  \item \texttt{ICRIN}: flag for crack strain initialisation. The default value of 0 indicates that initial crack strain is the strain reached at failure;
+  \item \texttt{NCYCR}: number of cycles in which the stress is reduced to \texttt{SFSTR} $\times$ failure stress, in this case chosen to 50.
+  \item \texttt{NIPF}: number of failed through-thickness integration points needed to label the element as failed, in this case chosen as 5 to consider all through-thickness integration points set in the phial's shell elements;
+  \item \texttt{EPSCR}: the effective critical strain to trigger element deletion, which can be useful to eliminate highly distorted elements. However, this value was set to the extremely high value of 0.1 to purposefully avoid premature element deletion and having to implement an internal surface generation criterion for contact modelling.
+  \item \texttt{CTRACK}: flag for crack tracking algorithm, set to the non-default value of 1 to track cracks. 
 \end{itemize}
 
 \begin{dynacard}[label=lst:mat-glass-raw]{Glass material card}
@@ -147,19 +147,19 @@ An implicit modal analysis (\kw{CONTROL\_IMPLICIT\_EIGENVALUE}) was run on the f
   \begin{subfigure}[b]{0.32\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Mode_07.png}
-    \caption{Mode 7 (8.179~kHz)}
+    \caption{Eigenmode 7 (8.179\,kHz)}
     \label{fig:phial-mode-a}
   \end{subfigure}\hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Mode_18.png}
-    \caption{Mode 18 (26.202~kHz)}
+    \caption{Eigenmode 18 (26.202\,kHz)}
     \label{fig:phial-mode-b}
   \end{subfigure}\hfill
   \begin{subfigure}[b]{0.32\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/Mode_27.png}
-    \caption{Mode 27 (32.890~kHz)}
+    \caption{Eigenmode 27 (32.890\,kHz)}
     \label{fig:phial-mode-c}
   \end{subfigure}
   \caption{Mode shapes of the free glass phial from the implicit modal analysis.}
@@ -167,7 +167,7 @@ An implicit modal analysis (\kw{CONTROL\_IMPLICIT\_EIGENVALUE}) was run on the f
 \end{figure}
 
 
-The first elastic mode (Mode 7) is of particular relevance for the present analysis. It is a bending mode, with a natural frequency of about 8.179~\,kHz, and its period $T_1$ is the characteristic time of the structure's dynamic response:
+The first elastic mode (eigenmode 7) is of particular relevance for the present analysis. It is a bending mode, with a natural frequency of about 8.179\,kHz, and its period $T_1$ is the characteristic time of the structure's dynamic response:
 
 \begin{equation}
 T_1 = 1/f_1 \approx 122~\mu\mathrm{s}
@@ -176,9 +176,9 @@ T_1 = 1/f_1 \approx 122~\mu\mathrm{s}
 If the load were applied over a time of the same order as $T_1$, the structure's inertia would contribute to the response and the test would fall in the dynamic regime. Therefore, to keep the simulation quasi-static, the load application time must be at least ten times $T_1$, i.e.\ above about 1.22\,ms. For this reason, the crosshead was driven by a velocity curve that ramps up over 5\,ms to a constant value and then holds it for the remaining 5\,ms of the simulation. The ramp time is therefore about 40 times the period of the first elastic mode, well inside the quasi-static range. 
 
 \subsubsection{Geometric imperfections}
-The phials tested experimentally showed a large dispersion in their strength properties, as well as in their breaking modes. This phenomenon is usually ascribed to the loosely controlled manufacturing process (mentioned in \cref{section:step1-test}) which naturally introduces geometric imperfections. These imperfections are not influential in the context of the medical applications for which the phials were designed, but are certainly exposed in destructive testing such as what was adopted in Step 1. For these reasons, it was necessary to introduce initial defects into the FEM model by perturbing the phial's geometry. Two options were considered:
+The phials tested experimentally showed a large dispersion in their strength properties, as well as in their failure modes. This phenomenon is usually ascribed to the loosely controlled manufacturing process (mentioned in \cref{section:step1-test}) which naturally introduces geometric imperfections. These imperfections are not influential in the context of the medical applications for which the phials were designed, but are certainly exposed in destructive testing such as what was adopted in Step 1. For these reasons, it was necessary to introduce initial defects into the FE model by perturbing the phial's geometry. Two options were considered:
 \begin{enumerate}
-  \item Perturbing the nodes along a primarily bending (see Mode 18 in \cref{fig:phial-modes}) mode shape from the modal analysis, as to introduce a specific defect of controlled amplitude (measured in mm) over the nominal geometry;
+  \item Perturbing the nodes along a primarily bending (see eigenmode 18 in \cref{fig:phial-modes}) mode shape from the modal analysis, as to introduce a specific defect of controlled amplitude (measured in mm) over the nominal geometry;
   \item Leaving the geometry unchanged and rotating the phial by $1^\circ$ about its centroid in the YZ-plane, which introduces a misalignment between the phial axis and the loading direction (as shown in \cref{fig:phial-misalignment})
 \end{enumerate}
 
@@ -189,7 +189,7 @@ The phials tested experimentally showed a large dispersion in their strength pro
   \label{fig:phial-misalignment}
 \end{figure}
 
-After a series of iterations verifying the numerically observed breaking mode, the second option was chosen as it was found that this misalignment triggers an additional, hybrid breaking mode, which had also been observed experimentally. The results presented later therefore confirm a correlation between initial deviations from the nominal geometry and the different breaking modes observed in the tests.
+After a series of iterations verifying the numerically observed failure mode, the second option was chosen as it was found that this misalignment triggers an additional, hybrid failure mode, which had also been observed experimentally. The results presented later therefore confirm a correlation between initial deviations from the nominal geometry and the different failure modes observed in the tests.
 
 
 \subsubsection{Requested outputs}
@@ -201,9 +201,9 @@ As shown in the \cref{lst:mat-glass-raw}, the tensile strength \texttt{FT} is th
 
 
 \subsection{Results}
-\subsubsection{Observed breaking mode and energy balance}
-\hl{WHY DO THE ENERGIES SEPARATE???? ADD EXPLANATION!!!!}
-As shown in \cref{fig:step2-broken-dome}, some preliminary results of the FEM analysis display the presence of failure mode A in the model with perfect glass phial geometry, and of failure mode AD with the introduction of an initial imperfection as explained earlier. Bases on this qualitative observation, it is already possible to state that the FEM model generally matches the mechanical behaviour of the majoritarian portion of glass phials, as the breaking modes reproduced numerically are the most common ones recorded in medicinal Batch A (see \cref{fig:breaking-mode-pie}). 
+\subsubsection{Observed failure mode and energy balance}
+\hl{REQUIRES MORE THINKING: total energy = int+kin+sliding only (no hourglass); gap A = 2\% at 3.80 ms, 14\% at failure 4.30 ms; AD clean until 5.45 ms}
+As shown in \cref{fig:step2-broken-dome}, some preliminary results of the FEM analysis display the presence of failure mode A in the model with perfect glass phial geometry, and of failure mode AD with the introduction of an initial imperfection as explained earlier. Bases on this qualitative observation, it is already possible to state that the FE model generally matches the mechanical behaviour of the majoritarian portion of glass phials, as the failure modes reproduced numerically are the most common ones recorded in medicinal Batch A (see \cref{fig:breaking-mode-pie}). 
 
 \begin{figure}[htbp]
   \centering
@@ -220,13 +220,13 @@ As shown in \cref{fig:step2-broken-dome}, some preliminary results of the FEM an
     \caption{Mode AD (dome and base).}
     \label{fig:step2-broken-modeAD}
   \end{subfigure}
-  \caption{Broken phial at failure in the FEM model: (a) mode A; (b) mode AD.}
+  \caption{Broken phial at failure in the FE model: (a) mode A; (b) mode AD.}
   \label{fig:step2-broken-dome}
 \end{figure}
 
-Further confirmation regarding the simulation's reliability can be found in the energy balance of \cref{fig:step2-energy}, for both mode A and mode AD. \cref{fig:step2-energy-modeA} shows a steady increase of all the displayed energies, except the kinetic energy, throughout the elastic loading until about 4\,ms. The negligible variation in kinetic energy confirms that the analysis remains strictly quasi-static and, thus, comparable to the experimental loading conditions. Up to the brittle failure point at 4\,ms, the \textit{external work} matches the sum of the \textit{internal energy} and \textit{sliding interface energy} exactly, indicating that the work done by the moving crosshead is almost entirely absorbed by the phial with dissipation associated only to friction forces. From the brittle failure point onwards, the energy balance disproves the reliability of the analysis: a discrepancy appears between the \textit{external work} and the \textit{total energy}, which indicates energy dissipation. A visual mesh inspection in the results files proved that the dissipated energy must have its causes in the phenomenon of \textit{hourglassing}, where \hl{EXCESSIVE DEFORMATION OF THE ELEMENTS - NEEDS MORE EXPLANATION spurious zero-energy deformation modes}, confirmed by the fact that the implemented element formulation \texttt{ELFORM = 2} does not include hourglass control. Similar observations can be made for mode AD (\cref{fig:step2-energy-modeAD}), where the \textit{external work} matches the \textit{total energy} until about 5.5\,ms, followed by the separation of the two ascribed to hourglassing or other internal sources of dissipation that corrupt the subsequent results.
+Further confirmation regarding the simulation's reliability can be found in the energy balance of \cref{fig:step2-energy}, for both mode A and mode AD. \cref{fig:step2-energy-modeA} shows a steady increase of all the displayed energies, except the kinetic energy, throughout the elastic loading until 4.30\,ms. The negligible variation in kinetic energy confirms that the analysis remains strictly quasi-static and, thus, comparable to the experimental loading conditions. Up to the brittle failure point at 4.30\,ms, the \textit{external work} matches the sum of the \textit{internal energy} and \textit{sliding interface energy} exactly, \hl{NOT TRUE for mode A, separates at 3.80 ms before failure. Sliding energy is about 20-35\%, not negligible} indicating that the work done by the moving crosshead is almost entirely absorbed by the phial with dissipation associated only to friction forces. From the brittle failure point onwards, the energy balance disproves the reliability of the analysis: a discrepancy appears between the \textit{external work} and the \textit{total energy}, which indicates energy dissipation. A visual mesh inspection in the results files proved that the dissipated energy must have its causes in the phenomenon of \textit{hourglassing}, where \hl{TO DO: define hourglassing (zero-energy modes of reduced-integration elements) and link it to the energy gap}, confirmed by the fact that the implemented element formulation \texttt{ELFORM = 2} does not include hourglass control. Similar observations can be made for mode AD (\cref{fig:step2-energy-modeAD}), where the \textit{external work} matches the \textit{total energy} until about 5.5\,ms, followed by the separation of the two ascribed to hourglassing or other internal sources of dissipation that corrupt the subsequent results.
 
-Overall, for the scope of material strength finetuning, these results are deemed of sufficient quality to make reliable observations for the characterisation of the phials' glass tensile strength, as post-failure crack evolution is not of interest for the airbag design workflow.  
+Overall, for the scope of material strength finetuning, these results are deemed of sufficient quality to make reliable observations for the characterisation of the phials' glass tensile strength, as post-failure crack evolution is not of interest for the airbag design workflow. This is supported in particular by the mode AD simulation, in which the energy balance remains closed within 2\% up to the dome break at 99.1\,N, i.e.\ through the whole range of loads relevant for the calibration of \texttt{FT}.
 
 \begin{figure}[!htb]
   \centering
@@ -245,18 +245,18 @@ Overall, for the scope of material strength finetuning, these results are deemed
     \caption{Mode AD (dome and base).}
     \label{fig:step2-energy-modeAD}
   \end{subfigure}
-  \caption{Energy balance of the axial compression FEM model: (a) mode A; (b) mode AD.}
+  \caption{Energy balance of the axial compression FE model: (a) mode A; (b) mode AD.}
   \label{fig:step2-energy}
 \end{figure}
 
 \subsubsection{Stiffness verification}
-A further check needed to assess the reliability of the FEM model is the comparison between the experimental stiffness of the phials and the numerical one, where stiffness is intended as the slope of the load-displacement curve of the glass phial relative to this specific load case. As highlighted in \cref{fig:step2-stiffness-overlay}, the model alone has a higher stiffness than the one measured experimentally, with a ratio of $\approx$ 3.7 for mode A and $\approx$ 2.8 for mode AD, with respect to the median measured stiffness of each mode. The additional test campaign on the PETG adaptor documented in \cref{sec:step1-results} showed that the holder cannot be treated as infinitely rigid, and that its compliance must be taken into account when measuring the displacement imposed on the phial. The two are therefore combined as stiffnesses in series:
+A further check needed to assess the reliability of the FE model is the comparison between the experimental stiffness of the phials and the numerical one, where stiffness is intended as the slope of the load-displacement curve of the glass phial relative to this specific load case. As highlighted in \cref{fig:step2-stiffness-overlay}, the model alone has a higher stiffness than the one measured experimentally, with a ratio of $\approx$ 3.7 for mode A and $\approx$ 2.8 for mode AD, with respect to the median measured stiffness of each mode. The additional test campaign on the PETG adaptor documented in \cref{sec:step1-results} showed that the holder cannot be treated as infinitely rigid, and that its compliance must be taken into account when measuring the displacement imposed on the phial. The two are therefore combined as stiffnesses in series:
 
 \begin{equation}\label{eq:series_stiffness}
   \frac{1}{k_\text{eq}} = \frac{1}{k_\text{FEM}} + \frac{1}{k_\text{PETG}} ,
 \end{equation}
 
-where $k_\text{FEM}$ is the stiffness of the phial model and $k_\text{PETG}$ the stiffness of the PETG adaptor. Approximating the stiffnesses to the constant values of 3655\,N/mm (mode A) or 2767\,N/mm (mode AD) and 2037\,N/mm, the equivalent stiffness is 1308\,N/mm and 1173\,N/mm respectively. Since the measured response of the PETG adaptor is not perfectly linear, these values are only a first estimate. For this reason, in the post-processing of the FEM data, the same combination is applied at every load point: for a given load $F$, the displacement computed by the FEM model and the displacement of the PETG adaptor measured experimentally are added together as in the following equation:
+where $k_\text{FEM}$ is the stiffness of the phial model and $k_\text{PETG}$ the stiffness of the PETG adaptor. Approximating the stiffnesses to the constant values of 3655\,N/mm (mode A) or 2767\,N/mm (mode AD) and 2037\,N/mm, the equivalent stiffness is 1308\,N/mm and 1173\,N/mm respectively. Since the measured response of the PETG adaptor is not perfectly linear, these values are only a first estimate. For this reason, in the post-processing of the FEM data, the same combination is applied at every load point: for a given load $F$, the displacement computed by the FE model and the displacement of the PETG adaptor measured experimentally are added together as in the following equation:
 
 \begin{equation}\label{eq:series_displacement}
   \delta_\text{eq}(F) = \delta_\text{FEM}(F) + \delta_\text{PETG}(F) 
@@ -275,7 +275,7 @@ However, these results are still affected by the limitation mentioned earlier, i
 
 \begin{table}[!htb]
 \centering
-\caption{Summary of the stiffness verification for breaking modes A and AD.}
+\caption{Summary of the stiffness verification for failure modes A and AD.}
 \label{tab:step2-stiffness-summary}
 \begin{thesistable}{
   colspec = {X[1.2,l] X[0.75,l] X[0.75,l] X[2.3,l]},
@@ -295,14 +295,14 @@ Experimental stiffness range & 318\,N/mm - 1506\,N/mm & 259\,N/mm - 1321\,N/mm &
 \subsubsection{Tensile strength calibration} 
 Previous observations confer the FE model enough reliability to conduct the tensile strength finetuning process. Analogous to the load case of two springs in series as illustrated above, the load needed for the phial's glass to locally reach the critical stress remains unchanged compared to the experimentally measured value. Owing to the higher stiffness of the FE model, the critical load is merely reached over a smaller displacement, leading to the results presented in \cref{fig:step2-ft-calibration}. 
 
-The two graphs in \cref{fig:step2-ft-calibration} show the load-displacement curves for mode A and mode AD as parameter \texttt{FT} varies. Each curve shows an initial soft branch indicating a transient phase in which machine-phial contact fully engages, followed by a linear elastic behaviour up to the brittle failure point. Since the phial's stiffness is naturally independent of FT, the failure points of the different curves lie along the same slope, at increasing loads for increasing values of FT. For mode A, a value of $\mathrm{FT} = 60$\,MPa gives a breaking load of 96.9\,N, compared with 98.7\,N established experimentally. While at first sight mode AD points to a different \texttt{FT} value to match the 98.7\,N failure threshold, it can be useful to isolate the load-displacement curves with $\mathrm{FT} = 60$\,MPa for both mode A and mode AD, as illustrated in \cref{fig:step2-ft-calibration-overlay}. The FE model captures the hybrid failure mode AD remarkably well: initial fracture occurs at the base due to tilting-induced stress concentrations, but the structure retains partial load-bearing capacity until ultimate failure occurs at a load comparable to the dome failure in Mode A. This aligns with the first-hand laboratory experience concerning the hybrid mode AD, which was characterized by distinct acoustic emissions: a minor energy release during initial base fracture, followed by a much larger release upon final dome collapse. 
+The two graphs in \cref{fig:step2-ft-calibration} show the load-displacement curves for mode A and mode AD as parameter \texttt{FT} varies. Each curve shows an initial soft branch indicating a transient phase in which machine-phial contact fully engages, followed by a linear elastic behaviour up to the brittle failure point. Since the phial's stiffness is naturally independent of \texttt{FT}, the failure points of the different curves lie along the same slope, at increasing loads for increasing values of \texttt{FT}. For mode A, a value of \texttt{FT} = 60\,MPa gives a breaking load of 96.9\,N, compared with 98.7\,N established experimentally. While at first sight mode AD points to a different \texttt{FT} value to match the 98.7\,N failure threshold, it can be useful to isolate the load-displacement curves with \texttt{FT} = 60\,MPa for both mode A and mode AD, as illustrated in \cref{fig:step2-ft-calibration-overlay}. The FE model captures the hybrid failure mode AD remarkably well: initial fracture occurs at the base due to tilting-induced stress concentrations, but the structure retains partial load-bearing capacity until ultimate failure occurs at a load comparable to the dome failure in mode A. This aligns with the first-hand laboratory experience concerning the hybrid mode AD, which was characterised by distinct acoustic emissions: a minor energy release during initial base fracture, followed by a much larger release upon final dome collapse. 
 
 \begin{figure}[!htb]
   \centering
   \begin{subfigure}[b]{0.75\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/ft_finetuning_overlay_A.png}
-    \caption{FT calibration for breaking mode A.}
+    \caption{\texttt{FT} calibration for failure mode A.}
     \label{fig:step2-ft-calibration-modeA}
   \end{subfigure}
 
@@ -311,10 +311,10 @@ The two graphs in \cref{fig:step2-ft-calibration} show the load-displacement cur
   \begin{subfigure}[b]{0.75\textwidth}
     \centering
     \includegraphics[width=\linewidth]{figures/chap4/step2-fem-phial/ft_finetuning_overlay_AD.png}
-    \caption{FT calibration for breaking mode AD.}
+    \caption{\texttt{FT} calibration for failure mode AD.}
     \label{fig:step2-ft-calibration-modeAD}
   \end{subfigure}
-  \caption[Tensile strength calibration of the FE phial model]{Tensile strength (FT) calibration of the FE phial model: simulated force-displacement curves for a range of FT values, compared with the experimental target failure load of 98.7\,N (red line). Circles mark the breaking load of each simulation.}
+  \caption[Tensile strength calibration of the FE phial model]{Tensile strength (\texttt{FT}) calibration of the FE phial model: simulated force-displacement curves for a range of \texttt{FT} values, compared with the experimental target failure load of 98.7\,N (red line). Circles mark the breaking load of each simulation.}
   \label{fig:step2-ft-calibration}
 \end{figure}
 
@@ -325,7 +325,7 @@ The results also show a remarkable sensitivity to initial defects and to the var
 \begin{figure}[!t]
   \centering
   \includegraphics[width=0.8\textwidth]{figures/chap4/step2-fem-phial/modeA_vs_modeAD_FT060_static.png}
-  \caption{Overlay of the \texttt{FT} calibration results for breaking modes A and AD.}
+  \caption{Overlay of the \texttt{FT} calibration results for failure modes A and AD.}
   \label{fig:step2-ft-calibration-overlay}
 \end{figure}
 

@@ -3085,6 +3085,97 @@
       \verb https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
       \endverb
     \endentry
+    \entry{Mu1999}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=96d78a1beabddecb24f90043d1825d8b}{%
+           family={Mu},
+           familyi={M\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+        {{hash=4a53d0e707d60663ca8ee737d0e7d9f5}{%
+           family={Sheng},
+           familyi={S\bibinitperiod},
+           given={Jianping},
+           giveni={J\bibinitperiod}}}%
+        {{hash=531c7be3c2524682e36a7baa8d7ab92f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Chao},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ASME}%
+      }
+      \strng{namehash}{fa2fd627af452358fd396cb3dcc13357}
+      \strng{fullhash}{0ac7cdce323561f906da0390304f652f}
+      \strng{fullhashraw}{0ac7cdce323561f906da0390304f652f}
+      \strng{bibnamehash}{0ac7cdce323561f906da0390304f652f}
+      \strng{authorbibnamehash}{0ac7cdce323561f906da0390304f652f}
+      \strng{authornamehash}{fa2fd627af452358fd396cb3dcc13357}
+      \strng{authorfullhash}{0ac7cdce323561f906da0390304f652f}
+      \strng{authorfullhashraw}{0ac7cdce323561f906da0390304f652f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. Crashworthiness, Occupant Protection and Biomechanics in Transportation Systems}
+      \field{note}{AMD-Vol. 237/BED-Vol. 45}
+      \field{title}{The relationship of driver airbag design parameters to an out-of-position small female thorax injury}
+      \field{year}{1999}
+    \endentry
+    \entry{Do2009}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=99cd37ad180a8326f3e408e8ff3de646}{%
+           family={Do},
+           familyi={D\bibinitperiod},
+           given={Sydney},
+           giveni={S\bibinitperiod}}}%
+        {{hash=fa15d2282c0c824bb3fcb06e3290b227}{%
+           family={Weck},
+           familyi={W\bibinitperiod},
+           given={Olivier},
+           giveni={O\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=f94816b03fea26e3d6b008b8ac7a369c}{%
+           family={Robles},
+           familyi={R\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod},
+           suffix={Jr.},
+           suffixi={J\bibinitperiod}}}%
+        {{hash=3e231b05098eaeb4b7665457498f9ee0}{%
+           family={Pellicciotti},
+           familyi={P\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b0e819345f2423b4d500793a400e43f0}{%
+           family={Brady},
+           familyi={B\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Pasadena, CA, USA}%
+      }
+      \strng{namehash}{89d7e0c52fd8119ab0801a217b29adfd}
+      \strng{fullhash}{e09139423f33339dd90b5af74d7602b0}
+      \strng{fullhashraw}{e09139423f33339dd90b5af74d7602b0}
+      \strng{bibnamehash}{e09139423f33339dd90b5af74d7602b0}
+      \strng{authorbibnamehash}{e09139423f33339dd90b5af74d7602b0}
+      \strng{authornamehash}{89d7e0c52fd8119ab0801a217b29adfd}
+      \strng{authorfullhash}{e09139423f33339dd90b5af74d7602b0}
+      \strng{authorfullhashraw}{e09139423f33339dd90b5af74d7602b0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proc. {AIAA} {SPACE} 2009 Conf. \& Expo.}
+      \field{month}{9}
+      \field{note}{AIAA 2009-6438}
+      \field{title}{An airbag-based crew impact attenuation system concept for the {Orion} {CEV} -- first generation system development}
+      \field{year}{2009}
+    \endentry
     \entry{disalute_aetos}{misc}{}{}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}

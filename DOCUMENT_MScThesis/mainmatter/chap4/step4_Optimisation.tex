@@ -8,14 +8,14 @@ The methodology applied in this section represents the last step of the workflow
   \item \textbf{Allowable peak acceleration}: $a_{allow} = 225$\,$g$
 \end{enumerate}
 
-The outputs of this section, i.e. the candidate design parameters produced by the code, can be turned into specific design recommendations for practical implementation and prototyping of the airbag device, which constitute the final deliverable of the present MSc Thesis project.
+The outputs of this section, i.e. the candidate design parameters produced by the code, can be turned into specific design recommendations for practical implementation and prototyping of the airbag device, which constitute the final deliverable of the present MSc thesis project.
 
 \subsection{Implementation choices}
 The airbag design variables optimised by the code used in Step 4 are shown in the right-most column of \cref{tab:airbag-design-variables-selected}, which also highlights the \textit{bounds} within which the search for the optimum candidate was conducted (dictated either by manufacturer information or by geometrical constraints). The design variables can be subdivided into three categories: \textit{continuous} (usually pointing to geometric features), \textit{discrete, integers} (in this case, the number of airbag fabric plies), and \textit{discrete, categorical} (such as fabric type, shape, and gas type, to which the concept of searchable bounds cannot be applied). 
 
 \begin{table}[!htb]
 \centering
-\caption{Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right).}
+\caption{Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right). \hl{citations for the materials are missing}}
 \label{tab:airbag-design-variables-selected}
 \begin{thesistable}{
   colspec = {Q[l] X[1,l] Q[l] X[1.12,l]},
@@ -77,18 +77,18 @@ $\mathit{PEN}$ & $10^4$, penalty weight on constraint violations
 
 In their most basic configuration, optimisation codes consist in two elements:
 \begin{itemize}
-  \item \textbf{Oracle Function} $\mathpzc{f}$: Serves as a high-fidelity evaluator of the underlying physics. It receives a candidate design vector $\mathbf{x}$ and computes the system response $\mathbf{y} = \mathpzc{f}(\mathbf{x})$, serving as a deterministic representation of the phenomenon;
-  \item \textbf{Optimisation wrapper} $\mathcal{O}$: Operates as an algorithmic controller over the oracle. Through an iterative oracle interrogation process ($\mathbf{x}_{k+1} = \mathcal{O}(\mathbf{x}_k, \mathbf{y}_k)$), it navigates the design space to drive the system toward an optimal response defined by a user-specific objective function $\mathcal{J}(\mathbf{y})$ and constraint set $\mathcal{C}$.
+  \item \textbf{Oracle Function} $\mathpzc{f}$: serves as a high-fidelity evaluator of the underlying physics. It receives a candidate design vector $\mathbf{x}$ and computes the system response $\mathbf{y} = \mathpzc{f}(\mathbf{x})$, serving as a deterministic representation of the phenomenon;
+  \item \textbf{Optimisation wrapper} $\mathcal{O}$: operates as an algorithmic controller over the oracle. Through an iterative oracle interrogation process ($\mathbf{x}_{k+1} = \mathcal{O}(\mathbf{x}_k, \mathbf{y}_k)$), it navigates the design space to drive the system towards an optimal response defined by a user-specific objective function $\mathcal{J}(\mathbf{y})$ and constraint set $\mathcal{C}$.
 \end{itemize}
 
 \subsection{\texttt{simulate\_airbag} oracle}\label{sec:simulate-airbag-oracle}
 \subsubsection{Airbag impact model updates}
-In the case of the present thesis work, the oracle is based on the airbag simulation function proposed by Zhou et al. (2019) \cite{Zhou2019} as introduced in \cref{section:airbag-industry-perspective}. The underlying calculation loop shown in \cref{fig:zhou-airbag-flowchart} remains virtually the same, but is enriched with some additional considerations to allow for a more complete simulation (and subsequent evaluation) of the airbag impact phenomenon:
+In the case of the present thesis work, the oracle is based on the airbag simulation function proposed by Zhou et al. \cite{Zhou2019} as introduced in \cref{section:airbag-industry-perspective}. The underlying calculation loop shown in \cref{fig:zhou-airbag-flowchart} remains virtually the same, but is enriched with some additional considerations to allow for a more complete simulation (and subsequent evaluation) of the airbag impact phenomenon:
 
 \begin{itemize}
-  \item \textbf{Bidirectional energy dissipation}: While in Zhou et al. (2019) the impact phenomenon only involves the vertical (impact direction) degree of freedom, in this code the horizontal component of the velocity is included, increasing the number of degrees of freedom to two. In practice, this means calculating the magnitude of the velocity, $u_{n0} = \sqrt{u_{x0}^2 + u_{y0}^2}$ and the angle $\theta$ at which the impact happens, and then updating the mechanics considering the coupled vertical and horizontal components;
+  \item \textbf{Bidirectional energy dissipation}: while in Zhou et al. the impact phenomenon only involves the vertical (impact direction) degree of freedom, in this code the horizontal component of the velocity is included, increasing the number of degrees of freedom to two. In practice, this means calculating the magnitude of the velocity, $u_{n0} = \sqrt{u_{x0}^2 + u_{y0}^2}$ and the angle $\theta$ at which the impact happens, and then updating the mechanics considering the coupled vertical and horizontal components;
   
-  \item \textbf{Stroke vs. geometry correlation assumptions}: Zhou et al. (2019) considers several possibilities regarding the assumptions correlating contact area $A_t$ and airbag volume $V$ with stroke $h$, but only presents the equations for the case of a cylindrical airbag with inextensible perimeter:
+  \item \textbf{Stroke vs. geometry correlation assumptions}: Zhou et al. considers several possibilities regarding the assumptions correlating contact area $A_t$ and airbag volume $V$ with stroke $h$, but only presents the equations for the case of a cylindrical airbag with inextensible perimeter:
   \begin{equation}\label{eq:geometry_cyl}
     A_t = L_t L_0, \qquad V = L_0\,D\left(\frac{\pi D}{4} + L_t\right),
     \qquad D = D_0 - h,\quad L_t = \frac{\pi h}{2},
@@ -99,21 +99,21 @@ In the case of the present thesis work, the oracle is based on the airbag simula
   \end{equation}
   which allows the code to sweep candidates across two typical airbag geometries;
 
-  \item \textbf{Increased complexity in venting mechanism}: While Zhou et al. (2019) models venting as relegated only to an orifice/valve present on the surface of the airbag, a more realistic venting mechanism would include the contribution of fabric porosity. In most applications across both the automotive and the space industries, weaving patterns of airbag fabrics are engineered to control the venting rate during impact events. To include a similar venting contribution to the model, the variable $\varphi_\text{vent}$ (\textit{vent open-area fraction}) was introduced to indicate the fraction of fabric area treated as open pores. Hence, the total venting area (evolving throughout the simulation) is modelled as:
+  \item \textbf{Increased complexity in venting mechanism}: while Zhou et al. models venting as relegated only to an orifice/valve present on the surface of the airbag, a more realistic venting mechanism would include the contribution of fabric porosity. In most applications across both the automotive and the space industries, weaving patterns of airbag fabrics are engineered to control the venting rate during impact events. To include a similar venting contribution to the model, the variable $\varphi_\text{vent}$ (\textit{vent open-area fraction}) was introduced to indicate the fraction of fabric area treated as open pores. Hence, the total venting area (evolving throughout the simulation) is modelled as:
   \begin{equation}\label{eq:vent_area}
   A_{vent} = A_{or} + \varphi_\text{vent}\,(S_{surface} - A_t)
   \end{equation}
-  where $A_{or} = \frac{\pi}{4}\,d_{or}^2$ is the area of the discrete venting orifice of diameter $d_{or}$, $S_{surface}$ is the undeformed fabric surface area, and $A_t$ is the contact patch pressed against the ground, whose pores are considered as non-venting and which grows as the airbag is crushed. Keeping the venting calculations true to Zhou et al. (2019) modelling choices, the vented mass flow through the updated definition of the total venting area $A_{vent}$, with pressure ratio $\lambda = P_\text{down}/P_\text{up}$, is subsonic for $\lambda \ge 0.528$,
+  where $A_{or} = \frac{\pi}{4}\,d_{or}^2$ is the area of the discrete venting orifice of diameter $d_{or}$, $S_{surface}$ is the undeformed fabric surface area, and $A_t$ is the contact patch pressed against the ground, whose pores are considered as non-venting and which grows as the airbag is crushed. Keeping the venting calculations true to Zhou et al.'s modelling choices, the vented mass flow through the updated definition of the total venting area $A_{vent}$, with pressure ratio $\lambda = P_\text{down}/P_\text{up}$, is subsonic for $\lambda \ge 0.528$,
   \begin{equation}\label{eq:orifice_subsonic}
-    \dot m = C_\text{D}\,A_{vent}\,P_\text{up}\sqrt{\frac{2\gamma}{(\gamma-1)RT}\left(\lambda^{\frac{2}{\gamma}} - \lambda^{\frac{\gamma+1}{\gamma}}\right)},
+    \dot m = C_\text{dis}\,A_{vent}\,P_\text{up}\sqrt{\frac{2\gamma}{(\gamma-1)RT}\left(\lambda^{\frac{2}{\gamma}} - \lambda^{\frac{\gamma+1}{\gamma}}\right)},
   \end{equation}
   and choked otherwise,
   \begin{equation}\label{eq:orifice_choked}
-    \dot m = C_\text{D}\,A_{vent}\,P_\text{up}\sqrt{\frac{\gamma}{RT}\left(\frac{2}{\gamma+1}\right)^{\frac{\gamma+1}{\gamma-1}}},
+    \dot m = C_\text{dis}\,A_{vent}\,P_\text{up}\sqrt{\frac{\gamma}{RT}\left(\frac{2}{\gamma+1}\right)^{\frac{\gamma+1}{\gamma-1}}},
   \end{equation}
-  where the discharge coefficient $C_\text{D}(\lambda)$ is a \hl{6th-order polynomial fit CHECK!!!!}.
+  where the discharge coefficient $C_\text{dis}(\lambda)$ is a \hl{6th-order polynomial fit CHECK!!!!}.
 
-  \item \textbf{Fabric membrane integrity}: A completely novel addition to Zhou et al.'s model consists in a membrane strength check, thus including the possibility of airbag rupture. The fabric is treated as a thin membrane (made of a discrete number of plies $n_{ply}$, with a fabric-type-specific ply thickness value) under uniform internal pressure, so the tension per unit length in the fabric follows from the equilibrium of the pressurised shape, $N = k\,\Delta P\,R$, with $k = 1$ for the hoop direction of a cylinder and $k = 0.5$ for a sphere \cite{Sinclair2015}. A fundamental assumption of this model is that the critical seam lies in the maximum-tension direction, i.e. the longitudinal seam of the cylinder, which carries the hoop tension, and it governs the bag's resistance to rupture. Therefore, the membrane is checked against the hoop burst pressure, obtained from the seam-reduced fabric strength:
+  \item \textbf{Fabric membrane integrity}: a completely novel addition to Zhou et al.'s model consists in a membrane strength check, thus including the possibility of airbag rupture. The fabric is treated as a thin membrane (made of a discrete number of plies $n_{ply}$, with a fabric-type-specific ply thickness value) under uniform internal pressure, so the tension per unit length in the fabric follows from the equilibrium of the pressurised shape, $N = k\,\Delta P\,R$, with $k = 1$ for the hoop direction of a cylinder and $k = 0.5$ for a sphere \cite{Sinclair2015}. A fundamental assumption of this model is that the critical seam lies in the maximum-tension direction, i.e. the longitudinal seam of the cylinder, which carries the hoop tension, and it governs the bag's resistance to rupture. Therefore, the membrane is checked against the hoop burst pressure, obtained from the seam-reduced fabric strength:
   \begin{equation}\label{eq:burst_pressure}
     P_\text{burst} = P_\text{amb} + \frac{\eta_\text{seam}\,N_\text{ult}}{\mathit{SF}_\text{burst}\,k\,R_0},
     \qquad N_\text{ult} = 100\,n_\text{ply}\,N'_\text{ult},
@@ -121,11 +121,11 @@ In the case of the present thesis work, the oracle is based on the airbag simula
   where $P_\text{amb}$ is the ambient pressure, $\eta_\text{seam}$ the seam efficiency, i.e. the fraction of the fabric strength retained at the seam, $\mathit{SF}_\text{burst}$ the safety factor on bursting, $R_0$ the initial radius of the bag, $n_\text{ply}$ the number of fabric plies and $N'_\text{ult}$ the ultimate tensile strength of a single ply in N/cm. The factor 100 converts N/cm into N/m, so that $P_\text{burst}$ is obtained in Pa with $R_0$ in m.
 \end{itemize}
 
-The termination checks implemented in this model are also different from the ones presented in Zhou et al. (2019). Specifically, they are carried out in the following order:
+The termination checks implemented in this model are also different from the ones presented in Zhou et al. Specifically, they are carried out in the following order:
 \begin{enumerate}
-  \item \textbf{Bursting}: If the internal pressure exceeds $P_\text{burst}$ at any time during the stroke, the simulation is stopped and the candidate design is discarded;
+  \item \textbf{Bursting}: if the internal pressure exceeds $P_\text{burst}$ at any time during the stroke, the simulation is stopped and the candidate design is discarded;
   \item \textbf{Impact velocity at bottomed-out condition}: if the payload has used the entire stroke and its residual velocity at the impact with the terrain is too high compared to the manually set threshold, i.e. $u_\text{land} \le u_\text{res,max}$, the combination is discarded; 
-  \item \textbf{Rebound}: if the payload bounces back, i.e. $y_\text{pen}^{\,k+1} = y_\text{pen}^{\,k} + u_y^{\,k+1}\,\Delta t \le 0$, where $y_\text{pen}$ is the vertical penetration of the payload measured from the point of first contact (which would correspond to stroke $h$ in case of vertical impact at $\theta = 0^{\circ}$), $u_y$ its vertical velocity and $\Delta t$ the time step: the payload has been pushed back above the height at which it first touched the terrain. Hence, the design is discarded as it does not allow efficient dissipation of the payload's initial kinetic energy, given back as elastic energy from the compressed gas.
+  \item \textbf{Rebound}: if the payload bounces back, i.e. $y_\text{pen}^{\,k+1} = y_\text{pen}^{\,k} + u_y^{\,k+1}\,\Delta t \le 0$, where $y_\text{pen}$ is the vertical penetration of the payload measured from the point of first contact (which would correspond to stroke $h$ in case of vertical impact at $\theta = 0^{\circ}$), $u_y$ its vertical velocity and $\Delta t$ the timestep: the payload has been pushed back above the height at which it first touched the terrain. Hence, the design is discarded as it does not allow efficient dissipation of the payload's initial kinetic energy, given back as elastic energy from the compressed gas.
   \item \textbf{Settling}: if none of the previous events occurs within $t_\text{max}$, the payload is considered caught by the airbag. The design is accepted only if its residual speed along the impact axis at $t_\text{max}$ satisfies $|u_n(t_\text{max})| \le u_\text{res,max}$.
 \end{enumerate}
 
@@ -140,7 +140,7 @@ Overall, this adaptive timestep concept was designed to conduct the low-load pha
 \subsubsection{Limitations of the \texttt{simulate\_airbag} oracle}
 Overall, the \texttt{simulate\_airbag} oracle has significant limitations: assuming a rigid impact surface, a fixed impact axis $\vec{n}$, a crude approximation of the coupling of horizontal and vertical impact velocities, and the assumption that the airbag flattens to zero thickness, as well as excluding the thermal degradation of the fabric caused by rising gas temperatures during compression. However, at the scope of \textit{preliminary} airbag sizing, embracing these simplifications results in a computationally inexpensive model, allowing it to be embedded into an optimisation loop. 
 
-Not all of these assumptions are necessarily non-conservative: in fact, hypothesising a rigid ground implies that the terrain cannot absorb kinetic energy, thus increasing peak acceleration, while assuming that the bag can flatten to zero thickness overestimates the stroke actually available. Therefore, the candidates produced by the code should be interpreted as starting points for the design, to be verified with higher-fidelity simulations or drop tests (see steps 5-7 of the \textit{Inner design loop: a payload-protection subsystem design workflow} in \cref{section:inner-design-loop}).
+Not all of these assumptions are necessarily non-conservative: in fact, hypothesising a rigid ground implies that the terrain cannot absorb kinetic energy, thus increasing peak acceleration, while assuming that the bag can flatten to zero thickness overestimates the stroke actually available. Therefore, the candidates produced by the code should be interpreted as starting points for the design, to be verified with higher-fidelity simulations or drop tests (see Steps 5-7 of the \textit{Inner design loop: a payload-protection subsystem design workflow} in \cref{section:inner-design-loop}).
 
 \cref{alg:simulate_airbag} shows the pseudocode of the algorithm implemented as the oracle function.
 
@@ -203,7 +203,7 @@ where $m_\text{tot}$ is the mass of the fabric plus the initial gas mass needed 
 If requirements are met, each violation is zero. Alternatively, the offset $10^6$ is far larger than the mass of any airbag in the design space, so every infeasible design scores worse than every feasible one. Among infeasible designs, the score varies with the total violation, which steers the search towards the feasible region while no feasible design has been found. A design whose simulation fails, or returns a non-finite mass, scores $10^{12}$.
 
 
-\subsubsection{Steps of one Differential Evolution run}
+\subsubsection{Steps of one differential evolution run}
 The steps of one DE run\footnote{ SciPy internally scales each variable to the interval $[0, 1]$ between its bounds, so that a step moves every variable by a comparable fraction of its range.} are shown in \cref{fig:de_generation} and consist in the following:
 
 \begin{figure}[!htb]
@@ -214,24 +214,24 @@ The steps of one DE run\footnote{ SciPy internally scales each variable to the i
 \end{figure}
 
 \begin{enumerate}
-  \item \textbf{Initial population:} The run starts from a population of $N$ designs placed in the design space with a Sobol sequence, which spreads the points evenly within the bounds instead of drawing them randomly. The population size $N$ is not set directly: SciPy multiplies the \texttt{POPSIZE} setting by the number of numerical design variables $n_\text{var}$ (see \cref{eq:design-variables}), and the Sobol initialisation rounds the result up to the next power of two:
+  \item \textbf{Initial population:} the run starts from a population of $N$ designs placed in the design space with a Sobol sequence, which spreads the points evenly within the bounds instead of drawing them randomly. The population size $N$ is not set directly: SciPy multiplies the \texttt{POPSIZE} setting by the number of numerical design variables $n_\text{var}$ (see \cref{eq:design-variables}), and the Sobol initialisation rounds the result up to the next power of two:
   \begin{equation}
     N = 2^{\lceil \log_2(\texttt{POPSIZE}\cdot n_\text{var}) \rceil}
     \label{eq:de_popsize}
   \end{equation}
   For example, with $\texttt{POPSIZE} = 5$ this gives $5 \times 5 = 25 \rightarrow 32$ designs for the cylinder and $5 \times 4 = 20 \rightarrow 32$ for the sphere. Each design of the population can be thought of as occupying a seat, and the number of seats stays the same for the whole run;
   
-  \item \textbf{Building a challenger:} In every generation, each design $\mathbf{x}_i$ of the population receives one challenger, built over two steps 
+  \item \textbf{Building a challenger:} in every generation, each design $\mathbf{x}_i$ of the population receives one challenger, built over two steps 
   \begin{enumerate}
 
-    \item \textit{Mutation:} With SciPy's default method (\texttt{best1bin}), the mutant $\mathbf{v}$ is built from the best design of the current population and the difference between two other designs chosen at random:
+    \item \textit{Mutation:} with SciPy's default method (\texttt{best1bin}), the mutant $\mathbf{v}$ is built from the best design of the current population and the difference between two other designs chosen at random:
     \begin{equation}
       \mathbf{v} = \mathbf{x}_{\mathrm{best}} + F\,\left(\mathbf{x}_{r_1} - \mathbf{x}_{r_2}\right) ,
       \label{eq:de_mutation}
     \end{equation}
     where $r_1 \neq r_2 \neq i$ are indices of two population members chosen at random, and the mutation factor $F$ is drawn between 0.5 and 1 at every generation. Because the step is built from a difference between members, its size follows the spread of the population. Steps are large while the designs are spread over the design space and become small as the population clusters;
 
-    \item \textit{Crossover:} The value of some variables of the mutant $\mathbf{v}$ are then updated with the values of corresponding variables of the design $\mathbf{x}_{i}$ it will challenge, leading to the construction of the \textit{challenger} $\mathbf{u}$. All variables $j$, except one, of the challenger $\mathbf{u}$ is taken from $\mathbf{v}$ with probability $CR = 0.7$ and kept from $\mathbf{x}_i$ otherwise, and the remaining unchanged variable $j_\text{rand}$, chosen at random, is always taken from $\mathbf{v}$ so that the trial differs from $\mathbf{x}_i$ by at least one variable. The trial is then simulated and compared only with the original design $\mathbf{x}_i$:
+    \item \textit{Crossover:} the value of some variables of the mutant $\mathbf{v}$ are then updated with the values of corresponding variables of the design $\mathbf{x}_{i}$ it will challenge, leading to the construction of the \textit{challenger} $\mathbf{u}$. All variables $j$, except one, of the challenger $\mathbf{u}$ is taken from $\mathbf{v}$ with probability $CR = 0.7$ and kept from $\mathbf{x}_i$ otherwise, and the remaining unchanged variable $j_\text{rand}$, chosen at random, is always taken from $\mathbf{v}$ so that the trial differs from $\mathbf{x}_i$ by at least one variable. The trial is then simulated and compared only with the original design $\mathbf{x}_i$:
     \begin{equation}
       u_j =
       \begin{cases}
@@ -251,7 +251,7 @@ The steps of one DE run\footnote{ SciPy internally scales each variable to the i
 
   Each challenger competes only with the design in its own seat, so a generation requires $N$ simulations and $N$ comparisons rather than a comparison of every design with every other. Since a design leaves its seat only for a trial that scores at least as well, the best design found until then is never lost.
   
-  \item \textbf{Stopping mechanism:} A run stops after $G$ generations set by the parameter \texttt{maxiter}, or earlier if the standard deviation of the scores in the population falls below $10^{-4}$ times the magnitude of their mean (\texttt{tol}). In this sense convergence means that the population has clustered, while it does not reliably indicate that the global minimum has been found. With feasible scores of the order of the airbag mass, this tolerance requires a very small spread, and about half of the runs stop at \texttt{maxiter} (297 of the 600 runs of the full sweep), with cost of a run being at most $N(G+1)$ simulations counting the initial population.
+  \item \textbf{Stopping mechanism:} a run stops after $G$ generations set by the parameter \texttt{maxiter}, or earlier if the standard deviation of the scores in the population falls below $10^{-4}$ times the magnitude of their mean (\texttt{tol}). In this sense convergence means that the population has clustered, while it does not reliably indicate that the global minimum has been found. With feasible scores of the order of the airbag mass, this tolerance requires a very small spread, and about half of the runs stop at \texttt{maxiter} (297 of the 600 runs of the full sweep), with cost of a run being at most $N(G+1)$ simulations counting the initial population.
 \end{enumerate}
 
 
@@ -274,55 +274,98 @@ For each landing-speed cap, shape, fabric and gas, $n_\text{seed}$ (= \texttt{SE
   \label{fig:de_procedure}
 \end{figure}
 
-\subsubsection{Limitations of Differential Evolution}\label{sec:de_limitations}
+\subsubsection{Limitations of differential evolution}\label{sec:de_limitations}
 Although robust for problem formulation adopted, the Differential Evolution algorithm has some limitations, which are important to consider when interpreting the results of \cref{sec:step4-optimisation-wrapper_results}. The most fundamental one is that DE does not guarantee the global minimum (since all the runs could cluster around the same local minimum), only relying on the agreement between different seeds as an indication that the result does not depend on the random initial population. Furthermore, because the optimiser reduces the mass until a constraint stops it, the winner usually lies close to a design limit.
 
 
-
-
-
-
-
-
-
-\clearpage % keep the DE figures before the Step 4 results, and the headings with the results matrix
 \subsection{Results}\label{sec:step4-optimisation-wrapper_results}
-\subsubsection{Reference optimum}         % design variables, objective, which constraints are active
+
+\Cref{tab:step4-winners-per-cap} shows the results of the differential evolution optimisation wrapper set up as described in the previous sections. Evidently, the combination of \textit{cylinder} as a shape, \textit{silicone-coated Nylon 6,6} as a material, and \textit{Helium} as inflation gas wins for every residual velocity cap. This is likely motivated by the following three reasons:
+\begin{itemize}
+  \item \textbf{Helium:} helium's atomic mass is about 7 to 11 times smaller than the molecular mass of the other gases. At a given $P_0$ and $V$, the gas mass is $m_\text{gas} = P_0 V/(RT)$, and helium has $R = \qty{2077}{\joule\per\kilogram\per\kelvin}$, against 297 for N\textsubscript{2}, 208 for Ar and 189 for CO\textsubscript{2}, always giving He a notable advantage. As a side effect, the speed of sound of helium is about 2.9 times that of N\textsubscript{2}, so it vents the same volume through a much smaller open area, which keeps $\varphi_\text{vent}$ at very low values in all cases and points to a relatively low fabric porosity needed;
+  
+  \item \textbf{Nylon 6,6:} Nylon is the lightest amongst all fabrics, and its strength is high enough to win in every design with only one ply being enough to withstand membrane loads (as shown in the $n_\text{ply}$ row of \cref{tab:step4-winners-per-cap}). The extra strength of aramid (\qty{1000}{\newton\per\centi\metre} against \qty{600}{\newton\per\centi\metre}) is therefore never necessary in any design, while PET's inferior characteristics both in strength and in material density are discarded every time;
+  
+
+  \item \textbf{Cylinder:} the cylinder has an innate advantage against the sphere, which is that can use its whole height as stroke, while the sphere cannot. In the geometry model, the ground footprint of the cylinder keeps growing up to full crush, $A_t = \tfrac{\pi}{2} h L_0$, while the footprint of the sphere, $A_t = \pi h (D_0 - h)$, is largest at $h = D_0/2$ and shrinks back to zero after that. Since the bag force is $(P - P_\text{amb}) A_t$, the sphere loses its braking force over the second half of its stroke. To stop the payload without exceeding $a_\text{lim}$, the sphere therefore needs about 2 to 2.5 times the diameter of the cylinder. Since the surface grows with $D_0^2$ and the volume with $D_0^3$, its mass ends up being about ten times larger than that of the cylinder. Clearly, the bias regarding the shrinking footprint is a limitation of the geometry model instead of the behaviour of a real membrane, which should not lead to the total exclusion of the spherical shape.
+\end{itemize}
+
+Still analysing \cref{tab:step4-winners-per-cap}, it is possible to observe the expected trend of an increasing diameter $D_0$ as the allowed residual velocity decreases, since more deceleration power is required from the airbag as per \cref{eq:basic-stroke-calc}. However, $L_0/D_0 = 0.50$ in all four designs, where 0.50 is the lower limit of the allowed range (0.5 to 4.0). The fact that the optimiser landed on the lower bound of the given range means that the optimum probably lies at a lower value than it was allowed to explore. Reducing this bound further might be mathematically meaningful, but it may not be as appropriate of a choice from a geometrical perspective, which naturally depends on the medical payload container's native geometry. Similarly, the inflation pressure settles at the upper limit $P_{0,\max} = \qty{1.400}{\bar}$ for \qtylist{1.5;2.0}{\metre\per\second}, so these two designs are also limited by a bound. However, simply raising this bound may not be realistic, since a higher inflation pressure would demand more of the inflator. Delivering more gas within the same deployment time could lead to excessive gas temperatures, and judging whether it is feasible would require a dedicated study of the inflation gases, how they are stored and the chemical reactions that take place in the inflator. A higher allowed $P_0$, just as well as a heavier payload, would also raise the membrane tension, possibly shifting the fabric choice towards the second-best candidate after Nylon as presented in this model, i.e. the aramid fabric.
 
 
-\hl{INCLUDE REFLECTIONS ON WHY HELIUM WINS!!!!!}
 
-\begin{figure}[htbp]
-  \centering
-  % TODO: replace the placeholder box with the actual figure once available
-  % \includegraphics[width=\textwidth]{figures/chap4/step4-optimisation/results_matrix_4x4.png}
-  \fbox{\parbox[c][12cm][c]{0.95\textwidth}{\centering Figure placeholder: $4\times4$ results matrix with time histories}}
-  \caption{\hl{$4\times4$ matrix of the optimisation results, with the time histories of each case.}}
-  \label{fig:step4-results-matrix}
-\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hl{rewrite this part!!!!! it's crap}
 
-\clearpage % keep the results matrix inside "Reference optimum", and this heading with its table
-\subsubsection{Step 4 deliverable: airbag sizing parameters}
-% closing paragraph bridges to the design recommendations section (payload-specific)
+The acceleration margins are positive when the design is below the limit. The winners at \qtylist{1.5;2.0}{\metre\per\second} exceed the acceleration limit by \qty{0.017}{\percent} and \qty{0.027}{\percent}, and they count as feasible only because of the \qty{0.1}{\percent} tolerance on $a_\text{lim}$ adopted in the re-simulation. The margins on the burst pressure lie between about \qty{25}{\percent} and \qty{32}{\percent}, in addition to the safety factor $\mathit{SF}_\text{burst}$ already included in $P_\text{burst}$.
 
-\begin{table}[h!]
+The model also leaves out gas permeation through the fabric. In reality, helium escapes through a coated fabric much faster than N\textsubscript{2}, which matters if the bag is inflated before the flight rather than at deployment.
+
+Overall, the total masses are promising, since even in the most demanding case, a residual velocity of \qty{0.5}{\metre\per\second}, the total mass including the gas is below \qty{400}{\gram}. This suggests that the added mass on the UAV platform may be worth the implementation of this safety device in view of certification.
+
+sentence here about the figure, which gathers the time histories of the winners for each of the 4 caps, while appendix e has them distinct for the 5 gases.  For each cap, the comparison between the five gases is reported in \cref{appendix:step4-gases}.
+
+\hl{crap part finishes here}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{table}[!htb]
 \centering
-\caption{Airbag sizing parameters obtained from the optimisation.}
-\label{tab:step4-summary-data}
+\caption{Optimum airbag design for each residual speed cap $u_\text{res,max}$, from the full-fidelity re-simulation of the DE results.}
+\label{tab:step4-winners-per-cap}
 \begin{thesistable}{
-  colspec = {X[1.3,l] X[1,l] X[1.6,l]},
+  colspec = {X[2.4,l] X[1,c] X[1,c] X[1,c] X[1,c]},
+  % ---- category bands
+  cell{2,6,14,18}{1} = {c=5}{bg=tintA, fg=phaseA, font=\tblfont\sffamily\bfseries},
+  hline{6,14,18} = {0.6pt, fg=grouprulecol},
+  % ---- derived quantities (not design variables), greyed out
+  cell{9,13}{1-5} = {fg=navy!60, font=\tblfont\itshape},
+  % ---- objective
+  cell{17}{1-5} = {font=\tblfont\bfseries},
 }
-Quantity & Value & Source / note \\
-Diameter ($D_0$) & \hl{X.XX}\,\unit{\metre} & Continuous, bounds in \cref{tab:airbag-design-variables-selected} \\
-Aspect ratio ($L_0/D_0$) & \hl{X.XX} & Continuous, cylinder only \\
-Inflation pressure ($P_0$) & \hl{X.XX}\,\unit{\pascal} & Continuous, bounds in \cref{tab:airbag-design-variables-selected} \\
-Vent open-area fraction ($\varphi_\text{vent}$) & \hl{X.XXX} & Continuous, bounds in \cref{tab:airbag-design-variables-selected} \\
-Number of fabric plies ($n_\text{ply}$) & \hl{X} & Discrete, integer \\
-Shape & \hl{TBD} & Discrete, categorical \\
-Fabric & \hl{TBD} & Discrete, categorical \\
-Gas & \hl{TBD} & Discrete, categorical \\
+$u_\text{res,max}$ [\unit{\metre\per\second}] & 0.5 & 1.0 & 1.5 & 2.0 \\
+% ------------------------------------------------------------------------------------------------
+Categorical variables & & & & \\
+Shape & cylinder & cylinder & cylinder & cylinder \\
+Fabric & Nylon 6,6, silicone-coated & Nylon 6,6, silicone-coated & Nylon 6,6, silicone-coated & Nylon 6,6, silicone-coated \\
+Gas & He & He & He & He \\
+% ------------------------------------------------------------------------------------------------
+Design variables & & & & \\
+Diameter, $D_0$ [\unit{\metre}]                         & 0.774  & 0.671  & 0.534  & 0.522  \\
+Aspect ratio, $L_0/D_0$ [--]                            & 0.50   & 0.50   & 0.50   & 0.50   \\
+Length, $L_0$ [\unit{\metre}] (derived)                 & 0.387  & 0.336  & 0.267  & 0.261  \\
+Number of plies, $n_\text{ply}$ [--]                    & 1      & 1      & 1      & 1      \\
+Inflation pressure, $P_0$ [\unit{\kilo\pascal}]         & 129.6  & 138.5  & 140.0  & 140.0  \\
+Vent open-area fraction, $\varphi_\text{vent}$ [--]     & 0.0063 & 0.0067 & 0.0156 & 0.0162 \\
+Initial vent area, $A_{vent,0}$ [\unit{\centi\metre\squared}] (derived) & 118.3 & 94.4 & 139.7 & 138.9 \\
+% ------------------------------------------------------------------------------------------------
+Mass & & & & \\
+Fabric, $m_\text{bag}$ [\unit{\kilogram}]               & 0.339  & 0.255  & 0.162  & 0.154  \\
+Gas, $m_\text{gas,0}$ [\unit{\kilogram}]                & 0.040  & 0.027  & 0.014  & 0.013  \\
+Total, $m_\text{tot}$ [\unit{\kilogram}]                & 0.379  & 0.282  & 0.176  & 0.167  \\
+% ------------------------------------------------------------------------------------------------
+Performance & & & & \\
+Peak acceleration, $a_{\text{peak},n}$ [$g$]            & 187.5  & 187.5  & 187.5  & 187.6  \\
+Margin to $a_\text{lim}$ [\unit{\percent}]              & $+0.002$ & $+0.009$ & $-0.017$ & $-0.027$ \\
+Landing speed, $u_\text{land}$ [\unit{\metre\per\second}] & 0.451 & 0.969  & 1.429  & 1.919  \\
+Peak pressure, $P_\text{peak}$ [\unit{\kilo\pascal}]    & 129.6  & 138.5  & 140.0  & 140.0  \\
+Burst pressure, $P_\text{burst}$ [\unit{\kilo\pascal}]  & 173.6  & 184.8  & 206.1  & 208.7  \\
+Margin to $P_\text{burst}$ [\unit{\percent}]            & 25.3   & 25.1   & 32.1   & 32.9   \\
+Outcome                                                 & settled & bottomed out & bottomed out & bottomed out \\
+Time to landing, $t_\text{stop}$ [\unit{\second}]       & --     & 0.704  & 0.065  & 0.051  \\
 \end{thesistable}
 \end{table}
+
+
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{figures/chap4/step4-optimisation/overlay_winners_per_ures_impact.png}
+  \caption{Impact transient of the optimum design for each residual-speed cap $u_\text{res,max}$ (cylinder, Nylon 6,6, He).}
+  \label{fig:step4-results-matrix}
+\end{figure}
+\end{landscape}
+
+\clearpage % keep the results matrix inside "Reference optimum", and this heading with its table
 
 \FloatBarrier % keep the Step 4 figures and table inside Section 4.5
 

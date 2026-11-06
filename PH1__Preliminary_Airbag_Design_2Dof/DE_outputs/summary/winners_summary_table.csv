@@ -1,0 +1,25 @@
+Quantity,Unit,u_res_max = 0.5 m/s,u_res_max = 1.0 m/s,u_res_max = 1.5 m/s,u_res_max = 2.0 m/s
+Shape,-,cylinder,cylinder,cylinder,cylinder
+Fabric,-,"Nylon 6,6 (silicone-coated)","Nylon 6,6 (silicone-coated)","Nylon 6,6 (silicone-coated)","Nylon 6,6 (silicone-coated)"
+Gas,-,He,He,He,He
+DE seed,-,4,1,1,5
+D0,m,0.774,0.671,0.534,0.522
+L0,m,0.387,0.336,0.267,0.261
+L0/D0,-,0.50,0.50,0.50,0.50
+n_ply,-,1,1,1,1
+P0,bar,1.296,1.385,1.400,1.400
+phi_vent,%,0.63,0.67,1.56,1.62
+A_vent0,cm^2,118.3,94.4,139.7,138.9
+m_bag,kg,0.3390,0.2546,0.1615,0.1539
+m_gas0,kg,0.0395,0.0275,0.0140,0.0131
+m_total,kg,0.3785,0.2821,0.1755,0.1670
+a_peak_n,g,187.5,187.5,187.5,187.6
+a margin to A_LIM,%,+0.002,+0.009,-0.017,-0.027
+u_land,m/s,0.451,0.969,1.429,1.919
+u margin to cap,m/s,0.049,0.031,0.071,0.081
+P_peak,bar,1.296,1.385,1.400,1.400
+P_burst,bar,1.736,1.848,2.061,2.087
+Burst margin,%,25.3,25.1,32.1,32.9
+Outcome,-,settled,bottomed,bottomed,bottomed
+t_stop,s,-,0.704,0.065,0.051
+Strictly feasible (no tol.),-,yes,yes,no (within 0.1 %),no (within 0.1 %)

@@ -1,0 +1,48 @@
+\begin{table}[!htb]
+\centering
+\caption{Optimum airbag design for each residual speed cap $u_\text{res,max}$, from the full-fidelity re-simulation of the DE results. Margins are positive when the design is below the limit; the negative acceleration margins at \qtylist{1.5;2.0}{\metre\per\second} lie within the \qty{0.1}{\percent} tolerance on $a_\text{lim}$ adopted in the re-simulation.}
+\label{tab:step4-winners-per-cap}
+\begin{thesistable}{
+  colspec = {X[2.4,l] X[1,c] X[1,c] X[1,c] X[1,c]},
+  % ---- category bands
+  cell{2,6,14,18}{1} = {c=5}{bg=tintA, fg=phaseA, font=\tblfont\sffamily\bfseries},
+  hline{6,14,18} = {0.6pt, fg=grouprulecol},
+  % ---- categorical choices, identical for every cap
+  cell{3-5}{2} = {c=4}{c},
+  % ---- derived quantities (not design variables), greyed out
+  cell{9,13}{1-5} = {fg=navy!60, font=\tblfont\itshape},
+  % ---- objective
+  cell{17}{1-5} = {font=\tblfont\bfseries},
+}
+$u_\text{res,max}$ [\unit{\metre\per\second}] & 0.5 & 1.0 & 1.5 & 2.0 \\
+% ------------------------------------------------------------------------------------------------
+Categorical variables & & & & \\
+Shape & cylinder & & & \\
+Fabric & Nylon 6,6, silicone-coated & & & \\
+Gas & He & & & \\
+% ------------------------------------------------------------------------------------------------
+Design variables & & & & \\
+Diameter, $D_0$ [\unit{\metre}]                         & 0.774  & 0.671  & 0.534  & 0.522  \\
+Aspect ratio, $L_0/D_0$ [--]                            & 0.50   & 0.50   & 0.50   & 0.50   \\
+Length, $L_0$ [\unit{\metre}] (derived)                 & 0.387  & 0.336  & 0.267  & 0.261  \\
+Number of plies, $n_\text{ply}$ [--]                    & 1      & 1      & 1      & 1      \\
+Inflation pressure, $P_0$ [\unit{\kilo\pascal}]         & 129.6  & 138.5  & 140.0  & 140.0  \\
+Vent open-area fraction, $\varphi_\text{vent}$ [--]     & 0.0063 & 0.0067 & 0.0156 & 0.0162 \\
+Initial vent area, $A_{vent,0}$ [\unit{\centi\metre\squared}] (derived) & 118.3 & 94.4 & 139.7 & 138.9 \\
+% ------------------------------------------------------------------------------------------------
+Mass & & & & \\
+Fabric, $m_\text{bag}$ [\unit{\kilogram}]               & 0.339  & 0.255  & 0.162  & 0.154  \\
+Gas, $m_\text{gas,0}$ [\unit{\kilogram}]                & 0.040  & 0.027  & 0.014  & 0.013  \\
+Total, $m_\text{tot}$ [\unit{\kilogram}]                & 0.379  & 0.282  & 0.176  & 0.167  \\
+% ------------------------------------------------------------------------------------------------
+Performance & & & & \\
+Peak acceleration, $a_{\text{peak},n}$ [$g$]            & 187.5  & 187.5  & 187.5  & 187.6  \\
+Margin to $a_\text{lim}$ [\unit{\percent}]              & $+0.002$ & $+0.009$ & $-0.017$ & $-0.027$ \\
+Landing speed, $u_\text{land}$ [\unit{\metre\per\second}] & 0.451 & 0.969  & 1.429  & 1.919  \\
+Peak pressure, $P_\text{peak}$ [\unit{\kilo\pascal}]    & 129.6  & 138.5  & 140.0  & 140.0  \\
+Burst pressure, $P_\text{burst}$ [\unit{\kilo\pascal}]  & 173.6  & 184.8  & 206.1  & 208.7  \\
+Margin to $P_\text{burst}$ [\unit{\percent}]            & 25.3   & 25.1   & 32.1   & 32.9   \\
+Outcome                                                 & settled & bottomed out & bottomed out & bottomed out \\
+Time to landing, $t_\text{stop}$ [\unit{\second}]       & --     & 0.704  & 0.065  & 0.051  \\
+\end{thesistable}
+\end{table}

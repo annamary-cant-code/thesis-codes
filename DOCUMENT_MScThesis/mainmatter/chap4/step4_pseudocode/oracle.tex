@@ -114,7 +114,7 @@
 \Function{OrificeFlow}{$P_\text{up}, P_\text{down}, T, A$} \Comment{vented mass flow rate}
   \State \textbf{if} $P_\text{up} \le P_\text{down}$ \textbf{then return} $0$
   \State $\lambda \gets P_\text{down}/P_\text{up}$
-  \State $C_\text{D} \gets C_\text{D}(\lambda)$ \Comment{6th-order polynomial fit}
+  \State $C_\text{dis} \gets C_\text{dis}(\lambda)$ \Comment{6th-order polynomial fit}
   \If{$\lambda \ge 0.528$}
     \State $\dot m \gets$ \cref{eq:orifice_subsonic} \Comment{subsonic}
   \Else
