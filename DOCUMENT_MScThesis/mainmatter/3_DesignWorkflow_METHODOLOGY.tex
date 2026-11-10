@@ -39,8 +39,33 @@ Ambient conditions are taken from the International Standard Atmosphere (ISA) at
 \subsubsection{UAV platform}
 The UAV platform choice is inherently linked to the reference mission specifications above, meaning that the platform is required to sustain the cruising speed requirements specified in the ConOps. An MTOM of 9\,kg and a 0.81\,m characteristic dimension were also specified in Bertelli's ConOps, leading to the suggestion of a potential drone model suitable for the situation: DJI's \textit{Matrice 300 RTK}. Despite having characteristics suitable for the speed requirements, the drone has a payload limit of 2.7\,kg and a wind resistance of 15\,m/s in cruise. While this drone was initially selected for the preliminary SORA, its specific parameters are not binding for the present study. In particular, the payload-mass and wind-resistance limitations may be disregarded, given that the ConOps set a much broader requirement for MTOM. In addition to these requirements, Cavallo, in their UAV platform market evaluation, considered several other factors: maximum flight time (usually corresponding to half the autonomy), geometry, glide speed, and frontal area, the latter covering an important role in free-fall drag calculations. By ConOps, the platform is equipped with a parachute, whose contribution is ignored in the calculations regarding the free-fall event. 
 
+
 \subsubsection{Failure scenario and impact conditions}
 The chosen failure scenario implies an in-flight malfunction or fatal failure of the UAV in combination with a failure of the parachute mounted on the drone by ConOps. Excluding the nominal, non-conservative parachute descent of 3\,m/s estimated by Bertelli, in this extreme failure scenario the payload is dropped in free air, separated from the drone at an altitude of 75\,m above ground. After the failure, a \textit{ballistic} descent mode is chosen for calculations of impact time and point depending on the release position on the map, including the effects of gravity and aerodynamic drag (as opposed to \textit{uncontrolled glide} descent mode, which is applicable to the UAV platform but not to its detached payload), used in Angelini's impact probability study for ground risk evaluation and inspired by \hl{PRIMATESTA e i suoi predecessori CHECK!!!}. Wind enters the calculations (as mentioned in the reference route definition) as a horizontal velocity component.
+
+\subsubsection{Payload}
+Considering the wide variety of medical goods potentially suitable for UAV-based air transport, it was necessary to identify a payload representative of standard shipments, excluding human organs and specialised equipment (e.g. defibrillators) to focus specifically on pharmaceuticals. Therefore, glass phials of the medicinal product \textit{Akineton Fiale}, containing \textit{biperidene lactate} at a concentration of 5\,mg/ml in injectable solution and shown in \cref{fig:akineton}\footnote{Source of photo: \url{https://www.guttafarm.net/akineton-cena}.}, were chosen. The product is commercially supplied in boxes of five phials, each individually packaged in a plastic blister tray.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figures/chap3/akineton_fiale.jpg}
+        \caption{Original packaging.}
+        \label{fig:akineton_box}
+    \end{subfigure}
+    \hspace{1cm}
+    \begin{subfigure}[b]{0.25\textwidth}
+        \centering
+        \includegraphics[height=1.34\linewidth]{figures/chap3/akineton_fiale_singola.jpg}
+        \caption{Single Akineton phial.}
+        \label{fig:akineton_phial}
+    \end{subfigure}
+    \caption{Akineton Fiale, 5\,mg/ml injectable solution: original packaging and single phial.}
+    \label{fig:akineton}
+\end{figure}
+
+Akineton is a pharmaceutical product commonly used in the treatment of Parkinson's disease and drug-induced extrapyramidal symptoms, and is usually administered by intravenous or intramuscular injection. For the purposes of the present thesis, only the mechanical properties of the glass container are of interest, as the pharmacological action of the medical fluid is not relevant to the type of structural analyses implemented in this study.
 
 
 \subsubsection{Payload container}
@@ -69,35 +94,10 @@ Due to the artisanal nature of this design, linked to the difficulty in modellin
 
 
 
-\subsubsection{Payload}
-Considering the wide variety of medical goods potentially suitable for UAV-based air transport, it was necessary to identify a payload representative of standard shipments, excluding human organs and specialised equipment (e.g. defibrillators) to focus specifically on pharmaceuticals. Therefore, glass phials of the medicinal product \textit{Akineton Fiale}, containing \textit{biperidene lactate} at a concentration of 5\,mg/ml in injectable solution and shown in \cref{fig:akineton}\footnote{Source of photo: \url{https://www.guttafarm.net/akineton-cena}.}, were chosen. The product is commercially supplied in boxes of five phials, each individually packaged in a plastic blister tray.
-
-\begin{figure}[h!]
-    \centering
-    \begin{subfigure}[b]{0.25\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figures/chap3/akineton_fiale.jpg}
-        \caption{Original packaging.}
-        \label{fig:akineton_box}
-    \end{subfigure}
-    \hspace{1cm}
-    \begin{subfigure}[b]{0.25\textwidth}
-        \centering
-        \includegraphics[height=1.34\linewidth]{figures/chap3/akineton_fiale_singola.jpg}
-        \caption{Single Akineton phial.}
-        \label{fig:akineton_phial}
-    \end{subfigure}
-    \caption{Akineton Fiale, 5\,mg/ml injectable solution: original packaging and single phial.}
-    \label{fig:akineton}
-\end{figure}
-
-Akineton is a pharmaceutical product commonly used in the treatment of Parkinson's disease and drug-induced extrapyramidal symptoms, and is usually administered by intravenous or intramuscular injection. For the purposes of the present thesis, only the mechanical properties of the glass container are of interest, as the pharmacological action of the medical fluid is not relevant to the type of structural analyses implemented in this study.
-
-
 \subsection{Information gap}
 The only missing inputs required for a full design workflow evaluation are:
 \begin{itemize}
-    \item The derived \textit{impact velocity}, angle, and mass for the selected scenario;
+    \item The derived \textit{impact velocity}, \textit{angle}, and \textit{mass} for the selected scenario;
     \item The quantification of the phials' fragility through the characterisation of their material's mechanical \textit{allowables};
 \end{itemize}
 

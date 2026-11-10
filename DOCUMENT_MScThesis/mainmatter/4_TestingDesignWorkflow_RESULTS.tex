@@ -1,5 +1,5 @@
 % LTeX: language=en-GB
-\chapter{Results: Through the Workflow}
+\chapter{Workflow Implementation: Application and Deliverables}
 \label{chapter:results}
 
 This chapter presents an example of how the airbag design workflow can be applied following the steps presented in \cref{section:inner-design-loop}. Each step requires its own ad-hoc procedure and analysis of the results. Hence, the procedure of each step is described first, its results are presented, and these are then fed into the next step. This structure is meant to show how the output of each step is used in the next, starting from a preliminary mission analysis, continuing with the characterisation of the medical payload and resulting allowables, and ending with recommendations on the design of an airbag intended to protect the payload in case of a drone failure.
@@ -39,22 +39,5 @@ The following recommendations can then be made for the second design phase:
 
 These recommendations are only a starting point: the second design phase will require new recommendations of its own, based on a dedicated literature search and on concepts beyond the scope of this workflow, such as the integration with the UAV and the deployment system as schematically illustrated in \cref{fig:system-diagram}
 
-\section{Summary of results}
-This section summarises the results of the thesis by returning to the research questions formulated in \cref{sec:research-development-objective-with-questions}, starting from the main question and then addressing each sub-question sequentially.
-
-\textit{How can a systematic multi-phase simulation workflow be developed to design an airbag-based protective system for medical payloads during UAV emergency-release events?}\\
-The main objective of this thesis was to propose and test an airbag design workflow, including a mission analysis, an experimental campaign and the FE modelling of impact events. These steps are preparatory to the design of a sensible airbag device, able to protect the selected medical payload (pharmaceutical glass phials), and each of them provides the next with the data it needs: the probabilistic impact conditions over the territory of Turin, the calibrated material model of the payload, the allowable acceleration and, finally, the input for the optimisation of the airbag design.
-
-\textbf{Sub-questions:}
-\begin{enumerate}
-  \item \textit{What are the allowable mechanical limits (acceleration, stress, etc.) for medical products during emergency release, and how should these define the design envelope?}\\
-  The mechanical limits were studied through the characterisation of an exemplifying payload, consisting of 5\,ml borosilicate glass phials. An experimental campaign of 76 compression tests on two batches of phials provided the basis for an approximate material model in LS-DYNA, calibrated on a tensile strength \texttt{FT} = 60\,MPa, which reproduces the experimental breaking load of 98.7\,N. The phials were then subjected to an FE sled test in LS-DYNA, hypothesising a certain payload assembly configuration. This gave an allowable peak acceleration of 225\,$g$ for an acceleration perpendicular to the phial axis (the most critical case). Together with the impact conditions obtained from the mission analysis, taken at the 98.5th percentile ($u_{x0} = 7.5$\,m/s horizontally and $u_{y0} = 25$\,m/s vertically), this allowable defines the design envelope of the airbag.
-
-  \item \textit{How can the inflated airbag configuration be optimised to satisfy impact-absorption requirements while balancing competing design requirements?}\\
-  This was achieved through the proposed design optimisation code, which takes as input the initial velocity, the payload mass and the allowable acceleration, and explores the design variables, i.e. the gas type, the fabric type, the number of fabric plies and airbag sizing parameters regarding characteristic dimensions, inflation pressure, and venting area. A differential evolution wrapper around the oracle returns low-mass candidates that pass the bursting, full-stroke impact velocity, and rebound checks, together with their geometry. These outputs can guide the design of the airbag towards a payload-geometry-specific solution.
-
-  \item \textit{What recommendations facilitate transforming the inflated geometry into a compact, functional deployment system?}\\
-  A hypothesis of a fully functional system was proposed based on an informed literature search and the findings gathered throughout the workflow. Without a specific payload geometry, the proposed system cannot go beyond the level of recommendation drawn from information collected throughout the workflow, not accounting for the design phase subsequent to this MSc thesis deliverable. The recommendations include the type of inflation mechanism (a stored-gas inflator charged with helium), the time of flight to impact (between 4 and 6.5\,s), which sets the time available for the inflation, and the initial inflation pressure $P_0$, which ranges from \qtyrange{129.6}{140.0}{\kilo\pascal} (absolute) across the optimised designs in \cref{tab:step4-winners-per-cap}. Geometry-specific tailoring is left for future work outside the scope of this thesis. 
-\end{enumerate}
 
 

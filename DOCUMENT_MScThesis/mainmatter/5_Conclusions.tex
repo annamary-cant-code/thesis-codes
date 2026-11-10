@@ -2,27 +2,32 @@
 \chapter{Conclusions}
 \label{chapter:conclusions}
 
-\section{General summary}
+
+This chapter summarises the results of the thesis by returning to the research questions formulated in \cref{sec:research-development-objective-with-questions}, starting from the main question and then addressing each sub-question sequentially. It concludes with recommendations on future work based on the limitations identified throughout the workflow, covering both technical developments and the collaboration between authorities, research and industry needed to enable UAV medical delivery operations.
+
+\section{Summary of results}
+\textit{How can a systematic multi-phase simulation workflow be developed to design an airbag-based protective system for medical payloads during UAV emergency-release events?}\\
+This thesis was designed as a first step to bridge the gap between the research carried out so far, which covered logistics, regulation and mission evaluation, and the long-term objective of enabling the deployment of a UAV medical delivery network over Italian territory, flanking the transportation solutions already in place. To carry the research and development effort forward, the proposed solution is rooted in safety, opposing a \textit{mission-first} development strategy that struggles to get past pilot flights and certification (\cref{section:market-analysis}).
+
+At a higher level, the thesis proposes a paradigm shift in design based on the \textit{safety-first} principle, inspired by biomedical design, in which the payload and the UAV are treated as separate entities and safety is moved to the start of the design process (\cref{section:outer-design-loop}). At a more specific level, this principle is applied to the preliminary sizing of an airbag-type device, through the airbag design workflow of \cref{section:inner-design-loop}. Steps 0-4 of this workflow, applied in this thesis, include a mission analysis, an experimental campaign and the FE modelling of impact events. These steps are preparatory to the design of an airbag device able to protect the selected medical payload, i.e. pharmaceutical glass phials, and each of them provides the next with the data it needs: the probabilistic impact conditions over the territory of Turin, the calibrated material model of the payload, the allowable acceleration and, finally, the input for the optimisation of the airbag design.
+
+With the safety-first approach, the protection system therefore provides the outer design loop with its inputs (airbag mass and volume, inflator and inflation time), instead of being included in the overall UAV architecture at the end of the design (\cref{fig:flowchart-safety-first}). Overall, separating the payload's protection system from the UAV's allows for a modular design that could be implemented across different drones and missions while also easing certification, which is ultimately the long-term goal of \textit{Politecnico di Torino}'s research group.
 
 
+\textbf{Sub-questions:}
+\begin{enumerate}
+  \item \textit{What are the allowable mechanical limits (acceleration, stress, etc.) for medical products during emergency release, and how should these define the design envelope?}\\
+  The mechanical limits were studied through the characterisation of an exemplifying payload, consisting of 5\,ml borosilicate glass phials. An experimental campaign of 76 compression tests on two batches of phials provided the basis for an approximate material model in LS-DYNA, calibrated on a tensile strength \texttt{FT} = 60\,MPa, which reproduces the experimental breaking load of 98.7\,N. The phials were then subjected to an FE sled test in LS-DYNA, hypothesising a certain payload assembly configuration. This gave an allowable peak acceleration of 225\,$g$ for an acceleration perpendicular to the phial axis (the most critical case). Together with the impact conditions obtained from the mission analysis, taken at the 98.5th percentile ($u_{x0} = 7.5$\,m/s horizontally and $u_{y0} = 25$\,m/s vertically), this allowable defines the design envelope of the airbag.
 
-\hl{WRITE GENERAL SUMMARY!!!! COME ON YOU CAN DO IT!!!!!}
+  \item \textit{How can the inflated airbag configuration be optimised to satisfy impact-absorption requirements while balancing competing design requirements?}\\
+  This was achieved through the proposed design optimisation code, which takes as input the initial velocity, the payload mass and the allowable acceleration, and explores the design variables, i.e. the gas type, the fabric type, the number of fabric plies and airbag sizing parameters regarding characteristic dimensions, inflation pressure, and venting area. A differential evolution wrapper around the analytical airbag impact model returns low-mass candidates that pass the bursting, full-stroke impact velocity, and rebound checks, together with their geometry. These outputs can guide the design of the airbag towards a payload-geometry-specific solution.
 
-
-
-
-
-%\begin{itemize}
-%    \item \textbf{Starting problem:} no medical UAV network in Piedmont yet; prior work covered logistics, regulation and missions, %but not design; \textit{mission-first} development struggles to get past pilot flights and certification.
-%    \item \textbf{Contribution 1, outer loop:} the \textit{safety-first} principle: payload and UAV treated as separate entities, %safety moved to the start of the design process.
-%    \item \textbf{Contribution 2, inner loop:} the airbag workflow that puts the principle into practice; steps 0-4 carried out here, %steps 5-7 left for later because they depend on the container geometry.
-%    \item \textbf{What testing the workflow showed:} the chain works, with each step supplying the next (impact conditions, %calibrated payload model, allowable acceleration, airbag sizing). This demonstrates the workflow on a representative payload; it %does not qualify a device.
-%    \item \textbf{Back to the long-term vision:} safety-first changes the order of design, so the protection system gives the mission %loop its inputs (mass, volume, inflation time) instead of being added at the end; separating payload and UAV allows a modular %device and could ease certification across different drones.
-%    \item \textbf{Closing idea:} this thesis as the first concrete design link between the earlier feasibility studies and the drone %network, leading into the recommendations.
-%\end{itemize}
+  \item \textit{What recommendations facilitate transforming the inflated geometry into a compact, functional deployment system?}\\
+  A hypothesis of a fully functional system was proposed based on an informed literature search and the findings gathered throughout the workflow. Without a specific payload geometry, the proposed system cannot go beyond the level of recommendation drawn from information collected throughout the workflow, not accounting for the design phase subsequent to this MSc thesis deliverable. The recommendations include the type of inflation mechanism (a stored-gas inflator charged with helium), the time of flight to impact (between 4 and 6.5\,s), which sets the time available for the inflation, and the initial inflation pressure $P_0$, which ranges from \qtyrange{129.6}{140.0}{\kilo\pascal} (absolute) across the optimised designs in \cref{tab:step4-winners-per-cap}. Geometry-specific tailoring is left for future work outside the scope of this thesis. 
+\end{enumerate}
 
 \section{Recommendations for future work}
-The airbag design workflow tested in this thesis is limited by the speculative nature of the payload assembly and, thus, cannot directly lead to testing and prototyping of a fully functional device. However, it is possible to continue this research line in several different ways, aiming at the long-term goal of deploying a full-scale UAV-based medical delivery network on regional and national territory. 
+The airbag design workflow tested in this thesis is limited by the speculative nature of the payload assembly and, thus, cannot directly lead to testing and prototyping of a fully functional device. However, it is possible to continue this research and development line in several different ways, aiming at the long-term goal of deploying a full-scale UAV-based medical delivery network on regional and national territory. 
 
 In general, technical recommendations could include a combination of the following pathways:
 \begin{enumerate}

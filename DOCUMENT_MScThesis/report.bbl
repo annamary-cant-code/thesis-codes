@@ -19,6 +19,140 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{Balasingam2017}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6c743ac042803033fbd0523daedbd84e}{%
+           family={Balasingam},
+           familyi={B\bibinitperiod},
+           given={Manohari},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{fullhash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{fullhashraw}{6c743ac042803033fbd0523daedbd84e}
+      \strng{bibnamehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authorbibnamehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authornamehash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authorfullhash}{6c743ac042803033fbd0523daedbd84e}
+      \strng{authorfullhashraw}{6c743ac042803033fbd0523daedbd84e}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Int. J. Clin. Pract.}
+      \field{month}{9}
+      \field{number}{9}
+      \field{title}{Drones in medicine---{The} rise of the machines}
+      \field{volume}{71}
+      \field{year}{2017}
+      \field{pages}{e12989}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1111/ijcp.12989
+      \endverb
+    \endentry
+    \entry{chhetri2026survey}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=9be3b9f8864019e4576a1fbbd48ddffc}{%
+           family={Chhetri},
+           familyi={C\bibinitperiod},
+           given={Roshan\bibnamedelima Kumar},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=004cdd43df40c13a6fd788ce0c38e56a}{%
+           family={Jetawatthana},
+           familyi={J\bibinitperiod},
+           given={Sarocha},
+           giveni={S\bibinitperiod}}}%
+        {{hash=499908cefd8d15e343dea018fac8c7e8}{%
+           family={Khamvilai},
+           familyi={K\bibinitperiod},
+           given={Thanakorn},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
+      \strng{fullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{fullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{bibnamehash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{authorbibnamehash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{authornamehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
+      \strng{authorfullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \strng{authorfullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.RO}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{arXiv preprint arXiv:2602.06969}
+      \field{title}{A Survey of Medical Drones from Flight Dynamics, Guidance, Navigation, and Control Perspectives}
+      \field{year}{2026}
+      \verb{eprint}
+      \verb 2602.06969
+      \endverb
+    \endentry
+    \entry{EU_2019_947}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=a1b813a6e85874b4c945aec2cdbea74c}{%
+           family={{European Commission}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{fullhash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{fullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{bibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorbibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authornamehash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorfullhash}{a1b813a6e85874b4c945aec2cdbea74c}
+      \strng{authorfullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Official Journal of the European Union, L 152, 11 June 2019, p. 45}
+      \field{note}{Consolidated version of 1 May 2025. Accessed: Nov. 5, 2026}
+      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 May 2019 on the rules and procedures for the operation of unmanned aircraft}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
+      \endverb
+      \verb{url}
+      \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
+      \endverb
+    \endentry
+    \entry{EASA_AMC_947}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=8eeedab57655f4096ebbd8b290c722cc}{%
+           family={{European Union Aviation Safety Agency}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cologne, Germany}%
+      }
+      \list{organization}{1}{%
+        {EASA}%
+      }
+      \strng{namehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{fullhash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{fullhashraw}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{bibnamehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authorbibnamehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authornamehash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authorfullhash}{8eeedab57655f4096ebbd8b290c722cc}
+      \strng{authorfullhashraw}{8eeedab57655f4096ebbd8b290c722cc}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Annex I to ED Decision 2022/002/R. Accessed: Nov. 5, 2026}
+      \field{title}{Acceptable Means of Compliance and Guidance Material to Regulation ({EU}) 2019/947 - Issue 1, Amendment 2}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.easa.europa.eu/en/downloads/135910/en
+      \endverb
+      \verb{url}
+      \verb https://www.easa.europa.eu/en/downloads/135910/en
+      \endverb
+    \endentry
     \entry{Fantato2023}{article}{}{}
       \name{author}{8}{}{%
         {{hash=9ea80144096cfa9f7ff1f98b6b6cbefc}{%
@@ -70,8 +204,8 @@
       \strng{authornamehash}{5c28198c0d0351d6ba9a827c6fe8f2de}
       \strng{authorfullhash}{2d974f26de914e5f8622d80df05d6220}
       \strng{authorfullhashraw}{2d974f26de914e5f8622d80df05d6220}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Ital. J. Emerg. Med.}
@@ -122,8 +256,8 @@
       \strng{authornamehash}{15e580d4fdcc6c59d75cd31ab83e063d}
       \strng{authorfullhash}{bdb9d3b7d88a3b5e721e761fb54aa116}
       \strng{authorfullhashraw}{bdb9d3b7d88a3b5e721e761fb54aa116}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Eur. J. Public Health}
@@ -164,8 +298,8 @@
       \strng{authornamehash}{f17dc24b253697b3a1b3359bd1cef29f}
       \strng{authorfullhash}{decbe8160f8e939de20a29b9f2d45aee}
       \strng{authorfullhashraw}{decbe8160f8e939de20a29b9f2d45aee}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Appl. Health Econ. Health Policy}
@@ -221,8 +355,8 @@
       \strng{authornamehash}{20b940197e66e4cdf6040d5c3fe75b95}
       \strng{authorfullhash}{fce370777161fa4973642bfc9e1ba40d}
       \strng{authorfullhashraw}{fce370777161fa4973642bfc9e1ba40d}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Int. J. Environ. Res. Public Health}
@@ -235,38 +369,6 @@
       \range{pages}{1}
       \verb{doi}
       \verb 10.3390/ijerph19042000
-      \endverb
-    \endentry
-    \entry{Balasingam2017}{article}{}{}
-      \name{author}{1}{}{%
-        {{hash=6c743ac042803033fbd0523daedbd84e}{%
-           family={Balasingam},
-           familyi={B\bibinitperiod},
-           given={Manohari},
-           giveni={M\bibinitperiod}}}%
-      }
-      \strng{namehash}{6c743ac042803033fbd0523daedbd84e}
-      \strng{fullhash}{6c743ac042803033fbd0523daedbd84e}
-      \strng{fullhashraw}{6c743ac042803033fbd0523daedbd84e}
-      \strng{bibnamehash}{6c743ac042803033fbd0523daedbd84e}
-      \strng{authorbibnamehash}{6c743ac042803033fbd0523daedbd84e}
-      \strng{authornamehash}{6c743ac042803033fbd0523daedbd84e}
-      \strng{authorfullhash}{6c743ac042803033fbd0523daedbd84e}
-      \strng{authorfullhashraw}{6c743ac042803033fbd0523daedbd84e}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Int. J. Clin. Pract.}
-      \field{month}{9}
-      \field{number}{9}
-      \field{title}{Drones in medicine---{The} rise of the machines}
-      \field{volume}{71}
-      \field{year}{2017}
-      \field{pages}{e12989}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1111/ijcp.12989
       \endverb
     \endentry
     \entry{Scott2017}{inproceedings}{}{}
@@ -290,8 +392,8 @@
       \strng{authornamehash}{319a0f1975427ba54022b2992cd21dc2}
       \strng{authorfullhash}{319a0f1975427ba54022b2992cd21dc2}
       \strng{authorfullhashraw}{319a0f1975427ba54022b2992cd21dc2}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proc. 50th Hawaii Int. Conf. Syst. Sci. ({HICSS})}
@@ -582,38 +684,9 @@
       \field{title}{Comparative Analysis of e{VTOL}, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
       \field{year}{2024}
     \endentry
-    \entry{EU_2019_947}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=a1b813a6e85874b4c945aec2cdbea74c}{%
-           family={{European Commission}},
-           familyi={E\bibinitperiod}}}%
-      }
-      \strng{namehash}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{fullhash}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{fullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{bibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{authorbibnamehash}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{authornamehash}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{authorfullhash}{a1b813a6e85874b4c945aec2cdbea74c}
-      \strng{authorfullhashraw}{a1b813a6e85874b4c945aec2cdbea74c}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Official Journal of the European Union, L 152, 11 June 2019, p. 45}
-      \field{note}{Consolidated version of 1 May 2025. Accessed: Nov. 5, 2026}
-      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 May 2019 on the rules and procedures for the operation of unmanned aircraft}
-      \field{year}{2019}
-      \verb{urlraw}
-      \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
-      \endverb
-      \verb{url}
-      \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
-      \endverb
-    \endentry
     \entry{asl1_uelcome}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ASL 1 Avezzano Sulmona L'Aquila}
       \field{note}{Accessed 5 October 2026}
@@ -626,8 +699,8 @@
       \endverb
     \endentry
     \entry{abruzzospeciale_uelcome}{misc}{}{}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Abruzzo Speciale}
       \field{note}{Accessed 5 October 2026}
@@ -813,8 +886,8 @@
       \strng{authornamehash}{a65e1805611d67a7aa59578c593ca553}
       \strng{authorfullhash}{a65e1805611d67a7aa59578c593ca553}
       \strng{authorfullhashraw}{a65e1805611d67a7aa59578c593ca553}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2025-2026}
@@ -822,79 +895,6 @@
       \field{number}{Doc 9284}
       \field{title}{Technical Instructions for the Safe Transport of Dangerous Goods by Air}
       \field{year}{2025}
-    \endentry
-    \entry{EASA_AMC_947}{manual}{}{}
-      \name{author}{1}{}{%
-        {{hash=8eeedab57655f4096ebbd8b290c722cc}{%
-           family={{European Union Aviation Safety Agency}},
-           familyi={E\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Cologne, Germany}%
-      }
-      \list{organization}{1}{%
-        {EASA}%
-      }
-      \strng{namehash}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{fullhash}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{fullhashraw}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{bibnamehash}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{authorbibnamehash}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{authornamehash}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{authorfullhash}{8eeedab57655f4096ebbd8b290c722cc}
-      \strng{authorfullhashraw}{8eeedab57655f4096ebbd8b290c722cc}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Annex I to ED Decision 2022/002/R. Accessed: Nov. 5, 2026}
-      \field{title}{Acceptable Means of Compliance and Guidance Material to Regulation ({EU}) 2019/947 - Issue 1, Amendment 2}
-      \field{year}{2022}
-      \verb{urlraw}
-      \verb https://www.easa.europa.eu/en/downloads/135910/en
-      \endverb
-      \verb{url}
-      \verb https://www.easa.europa.eu/en/downloads/135910/en
-      \endverb
-    \endentry
-    \entry{chhetri2026survey}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=9be3b9f8864019e4576a1fbbd48ddffc}{%
-           family={Chhetri},
-           familyi={C\bibinitperiod},
-           given={Roshan\bibnamedelima Kumar},
-           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
-        {{hash=004cdd43df40c13a6fd788ce0c38e56a}{%
-           family={Jetawatthana},
-           familyi={J\bibinitperiod},
-           given={Sarocha},
-           giveni={S\bibinitperiod}}}%
-        {{hash=499908cefd8d15e343dea018fac8c7e8}{%
-           family={Khamvilai},
-           familyi={K\bibinitperiod},
-           given={Thanakorn},
-           giveni={T\bibinitperiod}}}%
-      }
-      \strng{namehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
-      \strng{fullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \strng{fullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \strng{bibnamehash}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \strng{authorbibnamehash}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \strng{authornamehash}{1bb3b9f8e6ff6c273e31e43da6a09ce9}
-      \strng{authorfullhash}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \strng{authorfullhashraw}{8dfb60196870688d0aabed4bdf6f2f0c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.RO}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{arXiv preprint arXiv:2602.06969}
-      \field{title}{A Survey of Medical Drones from Flight Dynamics, Guidance, Navigation, and Control Perspectives}
-      \field{year}{2026}
-      \verb{eprint}
-      \verb 2602.06969
-      \endverb
     \endentry
     \entry{alulema2026how}{article}{}{}
       \name{author}{4}{}{%
@@ -1560,8 +1560,8 @@
       \strng{authornamehash}{61226a4741a5fdae613b8f0b24f81487}
       \strng{authorfullhash}{8cf2cc4cd374eeb8001183d76490e318}
       \strng{authorfullhashraw}{8cf2cc4cd374eeb8001183d76490e318}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Symp. Parachute Technol. Eval.}
@@ -1596,8 +1596,8 @@
       \strng{authornamehash}{b63115e036fa487a7b4eb84877197bab}
       \strng{authorfullhash}{3d0aa8f28b157383ae5e64389b364690}
       \strng{authorfullhashraw}{3d0aa8f28b157383ae5e64389b364690}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Acta Astronaut.}
@@ -2237,8 +2237,8 @@
       \strng{authornamehash}{23ae3eda7914eed1af9cd8dc5d9107db}
       \strng{authorfullhash}{23ae3eda7914eed1af9cd8dc5d9107db}
       \strng{authorfullhashraw}{23ae3eda7914eed1af9cd8dc5d9107db}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{J. Korean Soc. Manuf. Process Eng.}
