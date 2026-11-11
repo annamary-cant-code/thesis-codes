@@ -8,7 +8,7 @@
 \Cont catalogues: shapes $\{\text{cyl.},\text{sph.}\}$, fabrics $\mathcal{F}$, gases $\mathcal{G}$ (\cref{tab:airbag-design-variables-selected})
 \Cont residual-speed caps $\mathcal{U}$, random seeds $\mathcal{S}$, DE settings (\textit{popsize}, \textit{maxiter}, \textit{tol})
 \Ensure for each $u_\text{res,max} \in \mathcal{U}$: best shape, fabric, gas and design $\mathbf{x}^*$, with its results $\mathbf{r}^*$
-\Cont summary table of outcome, $m_\text{tot}$, $u_\text{land}$, $a_{n,\text{peak}}$ and feasibility over $\mathcal{U}$
+\Cont summary table of outcome, $m_\text{tot}$, $u_\text{land}$, $a_{\text{peak},n}$ and feasibility over $\mathcal{U}$
 
 \Block{Pre-processing (done once)}
 \State $a_\text{lim} \gets a_\text{allow}/\mathit{SF}$ \Comment{limit on the peak bag load $F_n/M$}
@@ -71,11 +71,11 @@
 \Function{Evaluate}{$\mathbf{r}$} \Comment{graded violations, $0$ = satisfied}
   \State $\mathit{landed} \gets \textit{bottomed} \lor \textit{settled}$ \Comment{settled: no flag set by $t_\text{max}$}
   \State $u_\text{land} \gets \Call{LandingSpeed}{\mathbf{r}}$
-  \State $v_\text{acc} \gets \max(0,\ a_{n,\text{peak}} - a_\text{lim})/a_\text{lim}$
+  \State $v_\text{acc} \gets \max(0,\ a_{\text{peak},n} - a_\text{lim})/a_\text{lim}$
   \State $v_\text{burst} \gets \max(0,\ P_\text{peak} - P_\text{burst})/P_\text{burst}$
   \State $v_\text{reb} \gets |u_{\text{reb},y}|/u_{y0}$ if \textit{rebounded}, else $0$
   \State $v_\text{ures} \gets \max(0,\ u_\text{land} - u_\text{res,max})/u_{n0}$ if $\mathit{landed}$, else $0$
-  \State $\mathit{feasible} \gets \mathit{landed} \land (a_{n,\text{peak}} \le a_\text{lim}) \land (u_\text{land} \le u_\text{res,max})$
+  \State $\mathit{feasible} \gets \mathit{landed} \land (a_{\text{peak},n} \le a_\text{lim}) \land (u_\text{land} \le u_\text{res,max})$
   \State \Return $\mathbf{v}, \mathit{feasible}$
 \EndFunction
 

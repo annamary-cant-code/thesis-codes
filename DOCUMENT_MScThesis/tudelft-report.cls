@@ -70,8 +70,13 @@
     \RequirePackage{newpxtext}    % Palatino-like font...
     \RequirePackage{newpxmath}    % ...with support for mathematics
 
-    \newcommand{\titlestyle}{\fontfamily{RobotoSlab-TLF}\fontseries{light}\selectfont}
-    \newcommand{\largetitlestyle}{\fontfamily{RobotoSlab-TLF}\fontseries{thin}\selectfont}
+    \newcommand{\titlestyle}{\fontfamily{Roboto-LF}\fontseries{light}\selectfont}
+    \newcommand{\largetitlestyle}{\fontfamily{Roboto-LF}\fontseries{thin}\selectfont}
+
+    %% Cover and title page: Roboto (sans) Medium for the title, Roboto Light for subtitle and author
+    \newcommand{\covertitlestyle}{\fontfamily{Roboto-LF}\fontseries{medium}\selectfont}
+    \newcommand{\coversubtitlestyle}{\fontfamily{Roboto-LF}\fontseries{light}\selectfont}
+    \newcommand{\coverregularstyle}{\fontfamily{Roboto-LF}\fontseries{regular}\selectfont}
 \else
     %% If XeLaTeX or LuaLaTeX is set as the compiler, the TU Delft house style fonts are used (see https://www.tudelft.nl/huisstijl/bouwstenen/typografie).
     \RequirePackage[no-math]{fontspec} % Advanced font selection
@@ -81,8 +86,11 @@
     \setmathsf{Arial}
     \setmathtt{Arial}
 
-    \newfontfamily\titlestyle{Roboto Slab Light}
-    \newfontfamily\largetitlestyle{Roboto Slab Thin}
+    \newfontfamily\titlestyle{Roboto Light}
+    \newfontfamily\largetitlestyle{Roboto Thin}
+    \newfontfamily\covertitlestyle{Roboto Medium}
+    \newfontfamily\coversubtitlestyle{Roboto Light}
+    \newfontfamily\coverregularstyle{Roboto}
 \fi
 
 %% ----------------------------------------------------------------------
@@ -166,8 +174,10 @@
             \includegraphics[width=\paperwidth]{\@coverimage}};
 
         %% Add the affiliation on the left
-        \node[rotate=90,below right=40mm and 3mm] at (current page.west) {%
-            \ifdefvoid{\@affiliation}{}{\color{white}\titlestyle\@affiliation}};
+        %% (dark green sampled from the foliage of the cover photo)
+        \definecolor{affiliation}{HTML}{1B211A}
+        \node[rotate=90,below right=15mm and 3mm] at (current page.west) {%
+            \ifdefvoid{\@affiliation}{}{\color{affiliation}\titlestyle\@affiliation}};
 
         %% Add the banner with the TU Delft, PoliTo, AOU and FEV logos at the bottom
         \node[above=0,fill=black!85,minimum width={\paperwidth},inner ysep=10mm,opacity=0.6,text opacity=1] at (current page.south) {%
@@ -179,19 +189,19 @@
             }};
 
         %% Add the banner with the title, subtitle, subject and author(s)
-        \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.6,text opacity=1] at (current page.north) {%
-            \begin{minipage}{0.9\paperwidth}
-                %% Format and add the title
-                \color{title}\raggedright\largetitlestyle\fontsize{38}{42}\selectfont%
-                    \@title \\[0.5ex]
+        \node[below=2cm,fill=black!85,minimum width={\paperwidth},inner ysep=25pt,opacity=0.8,text opacity=1] at (current page.north) {%
+            \begin{minipage}{0.9\paperwidth}\begin{minipage}{0.75\paperwidth}
+                %% Format and add the title (narrower box so the title breaks after "System")
+                \color{white}\raggedright\covertitlestyle\fontsize{30}{34.5}\selectfont%
+                    \@title\par\vspace{0.8ex}
                 %% Format and add (optional) subtitle and subject
-                \color{white}\titlestyle\fontsize{22}{22}\selectfont%
-                    \ifdefvoid{\@subtitle}{}{\@subtitle \\[2.5ex]}%
-                    \ifdefvoid{\@subject}{}{\@subject \\[0.5ex]}
+                \coverregularstyle\fontsize{24}{28.8}\selectfont%
+                    \ifdefvoid{\@subtitle}{}{\@subtitle\par\vspace{3ex}}%
+                    \ifdefvoid{\@subject}{}{\@subject\par\vspace{0.5ex}}%
                 %% Format and add author or table of authors
-                \largetitlestyle\fontsize{20}{20}\selectfont%
+                \coverregularstyle\fontsize{18}{21.6}\selectfont%
                     \ifdefvoid{\@covertable}{\@author}{\@covertable}
-            \end{minipage}};
+            \end{minipage}\hfill\end{minipage}};
 
     \end{tikzpicture}
     \newpage

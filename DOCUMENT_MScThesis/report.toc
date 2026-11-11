@@ -1,7 +1,7 @@
 \babel@toc {british}{}\relax 
 \contentsline {chapter}{Preface}{i}{chapter*.1}%
 \contentsline {chapter}{Summary}{ii}{chapter*.2}%
-\contentsline {chapter}{Nomenclature}{viii}{chapter*.6}%
+\contentsline {chapter}{Nomenclature}{x}{chapter*.6}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Project framing}{2}{section.1.2}%
@@ -12,7 +12,7 @@
 \contentsline {chapter}{\numberline {2}Background and Research-Development Gap}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Regional market analysis: medical UAV logistics in Piedmont}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}\textit {Mission-first} vs. \textit {Safety-first}: a design-philosophy gap}{8}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Airbag impact attenuation: background knowledge}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.3}Airbag impact attenuation: background knowledge}{9}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Established applications and common working principle}{9}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Design guidelines, requirements, and variables}{11}{subsection.2.3.2}%
 \contentsline {subsubsection}{Framing}{11}{subsection.2.3.2}%
@@ -91,11 +91,11 @@
 \contentsline {subsubsection}{Limitations of the \texttt {simulate\_airbag} oracle}{56}{Item.38}%
 \contentsline {subsection}{\numberline {4.5.3}\texttt {differential\_evolution} optimisation algorithm}{56}{subsection.4.5.3}%
 \contentsline {subsubsection}{Algorithm choice and design vector}{56}{subsection.4.5.3}%
-\contentsline {subsubsection}{Design feasibility and score}{57}{equation.4.15}%
-\contentsline {subsubsection}{Steps of one differential evolution run}{58}{equation.4.17}%
+\contentsline {subsubsection}{Design feasibility and score}{57}{equation.4.16}%
+\contentsline {subsubsection}{Steps of one differential evolution run}{58}{equation.4.18}%
 \contentsline {subsubsection}{Complete calculation procedure}{59}{Item.43}%
-\contentsline {subsubsection}{Limitations of differential evolution}{59}{figure.caption.50}%
-\contentsline {subsection}{\numberline {4.5.4}Results}{59}{subsection.4.5.4}%
+\contentsline {subsubsection}{Limitations of differential evolution}{60}{figure.caption.50}%
+\contentsline {subsection}{\numberline {4.5.4}Results}{60}{subsection.4.5.4}%
 \contentsline {section}{\numberline {4.6}System design hypothesis}{64}{section.4.6}%
 \contentsline {chapter}{\numberline {5}Conclusions}{66}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Summary of results}{66}{section.5.1}%
@@ -119,17 +119,19 @@
 \contentsline {section}{\numberline {6.4}Self-assessment}{73}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Lessons learned and recommendations}{73}{section.6.5}%
 \contentsline {chapter}{References}{74}{chapter*.56}%
-\contentsline {chapter}{\numberline {A}Extended Market Analysis}{81}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Value-chain actors}{81}{appendix.A.1}%
-\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{84}{appendix.A.2}%
-\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{86}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Safety precautions}{86}{appendix.B.1}%
-\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{86}{appendix.B.2}%
-\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{87}{appendix.C}%
-\contentsline {chapter}{\numberline {D}Pseudocode of the Airbag Simulation Function}{88}{appendix.D}%
-\contentsline {section}{\numberline {D.1}Airbag impact simulation (\texttt {simulate\_airbag})}{88}{appendix.D.1}%
-\contentsline {chapter}{\numberline {E}Optimisation Results per Inflation Gas}{91}{appendix.E}%
-\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{95}{appendix*.62}%
+\contentsline {chapter}{\numberline {A}Extended Market Analysis}{82}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Value-chain actors}{82}{appendix.A.1}%
+\contentsline {section}{\numberline {A.2}Trials and planned initiatives}{85}{appendix.A.2}%
+\contentsline {chapter}{\numberline {B}Safety Measures for the Experimental Campaign}{87}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Safety precautions}{87}{appendix.B.1}%
+\contentsline {section}{\numberline {B.2}Persons allowed in the test area}{87}{appendix.B.2}%
+\contentsline {chapter}{\numberline {C}Development Iterations of the Glass Phial FE Model}{88}{appendix.C}%
+\contentsline {chapter}{\numberline {D}Pseudocode of the Airbag Simulation Function}{89}{appendix.D}%
+\contentsline {section}{\numberline {D.1}Airbag impact simulation (\texttt {simulate\_airbag})}{89}{appendix.D.1}%
+\contentsline {chapter}{\numberline {E}Optimisation Results per Inflation Gas}{92}{appendix.E}%
+\contentsline {chapter}{\numberline {F}Packing Instruction P650: Relevant Provisions}{96}{appendix.F}%
+\contentsline {chapter}{\numberline {G}Fabric Property Data}{97}{appendix.G}%
+\contentsline {chapter}{Acknowledgements - \textit {Ringraziamenti}}{98}{appendix*.63}%
 \babel@toc {italian}{}\relax 
 \babel@toc {british}{}\relax 
 \contentsfinish 

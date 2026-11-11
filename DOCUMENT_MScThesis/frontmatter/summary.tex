@@ -1,4 +1,157 @@
 \chapter*{Summary}
 \addcontentsline{toc}{chapter}{Summary}
 
-\emph{A summary...}
+\noindent\textbf{Bottom line}
+\begin{itemize}
+    \item Workflow for glass-phial protection device
+    \item Design must be payload-specific
+    \item Chain: impact $\rightarrow$ fragility $\rightarrow$ FEM
+          $\rightarrow$ sizing
+\end{itemize}
+
+\noindent\textbf{Problem}
+\begin{itemize}
+    \item Medical drone delivery
+    \item Glass phials fragile
+    \item Failure case: payload separation
+    \item Regional gap (Piedmont)
+    \item Partners
+\end{itemize}
+
+\noindent\textbf{Scope}
+\begin{itemize}
+    \item Research question
+    \item Original goal: full design
+    \item Pivot: unrealistic inputs $\rightarrow$ workflow
+\end{itemize}
+
+\noindent\textbf{Approach}
+\begin{itemize}
+    \item Monte Carlo impact over Turin
+    \item 76 MTS tests, Weibull
+    \item LS-DYNA full phial, MAT\_GLASS, calibrated, perturbed
+    \item Sizing code: 2D velocity, seams, porosity
+    \item Recommendations
+\end{itemize}
+
+\noindent\textbf{Results}
+\begin{itemize}
+    \item Design impact conditions
+    \item Weibull percentiles, both batches
+    \item FT, FEM vs test agreement
+    \item Sizing outputs
+    \item End-to-end case (if available)
+\end{itemize}
+
+\noindent\textbf{Conclusions}
+\begin{itemize}
+    \item Payload-specific design
+    \item Inflator choice from code
+    \item Partner-specific recommendations
+\end{itemize}
+
+\noindent\textbf{Limitations}
+\begin{itemize}
+    \item Crack validation
+    \item Timestep sensitivity
+    \item Batch A, one geometry, hand measurements
+    \item Airbag model not tested
+\end{itemize}
+
+
+
+\noindent\textbf{Bottom line}
+\begin{itemize}
+    \item This thesis develops a combined testing and simulation workflow
+          for designing an airbag-type device that protects glass phials
+          carried by drone.
+    \item The main finding is that the device cannot be designed
+          generically. It has to be sized for a specific payload before
+          any prototype is built.
+    \item The workflow links ground-impact conditions, phial fragility,
+          the phial's structural response and airbag sizing into one
+          chain.
+\end{itemize}
+
+\noindent\textbf{Problem and context}
+\begin{itemize}
+    \item Drone delivery of medicines is a growing option for hospital
+          logistics, including in Piedmont.
+    \item Borosilicate glass phials are among the most fragile items
+          such a system would carry.
+    \item The failure case considered is the payload separating from the
+          drone and hitting the ground.
+    % CHECK: confirm this matches the market analysis conclusion
+    \item No device on the market is designed to protect this kind of
+          payload in this scenario, at least at regional level.
+    \item The work was carried out with TU Delft, Politecnico di Torino,
+          FEV Italia and A.O.U. Citt\`a della Salute e della Scienza di
+          Torino.
+\end{itemize}
+
+\noindent\textbf{Objective and scope}
+\begin{itemize}
+    \item Research question: \textbf{[PLACEHOLDER: final formulation]}.
+    \item The initial goal was a complete airbag design.
+    \item This was dropped after the midterm because the design would
+          have rested on input data that did not reflect real conditions.
+    \item The scope moved to the simulation and test workflow that a
+          real design depends on.
+\end{itemize}
+
+\noindent\textbf{Approach}
+\begin{itemize}
+    \item Ground impact: a Monte Carlo simulation of falling trajectories
+          over Turin's urban terrain gives a probability distribution of
+          impact conditions.
+    \item Phial fragility: 76 phials of 5~ml, from two producers, were
+          compression-tested and their failure loads described with
+          Weibull statistics.
+    \item Phial FEM model: an LS-DYNA model of the full phial, using the
+          MAT\_GLASS material model, calibrated on batch A and given
+          geometric imperfections taken from its vibration modes.
+    \item Airbag sizing: an optimisation code covering horizontal and
+          vertical velocity, seam efficiency and fabric porosity.
+    \item Design recommendations drawn from the outputs of all four
+          modules.
+\end{itemize}
+
+\noindent\textbf{Key results}
+\begin{itemize}
+    \item Impact conditions: \textbf{[PLACEHOLDER: e.g. design impact
+          velocity at a given percentile]}.
+    \item Fragility: 1st and 10th percentile failure loads of
+          \textbf{[PLACEHOLDER]}~N for batch A and
+          \textbf{[PLACEHOLDER]}~N for batch B.
+    \item FEM calibration: tensile strength $F_T = 0.060$~GPa. The model
+          matches the tests within \textbf{[PLACEHOLDER]}~\% on stiffness
+          and \textbf{[PLACEHOLDER]}~\% on peak load.
+    \item Airbag sizing: \textbf{[PLACEHOLDER: main outputs, e.g.
+          volume, pressure, seam requirement]}.
+    % Drop this item if no end-to-end case is available
+    \item End-to-end case: \textbf{[PLACEHOLDER: one phial and one
+          impact condition run through to airbag parameters]}.
+\end{itemize}
+
+\noindent\textbf{Conclusions and recommendations}
+\begin{itemize}
+    \item The design has to start from the specific payload's fragility
+          data and the expected impact conditions.
+    \item Inflator type (pyrotechnic or stored gas) should be chosen from
+          the sizing code's outputs, not fixed in advance.
+    \item \textbf{[PLACEHOLDER: one recommendation aimed at FEV, one at
+          the hospital]}.
+\end{itemize}
+
+\noindent\textbf{Limitations and future work}
+\begin{itemize}
+    \item How cracks start and spread in the FEM model has not yet been
+          validated against controlled fracture tests.
+    \item The effect of the solver's time step on peak force has not
+          been studied yet.
+    \item The calibration uses batch A only. One phial geometry was
+          modelled, and its dimensions were measured by hand with
+          calipers.
+    \item The airbag model itself has not been checked against physical
+          tests.
+\end{itemize}

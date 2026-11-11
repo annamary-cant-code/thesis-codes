@@ -20,6 +20,8 @@ ABS & Acrylonitrile butadiene styrene \\
 \nomrule{2}
 A.O.U. & \textit{Azienda Ospedaliero-Universitaria} (University Hospital Trust) \\
 \nomrule{2}
+ADR & \textit{Accord relatif au transport international des marchandises Dangereuses par Route} (European Agreement concerning the International Carriage of Dangerous Goods by Road) \\
+\nomrule{2}
 ASL & \textit{Azienda Sanitaria Locale} (Local Health Authority) \\
 \nomrule{2}
 ASST & \textit{Azienda Socio-Sanitaria Territoriale} (Territorial Social and Health Authority) \\
@@ -78,15 +80,11 @@ OPC & One-point cut (ampoule breaking system) \\
 \nomrule{2}
 OSM & OpenStreetMap \\
 \nomrule{2}
-PET & Polyethylene terephthalate \\
-\nomrule{2}
 PETG & Polyethylene terephthalate glycol-modified \\
 \nomrule{2}
 PIC4SeR & PoliTo Interdepartmental Centre for Service Robotics \\
 \nomrule{2}
 PP & Polypropylene \\
-\nomrule{2}
-PU & Polyurethane \\
 \nomrule{2}
 RRT & Rapidly-exploring Random Tree (RRT*: asymptotically optimal variant) \\
 \nomrule{2}
@@ -132,17 +130,23 @@ $A_t$ & Airbag--ground footprint area at time $t$ & [\si{\metre\squared}] \\
 \nomrule{3}
 $A_\text{vent}$ & Effective vent area & [\si{\metre\squared}] \\
 \nomrule{3}
+$A_{\text{vent},0}$ & Initial vent area & [\si{\metre\squared}] \\
+\nomrule{3}
 $a$ & Payload acceleration & [\si{\metre\per\second\squared}] \\
 \nomrule{3}
 $a_\text{allow}$ & Allowable payload acceleration & [\si{\metre\per\second\squared}] \\
 \nomrule{3}
 $a_\text{lim}$ & Design acceleration limit, $a_\text{allow}/\mathit{SF}$ & [\si{\metre\per\second\squared}] \\
 \nomrule{3}
+$a_{\text{peak},n}$ & Peak payload acceleration along $\mathbf{n}$, $\max_t F_n/M$ & [\si{\metre\per\second\squared}] \\
+\nomrule{3}
 $C_\text{D}$ & Aerodynamic drag coefficient of the payload & [--] \\
 \nomrule{3}
 $C_\text{dis}$ & Discharge coefficient of the vent & [--] \\
 \nomrule{3}
 $CR$ & Crossover probability of the differential evolution algorithm & [--] \\
+\nomrule{3}
+$\mathcal{C}$ & Constraint set of the optimisation & [--] \\
 \nomrule{3}
 $c$ & Drag constant (Step 0); acoustic wave speed in the material (Step 3) & [\si{\kilogram\per\metre}]; [\si{\metre\per\second}] \\
 \nomrule{3}
@@ -166,19 +170,29 @@ $F_n$ & Normal ground reaction force on the airbag & [\si{\newton}] \\
 \nomrule{3}
 $FT_\text{fail}$ & Phial brittle failure threshold & [GPa] \\
 \nomrule{3}
+$\mathpzc{f}$ & Oracle function, $\mathbf{y} = \mathpzc{f}(\mathbf{x})$ & [--] \\
+\nomrule{3}
 $f(\mathbf{x})$ & Objective function of the optimisation & [\si{\kilogram}] \\
 \nomrule{3}
 $f_1$ & First natural frequency of the phial & [\si{\hertz}] \\
 \nomrule{3}
 $f_t$, $f_c$ & Tensile and compressive strength (Rankine criterion) & [GPa] \\
 \nomrule{3}
+$G$ & Maximum number of generations of the differential evolution algorithm (Step 4); shear modulus (Step 3) & [--]; [GPa] \\
+\nomrule{3}
 $g$ & Gravitational acceleration & [\si{\metre\per\second\squared}] \\
 \nomrule{3}
 $h$ & Stroke, i.e.\ payload travel while compressing the airbag & [\si{\metre}] \\
 \nomrule{3}
+$\mathcal{J}$ & Objective function of the optimisation wrapper, $\mathcal{J}(\mathbf{y})$ & [--] \\
+\nomrule{3}
+$j_\text{rand}$ & Randomly chosen variable index always taken from the mutant $\mathbf{v}$ & [--] \\
+\nomrule{3}
+$K$ & Bulk modulus & [GPa] \\
+\nomrule{3}
 $k$ & Airbag shape coefficient (sphere: 0.5; cylinder: 1) & [--] \\
 \nomrule{3}
-$k_\text{FEM}$, $k_\text{PETG}$, $k_\text{eq}$ & Stiffness of the FE phial model, of the PETG adaptor, and equivalent series stiffness & [\si{\newton\per\milli\metre}] \\
+$K_\text{FEM}$, $K_\text{PETG}$, $K_\text{eq}$ & Stiffness of the FE phial model, of the PETG adaptor, and equivalent series stiffness & [\si{\newton\per\milli\metre}] \\
 \nomrule{3}
 $L_0$ & Initial airbag length (cylindrical airbag) & [\si{\metre}] \\
 \nomrule{3}
@@ -186,7 +200,7 @@ $L_e$ & Characteristic length of the critical element & [\si{\milli\metre}] \\
 \nomrule{3}
 $L_t$ & Contact patch length (cylindrical airbag) & [\si{\metre}] \\
 \nomrule{3}
-$M$ & Payload mass & [\si{\kilogram}] \\
+$M$ & Payload mass; elastic modulus (Step 3) & [\si{\kilogram}]; [GPa] \\
 \nomrule{3}
 $m_\text{bag}$ & Fabric mass of the airbag & [\si{\kilogram}] \\
 \nomrule{3}
@@ -198,7 +212,7 @@ $m_\text{tot}$ & Airbag system mass, $m_\text{bag} + m_{\text{gas},0}$ (payload 
 \nomrule{3}
 $\dot{m}$ & Vented gas mass flow rate & [\si{\kilogram\per\second}] \\
 \nomrule{3}
-$N$ & Membrane force per unit width, $k\,\Delta P\,R$ & [\si{\newton\per\metre}] \\
+$N$ & Membrane force per unit width, $k\,\Delta P\,R$ (oracle); population size of the differential evolution algorithm (wrapper) & [\si{\newton\per\metre}]; [--] \\
 \nomrule{3}
 $N_\text{ult}$ & Ultimate membrane force per unit width, $100\,n_\text{ply}\,N'_\text{ult}$ & [\si{\newton\per\metre}] \\
 \nomrule{3}
@@ -206,12 +220,27 @@ $N'_\text{ult}$ & Supplier fabric strength per unit width (one ply) & [\si{\newt
 \nomrule{3}
 $\mathbf{n}$ & Unit vector along the impact (stroke) direction & [--] \\
 \nomrule{3}
+$n_\text{gas}$ & Number of inflation gas options & [--] \\
+\nomrule{3}
+$n_\text{mat}$ & Number of fabric options & [--] \\
+\nomrule{3}
 $n_\text{ply}$ & Number of fabric plies & [--] \\
+\nomrule{3}
+$n_\text{seed}$ & Number of independent differential evolution runs (seeds) per combination & [--] \\
+\nomrule{3}
+$n_\text{shape}$ & Number of airbag shape options & [--] \\
+\nomrule{3}
+$n_\text{ures}$ & Number of residual speed caps $u_\text{res,max}$ & [--] \\
+\nomrule{3}
+$n_\text{var}$ & Number of numerical design variables & [--] \\
+\nomrule{3}
+$\mathcal{O}$ & Optimisation wrapper & [--] \\
 \nomrule{3}
 $P_0$ & Initial inflation pressure & [\si{\pascal}] \\
 \nomrule{3}
-% CHECK: Ch. 2 uses both P_atm and P_amb for the same quantity
-$P_\text{amb}$, $P_\text{atm}$ & Ambient (atmospheric) pressure & [\si{\pascal}] \\
+$P_{0,\max}$ & Upper bound of the inflation pressure & [\si{\pascal}] \\
+\nomrule{3}
+$P_\text{amb}$ & Ambient (atmospheric) pressure & [\si{\pascal}] \\
 \nomrule{3}
 $P_\text{bag}$ & Airbag internal pressure & [\si{\pascal}] \\
 \nomrule{3}
@@ -229,6 +258,8 @@ $R$ & Specific gas constant & [\si{\joule\per\kilogram\per\kelvin}] \\
 \nomrule{3}
 $R_0$ & Initial airbag radius & [\si{\metre}] \\
 \nomrule{3}
+$r_j$ & Random number in $[0, 1]$ drawn for variable $j$ in the crossover & [--] \\
+\nomrule{3}
 $S$ & Payload reference area for aerodynamic drag & [\si{\metre\squared}] \\
 \nomrule{3}
 $S_\text{surface}$ & Undeformed fabric surface area of the airbag & [\si{\metre\squared}] \\
@@ -242,6 +273,8 @@ $T$ & Gas temperature & [\si{\kelvin}] \\
 $T_0$ & Initial gas temperature & [\si{\kelvin}] \\
 \nomrule{3}
 $T_1$ & Period of the first elastic mode of the phial & [\si{\second}] \\
+\nomrule{3}
+$T_\text{amb}$ & Ambient temperature & [\si{\kelvin}] \\
 \nomrule{3}
 $t$ & Time & [\si{\second}] \\
 \nomrule{3}
@@ -257,7 +290,9 @@ $t_r$ & Ramp duration of the acceleration pulse & [\si{\second}] \\
 \nomrule{3}
 $t_\text{stop}$ & Time of the stopping event (burst, full stroke or rebound) & [\si{\second}] \\
 \nomrule{3}
-$u_0$ & Initial impact velocity of the 1-DOF model (Ch.~2) & [\si{\metre\per\second}] \\
+$\mathbf{u}$ & Challenger (trial) design of the differential evolution algorithm, with components $u_j$ & [--] \\
+\nomrule{3}
+$u_0$ & Initial impact velocity of the 1-DoF model (Ch.~2) & [\si{\metre\per\second}] \\
 \nomrule{3}
 $\mathbf{u}_0$ & Initial impact velocity vector, $(u_{x0}, u_{y0})$ & [\si{\metre\per\second}] \\
 \nomrule{3}
@@ -273,7 +308,11 @@ $u_{\text{reb},y}$ & Vertical rebound velocity & [\si{\metre\per\second}] \\
 \nomrule{3}
 $u_\text{res,max}$ & Maximum allowable residual velocity & [\si{\metre\per\second}] \\
 \nomrule{3}
+$u_x$ & Horizontal payload velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
 $u_{x0}$ & Initial horizontal impact velocity & [\si{\metre\per\second}] \\
+\nomrule{3}
+$u_y$ & Vertical payload velocity (positive downward) & [\si{\metre\per\second}] \\
 \nomrule{3}
 $u_{y0}$ & Initial vertical impact velocity (positive downward) & [\si{\metre\per\second}] \\
 \nomrule{3}
@@ -283,12 +322,15 @@ $V_t$ & Airbag volume at time $t$ & [\si{\metre\cubed}] \\
 \nomrule{3}
 $V_w$ & Wind speed & [\si{\metre\per\second}] \\
 \nomrule{3}
-% CHECK: Eq. (2.1) uses v; elsewhere impact velocity is u
-$v$ & Impact velocity & [\si{\metre\per\second}] \\
+$\mathbf{v}$ & Mutant design of the differential evolution algorithm, with components $v_j$ & [--] \\
 \nomrule{3}
 $v_i$ & Graded constraint violation in the objective (0 = satisfied) & [--] \\
 \nomrule{3}
 $\mathbf{x}$ & Design variable vector & [--] \\
+\nomrule{3}
+$\mathbf{x}_\text{best}$ & Best design of the current differential evolution population & [--] \\
+\nomrule{3}
+$\mathbf{y}$ & System response computed by the oracle & [as variable] \\
 \nomrule{3}
 $y_\text{pen}$ & Vertical penetration of the payload, measured from the point of first contact & [\si{\metre}] \\
 % Add Greek symbols alphabetically here:
@@ -305,6 +347,8 @@ $\delta_\text{FEM}$, $\delta_\text{PETG}$, $\delta_\text{eq}$ & Displacement of 
 \nomrule{3}
 $\Delta m$ & Gas mass vented in one timestep & [\si{\kilogram}] \\
 \nomrule{3}
+$\Delta P$ & Gauge pressure inside the airbag, $P_\text{bag} - P_\text{amb}$ & [\si{\pascal}] \\
+\nomrule{3}
 $\Delta t$ & Timestep & [\si{\second}] \\
 \nomrule{3}
 $\Delta t_\text{crit}$ & Critical (stable) timestep of the explicit analysis & [\si{\second}] \\
@@ -317,7 +361,7 @@ $\lambda$ & Pressure ratio across the vent, $P_\text{down}/P_\text{up}$ & [--] \
 \nomrule{3}
 $\mu$, $\sigma$ & Mean and standard deviation of a Gaussian distribution & [as variable] \\
 \nomrule{3}
-$\rho$ & Air density & [\si{\kilogram\per\metre\cubed}] \\
+$\rho$ & Air density; material density (Step 3) & [\si{\kilogram\per\metre\cubed}] \\
 \nomrule{3}
 $\rho_t$ & Gas density at time $t$ & [\si{\kilogram\per\metre\cubed}] \\
 \nomrule{3}

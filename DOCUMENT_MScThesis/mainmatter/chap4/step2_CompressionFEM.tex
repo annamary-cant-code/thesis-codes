@@ -253,10 +253,10 @@ Overall, for the scope of material strength finetuning, these results are deemed
 A further check needed to assess the reliability of the FE model is the comparison between the experimental stiffness of the phials and the numerical one, where stiffness is intended as the slope of the load-displacement curve of the glass phial relative to this specific load case. As highlighted in \cref{fig:step2-stiffness-overlay}, the model alone has a higher stiffness than the one measured experimentally, with a ratio of $\approx$ 3.7 for mode A and $\approx$ 2.8 for mode AD, with respect to the median measured stiffness of each mode. The additional test campaign on the PETG adaptor documented in \cref{sec:step1-results} showed that the holder cannot be treated as infinitely rigid, and that its compliance must be taken into account when measuring the displacement imposed on the phial. The two are therefore combined as stiffnesses in series:
 
 \begin{equation}\label{eq:series_stiffness}
-  \frac{1}{k_\text{eq}} = \frac{1}{k_\text{FEM}} + \frac{1}{k_\text{PETG}} ,
+  \frac{1}{K_\text{eq}} = \frac{1}{K_\text{FEM}} + \frac{1}{K_\text{PETG}} ,
 \end{equation}
 
-where $k_\text{FEM}$ is the stiffness of the phial model and $k_\text{PETG}$ the stiffness of the PETG adaptor. Approximating the stiffnesses to the constant values of 3655\,N/mm (mode A) or 2767\,N/mm (mode AD) and 2037\,N/mm, the equivalent stiffness is 1308\,N/mm and 1173\,N/mm respectively. Since the measured response of the PETG adaptor is not perfectly linear, these values are only a first estimate. For this reason, in the post-processing of the FEM data, the same combination is applied at every load point: for a given load $F$, the displacement computed by the FE model and the displacement of the PETG adaptor measured experimentally are added together as in the following equation:
+where $K_\text{FEM}$ is the stiffness of the phial model and $K_\text{PETG}$ the stiffness of the PETG adaptor. Approximating the stiffnesses to the constant values of 3655\,N/mm (mode A) or 2767\,N/mm (mode AD) and 2037\,N/mm, the equivalent stiffness is 1308\,N/mm and 1173\,N/mm respectively. Since the measured response of the PETG adaptor is not perfectly linear, these values are only a first estimate. For this reason, in the post-processing of the FEM data, the same combination is applied at every load point: for a given load $F$, the displacement computed by the FE model and the displacement of the PETG adaptor measured experimentally are added together as in the following equation:
 
 \begin{equation}\label{eq:series_displacement}
   \delta_\text{eq}(F) = \delta_\text{FEM}(F) + \delta_\text{PETG}(F) 
@@ -281,12 +281,12 @@ However, these results are still affected by the limitation mentioned earlier, i
   colspec = {X[1.2,l] X[0.75,l] X[0.75,l] X[2.3,l]},
 }
 Quantity & Mode A & Mode AD & Source / note \\
-$k_\text{FEM}$ & 3655\,N/mm & 2767\,N/mm & Linear fit of the FEM load-displacement curve \\
-$k_\text{PETG}$ & 2037\,N/mm & 2037\,N/mm & Linear fit, 20\,N-316\,N band (\cref{fig:petg-stiffness}) \\
-$k_\text{eq}$, constant stiffnesses & 1308\,N/mm & 1173\,N/mm & \cref{eq:series_stiffness} \\
-$k_\text{eq}$, point by point & 1251\,N/mm & 1154\,N/mm & \cref{eq:series_displacement} \\
+$K_\text{FEM}$ & 3655\,N/mm & 2767\,N/mm & Linear fit of the FEM load-displacement curve \\
+$K_\text{PETG}$ & 2037\,N/mm & 2037\,N/mm & Linear fit, 20\,N-316\,N band (\cref{fig:petg-stiffness}) \\
+$K_\text{eq}$, constant stiffnesses & 1308\,N/mm & 1173\,N/mm & \cref{eq:series_stiffness} \\
+$K_\text{eq}$, point by point & 1251\,N/mm & 1154\,N/mm & \cref{eq:series_displacement} \\
 Median measured stiffness & 975\,N/mm & 972\,N/mm & Phials that broke exclusively in that mode. Mode A: $n=26$ (18 Batch A, 8 Batch B); mode AD: $n=6$ (5 Batch A, 1 Batch B) \\
-Ratio $k_\text{FEM}$ / median & $\approx$ 3.7 & $\approx$ 2.8 & Model alone, without the PETG adaptor \\
+Ratio $K_\text{FEM}$ / median & $\approx$ 3.7 & $\approx$ 2.8 & Model alone, without the PETG adaptor \\
 Experimental stiffness range & 318\,N/mm - 1506\,N/mm & 259\,N/mm - 1321\,N/mm & \cref{fig:breaking-mode-pie} \\
 \end{thesistable}
 \end{table}
@@ -318,7 +318,7 @@ The two graphs in \cref{fig:step2-ft-calibration} show the load-displacement cur
   \label{fig:step2-ft-calibration}
 \end{figure}
 
-Overall, it is possible to conclude that the calibrated value of $F_T = 60\,\text{MPa}$ successfully reproduces the experimental behaviour for Batch A, closely aligning with the $5^{\text{th}}$ percentile estimate derived in \cref{section:step1-test}. While this value lies at the boundary between the bending strengths reported for annealed (21.2 - 58.6\,MPa) and heat-strengthened (54.9 - 167.0\,MPa) float glass \cite{veer2009strength}, using a value from such a low percentile suggests that the true material strength is likely higher. The fact that a low tensile strength is required to match the experimental load suggests that the modelled phial geometry may be overly thin, as a thicker geometry would offer greater compressive resistance. The combination of thin wall and low breaking load is therefore a generally conservative reproduction of phial behaviour, which suits the purposes of this workflow. 
+Overall, it is possible to conclude that the calibrated value of \texttt{FT} = 60\,MPa successfully reproduces the experimental behaviour for Batch A, closely aligning with the $5^{\text{th}}$ percentile estimate derived in \cref{section:step1-test}. While this value lies at the boundary between the bending strengths reported for annealed (21.2 - 58.6\,MPa) and heat-strengthened (54.9 - 167.0\,MPa) float glass \cite{veer2009strength}, using a value from such a low percentile suggests that the true material strength is likely higher. The fact that a low tensile strength is required to match the experimental load suggests that the modelled phial geometry may be overly thin, as a thicker geometry would offer greater compressive resistance. The combination of thin wall and low breaking load is therefore a generally conservative reproduction of phial behaviour, which suits the purposes of this workflow. 
 
 The results also show a remarkable sensitivity to initial defects and to the variability of the phials' geometry. For this reason, the quantitative predictive capability of the model is limited, but the qualitative indication is clear: it is fundamental to improve ways of characterising medical payloads. Coming from a different industry, pharmaceutical phials are produced and certified according to standards that focus on requirements such as chemical resistance and dimensional tolerances, rather than on the structural behaviour under extreme impact loads (outside the context of ordinary transportation). As a consequence, the mechanical data needed in an aerospace design process are generally not available, and studying the phials with the means typically used for aerospace structures makes their behaviour hard to predict.
 

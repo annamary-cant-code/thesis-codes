@@ -35,7 +35,7 @@
     \State $\Delta t \gets 2\cdot 10^{-4}$ s
   \EndIf \Comment{in between: keep $\Delta t$}
 
-  \Block{2) Dynamics (2-DOF, semi-implicit Euler)}
+  \Block{2) Dynamics (2-DoF, semi-implicit Euler)}
   \State $F_n \gets \max\big((P - P_\text{amb})\,A_t,\ 0\big)$ \Comment{contact pressure = gauge pressure}
   \State $a_x \gets -F_n\sin\theta/M$
   \State $a_y \gets -F_n\cos\theta/M + g$
@@ -88,8 +88,8 @@
 \EndWhile \Comment{$t \ge t_\text{max}$: no flag set}
 
 \Block{Post-processing}
-\State $a_{n,\text{peak}} \gets \max a_n$ \Comment{maxima over the stored history}
-\State $a_{y,\text{peak}} \gets \max|a_y|$
+\State $a_{\text{peak},n} \gets \max a_n$ \Comment{maxima over the stored history}
+\State $a_{\text{peak},y} \gets \max|a_y|$
 \State $a_\text{res,peak} \gets \max\sqrt{a_x^2 + a_y^2}$
 \State $P_\text{peak} \gets \max P$
 \State $h_\text{max} \gets \max h$
