@@ -113,7 +113,7 @@ In the case of the present thesis work, the oracle is based on the airbag simula
   \begin{equation}\label{eq:orifice_choked}
     \dot m = C_\text{dis}\,A_{vent}\,P_\text{up}\sqrt{\frac{\gamma}{RT}\left(\frac{2}{\gamma+1}\right)^{\frac{\gamma+1}{\gamma-1}}},
   \end{equation}
-  where the discharge coefficient $C_\text{dis}(\lambda)$ accounts for frictional and viscous losses at the orifice and is taken from Zhou et al. \cite{Zhou2019} (after Do \cite{Do2011}) as an empirical 6th-order polynomial fit in the pressure ratio:
+  where the discharge coefficient $C_\text{dis}(\lambda)$ accounts for frictional and viscous losses at the orifice and is adopted by in the original model in Zhou et al. after Do \cite{Do2011} as an empirical 6th-order polynomial fit in the pressure ratio:
   \begin{equation}\label{eq:Cdis}
     C_\text{dis} = -3.8399\lambda^6 + 9.4363\lambda^5 - 7.2326\lambda^4 + 1.6972\lambda^3 - 0.2908\lambda^2 - 0.0130\lambda + 0.8426 .
   \end{equation}
@@ -130,7 +130,7 @@ In the case of the present thesis work, the oracle is based on the airbag simula
 The termination checks implemented in this model are also different from the ones presented in Zhou et al. Specifically, they are carried out in the following order:
 \begin{enumerate}
   \item \textbf{Bursting}: if the internal pressure exceeds $P_\text{burst}$ at any time during the stroke, the simulation is stopped and the candidate design is discarded;
-  \item \textbf{Impact velocity at bottomed-out condition}: if the payload has used the entire stroke and its residual velocity at the impact with the terrain is too high compared to the manually set threshold, i.e. $u_\text{land} \le u_\text{res,max}$, the combination is discarded; 
+  \item \textbf{Impact velocity at bottomed-out condition}: if the payload has used the entire stroke and its residual velocity at the impact with the terrain is too high compared to the manually set threshold, i.e. $u_\text{land} \ge u_\text{res,max}$, the combination is discarded; 
   \item \textbf{Rebound}: if the payload bounces back, i.e. $y_\text{pen}^{\,k+1} = y_\text{pen}^{\,k} + u_y^{\,k+1}\,\Delta t \le 0$, where $y_\text{pen}$ is the vertical penetration of the payload measured from the point of first contact (which would correspond to stroke $h$ in case of vertical impact at $\theta = 0^{\circ}$), $u_y$ its vertical velocity and $\Delta t$ the timestep: the payload has been pushed back above the height at which it first touched the terrain. Hence, the design is discarded as it does not allow efficient dissipation of the payload's initial kinetic energy, given back as elastic energy from the compressed gas.
   \item \textbf{Settling}: if none of the previous events occurs within $t_\text{max}$, the payload is considered caught by the airbag. The design is accepted only if its residual speed along the impact axis at $t_\text{max}$ satisfies $|u_n(t_\text{max})| \le u_\text{res,max}$.
 \end{enumerate}
@@ -182,7 +182,7 @@ which exists only if $a_\text{lim} > g\cos\theta$. This bound does not exclude a
 
 
 \subsubsection{Design feasibility and score}
-Each simulation ends when either one of the termination criteria described in \cref{sec:simulate-airbag-oracle} is met. A design is feasible if the payload lands, by reaching the full stroke or by settling, with a peak load $a_{\text{peak},n} = \max(F_n/M) \le a_\text{lim}$ and a landing speed $u_\text{land} \le u_\text{res,max}$. Each design $\mathbf{x}$ is then scored by:
+Each simulation ends when either one of the termination criteria described in \cref{sec:simulate-airbag-oracle} is met. A design is feasible if the payload lands, by reaching the full stroke or by settling, with a peak load $a_{\text{peak},n} = \max(F_n/M) \le a_\text{lim}$ and a landing speed $u_\text{land} \le u_\text{res,max}$. In the full-fidelity re-simulation of the winners, a tolerance of 0.1\% above $a_\text{lim}$ is accepted, as explained in \cref{tab:step4-winners-per-cap}. Each design $\mathbf{x}$ is then scored by:
 
 \begin{equation}\label{eq:objective}
   f(\mathbf{x}) =
