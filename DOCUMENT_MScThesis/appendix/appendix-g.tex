@@ -1,31 +1,19 @@
 % !TEX root = ../report.tex
-\chapter{Fabric Property Data}
-\label{appendix:fabrics}
+\chapter{Pseudocode of the Airbag Simulation Function}
+\label{appendix:pseudocode}
 
-The fabric properties used in the optimisation (\cref{tab:airbag-design-variables-selected}) are rounded, representative values rather than measurements of a specific product. \Cref{tab:fabric-sources} compares them with the published data they are based on.
+\section{Airbag impact simulation (\texttt{simulate\_airbag})}
+\label{appendix:pseudocode-oracle}
 
-\begin{table}[!htb]
-\centering
-\caption{Adopted fabric properties and the published data they are based on.}
-\label{tab:fabric-sources}
-\begin{thesistable}{
-  colspec = {X[1.2,l] X[0.9,l] X[1.9,l] X[0.9,l]},
-  cells = {valign=t},
-}
-Fabric & Adopted values & Published data & Source \\
-Nylon 6,6, silicone-coated
-  & \qty{600}{\newton\per\centi\metre}, \qty{180}{\gram\per\metre\squared}
-  & Airbag fabrics woven from 470\,dtex yarn: \qtyrange{166}{239}{\gram\per\metre\squared}, about \qtyrange{600}{785}{\newton\per\centi\metre}; silicone-coated example: \qty{198}{\gram\per\metre\squared}, \qty{674}{\newton\per\centi\metre}
-  & \cite[Tabs.~1-2]{tanaka2017} \\
-Polyester, silicone-coated
-  & \qty{550}{\newton\per\centi\metre}, \qty{190}{\gram\per\metre\squared}
-  & Indicated as suitable for silicone-coated airbag fabrics: at least \qty{550}{\newton\per\centi\metre}, total weight \qtyrange{180}{300}{\gram\per\metre\squared}; example: \qty{201}{\gram\per\metre\squared}, about \qty{600}{\newton\per\centi\metre}
-  & \cite[paras.~0026, 0027, 0041; Tab.~2]{takeuchi2022} \\
-Aramid (Kevlar 29), elastomer-coated
-  & $\approx$\,\qty{1000}{\newton\per\centi\metre}, $\approx$\,\qty{260}{\gram\per\metre\squared}
-  & Two-ply laminates of about \qty{92}{\gram\per\metre\squared}: \qtyrange{690}{735}{\newton\per\centi\metre} at room temperature
-  & \cite[Tab.~IX]{sturgeon1975} \\
-\end{thesistable}
-\end{table}
+\Cref{alg:simulate_airbag} gives the core impact simulation, and \cref{alg:airbag_helpers} its geometry and orifice-flow helper functions.
 
-The polyester and nylon values fall within the published ranges. The aramid entry is extrapolated from data for lighter laminates to a heavier coated fabric, and is the least certain of the three.
+\input{mainmatter/chap4/step4_pseudocode/oracle}
+
+% \section{Optimisation wrapper (\texttt{differential\_evolution\_wrapper})}
+% \label{appendix:pseudocode-wrapper}
+%
+% \Cref{alg:de_wrapper} gives the sweep over residual-speed caps, shapes, fabrics and gases, and \cref{alg:de_helpers} the bounds, objective and constraint-evaluation functions.
+%
+% \input{mainmatter/chap4/step4_pseudocode/wrapper}
+
+

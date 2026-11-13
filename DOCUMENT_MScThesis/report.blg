@@ -1,15 +1,15 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'report.blg'
-[235] biber-MSWIN64:342> INFO - === 
-[361] Biber.pm:421> INFO - Reading 'report.bcf'
-[489] Biber.pm:1002> INFO - Found 119 citekeys in bib section 0
-[498] Biber.pm:4487> INFO - Processing section 0
-[507] Biber.pm:4678> INFO - Looking for bibtex file 'report.bib' for section 0
-[586] bibtex.pm:1713> INFO - LaTeX decoding ...
-[665] bibtex.pm:1519> INFO - Found BibTeX data source 'report.bib'
-[1023] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1023] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1025] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-GB'
-[1025] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-GB'
-[1087] bbl.pm:676> INFO - Writing 'report.bbl' with encoding 'UTF-8'
-[1119] bbl.pm:779> INFO - Output to report.bbl
+[73] biber-MSWIN64:342> INFO - === 
+[105] Biber.pm:421> INFO - Reading 'report.bcf'
+[229] Biber.pm:1002> INFO - Found 119 citekeys in bib section 0
+[237] Biber.pm:4487> INFO - Processing section 0
+[243] Biber.pm:4678> INFO - Looking for bibtex file 'report.bib' for section 0
+[311] bibtex.pm:1713> INFO - LaTeX decoding ...
+[381] bibtex.pm:1519> INFO - Found BibTeX data source 'report.bib'
+[606] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[606] UCollate.pm:68> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
+[606] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-GB'
+[606] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-GB'
+[641] bbl.pm:676> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[672] bbl.pm:779> INFO - Output to report.bbl

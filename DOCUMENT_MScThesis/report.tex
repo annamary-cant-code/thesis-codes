@@ -7,6 +7,8 @@
 %% Set up the bibliography
 \usepackage[style=ieee, backend=biber]{biblatex}
 \addbibresource{report.bib}
+\appto{\bibsetup}{\raggedright}  % no stretched/spaced-out URLs in the bibliography
+\DefineBibliographyExtras{british}{\protected\def\mkbibordinal#1{#1}}  % "11 Nov. 2026", not "11th Nov. 2026"
 
 %% Additional packages and commands
 \usepackage{parskip}
@@ -217,9 +219,9 @@ Payloads}
 \input{appendix/appendix-d}
 \input{appendix/appendix-e}
 \input{appendix/appendix-f}
-\input{appendix/appendix-g}
+% \input{appendix/appendix-g}   % pseudocode of the airbag simulation function, removed
 
-\backmatter
-\input{backmatter/ringraziamenti}
+%\backmatter
+%\input{backmatter/ringraziamenti}
 
 \end{document}

@@ -1,60 +1,57 @@
 \babel@toc {british}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces One-degree-of-freedom airbag impact model in the unstroked (a) and stroked (b) states, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{9}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Calculation flowchart of the one-degree-of-freedom airbag impact model, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces One-degree-of-freedom airbag impact model in the unstroked (a) and stroked (b) states, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{9}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Calculation flowchart of the one-degree-of-freedom airbag impact model, adapted from Zhou et al. \blx@tocontentsinit {0}\cite {Zhou2019}.}}{10}{figure.caption.7}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Reference mission routes across Turin}}{17}{figure.caption.9}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Akineton Fiale, 5\,mg/ml injectable solution: original packaging and single phial.}}{18}{figure.caption.10}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Payload container geometry}}{18}{figure.caption.11}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Sequence of design events in the two approaches: \textit {Mission-first} and \textit {Safety-first} loops.}}{20}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Inner design loop, specific for the airbag-based payload-protection subsystem.}}{21}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Reference mission routes across Turin}}{17}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Akineton Fiale, 5\,mg/ml injectable solution: original packaging and single phial.}}{18}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Payload container geometry}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Sequence of design events in the two approaches: \textit {Mission-first} and \textit {Safety-first} loops.}}{20}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Inner design loop, specific for the airbag-based payload-protection subsystem.}}{21}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Classified terrain grid of the area of interest}}{23}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Mission trajectories over the classified terrain grid}}{24}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Impact probability maps along the mission trajectories}}{26}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Impact surface distributions along the mission trajectories}}{27}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Impact velocity distributions along the mission trajectories}}{27}{figure.caption.19}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Glass phial containing saline solution, annotated with dimensions.}}{29}{figure.caption.21}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Test arrangement: phial held by a PETG adaptor and lower clamp, with the compression head applying the load from above.}}{29}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Observed phial failure modes: \textit {Dome} (A), \textit {Bulge} (B), \textit {Neck} (C), \textit {Base} (D) and \textit {Body Wall} (E), together with examples of hybrid modes (A+D and D+E).}}{31}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Failure modes observed over the 76 tested phials. Left: share of each single and hybrid mode. Right: number of phials, stiffness range and failure load range for each mode, with its split between the two batches (\textit {Batch mix}) and the fraction of each batch that failed in that mode (\textit {\% of batch with this mode}).}}{32}{figure.caption.24}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Experimental load-displacement curves of all tested phials up to the failure point, grouped by batch (Batch A, $n=29$; Batch B, $n=36$).}}{33}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Load-displacement curve of the PETG adaptor, trimmed and shifted to the origin. The adaptor stiffness, $K_{PETG} = 2037$\,N/mm, is obtained by a linear fit within the load band of mode A failures (20-316\,N).}}{34}{figure.caption.26}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Failure load distributions of Batch A and Batch B. Top: fitted two-parameter Weibull probability density functions, with the 1st and 5th percentiles marked. Bottom: individual failure loads, grouped by batch and displacement rate.}}{34}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces FE model of the axial compression test in isometric (left) and front (right) view: the \textit {glass phial} is compressed between the fixed rigid \textit {base} and the rigid \textit {crosshead} moving in the $-$Y direction.}}{36}{figure.caption.30}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Velocity-time curve applied to the crosshead.}}{38}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Mode shapes of the free glass phial from the implicit modal analysis.}}{39}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Phial rotated by $1^\circ $ about its centroid in the YZ-plane, introducing a misalignment between the phial axis and the loading direction.}}{40}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Broken phial at failure in the FE model: (a) mode A; (b) mode AD.}}{41}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Cracking sequence of the dome in the mode A model, shown through \texttt {HISV\#1} of \texttt {\raisebox {0.5ex}{*}MAT\_GLASS}.}}{41}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Energy balance of the axial compression FE model: (a) mode A; (b) mode AD.}}{43}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Stiffness comparison between experimental curves and FE phial model}}{44}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Tensile strength calibration of the FE phial model}}{46}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Overlay of the \texttt {FT} calibration results for failure modes A and AD.}}{47}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces FE model of the payload assembly, viewed along the Y axis: the \textit {payload bay} shell contains the \textit {sponge}, the \textit {mask} and a single \textit {glass phial}, shown for exemplification.}}{48}{figure.caption.43}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Nominal stress-strain loading curve of the polyurethane sponge.}}{50}{figure.caption.44}%
-\contentsline {figure}{\numberline {4.25}{\ignorespaces Rigid rings on the payload bay mesh}}{51}{figure.caption.45}%
-\contentsline {figure}{\numberline {4.26}{\ignorespaces Family of trapezoidal acceleration pulses with equal area $\lVert \mathbf {u}_0 \rVert $: a higher plateau amplitude $a$ corresponds to a shorter plateau duration $t_p$.}}{51}{figure.caption.46}%
-\contentsline {figure}{\numberline {4.27}{\ignorespaces Global ($X$, $Y$, $Z$, black) and local ($X$, $Y'$, $Z'$, red dashed) reference systems of the payload. The local axes $Y'$ and $Z'$ are obtained by rotating $Y$ and $Z$ by 35° about the $X$ axis, which is common to both systems.}}{53}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.28}{\ignorespaces Glass phial damage in the sled test simulation for loading in the $X$, $Y'$ and $Z'$ directions: \texttt {\raisebox {0.5ex}{*}MAT\_GLASS} \texttt {HISV\#1} contour plot (max-IP fringe), where \texttt {HISV\#1} $\geq 1$ marks crack initiation. All three cases were run with the trapezoidal pulse of \cref {fig:accel-pulses} at a peak of 600~$g$. The reference frame shown in each image is the global coordinate system, not the local one.}}{54}{figure.caption.48}%
-\contentsline {figure}{\numberline {4.29}{\ignorespaces One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}{60}{figure.caption.51}%
-\contentsline {figure}{\numberline {4.30}{\ignorespaces Overall optimisation procedure: nested loops over the landing-speed cap, the categorical variables and the random seed, selection of the winning design for each cap, and its re-simulation with 50 venting sub-iterations.}}{61}{figure.caption.52}%
-\contentsline {figure}{\numberline {4.31}{\ignorespaces Impact transient of the optimum design for each residual-speed cap $u_\text {res,max}$ (cylinder, Nylon 6,6, He).}}{65}{figure.caption.54}%
-\contentsline {figure}{\numberline {4.32}{\ignorespaces Hypothesised system architecture: UAV platform, drone-payload interface and payload protection system.}}{66}{figure.caption.55}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Classified terrain grid of the area of interest}}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Mission trajectories over the classified terrain grid}}{24}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Impact probability maps along the mission trajectories}}{26}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Impact surface distributions along the mission trajectories}}{27}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Impact velocity distributions along the mission trajectories}}{27}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Glass phial containing saline solution, annotated with dimensions.}}{29}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Test arrangement: phial held by a PETG adaptor and lower clamp, with the compression head applying the load from above.}}{29}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Observed phial failure modes: \textit {Dome} (A), \textit {Bulge} (B), \textit {Neck} (C), \textit {Base} (D) and \textit {Body Wall} (E), together with examples of hybrid modes (A+D and D+E).}}{31}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Failure modes observed over the 76 tested phials. Left: share of each single and hybrid mode. Right: number of phials, stiffness range and failure load range for each mode, with its split between the two batches (\textit {Batch mix}) and the fraction of each batch that failed in that mode (\textit {\% of batch with this mode}).}}{32}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Experimental load-displacement curves of all tested phials up to the failure point, grouped by batch (Batch A, $n=29$; Batch B, $n=36$).}}{33}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Load-displacement curve of the PETG adaptor, trimmed and shifted to the origin. The adaptor stiffness, $K_{PETG} = 2037$\,N/mm, is obtained by a linear fit within the load band of mode A failures (20-316\,N).}}{34}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Failure load distributions of Batch A and Batch B. Top: fitted two-parameter Weibull probability density functions, with the 1st and 5th percentiles marked. Bottom: individual failure loads, grouped by batch and displacement rate.}}{34}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces FE model of the axial compression test in isometric (left) and front (right) view: the \textit {glass phial} is compressed between the fixed rigid \textit {base} and the rigid \textit {crosshead} moving in the $-$Y direction.}}{36}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Velocity-time curve applied to the crosshead.}}{38}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Mode shapes of the free glass phial from the implicit modal analysis.}}{39}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Phial rotated by $1^\circ $ about its centroid in the YZ-plane, introducing a misalignment between the phial axis and the loading direction.}}{40}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Broken phial at failure in the FE model: (a) mode A; (b) mode AD.}}{41}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Cracking sequence of the dome in the mode A model, shown through \texttt {HISV\#1} of \texttt {\raisebox {0.5ex}{*}MAT\_GLASS}.}}{41}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Energy balance of the axial compression FE model: (a) mode A; (b) mode AD.}}{43}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Stiffness comparison between experimental curves and FE phial model}}{44}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Tensile strength calibration of the FE phial model}}{45}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Overlay of the \texttt {FT} calibration results for failure modes A and AD.}}{46}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces FE model of the payload assembly, viewed along the Y axis: the \textit {payload bay} shell contains the \textit {sponge}, the \textit {mask} and a single \textit {glass phial}, shown for exemplification.}}{48}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Nominal stress-strain loading curve of the polyurethane sponge.}}{50}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.25}{\ignorespaces Rigid rings on the payload bay mesh}}{50}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.26}{\ignorespaces Family of trapezoidal acceleration pulses with equal area $\lVert \mathbf {u}_0 \rVert $: a higher plateau amplitude $a$ corresponds to a shorter plateau duration $t_p$.}}{51}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.27}{\ignorespaces Global ($X$, $Y$, $Z$, black) and local ($X$, $Y'$, $Z'$, red dashed) reference systems of the payload. The local axes $Y'$ and $Z'$ are obtained by rotating $Y$ and $Z$ by 35° about the $X$ axis, which is common to both systems.}}{53}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.28}{\ignorespaces Glass phial damage in the sled test simulation for loading in the $X$, $Y'$ and $Z'$ directions: \texttt {\raisebox {0.5ex}{*}MAT\_GLASS} \texttt {HISV\#1} contour plot (max-IP fringe), where \texttt {HISV\#1} $\geq 1$ marks crack initiation. All three cases were run with the trapezoidal pulse of \cref {fig:accel-pulses} at a peak of 600~$g$. The reference frame shown in each image is the global coordinate system, not the local one.}}{53}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.29}{\ignorespaces One generation of a DE run for the design in seat $i$. The same steps are repeated for every seat.}}{59}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.30}{\ignorespaces Overall optimisation procedure: nested loops over the landing-speed cap, the categorical variables and the random seed, selection of the winning design for each cap, and its re-simulation with 50 venting sub-iterations.}}{61}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.31}{\ignorespaces Impact transient of the optimum design for each residual-speed cap $u_\text {res,max}$ (cylinder, Nylon 6,6, He).}}{64}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.32}{\ignorespaces Hypothesised system architecture: UAV platform, drone-payload interface and payload protection system.}}{65}{figure.caption.54}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {0.5}{\metre \per \second }$.}}{94}{figure.caption.60}%
-\contentsline {figure}{\numberline {E.2}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {1.0}{\metre \per \second }$.}}{95}{figure.caption.61}%
-\contentsline {figure}{\numberline {E.3}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {1.5}{\metre \per \second }$.}}{96}{figure.caption.62}%
-\contentsline {figure}{\numberline {E.4}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {2.0}{\metre \per \second }$.}}{97}{figure.caption.63}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\babel@toc {italian}{}\relax 
-\babel@toc {british}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {F.1}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {0.5}{\metre \per \second }$.}}{91}{figure.caption.60}%
+\contentsline {figure}{\numberline {F.2}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {1.0}{\metre \per \second }$.}}{92}{figure.caption.61}%
+\contentsline {figure}{\numberline {F.3}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {1.5}{\metre \per \second }$.}}{93}{figure.caption.62}%
+\contentsline {figure}{\numberline {F.4}{\ignorespaces Impact transient of the lightest feasible design per inflation gas, $u_\text {res,max} = \qty {2.0}{\metre \per \second }$.}}{94}{figure.caption.63}%
 \contentsfinish 

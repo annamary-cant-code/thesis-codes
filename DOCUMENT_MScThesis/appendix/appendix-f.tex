@@ -1,47 +1,42 @@
 % !TEX root = ../report.tex
-\chapter{Packing Instruction P650: Relevant Provisions}
-\label{appendix:p650}
+\chapter{Optimisation Results per Inflation Gas}
+\label{appendix:step4-gases}
 
-Packing Instruction P650 sets the packaging requirements for Biological Substance, Category B (UN3373). It is harmonised across transport modes, appearing in the ADR for road transport \cite{ADR_2025} and in the ICAO Technical Instructions for air transport \cite{ICAO_TI_2025}. \Cref{tab:p650} summarises the provisions that bear on the design of a payload protection system. Paragraph numbers refer to the ADR edition, where P650 is found in Section 4.1.4.1. Provisions on package marking, solid substances, refrigerants, overpacks, filling instructions, mixed packing with other dangerous goods, decontamination and animal material are omitted.
+\begin{figure}[H]
+  \centering
+  \rotatebox{90}{%
+    \begin{minipage}{0.66\textheight}
+      \centering
+      \includegraphics[width=\linewidth]{figures/chap4/step4-optimisation/overlay_gases_ures_0.5_impact.png}
+      \caption{Impact transient of the lightest feasible design per inflation gas, $u_\text{res,max} = \qty{0.5}{\metre\per\second}$.}
+      \label{fig:step4-gases-ures-0.5}
+    \end{minipage}%
+  }
+\end{figure}
 
-{\longtablesetup
-\begin{longtable}{G{0.12} L{0.88}}
-\caption[Provisions of Packing Instruction P650 relevant to the thesis]{Provisions of Packing Instruction P650 relevant to the design of a payload protection system, paraphrased from \cite{ADR_2025}.}
-\label{tab:p650}\\
-\headrow\hd{Par.} & \hd{Requirement} \\
-\endfirsthead
-\headrow\hd{Par.} & \hd{Requirement} \\
-\endhead
-\contfoot{2}
-\endfoot
-\lastrule
-\endlastfoot
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,height=0.85\textheight,keepaspectratio]{figures/chap4/step4-optimisation/overlay_gases_ures_1.0_impact.png}
+  \caption{Impact transient of the lightest feasible design per inflation gas, $u_\text{res,max} = \qty{1.0}{\metre\per\second}$.}
+  \label{fig:step4-gases-ures-1.0}
+\end{figure}
+\end{landscape}
 
-(1)
-& The packaging shall withstand the shocks and loadings \textit{normally encountered during carriage}, including transhipment and manual or mechanical handling. \\
-\itemrule{1}
-(2)
-& The packaging shall consist of a primary receptacle, a secondary packaging and an outer packaging. Either the secondary or the outer packaging shall be rigid. \\
-\itemrule{1}
-(3)
-& Under normal conditions of carriage, primary receptacles shall not break, be punctured or leak into the secondary packaging. The secondary packaging shall be secured in the outer packaging with suitable cushioning material. \\
-\itemrule{1}
-(6)
-& The completed package shall withstand a 1.2\,m drop in any orientation without leakage from the primary receptacle(s). Capability may be demonstrated by testing, assessment or experience. \\
-\itemrule{1}
-(7)(a--b)
-& For liquid substances, the primary receptacle(s) and the secondary packaging shall be leakproof. \\
-\itemrule{1}
-(7)(c)
-& Multiple fragile primary receptacles in a single secondary packaging shall be individually wrapped or separated to prevent contact between them. \\
-\itemrule{1}
-(7)(d)
-& Absorbent material, sufficient to absorb the entire contents of the primary receptacle(s), shall be placed between the primary receptacle(s) and the secondary packaging. \\
-\itemrule{1}
-(7)(e)
-& The primary receptacle or the secondary packaging shall withstand an internal pressure of 95\,kPa without leakage. \\
-\itemrule{1}
-(11)
-& Substances packed and marked in accordance with P650 are not subject to any other requirement of the ADR. \\
-\end{longtable}
-}
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,height=0.85\textheight,keepaspectratio]{figures/chap4/step4-optimisation/overlay_gases_ures_1.5_impact.png}
+  \caption{Impact transient of the lightest feasible design per inflation gas, $u_\text{res,max} = \qty{1.5}{\metre\per\second}$.}
+  \label{fig:step4-gases-ures-1.5}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+\begin{figure}[p]
+  \centering
+  \includegraphics[width=\linewidth,height=0.85\textheight,keepaspectratio]{figures/chap4/step4-optimisation/overlay_gases_ures_2.0_impact.png}
+  \caption{Impact transient of the lightest feasible design per inflation gas, $u_\text{res,max} = \qty{2.0}{\metre\per\second}$.}
+  \label{fig:step4-gases-ures-2.0}
+\end{figure}
+\end{landscape}

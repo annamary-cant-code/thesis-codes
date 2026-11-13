@@ -6,31 +6,28 @@
 \contentsline {table}{\numberline {2.3}{\ignorespaces Airbag design variables identified in the literature, grouped by design focus and subcategory, with the associated trade-offs.}}{12}{table.2.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Uncertain parameters of the drop model, each sampled from a Gaussian distribution.}}{25}{table.caption.16}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Impact conditions selected from the Monte Carlo mission analysis.}}{28}{table.caption.20}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Experimental data selected for the calibration of the FEM glass material.}}{33}{table.caption.28}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Engineering Units}}{35}{table.caption.29}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of the stiffness verification for failure modes A and AD.}}{45}{table.caption.39}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Engineering Units}}{48}{table.caption.42}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Allowable payload acceleration obtained from the sled test simulation.}}{54}{table.caption.49}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right). Fabric properties are rounded, representative values, not measurements of a specific product; their sources are compared in \cref {appendix:fabrics}.}}{55}{table.caption.50}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Optimum airbag design for each residual speed cap $u_\text {res,max}$, from the full-fidelity re-simulation of the DE results.}}{64}{table.caption.53}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Uncertain parameters of the drop model, each sampled from a Gaussian distribution.}}{25}{table.caption.15}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Impact conditions selected from the Monte Carlo mission analysis.}}{28}{table.caption.19}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Experimental data selected for the calibration of the FEM glass material.}}{33}{table.caption.27}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Engineering Units}}{35}{table.caption.28}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Summary of the stiffness verification for failure modes A and AD.}}{44}{table.caption.38}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Engineering Units}}{47}{table.caption.41}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Allowable payload acceleration obtained from the sled test simulation.}}{54}{table.caption.48}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Inputs of the preliminary airbag optimisation: fixed inputs and boundary conditions (left) and optimisable design variables (right). Fabric properties are rounded, representative values, not measurements of a specific product; their sources are compared in \cref {appendix:fabrics}.}}{55}{table.caption.49}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Optimum airbag design for each residual speed cap $u_\text {res,max}$, from the full-fidelity re-simulation of the DE results.}}{63}{table.caption.52}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Supervisory team, roles, and communication channels.}}{71}{table.caption.56}%
-\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline planning from the research proposal.}}{72}{table.caption.57}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Supervisory team, roles, and communication channels.}}{70}{table.caption.55}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Baseline planning from the research proposal.}}{71}{table.caption.56}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {A.1}{\ignorespaces Actors involved in drone delivery of medical goods in Italy}}{84}{table.A.1}%
-\contentsline {table}{\numberline {A.2}{\ignorespaces Drone delivery of medical goods in Italy: trials and planned initiatives}}{87}{table.A.2}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Actors involved in drone delivery of medical goods in Italy}}{82}{table.A.1}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Drone delivery of medical goods in Italy: trials and planned initiatives}}{85}{table.A.2}%
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {C.1}{\ignorespaces Sequence of FE modelling iterations for the axial compression test.}}{90}{table.caption.59}%
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Provisions of Packing Instruction P650 relevant to the thesis}}{87}{table.B.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {F.1}{\ignorespaces Provisions of Packing Instruction P650 relevant to the thesis}}{98}{table.F.1}%
+\contentsline {table}{\numberline {D.1}{\ignorespaces Sequence of FE modelling iterations for the axial compression test.}}{89}{table.caption.58}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {G.1}{\ignorespaces Adopted fabric properties and the published data they are based on.}}{99}{table.caption.64}%
-\babel@toc {italian}{}\relax 
-\babel@toc {british}{}\relax 
+\contentsline {table}{\numberline {E.1}{\ignorespaces Adopted fabric properties and the published data they are based on.}}{90}{table.caption.59}%
+\addvspace {10\p@ }
 \contentsfinish 

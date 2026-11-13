@@ -51,7 +51,7 @@
       \verb 10.1111/ijcp.12989
       \endverb
     \endentry
-    \entry{chhetri2026survey}{article}{}{}
+    \entry{chhetri2026survey}{misc}{}{}
       \name{author}{3}{}{%
         {{hash=9be3b9f8864019e4576a1fbbd48ddffc}{%
            family={Chhetri},
@@ -82,8 +82,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.RO}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{arXiv preprint arXiv:2602.06969}
+      \field{eprinttype}{arxiv}
       \field{title}{A Survey of Medical Drones from Flight Dynamics, Guidance, Navigation, and Control Perspectives}
       \field{year}{2026}
       \verb{eprint}
@@ -108,10 +107,16 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Official Journal of the European Union, L 152, 11 June 2019, p. 45}
-      \field{note}{Consolidated version of 1 May 2025. Accessed: Nov. 5, 2026}
-      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 May 2019 on the rules and procedures for the operation of unmanned aircraft}
+      \field{day}{11}
+      \field{howpublished}{Off. J. Eur. Union, L 152, p.~45}
+      \field{month}{6}
+      \field{title}{Commission Implementing Regulation ({EU}) 2019/947 of 24 {May} 2019 on the rules and procedures for the operation of unmanned aircraft}
+      \field{urlday}{5}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
       \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://eur-lex.europa.eu/eli/reg_impl/2019/947/2025-05-01
       \endverb
@@ -143,9 +148,13 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Annex I to ED Decision 2022/002/R. Accessed: Nov. 5, 2026}
-      \field{title}{Acceptable Means of Compliance and Guidance Material to Regulation ({EU}) 2019/947 - Issue 1, Amendment 2}
+      \field{note}{Annex I to ED Decision 2022/002/R}
+      \field{title}{Acceptable Means of Compliance and Guidance Material to Regulation ({EU}) 2019/947 -- {Issue 1, Amendment 2}}
+      \field{urlday}{5}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
       \field{year}{2022}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.easa.europa.eu/en/downloads/135910/en
       \endverb
@@ -359,14 +368,13 @@
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eid}{2000}
       \field{journaltitle}{Int. J. Environ. Res. Public Health}
       \field{month}{2}
       \field{number}{4}
       \field{title}{Impact of the First Phase of the {COVID-19} Pandemic on the Acquisition of Goods and Services in the {Italian} Health System}
       \field{volume}{19}
       \field{year}{2022}
-      \field{pages}{2000}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.3390/ijerph19042000
       \endverb
@@ -516,7 +524,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Innovative ways of distribution for life-saving medicines during emergency situations}
-      \field{type}{Master's Thesis}
+      \field{type}{Master's thesis}
       \field{year}{2020}
     \endentry
     \entry{Bertelli2021}{thesis}{}{}
@@ -546,7 +554,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Studio di fattibilità di un sistema innovativo, tramite drone, per il trasporto di farmaci salvavita in situazioni di emergenza}
-      \field{type}{Master's Thesis}
+      \field{type}{Master's thesis}
       \field{year}{2021}
     \endentry
     \entry{Sivieri2021}{thesis}{}{}
@@ -576,7 +584,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Valutazione degli effetti ambientali sul trasporto di materiale biologico e farmaci tramite aeromobili a pilotaggio remoto}
-      \field{type}{Master's Thesis}
+      \field{type}{Master's thesis}
       \field{year}{2021}
     \endentry
     \entry{Fiorentino2021}{thesis}{}{}
@@ -606,7 +614,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Path planning strategies for drone delivery for life-saving pharmaceuticals}
-      \field{type}{Master's Thesis}
+      \field{type}{Master's thesis}
       \field{year}{2021}
     \endentry
     \entry{Angelini2023}{thesis}{}{}
@@ -636,7 +644,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Progettazione e valutazione di un sistema di trasporto innovativo aereo per farmaci emoderivati in condizione di emergenza}
-      \field{type}{Master's Thesis}
+      \field{type}{Master's thesis}
       \field{year}{2023}
     \endentry
     \entry{Angelini2024ICAS}{inproceedings}{}{}
@@ -665,9 +673,6 @@
       \list{location}{1}{%
         {Florence, Italy}%
       }
-      \list{publisher}{1}{%
-        {ICAS}%
-      }
       \strng{namehash}{46ac7d630da52fd78ac24fb293a9d989}
       \strng{fullhash}{89f5f77c1437cb13fe9b2071bf529410}
       \strng{fullhashraw}{89f5f77c1437cb13fe9b2071bf529410}
@@ -680,7 +685,7 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the International Council of the Aeronautical Sciences ({ICAS})}
+      \field{booktitle}{Proc. 34th Congr. Int. Council Aeronaut. Sci. ({ICAS} 2024)}
       \field{title}{Comparative Analysis of e{VTOL}, Drone and Ground Transportation Systems for Emergency Delivery of Blood-Derived Medication}
       \field{year}{2024}
     \endentry
@@ -689,8 +694,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ASL 1 Avezzano Sulmona L'Aquila}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Farmaci consegnati con i droni: al via la fase operativa del progetto {Telespazio-Asl}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.asl1abruzzo.it/archivio2_notizie-ed-eventi_0_1191.html
       \endverb
@@ -703,8 +711,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Abruzzo Speciale}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Farmaci via drone ai pazienti fragili: primo volo da {Avezzano} a {Collelongo}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.abruzzospeciale.it/2025/08/01/farmaci-con-drone-avezzano/
       \endverb
@@ -717,8 +728,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Fondazione D.O.T. Onlus}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{A {Torino} vola il drone per il trasporto di organi e materiale biologico}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.fondazionedot.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
       \endverb
@@ -731,8 +745,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Fondazione D.O.T. Onlus}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Il progetto {INDOOR}: nuove prospettive per il trasporto di organi grazie alla tecnologia dei droni}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.fondazionedot.it/il-progetto-indoor-nuove-prospettive-per-il-trasporto-di-organi-grazie-alla-tecnologia-dei-droni/
       \endverb
@@ -745,8 +762,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Politecnico di Torino, Poliflash}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{A {Torino} vola il primo drone per il trasporto di organi e materiale biologico}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.polito.it/ateneo/comunicazione-e-ufficio-stampa/poliflash/a-torino-vola-il-primo-drone-per-il-trasporto-di-organi-e
       \endverb
@@ -759,8 +779,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ABzero website}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Il sistema {ABzero}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.abzero.it/il-sistema-abzero/?lang=en
       \endverb
@@ -773,8 +796,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{AOU Città della Salute e della Scienza di Torino, press release}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{A {Torino} vola il drone per il trasporto di organi e materiale biologico: al via la sperimentazione, con tragitto dal {CTO} alle {Molinette}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.cittadellasalute.to.it/index.php?option=com_content&view=article&id=24515
       \endverb
@@ -787,8 +813,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{TecnoMedicina}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{A {Torino} vola il drone per il trasporto di organi e materiale biologico}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.tecnomedicina.it/a-torino-vola-il-drone-per-il-trasporto-di-organi-e-materiale-biologico/
       \endverb
@@ -801,8 +830,11 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{HydroNews}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Anche a {Torino} un progetto per decarbonizzare la logistica sanitaria con droni a idrogeno}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.hydronews.it/anche-a-torino-un-progetto-per-decarbonizzare-la-logistica-sanitaria-con-droni-a-idrogeno/
       \endverb
@@ -815,8 +847,11 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{New Pharma Italy}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{{LastMed}: il robot che consegna farmaci agli anziani}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.newpharmaitaly.it/lastmed-il-robot-che-consegna-farmaci-agli-anziani/
       \endverb
@@ -829,8 +864,11 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Tecnocad, farmaci a persone fragili da rover robot automatizzato}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.ansa.it/piemonte/notizie/2026/03/23/tecnocad-farmaci-a-persone-fragili-da-rover-robot-automatizzato_b266e9c6-f168-4b25-a2e7-775a83795571.html
       \endverb
@@ -842,9 +880,11 @@
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
-      \field{howpublished}{SkyEU website}
-      \field{note}{Accessed 5 October 2026}
-      \field{title}{{SkyEu}}
+      \field{title}{{SkyEU}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://skyeu.it/
       \endverb
@@ -857,8 +897,11 @@
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labeltitlesource}{title}
       \field{howpublished}{Consiglio Regionale del Piemonte, press release}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{I droni e il delivery sanitario}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.cr.piemonte.it/cms/articoli/comunicati-stampa/i-droni-e-il-delivery-sanitario
       \endverb
@@ -890,9 +933,8 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{isbn}{978-92-1-003149-3}
       \field{number}{ECE/TRANS/352}
-      \field{title}{{ADR} - Agreement Concerning the International Carriage of Dangerous Goods by Road, applicable as from 1 January 2025}
+      \field{title}{{ADR} -- Agreement Concerning the International Carriage of Dangerous Goods by Road, applicable as from 1 {January} 2025}
       \field{urlday}{11}
       \field{urlmonth}{11}
       \field{urlyear}{2026}
@@ -973,13 +1015,12 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Scientific Reports}
+      \field{eid}{26444}
+      \field{journaltitle}{Sci. Rep.}
       \field{number}{1}
-      \field{title}{How stakeholder requirements constrain drone-based medical delivery: probabilistic sizing of eVTOL aircraft at high altitude}
+      \field{title}{How stakeholder requirements constrain drone-based medical delivery: probabilistic sizing of {eVTOL} aircraft at high altitude}
       \field{volume}{16}
       \field{year}{2026}
-      \field{pages}{26444}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.1038/s41598-026-54743-2
       \endverb
@@ -1019,7 +1060,7 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Review of Biomedical Engineering}
+      \field{journaltitle}{Annu. Rev. Biomed. Eng.}
       \field{number}{1}
       \field{title}{Thinking Beyond the Device: An Overview of Human- and Equity-Centered Approaches for Health Technology Design}
       \field{volume}{25}
@@ -1153,7 +1194,7 @@
       \field{journaltitle}{Int. J. Protective Struct.}
       \field{month}{6}
       \field{number}{2}
-      \field{title}{Adaptive impact absorption--the concept and potential applications}
+      \field{title}{Adaptive impact absorption---the concept and potential applications}
       \field{volume}{6}
       \field{year}{2015}
       \field{pages}{357\bibrangedash 377}
@@ -1243,13 +1284,12 @@
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eid}{012001}
       \field{journaltitle}{IOP Conf. Ser.: Mater. Sci. Eng.}
       \field{number}{1}
       \field{title}{Optimal design of airbag landing system without rebound}
       \field{volume}{531}
       \field{year}{2019}
-      \field{pages}{012001}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.1088/1757-899X/531/1/012001
       \endverb
@@ -1608,7 +1648,7 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{Symp. Parachute Technol. Eval.}
       \field{month}{4}
-      \field{note}{NASA Manned Spacecraft Center, Houston, TX, USA, NASA CR-53291}
+      \field{note}{NASA CR-53291}
       \field{title}{Attenuation of landing impact for manned spacecraft}
       \field{year}{1964}
     \endentry
@@ -1763,13 +1803,12 @@
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eid}{103569}
       \field{journaltitle}{Chin. J. Aeronaut.}
       \field{number}{8}
       \field{title}{A review of airbag landing system for spacecraft}
       \field{volume}{38}
       \field{year}{2025}
-      \field{pages}{103569}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.1016/j.cja.2025.103569
       \endverb
@@ -1895,14 +1934,12 @@
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eid}{012048}
       \field{journaltitle}{IOP Conf. Ser.: Earth Environ. Sci.}
-      \field{note}{NEPEE 2020}
       \field{number}{1}
       \field{title}{Numerical study on the bearing properties of multi-airbag inflatable bolt in soft soil}
       \field{volume}{696}
       \field{year}{2021}
-      \field{pages}{012048}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.1088/1755-1315/696/1/012048
       \endverb
@@ -2048,7 +2085,7 @@
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{Proc. 6. {LS-DYNA} Anwenderforum}
+      \field{booktitle}{Proc. 6th {LS-DYNA} Anwenderforum}
       \field{title}{Airbag simulation with {LS-DYNA}: Past--present--future}
       \field{year}{2007}
     \endentry
@@ -2612,6 +2649,39 @@
       \verb 10.1108/RJTA-01-2021-0002
       \endverb
     \endentry
+    \entry{ComuneTorinoTemp}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=b3a96fa73fddedb6e3824b8489460992}{%
+           family={{Regione Piemonte}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{fullhash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{fullhashraw}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{bibnamehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authorbibnamehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authornamehash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authorfullhash}{b3a96fa73fddedb6e3824b8489460992}
+      \strng{authorfullhashraw}{b3a96fa73fddedb6e3824b8489460992}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
+      \field{month}{12}
+      \field{title}{Temperatura giornaliera massima e minima per mese 2017--2019 (Monthly daily maximum and minimum temperature 2017--2019)}
+      \field{urlday}{5}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019
+      \endverb
+      \verb{url}
+      \verb https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019
+      \endverb
+    \endentry
     \entry{ComuneTorinoWind-AVG}{misc}{}{}
       \name{author}{1}{}{%
         {{hash=ee5a14ee6b94d97829bfde23fadbf95d}{%
@@ -2633,9 +2703,12 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
       \field{month}{12}
-      \field{note}{CSV, CC BY. Accessed: Oct. 11, 2026}
-      \field{title}{Velocità media annua del vento 2006--2018 (Annual mean wind speed 2006--2018), dataset}
+      \field{title}{Velocità media annua del vento 2006--2018 (Annual mean wind speed 2006--2018)}
+      \field{urlday}{11}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
       \field{year}{2018}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://aperto.comune.torino.it/dataset/velocita-media-annua-del-vento-2006-2018
       \endverb
@@ -2664,44 +2737,17 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
       \field{month}{12}
-      \field{note}{CSV, CC BY. Accessed: Oct. 11, 2026}
-      \field{title}{Raffica di vento massima 2006--2018 (Maximum wind gust 2006--2018), dataset}
+      \field{title}{Raffica di vento massima 2006--2018 (Maximum wind gust 2006--2018)}
+      \field{urlday}{11}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
       \field{year}{2018}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
       \endverb
       \verb{url}
       \verb https://aperto.comune.torino.it/dataset/raffica-di-vento-massima-2006-2018
-      \endverb
-    \endentry
-    \entry{ComuneTorinoTemp}{misc}{}{}
-      \name{author}{1}{}{%
-        {{hash=b3a96fa73fddedb6e3824b8489460992}{%
-           family={{Regione Piemonte}},
-           familyi={R\bibinitperiod}}}%
-      }
-      \strng{namehash}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{fullhash}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{fullhashraw}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{bibnamehash}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{authorbibnamehash}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{authornamehash}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{authorfullhash}{b3a96fa73fddedb6e3824b8489460992}
-      \strng{authorfullhashraw}{b3a96fa73fddedb6e3824b8489460992}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{Comune di Torino, aperTO Open Data Portal}
-      \field{month}{12}
-      \field{note}{CSV, CC BY. Data source: ARPA Piemonte. Accessed: Nov. 5, 2026}
-      \field{title}{Temperatura giornaliera massima e minima per mese 2017--2019 (Monthly daily maximum and minimum temperature 2017--2019), dataset}
-      \field{year}{2020}
-      \verb{urlraw}
-      \verb https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019
-      \endverb
-      \verb{url}
-      \verb https://aperto.comune.torino.it/dataset/temperatura-massima-e-minima-per-mese-2017-2018-2019
       \endverb
     \endentry
     \entry{Primatesta2020}{article}{}{}
@@ -2764,9 +2810,18 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{Product datasheet, doc.\ no.\ 40145}
       \field{month}{2}
-      \field{note}{\url{https://media.schott.com/api/public/content/8a341c5c12fc40419fd081d6d6dc84de}, accessed 5 November 2026}
-      \field{title}{Core Ampoules -- StandardLine}
+      \field{title}{Core Ampoules -- {StandardLine}}
+      \field{urlday}{5}
+      \field{urlmonth}{11}
+      \field{urlyear}{2026}
       \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://media.schott.com/api/public/content/8a341c5c12fc40419fd081d6d6dc84de
+      \endverb
+      \verb{url}
+      \verb https://media.schott.com/api/public/content/8a341c5c12fc40419fd081d6d6dc84de
+      \endverb
     \endentry
     \entry{datsiou2018weibull}{article}{}{}
       \name{author}{2}{}{%
@@ -2793,8 +2848,7 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Structural Safety}
-      \field{note}{Open access, CC BY license}
+      \field{journaltitle}{Struct. Saf.}
       \field{title}{Weibull parameter estimation and goodness-of-fit for glass strength data}
       \field{volume}{73}
       \field{year}{2018}
@@ -2824,9 +2878,12 @@
       \field{labeltitlesource}{title}
       \field{howpublished}{YouTube video}
       \field{month}{8}
-      \field{note}{Accessed: Oct. 21, 2026}
-      \field{title}{{LS-Dyna} tutorial---Use of {Mat\_Glass} to model behavior of glasses, including a ball impact on glass}
+      \field{title}{{LS-DYNA} tutorial---Use of {Mat\_Glass} to model behavior of glasses, including a ball impact on glass}
+      \field{urlday}{21}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
       \field{year}{2025}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.youtube.com/watch?v=WR0_zx7L1Ew
       \endverb
@@ -2845,9 +2902,12 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{edition}{R16}
-      \field{note}{Accessed: Oct. 21, 2026}
       \field{title}{{LS-DYNA} Keyword User's Manual, Volume {II}: Material Models}
+      \field{urlday}{21}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
       \field{year}{2025}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://lsdyna.ansys.com/manuals-download/
       \endverb
@@ -2857,35 +2917,35 @@
     \endentry
     \entry{veer2009strength}{article}{}{}
       \name{author}{3}{}{%
-        {{hash=c343b38f8497a77a0dbc1eff21f72c93}{%
-           family={VEER},
+        {{hash=3ee16d9640b93eb07e68ae6e79898239}{%
+           family={Veer},
            familyi={V\bibinitperiod},
            given={F.\bibnamedelimi A.},
            giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=70065b14a76910d0f0fad60d2b2b4187}{%
-           family={LOUTER},
+        {{hash=b997f807715b2b0f4c7456b81953cfdb}{%
+           family={Louter},
            familyi={L\bibinitperiod},
            given={P.\bibnamedelimi C.},
            giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
-        {{hash=24a71e2c9a2024c77e4a9fb2ffd207cd}{%
-           family={BOS},
+        {{hash=ce75dc94a233d9677dda2414baefd953}{%
+           family={Bos},
            familyi={B\bibinitperiod},
            given={F.\bibnamedelimi P.},
            giveni={F\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
       }
-      \strng{namehash}{89d9f25e8b0aa0e5c028d3fc5edcdc18}
-      \strng{fullhash}{6e0596fb0cd03941127aee26480952a3}
-      \strng{fullhashraw}{6e0596fb0cd03941127aee26480952a3}
-      \strng{bibnamehash}{6e0596fb0cd03941127aee26480952a3}
-      \strng{authorbibnamehash}{6e0596fb0cd03941127aee26480952a3}
-      \strng{authornamehash}{89d9f25e8b0aa0e5c028d3fc5edcdc18}
-      \strng{authorfullhash}{6e0596fb0cd03941127aee26480952a3}
-      \strng{authorfullhashraw}{6e0596fb0cd03941127aee26480952a3}
+      \strng{namehash}{0beaba35e5c5973aca164199a53f9b96}
+      \strng{fullhash}{fdbbba0a6762f26c2869a56d5861e4a2}
+      \strng{fullhashraw}{fdbbba0a6762f26c2869a56d5861e4a2}
+      \strng{bibnamehash}{fdbbba0a6762f26c2869a56d5861e4a2}
+      \strng{authorbibnamehash}{fdbbba0a6762f26c2869a56d5861e4a2}
+      \strng{authornamehash}{0beaba35e5c5973aca164199a53f9b96}
+      \strng{authorfullhash}{fdbbba0a6762f26c2869a56d5861e4a2}
+      \strng{authorfullhashraw}{fdbbba0a6762f26c2869a56d5861e4a2}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Fatigue \& Fracture of Engineering Materials \& Structures}
+      \field{journaltitle}{Fatigue Fract. Eng. Mater. Struct.}
       \field{number}{1}
       \field{title}{The strength of annealed, heat-strengthened and fully tempered float glass}
       \field{volume}{32}
@@ -2895,13 +2955,6 @@
       \verb{doi}
       \verb 10.1111/j.1460-2695.2008.01308.x
       \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1111/j.1460-2695.2008.01308.x
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1111/j.1460-2695.2008.01308.x
-      \endverb
-      \keyw{strength,structural design,testing,glass}
     \endentry
     \entry{Park2017}{inproceedings}{}{}
       \name{author}{1}{}{%
@@ -3019,14 +3072,13 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{eid}{2107}
       \field{journaltitle}{Polymers}
       \field{month}{7}
       \field{number}{15}
       \field{title}{Evaluation of polypropylene reusability using a simple mechanical model derived from injection-molded products}
       \field{volume}{17}
       \field{year}{2025}
-      \field{pages}{2107}
-      \range{pages}{1}
       \verb{doi}
       \verb 10.3390/polym17152107
       \endverb
@@ -3066,7 +3118,7 @@
       \field{pages}{1\bibrangedash 6}
       \range{pages}{6}
     \endentry
-    \entry{tanaka2017}{misc}{}{}
+    \entry{tanaka2017}{patent}{}{}
       \name{author}{2}{}{%
         {{hash=e9a6bfb58d7ec644fe32c3a891fa8659}{%
            family={Tanaka},
@@ -3091,12 +3143,15 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{US Patent 9,834,167 B2}
-      \field{note}{Assignee: Toray Industries, Inc. Granted 5 December 2017}
+      \field{day}{5}
+      \field{month}{12}
+      \field{number}{{9,834,167 B2}}
       \field{title}{Airbag fabric and airbag}
+      \field{type}{patentus}
       \field{year}{2017}
+      \field{dateera}{ce}
     \endentry
-    \entry{takeuchi2022}{misc}{}{}
+    \entry{takeuchi2022}{patent}{}{}
       \name{author}{2}{}{%
         {{hash=403c202579aa10880f1a42d516dbeaf0}{%
            family={Takeuchi},
@@ -3121,10 +3176,13 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{European Patent Application EP 4 083 284 A1}
-      \field{note}{Applicant: Toyobo Co., Ltd. Published 2 November 2022}
+      \field{day}{2}
+      \field{month}{11}
+      \field{number}{{EP 4 083 284 A1}}
       \field{title}{Polyester base fabric for airbags}
+      \field{type}{European patent application}
       \field{year}{2022}
+      \field{dateera}{ce}
     \endentry
     \entry{sturgeon1975}{misc}{}{}
       \name{author}{2}{}{%
@@ -3279,9 +3337,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Online documentation}
-      \field{note}{Accessed: Oct. 26, 2026}
       \field{title}{{scipy.optimize.differential\_evolution}, {SciPy} v1.18.0 manual}
+      \field{urlday}{26}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.differential_evolution.html
       \endverb
@@ -3385,8 +3445,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{DiSalute}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Trasporto di sangue con droni cargo sanitari: il progetto {Aetos} arriva a {Ischia}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://disalute.it/trasporto-sangue-droni-cargo-sanitari-aetos-ischia/
       \endverb
@@ -3399,8 +3462,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Hydrogen-news.it}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni a idrogeno per il trasporto di medicinali dall'{Aeroporto di Padova}: ecco il progetto {Sandbox}!}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://hydrogen-news.it/droni-a-idrogeno-dallaeroporto-di-padova-ecco-il-progetto-sandbox/
       \endverb
@@ -3413,8 +3479,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Adnkronos}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni, boom del trasporto in volo di farmaci}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.adnkronos.com/droni-boom-del-trasporto-in-volo-di-farmaci_4BrYXkMkpLBoedJwwIB6nw
       \endverb
@@ -3427,8 +3496,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Tecnica Ospedaliera}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Defibrillatore? {Lo} porta il drone}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.tecnicaospedaliera.it/defibrillatore-lo-porta-drone/
       \endverb
@@ -3441,8 +3513,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{MeteoWeb}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni-infermiere: il boom del trasporto in volo di farmaci, sangue e organi}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.meteoweb.eu/2022/11/droni-infermiere-boom-trasporto-farmaci-sangue-organi/1001164442/
       \endverb
@@ -3455,8 +3530,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Il defibrillatore del 118 arriva con il drone}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.ansa.it/canale_saluteebenessere/notizie/sanita/2024/02/26/il-defibrillatore-del-118-arriva-con-il-drone_f33836ad-4a75-4bba-b190-5a87841a99fb.html
       \endverb
@@ -3469,8 +3547,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Pharmacy Scanner}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni, nel cremonese il primo servizio di trasporto da una farmacia del territorio}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://pharmacyscanner.it/droni-nel-cremonese-il-primo-servizio-di-trasporto-da-una-farmacia-del-territorio/
       \endverb
@@ -3483,8 +3564,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Boom in {Italia} dei test per il trasporto via drone di materiale medico}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.supplychainitaly.it/2022/11/03/boom-in-italia-dei-test-per-il-trasporto-via-drone-di-materiale-medico/
       \endverb
@@ -3497,8 +3581,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Farmacista33}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Consegna farmaci con droni, in {Abruzzo}: il primo volo operativo}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.farmacista33.it/aggiornamento-professionale/31676/consegna-farmaci-con-droni-in-abruzzo-il-primo-volo-operativo.html
       \endverb
@@ -3511,8 +3598,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{TrasportoEuropa}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Ospedale {San Raffaele} sperimenta droni per logistica sanitaria}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.trasportoeuropa.it/notizie/logistica/ospedale-san-raffaele-sperimenta-droni-per-logistica-sanitaria/
       \endverb
@@ -3525,8 +3615,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Croce Rossa Italiana}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Centro Addestramento Nazionale {SAPR} -- {Croce Rossa Italiana}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://cri.it/cosa-facciamo/formazione/centroaddestramentodroni/
       \endverb
@@ -3539,8 +3632,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Today.it}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni per trasportare materiale sanitario: il progetto della {Croce Rossa}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.today.it/attualita/droni-croce-rossa.html
       \endverb
@@ -3553,8 +3649,11 @@
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Mercato {UAS} e {AAM} in {Italia} con un focus sul trasporto sanitario, torna {Roma Drone Conference}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.quadricottero.com/2022/11/mercato-uas-e-aam-in-italia-con-un.html
       \endverb
@@ -3567,8 +3666,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni per trasferire merci sanitarie, procede il progetto `{Padova Sandbox}'}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.ansa.it/veneto/notizie/2026/05/06/droni-per-trasferire-merci-sanitarie-procede-il-progetto-padova-sandbox_e868e026-ad45-47a8-ae52-71f1a35a627d.html
       \endverb
@@ -3581,8 +3683,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Rinnovabili.it}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni a idrogeno verde per la logistica sanitaria in {Veneto}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.rinnovabili.it/mercato/le-aziende-informano/droni-idrogeno-verde-logistica-sanitaria-veneto/
       \endverb
@@ -3595,8 +3700,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{ANSA}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Al via progetto per usare i droni per il trasporto di medicinali}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.ansa.it/sito/notizie/cronaca/2023/03/30/al-via-progetto-per-usare-i-droni-per-il-trasporto-di-medicinali_295d5112-acd1-4783-b021-8f36bfe90016.html
       \endverb
@@ -3609,8 +3717,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Ospedale San Raffaele}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Testare i droni per il trasporto aereo di materiale biomedicale: il {Living Lab} presso l'{Ospedale San Raffaele}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.hsr.it/news/2023/agosto/progetto-droni-trasporto-medicine
       \endverb
@@ -3623,8 +3734,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{La Prealpina}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni per trasportare farmaci tra gli ospedali di {Varese}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.prealpina.it/news/cronaca/384462/droni-per-trasportare-farmaci-tra-gli-ospedali-di-varese.html
       \endverb
@@ -3637,8 +3751,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Logisticamente}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni e logistica sanitaria: il caso {Miulli} apre la via ai trasporti medicali del futuro}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.logisticamente.it/articoli/56333/droni-logistica-sanitaria-ospedale-miulli/
       \endverb
@@ -3651,8 +3768,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Sanità Digitale}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Trasporto sanitario: è boom di droni in {Italia}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.sanita-digitale.com/tendenze/trasporto-sanitario-e-boom-di-droni-in-italia/
       \endverb
@@ -3665,8 +3785,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Trasporto sanitario ad alta tecnologia: droni cargo collegano {Pozzuoli} e {Ischia} in 15 minuti}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.quadricottero.com/2025/02/trasporto-sanitario-ad-alta-tecnologia.html
       \endverb
@@ -3679,8 +3802,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{DronEzine}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{In {Abruzzo} consegne di medicinali con droni per una sanità sostenibile ed innovativa}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.dronezine.it/456680/in-abruzzo-consegne-di-medicinali-con-droni-per-una-sanita-sostenibile-ed-innovativa/
       \endverb
@@ -3693,8 +3819,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Quadricottero News}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni per il trasporto medicinali e le emergenze, accordo tra {ENAC} e {Croce Rossa Italiana}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.quadricottero.com/2022/09/droni-per-il-trasporto-medicinali-e-le.html
       \endverb
@@ -3707,8 +3836,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{European Union Aviation Safety Agency}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Explanatory Note to Decision 2022/002/{R}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.easa.europa.eu/sites/default/files/dfu/explanatory_note_to_ed_decision_2022-002-r.pdf
       \endverb
@@ -3721,8 +3853,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Supply Chain Italy}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Consegne sanitarie via droni a idrogeno in un progetto per il {Parco della Salute} di {Torino}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.supplychainitaly.it/2025/04/18/consegne-sanitarie-via-droni-a-idrogeno-in-un-progetto-per-il-parco-della-salute-di-torino
       \endverb
@@ -3735,8 +3870,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{SocialFarma}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Trasporto sanitario del futuro: i droni accorciano le distanze}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.socialfarma.it/trasporto-sanitario-del-futuro-i-droni-accorciano-le-distanze/
       \endverb
@@ -3749,8 +3887,11 @@
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labeltitlesource}{title}
       \field{howpublished}{Nordest24}
-      \field{note}{Accessed 5 October 2026}
       \field{title}{Droni a idrogeno per materiale sanitario, testato il sistema {Padova Sandbox}}
+      \field{urlday}{5}
+      \field{urlmonth}{10}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
       \verb{urlraw}
       \verb https://www.nordest24.it/padova-sandbox-droni-idrogeno-materiale-sanitario
       \endverb

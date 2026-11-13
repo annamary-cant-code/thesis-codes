@@ -2609,9 +2609,9 @@
     <bcf:citekey order="119" intorder="1">Angelini2023</bcf:citekey>
     <bcf:citekey order="120" intorder="1">Fiorentino2021</bcf:citekey>
     <bcf:citekey order="121" intorder="1">Angelini2024ICAS</bcf:citekey>
-    <bcf:citekey order="122" intorder="1">ComuneTorinoWind-AVG</bcf:citekey>
-    <bcf:citekey order="123" intorder="1">ComuneTorinoWind-MAX</bcf:citekey>
-    <bcf:citekey order="124" intorder="1">ComuneTorinoTemp</bcf:citekey>
+    <bcf:citekey order="122" intorder="1">ComuneTorinoTemp</bcf:citekey>
+    <bcf:citekey order="123" intorder="1">ComuneTorinoWind-AVG</bcf:citekey>
+    <bcf:citekey order="124" intorder="1">ComuneTorinoWind-MAX</bcf:citekey>
     <bcf:citekey order="125" intorder="1">Primatesta2020</bcf:citekey>
     <bcf:citekey order="126" intorder="1">Sivieri2021</bcf:citekey>
     <bcf:citekey order="127" intorder="1">Sivieri2021</bcf:citekey>
